@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prospecta BuildX - Professional Header</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      /* Desktop dropdown */
+      .dropdown-content {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+      }
+      .dropdown:hover .dropdown-content {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      /* Mobile menu styles */
+      .mobile-menu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+      }
+
+      .mobile-menu.open {
+        max-height: 1000px; /* big enough to show content */
+      }
+
+      .mobile-dropdown {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+
+      .mobile-dropdown.open {
+        max-height: 500px; /* adjust based on content */
+      }
+
+      /* Improved mobile menu button animation */
+      .menu-btn {
+        transition: all 0.3s ease;
+      }
+
+      /* Better mobile dropdown indicators */
+      .mobile-dropdown-toggle i {
+        transition: transform 0.3s ease;
+      }
+
+      .mobile-dropdown-toggle.active i {
+        transform: rotate(180deg);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="sticky top-0 z-50 shadow-lg">
+      <!-- DESKTOP: CURVED BOTTOM blue BAR -->
+      <div
+        class="hidden md:block w-full py-3 rounded-b-[40px] bg-gradient-to-r from-[#0f172a] via-[#1e3a8a] to-[#2563eb] text-white"
+      >
+        <div
+          class="max-w-7xl mx-auto px-6 flex justify-between items-center text-sm font-medium"
+        >
+          <!-- Left -->
+          <div class="flex items-center gap-8">
+            <span class="flex items-center gap-3">
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:info@ienetmail.com" class="hover:underline"
+                >info@prospectabuildx.com</a
+              >
+            </span>
+            <span class="flex items-center gap-3">
+              <i class="fas fa-map-marker-alt"></i>
+              PUNE OFFICE C-803, AMAR BUSINESS ZONE, BANER, PUNE-411045
+            </span>
+          </div>
+          <!-- Right -->
+          <div class="flex gap-5 text-lg">
+            <a href="#" class="hover:text-gray-200 transition"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <!-- <a href="#" class="hover:text-gray-200 transition"><i class="fab fa-twitter"></i></a> -->
+            <a href="#" class="hover:text-gray-200 transition"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" class="hover:text-gray-200 transition"
+              ><i class="fab fa-youtube"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- MOBILE: FLAT blue TOP BAR -->
+      <div class="md:hidden bg-blue-600 text-white py-3 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+          <div class="flex flex-col gap-2 text-sm font-medium text-center">
+            <!-- Contact Info -->
+            <div class="flex justify-center gap-4 sm:gap-6 flex-wrap">
+              <span class="flex items-center gap-2">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:info@ienetmail.com" class="text-sm"
+                  >info@prospectabuildx.com</a
+                >
+              </span>
+              <span class="flex items-center gap-2">
+                <i class="fas fa-map-marker-alt"></i>
+                <span class="text-sm"
+                  >PUNE OFFICE C-803, AMAR BUSINESS ZONE, BANER,
+                  PUNE-411045</span
+                >
+              </span>
+            </div>
+            <!-- Social Icons -->
+            <div class="flex justify-center gap-4 text-base">
+              <a href="#" class="hover:text-gray-200 transition"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <!-- <a href="#" class="hover:text-gray-200 transition"><i class="fab fa-twitter"></i></a> -->
+              <a href="#" class="hover:text-gray-200 transition"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="hover:text-gray-200 transition"
+                ><i class="fab fa-youtube"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MAIN NAVIGATION -->
+      <nav class="bg-white text-black shadow-md">
+        <div class="max-w-7xl mx-auto px-4">
+          <div class="flex justify-between items-center h-16">
+            <!-- Logo -->
+            <div>
+              <a href="#">
+                <img
+                  src="images/logo.png"
+                  alt="Prospecta BuildX Logo"
+                  class="h-12 w-auto object-contain"
+                />
+              </a>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center space-x-8">
+              <a
+                href="index.html"
+                class="hover:text-blue-800 transition font-medium"
+                >Home</a
+              >
+              <a
+                href="about.html"
+                class="hover:text-blue-800 transition font-medium"
+                >About</a
+              >
+
+              <!-- Plans Dropdown -->
+              <div class="dropdown relative">
+                <button
+                  class="flex items-center font-medium hover:text-blue-800 transition"
+                >
+                  Sectors <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                </button>
+                <div
+                  class="dropdown-content absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-50"
+                >
+                  <a href="#" class="block px-4 py-2 hover:bg-blue-50"
+                    >Industrial</a
+                  >
+                  <a href="#" class="block px-4 py-2 hover:bg-blue-50"
+                    >Commercial
+                  </a>
+                  <a href="#" class="block px-4 py-2 hover:bg-blue-50"
+                    >Institutional
+                  </a>
+                   <a href="#" class="block px-4 py-2 hover:bg-blue-50"
+                    >Residential
+                  </a>
+                  <a href="#" class="block px-4 py-2 hover:bg-blue-50"
+                    >Public Infrastructure
+                  </a>
+                </div>
+              </div>
+
+              <!-- Services Dropdown -->
+              <div class="dropdown relative">
+                <button
+                  class="flex items-center font-medium hover:text-blue-800 transition"
+                >
+                  Gallery & Awards
+                  <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                </button>
+                <div
+                  class="dropdown-content absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-50"
+                >
+                  <a href="#" class="block px-4 py-2 hover:bg-blue-50"
+                    >Fiber Internet</a
+                  >
+                  <a href="#" class="block px-4 py-2 hover:bg-blue-50"
+                    >Network Setup</a
+                  >
+                  <a href="#" class="block px-4 py-2 hover:bg-blue-50"
+                    >IT Consulting</a
+                  >
+                </div>
+              </div>
+
+              <a href="#" class="hover:text-blue-800 transition font-medium"
+                >Contact</a
+              >
+            </div>
+
+            <!-- Login & Mobile Menu Button -->
+            <div class="flex items-center gap-4">
+              <button
+                class="hidden sm:block bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 sm:px-6 py-2 rounded-full font-medium hover:from-blue-600 hover:to-purple-600 transition shadow-lg"
+              >
+                Login
+              </button>
+              <button
+                id="mobile-menu-toggle"
+                class="md:hidden menu-btn text-2xl text-gray-700"
+              >
+                <i id="menu-icon" class="fas fa-bars"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- MOBILE MENU -->
+          <div
+            id="mobile-menu"
+            class="mobile-menu md:hidden bg-white border-t border-white/10"
+          >
+            <div class="py-4 space-y-4">
+              <a
+                href="#"
+                class="block text-black/80 hover:text-black font-medium py-2 px-4"
+                >Home</a
+              >
+              <a
+                href="#"
+                class="block text-black/80 hover:text-black font-medium py-2 px-4"
+                >About</a
+              >
+
+              <!-- Mobile Plans Dropdown -->
+              <div>
+                <button
+                  id="mobile-plans-toggle"
+                  class="mobile-dropdown-toggle flex justify-between items-center w-full text-black/80 hover:text-black font-medium py-2 px-4"
+                >
+                  <span>Plans</span>
+                  <i class="fas fa-chevron-down text-xs"></i>
+                </button>
+                <div id="mobile-plans" class="mobile-dropdown ml-4">
+                  <a
+                    href="#"
+                    class="block text-black/70 hover:text-black py-2 px-4"
+                    >Residential Plans</a
+                  >
+                  <a
+                    href="#"
+                    class="block text-black/70 hover:text-black py-2 px-4"
+                    >Business Plans</a
+                  >
+                  <a
+                    href="#"
+                    class="block text-black/70 hover:text-black py-2 px-4"
+                    >Enterprise Solutions</a
+                  >
+                </div>
+              </div>
+
+              <!-- Mobile Services Dropdown -->
+              <div>
+                <button
+                  id="mobile-services-toggle"
+                  class="mobile-dropdown-toggle flex justify-between items-center w-full text-black/80 hover:text-black font-medium py-2 px-4"
+                >
+                  <span>Services</span>
+                  <i class="fas fa-chevron-down text-xs"></i>
+                </button>
+                <div id="mobile-services" class="mobile-dropdown ml-4">
+                  <a
+                    href="#"
+                    class="block text-black/70 hover:text-black py-2 px-4"
+                    >Fiber Internet</a
+                  >
+                  <a
+                    href="#"
+                    class="block text-black/70 hover:text-black py-2 px-4"
+                    >Network Setup</a
+                  >
+                  <a
+                    href="#"
+                    class="block text-black/70 hover:text-black py-2 px-4"
+                    >IT Consulting</a
+                  >
+                </div>
+              </div>
+
+              <a
+                href="#"
+                class="block text-black/80 hover:text-black font-medium py-2 px-4"
+                >Contact</a
+              >
+              <div class="px-4 pt-2">
+                <button
+                  class="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-full font-medium hover:from-blue-600 hover:to-purple-600 transition shadow-lg"
+                >
+                  Login
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+  </body>
+</html>
