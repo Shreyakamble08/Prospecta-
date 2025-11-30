@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prospecta BuildX - Building Tomorrow</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="homestyle.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+      }
+
+      :root {
+        --white: #ffffff;
+        --light-gray: #f8fafc;
+        --gray: #e2e8f0;
+        --text: #334155;
+        --text-light: #64748b;
+        --primary: #6366f1;
+        --primary-light: #818cf8;
+        --accent: #8b5cf6;
+        --accent-light: #a78bfa;
+      }
+
+      body {
+        background-color: var(--light-gray);
+        color: var(--text);
+        line-height: 1.6;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Main Content */
+      .main-content {
+        flex: 1;
+        padding: 40px 0;
+      }
+
+      .page-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 12px;
+        background: linear-gradient(135deg, var(--text), var(--primary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: -0.025em;
+      }
+
+      .page-subtitle {
+        color: var(--text-light);
+        font-size: 1.1rem;
+        margin-bottom: 40px;
+        max-width: 500px;
+      }
+
+      /* Compact Sidebar Layout */
+      .sidebar-layout {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 40px;
+        align-items: start;
+      }
+
+      /* Contact Form */
+      .contact-form-container {
+        background: var(--white);
+        border-radius: 20px;
+        padding: 32px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+      }
+
+      .form-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+
+      .form-subtitle {
+        color: var(--text-light);
+        margin-bottom: 24px;
+        font-size: 0.95rem;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 500;
+        color: var(--text);
+        font-size: 0.9rem;
+      }
+
+      .form-input {
+        width: 100%;
+        padding: 14px 16px;
+        border: 1px solid var(--gray);
+        border-radius: 10px;
+        background: var(--light-gray);
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+      }
+
+      .form-input:focus {
+        outline: none;
+        border-color: var(--primary-light);
+        background: var(--white);
+        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+      }
+
+      textarea.form-input {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      .submit-btn {
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        color: white;
+        border: none;
+        border-radius: 10px;
+        padding: 16px 24px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: 100%;
+        margin-top: 8px;
+      }
+
+      .submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(99, 102, 241, 0.3);
+      }
+
+      /* Compact Sidebar */
+     .sidebar {
+  background: #fff;
+  padding: 2rem 1.5rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  width: 100%;
+  max-width: 350px;
+  font-family: 'Inter', sans-serif;
+}
+
+.sidebar-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #18181b;
+  text-align: center;
+  border-bottom: 1px solid #e4e4e7;
+  padding-bottom: 0.5rem;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #f9fafb;
+  padding: 1rem;
+  border-radius: 16px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.contact-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+}
+
+.contact-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #7dd3fc, #c084fc);
+  color: white;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.contact-details h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: #18181b;
+}
+
+.contact-details p {
+  font-size: 0.875rem;
+  color: #52525b;
+  line-height: 1.4;
+}
+
+.support-hours {
+  margin-top: 2rem;
+}
+
+.hours-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #18181b;
+}
+
+.hours-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.hours-list li {
+  display: flex;
+  justify-content: space-between;
+  background: #f4f4f5;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  color: #52525b;
+}
+
+@media(max-width:768px){
+  .sidebar { max-width: 100%; padding: 1.5rem; }
+}
+
+
+      /* Floating Elements */
+      .floating-element {
+        position: fixed;
+        border-radius: 50%;
+        opacity: 0.4;
+        z-index: -1;
+        filter: blur(40px);
+      }
+
+      .floating-1 {
+        width: 200px;
+        height: 200px;
+        background: linear-gradient(135deg, #c7d2fe, #a5b4fc);
+        top: 10%;
+        left: 5%;
+        animation: float 15s infinite ease-in-out;
+      }
+
+      .floating-2 {
+        width: 150px;
+        height: 150px;
+        background: linear-gradient(135deg, #bae6fd, #7dd3fc);
+        bottom: 20%;
+        right: 5%;
+        animation: float 12s infinite ease-in-out reverse;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-15px) rotate(5deg);
+        }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 968px) {
+        .sidebar-layout {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+
+        .sidebar {
+          position: static;
+        }
+
+        .page-title {
+          font-size: 2rem;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .form-row {
+          grid-template-columns: 1fr;
+        }
+
+        .header-content {
+          flex-direction: column;
+          gap: 16px;
+        }
+
+        .nav {
+          gap: 20px;
+        }
+
+        .footer-content {
+          flex-direction: column;
+          gap: 16px;
+          text-align: center;
+        }
+
+        .contact-form-container {
+          padding: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Floating Background Elements -->
+    <div class="floating-element floating-1"></div>
+    <div class="floating-element floating-2"></div>
+
+    <!-- Header -->
+    <div id="header"></div>
+    <script>
+      //header js
+      fetch("header.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("header").innerHTML = data;
+
+          // ✅ NOW your header JS runs safely AFTER load
+          const mobileMenuToggle =
+            document.getElementById("mobile-menu-toggle");
+          const mobileMenu = document.getElementById("mobile-menu");
+          const menuIcon = document.getElementById("menu-icon");
+          const mobilePlansToggle = document.getElementById(
+            "mobile-plans-toggle"
+          );
+          const mobilePlans = document.getElementById("mobile-plans");
+          const mobileServicesToggle = document.getElementById(
+            "mobile-services-toggle"
+          );
+          const mobileServices = document.getElementById("mobile-services");
+
+          // Toggle Mobile Menu
+          mobileMenuToggle?.addEventListener("click", () => {
+            mobileMenu.classList.toggle("open");
+
+            if (mobileMenu.classList.contains("open")) {
+              menuIcon.classList.remove("fa-bars");
+              menuIcon.classList.add("fa-times");
+            } else {
+              menuIcon.classList.remove("fa-times");
+              menuIcon.classList.add("fa-bars");
+
+              mobilePlans.classList.remove("open");
+              mobileServices.classList.remove("open");
+              mobilePlansToggle.classList.remove("active");
+              mobileServicesToggle.classList.remove("active");
+            }
+          });
+
+          // Toggle Mobile Plans
+          mobilePlansToggle?.addEventListener("click", () => {
+            mobilePlans.classList.toggle("open");
+            mobilePlansToggle.classList.toggle("active");
+
+            if (mobileServices.classList.contains("open")) {
+              mobileServices.classList.remove("open");
+              mobileServicesToggle.classList.remove("active");
+            }
+          });
+
+          // Toggle Mobile Services
+          mobileServicesToggle?.addEventListener("click", () => {
+            mobileServices.classList.toggle("open");
+            mobileServicesToggle.classList.toggle("active");
+
+            if (mobilePlans.classList.contains("open")) {
+              mobilePlans.classList.remove("open");
+              mobilePlansToggle.classList.remove("active");
+            }
+          });
+
+          // Close when clicking outside
+          document.addEventListener("click", function (event) {
+            if (!mobileMenu || !mobileMenuToggle) return;
+
+            const isClickInsideMenu = mobileMenu.contains(event.target);
+            const isClickOnToggle = mobileMenuToggle.contains(event.target);
+
+            if (
+              !isClickInsideMenu &&
+              !isClickOnToggle &&
+              mobileMenu.classList.contains("open")
+            ) {
+              mobileMenu.classList.remove("open");
+              menuIcon.classList.remove("fa-times");
+              menuIcon.classList.add("fa-bars");
+
+              mobilePlans.classList.remove("open");
+              mobileServices.classList.remove("open");
+              mobilePlansToggle.classList.remove("active");
+              mobileServicesToggle.classList.remove("active");
+            }
+          });
+        });
+
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        document
+          .getElementById("navbar")
+          .classList.toggle("scrolled", window.scrollY > 50);
+      });
+
+      // Fade-in on scroll
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add("visible");
+          });
+        },
+        { threshold: 0.1 }
+      );
+      document
+        .querySelectorAll(".fade-in")
+        .forEach((el) => observer.observe(el));
+    </script>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <div class="page-header">
+          <h1 class="page-title">Contact Us</h1>
+          <p class="page-subtitle">
+            We'd love to hear from you. Send us a message and we'll respond as
+            soon as possible.
+          </p>
+        </div>
+
+        <!-- Compact Sidebar Layout -->
+        <div class="sidebar-layout">
+          <!-- Contact Form -->
+          <div class="contact-form-container">
+            <h2 class="form-title">Send a Message</h2>
+            <p class="form-subtitle">
+              Fill out the form below and we'll get back to you shortly.
+            </p>
+
+            <form class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="firstName">First Name</label>
+                  <input
+                    type="text"
+                    id="firstName"
+                    class="form-input"
+                    placeholder="Your first name"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="lastName">Last Name</label>
+                  <input
+                    type="text"
+                    id="lastName"
+                    class="form-input"
+                    placeholder="Your last name"
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input
+                  type="email"
+                  id="email"
+                  class="form-input"
+                  placeholder="your.email@example.com"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input
+                  type="text"
+                  id="subject"
+                  class="form-input"
+                  placeholder="What is this regarding?"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  class="form-input"
+                  placeholder="Tell us how we can help you..."
+                ></textarea>
+              </div>
+
+              <button type="submit" class="submit-btn">
+                Send Message
+                <i class="fas fa-paper-plane" style="margin-left: 8px"></i>
+              </button>
+            </form>
+          </div>
+
+          <!-- Compact Sidebar -->
+          <aside class="sidebar">
+  <h3 class="sidebar-title">Contact Information</h3>
+
+  <div class="contact-info">
+
+    <div class="contact-item">
+      <div class="contact-icon icon-address">
+        <i class="fas fa-map-marker-alt"></i>
+      </div>
+      <div class="contact-details">
+        <h4>Our Office</h4>
+        <p>123 Innovation Drive<br>Suite 450, SF 94107</p>
+      </div>
+    </div>
+
+    <div class="contact-item">
+      <div class="contact-icon icon-email">
+        <i class="fas fa-envelope"></i>
+      </div>
+      <div class="contact-details">
+        <h4>Email Us</h4>
+        <p>hello@minimal.co<br>support@minimal.co</p>
+      </div>
+    </div>
+
+    <div class="contact-item">
+      <div class="contact-icon icon-phone">
+        <i class="fas fa-phone"></i>
+      </div>
+      <div class="contact-details">
+        <h4>Call Us</h4>
+        <p>+1 (555) 123-4567<br>Mon - Fri, 9am - 6pm PST</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="support-hours">
+    <h4 class="hours-title">Support Hours</h4>
+    <ul class="hours-list">
+      <li><span>Monday - Friday</span><span>9:00 AM - 6:00 PM</span></li>
+      <li><span>Saturday</span><span>10:00 AM - 4:00 PM</span></li>
+      <li><span>Sunday</span><span>Closed</span></li>
+    </ul>
+  </div>
+</aside>
+
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="copyright">&copy; 2023 Minimal. All rights reserved.</div>
+          <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Form validation and interaction
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.querySelector(".contact-form");
+        const inputs = form.querySelectorAll(".form-input");
+
+        // Add focus effect to inputs
+        inputs.forEach((input) => {
+          input.addEventListener("focus", function () {
+            this.parentElement.classList.add("focused");
+          });
+
+          input.addEventListener("blur", function () {
+            if (this.value === "") {
+              this.parentElement.classList.remove("focused");
+            }
+          });
+        });
+
+        // Form submission
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Simple validation
+          let isValid = true;
+          inputs.forEach((input) => {
+            if (input.hasAttribute("required") && input.value === "") {
+              isValid = false;
+              input.style.borderColor = "#f87171";
+            } else {
+              input.style.borderColor = "#e2e8f0";
+            }
+          });
+
+          if (isValid) {
+            const submitBtn = form.querySelector(".submit-btn");
+            const originalHTML = submitBtn.innerHTML;
+
+            submitBtn.innerHTML =
+              'Message Sent <i class="fas fa-check" style="margin-left: 8px;"></i>';
+            submitBtn.style.background =
+              "linear-gradient(135deg, #10b981, #34d399)";
+
+            setTimeout(() => {
+              submitBtn.innerHTML = originalHTML;
+              submitBtn.style.background =
+                "linear-gradient(135deg, #6366f1, #8b5cf6)";
+              form.reset();
+            }, 3000);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

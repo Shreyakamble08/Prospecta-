@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers - Prospecta BuildX</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: #334155;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: #ffffff;
+            padding: 20px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #334155;
+            text-decoration: none;
+        }
+
+        .nav {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav a {
+            color: #64748b;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .nav a.active {
+            color: #6366f1;
+        }
+
+        /* Hero Section */
+        .career-hero {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .career-hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .career-hero p {
+            font-size: 1.125rem;
+            max-width: 500px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Job Listings */
+        .job-listings {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #334155;
+        }
+
+        .section-header p {
+            color: #64748b;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* Job Cards */
+        .job-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .job-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .job-card:hover {
+            border-color: #6366f1;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .job-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #334155;
+        }
+
+        .job-department {
+            display: inline-block;
+            background: #f1f5f9;
+            color: #6366f1;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 6px;
+            margin-top: 8px;
+        }
+
+        .job-meta {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+
+        .job-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .job-description {
+            color: #64748b;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            font-size: 0.9rem;
+        }
+
+        .apply-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #6366f1;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .apply-btn:hover {
+            background: #4f46e5;
+            transform: translateY(-1px);
+        }
+
+        /* Footer */
+        .footer {
+            background: #ffffff;
+            padding: 40px 0;
+            margin-top: 40px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #334155;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 6px;
+        }
+
+        .footer-links a {
+            color: #64748b;
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #6366f1;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #e2e8f0;
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+            
+            .career-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .job-header {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">Prospecta BuildX</a>
+                <nav class="nav">
+                    <a href="#">Home</a>
+                    <a href="#">About</a>
+                    <a href="#">Projects</a>
+                    <a href="#" class="active">Careers</a>
+                    <a href="#">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="career-hero">
+        <div class="container">
+            <h1>Join Our Team</h1>
+            <p>Build the future with us. Explore opportunities to grow your career.</p>
+        </div>
+    </section>
+
+    <!-- Job Listings -->
+    <section class="job-listings">
+        <div class="container">
+            <div class="section-header">
+                <h2>Open Positions</h2>
+                <p>Current opportunities at Prospecta BuildX</p>
+            </div>
+
+            <!-- Job List -->
+            <div class="job-list">
+                <!-- Job 1 -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">Senior Structural Engineer</h3>
+                            <span class="job-department">Engineering</span>
+                        </div>
+                    </div>
+                    <div class="job-meta">
+                        <div class="job-meta-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Pune, India</span>
+                        </div>
+                        <div class="job-meta-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Full-time</span>
+                        </div>
+                    </div>
+                    <p class="job-description">
+                        Lead structural design for large-scale infrastructure projects, ensuring compliance with safety standards and innovative engineering solutions.
+                    </p>
+                    <button class="apply-btn" onclick="applyForJob('Senior Structural Engineer')">
+                        <i class="fas fa-paper-plane"></i>
+                        Apply Now
+                    </button>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">Construction Project Manager</h3>
+                            <span class="job-department">Construction</span>
+                        </div>
+                    </div>
+                    <div class="job-meta">
+                        <div class="job-meta-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Mumbai, India</span>
+                        </div>
+                        <div class="job-meta-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Full-time</span>
+                        </div>
+                    </div>
+                    <p class="job-description">
+                        Oversee construction projects from planning to completion, managing teams, budgets, and timelines to deliver exceptional results.
+                    </p>
+                    <button class="apply-btn" onclick="applyForJob('Construction Project Manager')">
+                        <i class="fas fa-paper-plane"></i>
+                        Apply Now
+                    </button>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">Architectural Designer</h3>
+                            <span class="job-department">Design</span>
+                        </div>
+                    </div>
+                    <div class="job-meta">
+                        <div class="job-meta-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Bangalore, India</span>
+                        </div>
+                        <div class="job-meta-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Full-time</span>
+                        </div>
+                    </div>
+                    <p class="job-description">
+                        Create innovative architectural designs for residential and commercial projects, focusing on sustainability and modern aesthetics.
+                    </p>
+                    <button class="apply-btn" onclick="applyForJob('Architectural Designer')">
+                        <i class="fas fa-paper-plane"></i>
+                        Apply Now
+                    </button>
+                </div>
+
+                <!-- Job 4 -->
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">Civil Engineer</h3>
+                            <span class="job-department">Engineering</span>
+                        </div>
+                    </div>
+                    <div class="job-meta">
+                        <div class="job-meta-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Delhi, India</span>
+                        </div>
+                        <div class="job-meta-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Full-time</span>
+                        </div>
+                    </div>
+                    <p class="job-description">
+                        Design and supervise construction projects, conduct site inspections, and ensure compliance with engineering standards and regulations.
+                    </p>
+                    <button class="apply-btn" onclick="applyForJob('Civil Engineer')">
+                        <i class="fas fa-paper-plane"></i>
+                        Apply Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Prospecta BuildX</h3>
+                    <p style="color: #64748b; font-size: 0.875rem; line-height: 1.5;">
+                        Building excellence in construction and infrastructure development.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Projects</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Pune Office</li>
+                        <li><i class="fas fa-phone"></i> +91 95495 43838</li>
+                        <li><i class="fas fa-envelope"></i> hr@prospectabuildx.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Prospecta BuildX. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function applyForJob(jobTitle) {
+            const companyName = "Prospecta BuildX";
+            const hrEmail = "hr@prospectabuildx.com";
+            
+            const subject = `Application for ${jobTitle}`;
+            const body = `Dear Hiring Manager,
+
+I am writing to apply for the ${jobTitle} role at ${companyName}. 
+
+Please find my resume attached for your consideration.
+
+Best regards,
+[Your Name]`;
+            
+            // Create mailto link
+            const mailtoLink = `mailto:${hrEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            // Open email client directly
+            window.location.href = mailtoLink;
+            
+            // Fallback for mobile devices
+            setTimeout(() => {
+                // If the email client doesn't open, show a message
+                if (!document.hidden) {
+                    alert(`To apply for ${jobTitle}, please send your resume to ${hrEmail} with the subject: "${subject}"`);
+                }
+            }, 1000);
+        }
+
+        // Alternative method for better mobile support
+        function openEmailClient(jobTitle) {
+            const companyName = "Prospecta BuildX";
+            const hrEmail = "hr@prospectabuildx.com";
+            
+            const subject = `Application for ${jobTitle}`;
+            const body = `Dear Hiring Manager,\n\nI am writing to apply for the ${jobTitle} role at ${companyName}.\n\nPlease find my resume attached for your consideration.\n\nBest regards,\n[Your Name]`;
+            
+            // Try multiple methods to open email client
+            const mailtoLink = `mailto:${hrEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            // Method 1: Direct window location
+            window.location.href = mailtoLink;
+            
+            // Method 2: Create and click a link (for some mobile browsers)
+            setTimeout(() => {
+                const emailLink = document.createElement('a');
+                emailLink.href = mailtoLink;
+                emailLink.style.display = 'none';
+                document.body.appendChild(emailLink);
+                emailLink.click();
+                document.body.removeChild(emailLink);
+            }, 100);
+            
+            // Method 3: Fallback instruction
+            setTimeout(() => {
+                const instruction = `Application Instructions:\n\n1. Open your email app\n2. Create new email to: ${hrEmail}\n3. Subject: ${subject}\n4. Copy this message:\n\n${body}`;
+                console.log(instruction);
+            }, 2000);
+        }
+
+        // Update all apply buttons to use the improved function
+        document.addEventListener('DOMContentLoaded', function() {
+            const applyButtons = document.querySelectorAll('.apply-btn');
+            applyButtons.forEach(button => {
+                const originalOnClick = button.getAttribute('onclick');
+                if (originalOnClick) {
+                    const jobTitle = originalOnClick.match(/'([^']+)'/)[1];
+                    button.removeAttribute('onclick');
+                    button.addEventListener('click', () => openEmailClient(jobTitle));
+                }
+            });
+        });
+    </script>
+</body>
+</html>
