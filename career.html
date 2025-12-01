@@ -1,517 +1,1118 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Careers - Prospecta BuildX</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prospecta BuildX - Building Tomorrow</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="homestyle.css" />
     <script src="https://cdn.tailwindcss.com"></script>
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      body {
+        font-family: "Inter", sans-serif;
+        overflow-x: hidden;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Color System */
+      :root {
+        --navy-50: #f0f9ff;
+        --navy-100: #e0f2fe;
+        --navy-200: #bae6fd;
+        --navy-300: #7dd3fc;
+        --navy-400: #38bdf8;
+        --navy-500: #0ea5e9;
+        --navy-600: #0284c7;
+        --navy-700: #0369a1;
+        --navy-800: #024a71;
+        --navy-900: #0c4a6e;
+      }
+
+      /* Consistent Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .animate-fade-in-up {
+        animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      }
+
+      .animate-float {
+        animation: float 6s ease-in-out infinite;
+      }
+
+      /* Square Job Cards */
+      .job-card {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        background: white;
+        position: relative;
+        overflow: hidden;
+        height: 100%;
+        border-radius: 12px;
+        border: 1px solid #e5e7eb;
+      }
+
+      .job-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.1);
+        border-color: #0284c7;
+      }
+
+      .job-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--navy-600), var(--navy-700));
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+      }
+
+      .job-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      /* Gradient Backgrounds */
+      .gradient-bg {
+        background: linear-gradient(
+          135deg,
+          #f8fafc 0%,
+          #f1f5f9 50%,
+          #e2e8f0 100%
+        );
+      }
+
+      .navy-gradient {
+        background: linear-gradient(
+          135deg,
+          var(--navy-700) 0%,
+          var(--navy-800) 100%
+        );
+      }
+
+      /* Utility Classes */
+      .text-balance {
+        text-wrap: balance;
+      }
+
+      .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .line-clamp-3 {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      /* Mobile Optimizations */
+      @media (max-width: 640px) {
+        .mobile-padding {
+          padding-left: 1rem;
+          padding-right: 1rem;
         }
 
-        body {
-            background-color: #f8fafc;
-            color: #334155;
-            line-height: 1.6;
+        .mobile-stack {
+          flex-direction: column;
         }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        .header {
-            background: #ffffff;
-            padding: 20px 0;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #334155;
-            text-decoration: none;
-        }
-
-        .nav {
-            display: flex;
-            gap: 24px;
-        }
-
-        .nav a {
-            color: #64748b;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-
-        .nav a.active {
-            color: #6366f1;
-        }
-
-        /* Hero Section */
-        .career-hero {
-            padding: 80px 0;
-            text-align: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-
-        .career-hero h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-
-        .career-hero p {
-            font-size: 1.125rem;
-            max-width: 500px;
-            margin: 0 auto;
-            opacity: 0.9;
-        }
-
-        /* Job Listings */
-        .job-listings {
-            padding: 60px 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .section-header h2 {
-            font-size: 2rem;
-            font-weight: 600;
-            margin-bottom: 12px;
-            color: #334155;
-        }
-
-        .section-header p {
-            color: #64748b;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        /* Job Cards */
-        .job-list {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .job-card {
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 24px;
-            border: 1px solid #e2e8f0;
-            transition: all 0.3s ease;
-        }
-
-        .job-card:hover {
-            border-color: #6366f1;
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
-        }
-
-        .job-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 12px;
-        }
-
-        .job-title {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: #334155;
-        }
-
-        .job-department {
-            display: inline-block;
-            background: #f1f5f9;
-            color: #6366f1;
-            font-size: 0.75rem;
-            font-weight: 600;
-            padding: 4px 8px;
-            border-radius: 6px;
-            margin-top: 8px;
-        }
-
-        .job-meta {
-            display: flex;
-            gap: 16px;
-            margin-bottom: 16px;
-            color: #64748b;
-            font-size: 0.875rem;
-        }
-
-        .job-meta-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .job-description {
-            color: #64748b;
-            margin-bottom: 20px;
-            line-height: 1.6;
-            font-size: 0.9rem;
-        }
-
-        .apply-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #6366f1;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-        }
-
-        .apply-btn:hover {
-            background: #4f46e5;
-            transform: translateY(-1px);
-        }
-
-        /* Footer */
-        .footer {
-            background: #ffffff;
-            padding: 40px 0;
-            margin-top: 40px;
-            border-top: 1px solid #e2e8f0;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-
-        .footer-section h3 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 12px;
-            color: #334155;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 6px;
-        }
-
-        .footer-links a {
-            color: #64748b;
-            text-decoration: none;
-            font-size: 0.875rem;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: #6366f1;
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid #e2e8f0;
-            color: #64748b;
-            font-size: 0.875rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav {
-                display: none;
-            }
-            
-            .career-hero h1 {
-                font-size: 2rem;
-            }
-            
-            .job-header {
-                flex-direction: column;
-                gap: 8px;
-            }
-        }
+      }
     </style>
-</head>
-<body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <a href="#" class="logo">Prospecta BuildX</a>
-                <nav class="nav">
-                    <a href="#">Home</a>
-                    <a href="#">About</a>
-                    <a href="#">Projects</a>
-                    <a href="#" class="active">Careers</a>
-                    <a href="#">Contact</a>
-                </nav>
-            </div>
-        </div>
-    </header>
+  </head>
+  <body class="bg-gray-50">
+    <!-- HEADER -->
+    <div id="header"></div>
 
-    <!-- Hero Section -->
-    <section class="career-hero">
-        <div class="container">
-            <h1>Join Our Team</h1>
-            <p>Build the future with us. Explore opportunities to grow your career.</p>
+    <!-- Professional Hero Section -->
+    <section class="gradient-bg py-16 md:py-24 relative overflow-hidden">
+      <!-- Background Elements -->
+      <div
+        class="absolute top-10 left-10 w-32 h-32 bg-navy-100 rounded-full animate-float opacity-20"
+      ></div>
+      <div
+        class="absolute bottom-20 right-10 w-24 h-24 bg-navy-200 rounded-full animate-float opacity-20"
+        style="animation-delay: 2s"
+      ></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <!-- Left Content -->
+          <div class="animate-fade-in-up">
+            <div
+              class="inline-flex items-center px-4 py-2 bg-white rounded-full shadow-sm border border-navy-100 mb-6"
+            >
+              <div
+                class="w-6 h-6 bg-navy-600 text-white rounded-full flex items-center justify-center mr-2"
+              >
+                <i class="fas fa-hard-hat text-xs"></i>
+              </div>
+              <span class="text-sm font-medium text-navy-700"
+                >Building Excellence Since 2010</span
+              >
+            </div>
+
+            <h1
+              class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight text-balance"
+            >
+              Build Your Future at
+              <span class="text-navy-700">BuildRight</span>
+            </h1>
+
+            <p class="text-lg text-gray-600 mb-8 max-w-xl leading-relaxed">
+              Join our team of construction professionals dedicated to
+              delivering exceptional projects. We're looking for passionate
+              individuals to help shape tomorrow's skyline.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4">
+              <button
+                id="view-positions"
+                class="bg-[#11224E] text-white px-8 py-3.5 rounded-xl font-semibold hover:bg-navy-800 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center group"
+              >
+                <i
+                  class="fas fa-briefcase mr-3 group-hover:translate-x-1 transition-transform"
+                ></i>
+                Explore Open Positions
+              </button>
+            </div>
+          </div>
+
+          <!-- Right Content - Stats -->
+          <div class="animate-fade-in-up" style="animation-delay: 0.2s">
+            <div class="grid grid-cols-2 gap-4">
+              <div
+                class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100"
+              >
+                <div class="flex items-center space-x-4">
+                  <div
+                    class="w-14 h-14 bg-navy-50 rounded-xl flex items-center justify-center"
+                  >
+                    <i class="fas fa-users text-2xl text-navy-600"></i>
+                  </div>
+                  <div>
+                    <div class="text-3xl font-bold text-gray-900">250+</div>
+                    <div class="text-sm text-gray-600">Team Members</div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100"
+              >
+                <div class="flex items-center space-x-4">
+                  <div
+                    class="w-14 h-14 bg-navy-50 rounded-xl flex items-center justify-center"
+                  >
+                    <i class="fas fa-building text-2xl text-navy-600"></i>
+                  </div>
+                  <div>
+                    <div class="text-3xl font-bold text-gray-900">150+</div>
+                    <div class="text-sm text-gray-600">Projects Completed</div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100"
+              >
+                <div class="flex items-center space-x-4">
+                  <div
+                    class="w-14 h-14 bg-navy-50 rounded-xl flex items-center justify-center"
+                  >
+                    <i class="fas fa-award text-2xl text-navy-600"></i>
+                  </div>
+                  <div>
+                    <div class="text-3xl font-bold text-gray-900">25+</div>
+                    <div class="text-sm text-gray-600">Industry Awards</div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100"
+              >
+                <div class="flex items-center space-x-4">
+                  <div
+                    class="w-14 h-14 bg-navy-50 rounded-xl flex items-center justify-center"
+                  >
+                    <i class="fas fa-map-marker-alt text-2xl text-navy-600"></i>
+                  </div>
+                  <div>
+                    <div class="text-3xl font-bold text-gray-900">20+</div>
+                    <div class="text-sm text-gray-600">Cities Served</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Job Listings -->
-    <section class="job-listings">
-        <div class="container">
-            <div class="section-header">
-                <h2>Open Positions</h2>
-                <p>Current opportunities at Prospecta BuildX</p>
-            </div>
-
-            <!-- Job List -->
-            <div class="job-list">
-                <!-- Job 1 -->
-                <div class="job-card">
-                    <div class="job-header">
-                        <div>
-                            <h3 class="job-title">Senior Structural Engineer</h3>
-                            <span class="job-department">Engineering</span>
-                        </div>
-                    </div>
-                    <div class="job-meta">
-                        <div class="job-meta-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Pune, India</span>
-                        </div>
-                        <div class="job-meta-item">
-                            <i class="fas fa-clock"></i>
-                            <span>Full-time</span>
-                        </div>
-                    </div>
-                    <p class="job-description">
-                        Lead structural design for large-scale infrastructure projects, ensuring compliance with safety standards and innovative engineering solutions.
-                    </p>
-                    <button class="apply-btn" onclick="applyForJob('Senior Structural Engineer')">
-                        <i class="fas fa-paper-plane"></i>
-                        Apply Now
-                    </button>
-                </div>
-
-                <!-- Job 2 -->
-                <div class="job-card">
-                    <div class="job-header">
-                        <div>
-                            <h3 class="job-title">Construction Project Manager</h3>
-                            <span class="job-department">Construction</span>
-                        </div>
-                    </div>
-                    <div class="job-meta">
-                        <div class="job-meta-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Mumbai, India</span>
-                        </div>
-                        <div class="job-meta-item">
-                            <i class="fas fa-clock"></i>
-                            <span>Full-time</span>
-                        </div>
-                    </div>
-                    <p class="job-description">
-                        Oversee construction projects from planning to completion, managing teams, budgets, and timelines to deliver exceptional results.
-                    </p>
-                    <button class="apply-btn" onclick="applyForJob('Construction Project Manager')">
-                        <i class="fas fa-paper-plane"></i>
-                        Apply Now
-                    </button>
-                </div>
-
-                <!-- Job 3 -->
-                <div class="job-card">
-                    <div class="job-header">
-                        <div>
-                            <h3 class="job-title">Architectural Designer</h3>
-                            <span class="job-department">Design</span>
-                        </div>
-                    </div>
-                    <div class="job-meta">
-                        <div class="job-meta-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Bangalore, India</span>
-                        </div>
-                        <div class="job-meta-item">
-                            <i class="fas fa-clock"></i>
-                            <span>Full-time</span>
-                        </div>
-                    </div>
-                    <p class="job-description">
-                        Create innovative architectural designs for residential and commercial projects, focusing on sustainability and modern aesthetics.
-                    </p>
-                    <button class="apply-btn" onclick="applyForJob('Architectural Designer')">
-                        <i class="fas fa-paper-plane"></i>
-                        Apply Now
-                    </button>
-                </div>
-
-                <!-- Job 4 -->
-                <div class="job-card">
-                    <div class="job-header">
-                        <div>
-                            <h3 class="job-title">Civil Engineer</h3>
-                            <span class="job-department">Engineering</span>
-                        </div>
-                    </div>
-                    <div class="job-meta">
-                        <div class="job-meta-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Delhi, India</span>
-                        </div>
-                        <div class="job-meta-item">
-                            <i class="fas fa-clock"></i>
-                            <span>Full-time</span>
-                        </div>
-                    </div>
-                    <p class="job-description">
-                        Design and supervise construction projects, conduct site inspections, and ensure compliance with engineering standards and regulations.
-                    </p>
-                    <button class="apply-btn" onclick="applyForJob('Civil Engineer')">
-                        <i class="fas fa-paper-plane"></i>
-                        Apply Now
-                    </button>
-                </div>
-            </div>
+    <!-- Job Openings Section -->
+    <section id="open-positions" class="py-16 md:py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-12 md:mb-16">
+          <div
+            class="inline-flex items-center px-4 py-2 bg-navy-50 text-navy-700 rounded-full text-sm font-light mb-4"
+          >
+            <i class="fas fa-briefcase mr-2"></i>
+            Current Opportunities
+          </div>
+          <h2 class="text-4xl md:text-7xl font-medium text-gray-900 mb-4">
+            Find Your Perfect Role
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto text-sm">
+            Browse through our available positions and discover where your
+            skills can make an impact
+          </p>
         </div>
+
+        <!-- Job Cards Grid -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+        >
+          <!-- Job Card 1 -->
+          <div
+            class="job-card animate-fade-in-up"
+            style="animation-delay: 0.1s"
+          >
+            <div class="p-6 flex flex-col h-full">
+              <!-- Header -->
+              <div class="flex items-start justify-between mb-4">
+                <div class="flex items-center space-x-3">
+                  <div
+                    class="w-12 h-12 bg-gradient-to-br from-gray-700 to-gray-800 rounded-lg flex items-center justify-center"
+                  >
+                    <i class="fas fa-project-diagram text-white text-lg"></i>
+                  </div>
+                  <div>
+                    <span
+                      class="inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium"
+                    >
+                      Management
+                    </span>
+                  </div>
+                </div>
+                <span
+                  class="bg-green-100 text-green-800 px-2.5 py-1 rounded-full text-xs font-medium"
+                >
+                  Full-time
+                </span>
+              </div>
+
+              <!-- Content -->
+              <h3 class="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
+                Senior Project Manager
+              </h3>
+
+              <div class="space-y-3 mb-6">
+                <div class="flex items-center text-gray-600">
+                  <i class="fas fa-map-marker-alt mr-3 text-navy-500"></i>
+                  <span class="text-sm">Pune</span>
+                </div>
+                <div class="flex items-center text-gray-600">
+                  <i class="fas fa-rupee-sign mr-3 text-navy-500"></i>
+                  <span class="text-sm">₹15 LPA – ₹28 LPA</span>
+                </div>
+                <!-- <div class="flex items-center text-gray-600">
+    <i class="fas fa-calendar mr-3 text-navy-500"></i>
+    <span class="text-sm">Posted 2 days ago</span>
+  </div> -->
+              </div>
+
+              <p class="text-gray-600 text-sm mb-6 flex-grow line-clamp-3">
+                Lead large-scale commercial construction projects from planning
+                to completion. Manage budgets, schedules, teams, client
+                interactions, and ensure smooth project delivery.
+              </p>
+
+              <!-- Apply Button -->
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=info@prospectabuildx.com&su=Application%20for%20Senior%20Project%20Manager&body=Dear%20Prospecta%20Build%20X%20Team,%0A%0APlease%20find%20my%20resume%20attached%20for%20the%20Senior%20Project%20Manager%20position.%0A%0AI%20look%20forward%20to%20the%20opportunity%20to%20contribute%20to%20your%20team.%0A%0ABest%20regards,%0A[Your%20Name]"
+                target="_blank"
+                class="w-full bg-gray-700 text-white py-3.5 px-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-300 flex items-center justify-center group shadow-sm hover:shadow-md mt-auto"
+              >
+                <i
+                  class="fas fa-paper-plane mr-3 group-hover:translate-x-1 transition-transform"
+                ></i>
+                Apply Now
+              </a>
+            </div>
+          </div>
+
+          <!-- Job Card 2 -->
+          <div
+            class="job-card animate-fade-in-up"
+            style="animation-delay: 0.2s"
+          >
+            <div class="p-6 flex flex-col h-full">
+              <div class="flex items-start justify-between mb-4">
+                <div class="flex items-center space-x-3">
+                  <div
+                    class="w-12 h-12 bg-gradient-to-br from-gray-700 to-gray-800 rounded-lg flex items-center justify-center"
+                  >
+                    <i class="fas fa-hard-hat text-white text-lg"></i>
+                  </div>
+                  <div>
+                    <span
+                      class="inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium"
+                    >
+                      On-Site
+                    </span>
+                  </div>
+                </div>
+                <span
+                  class="bg-green-100 text-green-800 px-2.5 py-1 rounded-full text-xs font-medium"
+                >
+                  Full-time
+                </span>
+              </div>
+
+              <h3 class="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
+                Construction Site Supervisor
+              </h3>
+
+              <div class="space-y-3 mb-6">
+                <div class="flex items-center text-gray-600">
+                  <i class="fas fa-map-marker-alt mr-3 text-gray-500"></i>
+                  <span class="text-sm">Pune</span>
+                </div>
+                <div class="flex items-center text-gray-600">
+                  <i class="fas fa-rupee-sign mr-3 text-gray-500"></i>
+                  <span class="text-sm">₹10 LPA – ₹18 LPA</span>
+                </div>
+                <!-- <div class="flex items-center text-gray-600">
+                  <i class="fas fa-calendar mr-3 text-gray-500"></i>
+                  <span class="text-sm">Posted 5 days ago</span>
+                </div> -->
+              </div>
+
+              <p class="text-gray-600 text-sm mb-6 flex-grow line-clamp-3">
+                Oversee daily construction activities, ensure safety compliance,
+                and manage on-site crews for commercial projects.
+              </p>
+
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=info@prospectabuildx.com&su=Application%20for%20Construction%20Site%20Supervisor&body=Dear%20Prospecta%20Build%20X%20Team,%0A%0APlease%20find%20my%20resume%20attached%20for%20the%20Construction%20Site%20Supervisor%20position.%0A%0AI%20look%20forward%20to%20the%20opportunity%20to%20contribute%20to%20your%20team.%0A%0ABest%20regards,%0A[Your%20Name]"
+                target="_blank"
+                class="w-full bg-gray-700 text-white py-3.5 px-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-300 flex items-center justify-center group shadow-sm hover:shadow-md mt-auto"
+              >
+                <i
+                  class="fas fa-paper-plane mr-3 group-hover:translate-x-1 transition-transform"
+                ></i>
+                Apply Now
+              </a>
+            </div>
+          </div>
+
+          <!-- Job Card 3 -->
+          <div
+            class="job-card animate-fade-in-up"
+            style="animation-delay: 0.3s"
+          >
+            <div class="p-6 flex flex-col h-full">
+              <div class="flex items-start justify-between mb-4">
+                <div class="flex items-center space-x-3">
+                  <div
+                    class="w-12 h-12 bg-gradient-to-br from-gray-700 to-gray-800 rounded-lg flex items-center justify-center"
+                  >
+                    <i class="fas fa-drafting-compass text-white text-lg"></i>
+                  </div>
+                  <div>
+                    <span
+                      class="inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium"
+                    >
+                      Engineering
+                    </span>
+                  </div>
+                </div>
+                <span
+                  class="bg-green-100 text-green-800 px-2.5 py-1 rounded-full text-xs font-medium"
+                >
+                  Full-time
+                </span>
+              </div>
+
+              <h3 class="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
+                Structural Engineer
+              </h3>
+
+              <div class="space-y-3 mb-6">
+                <div class="flex items-center text-gray-600">
+                  <i class="fas fa-map-marker-alt mr-3 text-navy-500"></i>
+                  <span class="text-sm">Pune</span>
+                </div>
+                <div class="flex items-center text-gray-600">
+                  <i class="fas fa-rupee-sign mr-3 text-navy-500"></i>
+                  <span class="text-sm">₹15 LPA – ₹22 LPA</span>
+                </div>
+                <!-- <div class="flex items-center text-gray-600">
+                  <i class="fas fa-calendar mr-3 text-navy-500"></i>
+                  <span class="text-sm">Posted 1 week ago</span>
+                </div> -->
+              </div>
+
+              <p class="text-gray-600 text-sm mb-6 flex-grow line-clamp-3">
+                Design and analyze structural systems for commercial and
+                residential buildings. Ensure compliance with codes and
+                standards.
+              </p>
+
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=info@prospectabuildx.com&su=Application%20for%20Structural%20Engineer&body=Dear%20Prospecta%20Build%20X%20Team,%0A%0APlease%20find%20my%20resume%20attached%20for%20the%20Structural%20Engineer%20position.%0A%0AI%20look%20forward%20to%20the%20opportunity%20to%20contribute%20to%20your%20team.%0A%0ABest%20regards,%0A[Your%20Name]"
+                target="_blank"
+                class="w-full bg-gray-700 text-white py-3.5 px-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-300 flex items-center justify-center group shadow-sm hover:shadow-md mt-auto"
+              >
+                <i
+                  class="fas fa-paper-plane mr-3 group-hover:translate-x-1 transition-transform"
+                ></i>
+                Apply Now
+              </a>
+            </div>
+          </div>
+
+          <!-- Job Card 4 -->
+          <div
+            class="job-card animate-fade-in-up"
+            style="animation-delay: 0.4s"
+          >
+            <div class="p-6 flex flex-col h-full">
+              <div class="flex items-start justify-between mb-4">
+                <div class="flex items-center space-x-3">
+                  <div
+                    class="w-12 h-12 bg-gradient-to-br from-gray-700 to-gray-800 rounded-lg flex items-center justify-center"
+                  >
+                    <i class="fas fa-hammer text-white text-lg"></i>
+                  </div>
+                  <div>
+                    <span
+                      class="inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium"
+                    >
+                      Skilled Trades
+                    </span>
+                  </div>
+                </div>
+                <span
+                  class="bg-blue-100 text-blue-800 px-2.5 py-1 rounded-full text-xs font-medium"
+                >
+                  Contract
+                </span>
+              </div>
+
+              <h3 class="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
+                Master Carpenter
+              </h3>
+
+              <div class="space-y-3 mb-6">
+                <div class="flex items-center text-gray-600">
+                  <i class="fas fa-map-marker-alt mr-3 text-gray-500"></i>
+                  <span class="text-sm">Pune</span>
+                </div>
+                <div class="flex items-center text-gray-600">
+                  <i class="fas fa-rupee-sign mr-3 text-gray-500"></i>
+                  <span class="text-sm">₹35 - ₹50/hour</span>
+                </div>
+                <!-- <div class="flex items-center text-gray-600">
+                  <i class="fas fa-calendar mr-3 text-gray-500"></i>
+                  <span class="text-sm">Posted 3 days ago</span>
+                </div> -->
+              </div>
+
+              <p class="text-gray-600 text-sm mb-6 flex-grow line-clamp-3">
+                Execute high-quality custom woodwork and cabinetry. Read
+                blueprints and collaborate with design teams on luxury
+                residential projects.
+              </p>
+
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=info@prospectabuildx.com.com&su=Application%20for%20Master%20Carpenter&body=Dear%20Prospecta%20Build%20X%20Team,%0A%0APlease%20find%20my%20resume%20attached%20for%20the%20Master%20Carpenter%20position.%0A%0AI%20look%20forward%20to%20the%20opportunity%20to%20contribute%20to%20your%20team.%0A%0ABest%20regards,%0A[Your%20Name]"
+                target="_blank"
+                class="w-full bg-gray-700 text-white py-3.5 px-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-300 flex items-center justify-center group shadow-sm hover:shadow-md mt-auto"
+              >
+                <i
+                  class="fas fa-paper-plane mr-3 group-hover:translate-x-1 transition-transform"
+                ></i>
+                Apply Now
+              </a>
+            </div>
+          </div>
+
+          <!-- Job Card 5 -->
+          <div
+            class="job-card animate-fade-in-up"
+            style="animation-delay: 0.5s"
+          >
+            <div class="p-6 flex flex-col h-full">
+              <div class="flex items-start justify-between mb-4">
+                <div class="flex items-center space-x-3">
+                  <div
+                    class="w-12 h-12 bg-gradient-to-br from-gray-700 to-gray-800 rounded-lg flex items-center justify-center"
+                  >
+                    <i class="fas fa-calculator text-white text-lg"></i>
+                  </div>
+                  <div>
+                    <span
+                      class="inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium"
+                    >
+                      Office/Admin
+                    </span>
+                  </div>
+                </div>
+                <span
+                  class="bg-green-100 text-green-800 px-2.5 py-1 rounded-full text-xs font-medium"
+                >
+                  Full-time
+                </span>
+              </div>
+
+              <h3 class="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
+                Construction Estimator
+              </h3>
+
+              <div class="space-y-3 mb-6">
+                <div class="flex items-center text-gray-600">
+                  <i class="fas fa-map-marker-alt mr-3 text-navy-500"></i>
+                  <span class="text-sm">Remote / Office</span>
+                </div>
+                <div class="flex items-center text-gray-600">
+                  <i class="fas fa-rupee-sign mr-3 text-navy-500"></i>
+                  <span class="text-sm">₹65 LPA – ₹85 LPA</span>
+                </div>
+                <!-- <div class="flex items-center text-gray-600">
+                  <i class="fas fa-calendar mr-3 text-navy-500"></i>
+                  <span class="text-sm">Posted 1 week ago</span>
+                </div> -->
+              </div>
+
+              <p class="text-gray-600 text-sm mb-6 flex-grow line-clamp-3">
+                Prepare detailed cost estimates for construction projects.
+                Analyze blueprints and specifications to determine project
+                costs.
+              </p>
+
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=info@prospectabuildx.com&su=Application%20for%20Construction%20Estimator&body=Dear%20Prospecta%20Build%20X%20Team,%0A%0APlease%20find%20my%20resume%20attached%20for%20the%20Construction%20Estimator%20position.%0A%0AI%20look%20forward%20to%20the%20opportunity%20to%20contribute%20to%20your%20team.%0A%0ABest%20regards,%0A[Your%20Name]"
+                target="_blank"
+                class="w-full bg-gray-700 text-white py-3.5 px-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-300 flex items-center justify-center group shadow-sm hover:shadow-md mt-auto"
+              >
+                <i
+                  class="fas fa-paper-plane mr-3 group-hover:translate-x-1 transition-transform"
+                ></i>
+                Apply Now
+              </a>
+            </div>
+          </div>
+
+          <!-- Job Card 6 -->
+          <div
+            class="job-card animate-fade-in-up"
+            style="animation-delay: 0.6s"
+          >
+            <div class="p-6 flex flex-col h-full">
+              <div class="flex items-start justify-between mb-4">
+                <div class="flex items-center space-x-3">
+                  <div
+                    class="w-12 h-12 bg-gradient-to-br from-gray-700 to-gray-800 rounded-lg flex items-center justify-center"
+                  >
+                    <i class="fas fa-truck-monster text-white text-lg"></i>
+                  </div>
+                  <div>
+                    <span
+                      class="inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium"
+                    >
+                      On-Site
+                    </span>
+                  </div>
+                </div>
+                <span
+                  class="bg-green-100 text-green-800 px-2.5 py-1 rounded-full text-xs font-medium"
+                >
+                  Full-time
+                </span>
+              </div>
+
+              <h3 class="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
+                Heavy Equipment Operator
+              </h3>
+
+              <div class="space-y-3 mb-6">
+                <div class="flex items-center text-gray-600">
+                  <i class="fas fa-map-marker-alt mr-3 text-gray-500"></i>
+                  <span class="text-sm">Pune</span>
+                </div>
+                <div class="flex items-center text-gray-600">
+                  <i class="fas fa-rupee-sign mr-3 text-gray-500"></i>
+                  <span class="text-sm">₹25 - ₹40/hour</span>
+                </div>
+                <!-- <div class="flex items-center text-gray-600">
+                  <i class="fas fa-calendar mr-3 text-gray-500"></i>
+                  <span class="text-sm">Posted 2 days ago</span>
+                </div> -->
+              </div>
+
+              <p class="text-gray-600 text-sm mb-6 flex-grow line-clamp-3">
+                Operate heavy construction equipment including excavators,
+                bulldozers, and graders for site preparation and earthmoving.
+              </p>
+
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=info@prospectabuildx.com&su=Application%20for%20Heavy%20Equipment%20Operator&body=Dear%20Prospecta%20Build%20X%20Team,%0A%0APlease%20find%20my%20resume%20attached%20for%20the%20Heavy%20Equipment%20Operator%20position.%0A%0AI%20look%20forward%20to%20the%20opportunity%20to%20contribute%20to%20your%20team.%0A%0ABest%20regards,%0A[Your%20Name]"
+                target="_blank"
+                class="w-full bg-gray-700 text-white py-3.5 px-4 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-300 flex items-center justify-center group shadow-sm hover:shadow-md mt-auto"
+              >
+                <i
+                  class="fas fa-paper-plane mr-3 group-hover:translate-x-1 transition-transform"
+                ></i>
+                Apply Now
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- General Application Section -->
+        <div
+          id="application-process"
+          class="mt-20 bg-no-repeat rounded-2xl p-8 md:p-12 border border-navy-100 relative"
+          style="
+            background-image: url('images/job.jfif');
+            background-position: bottom center;
+            background-size: 100% auto;
+          "
+        >
+          <!-- Optional soft overlay -->
+          <div class="absolute inset-0 bg-white/70 rounded-2xl"></div>
+
+          <div class="relative text-center max-w-3xl mx-auto">
+           
+
+            <h3 class="text-2xl md:text-3xl font-medium text-gray-900 mb-4">
+              Ready to Build with Us?
+            </h3>
+
+            <p class="text-gray-600 mb-8 text-lg">
+              Don't see the perfect role? We're always looking for talented
+              construction professionals. Send us your resume and we'll keep you
+              in mind for future opportunities.
+            </p>
+
+            <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=info@prospectabuildx.com&su=General%20Application%20-%20Prospecta%20Build%20X&body=Dear%20Prospecta%20Build%20X%20Team,%0A%0AI%20am%20interested%20in%20joining%20your%20organization%20and%20would%20like%20to%20submit%20my%20resume%20for%20consideration.%0A%0AMy%20experience%20includes%20[briefly%20describe%20your%20background%20and%20skills].%0A%0AI%20look%20forward%20to%20the%20opportunity%20to%20contribute%20to%20your%20team.%0A%0ABest%20regards,%0A[Your%20Name]"
+              target="_blank"
+              class="inline-flex items-center bg-gray-700 text-white px-8 py-3.5 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-300 shadow-lg hover:shadow-xl group"
+            >
+              <i
+                class="fas fa-envelope mr-3 group-hover:translate-x-1 transition-transform"
+              ></i>
+              Submit General Application
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Prospecta BuildX</h3>
-                    <p style="color: #64748b; font-size: 0.875rem; line-height: 1.5;">
-                        Building excellence in construction and infrastructure development.
-                    </p>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Projects</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <ul class="footer-links">
-                        <li><i class="fas fa-map-marker-alt"></i> Pune Office</li>
-                        <li><i class="fas fa-phone"></i> +91 95495 43838</li>
-                        <li><i class="fas fa-envelope"></i> hr@prospectabuildx.com</li>
-                    </ul>
-                </div>
+    <!-- Professional Footer -->
+    <footer
+      class="relative text-white py-10 overflow-hidden bg-gradient-to-b from-[#0A0F24] via-[#12306A] to-[#091526]"
+    >
+      <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+          <div class="lg:col-span-1">
+            <div class="flex items-center mb-4">
+              <div
+                class="w-50 h-20 rounded-lg flex items-center justify-center overflow-hidden"
+              >
+                <img
+                  src="Images/logowhite.png"
+                  alt="Logo"
+                  class="w-full h-full object-contain"
+                />
+              </div>
             </div>
-            <div class="copyright">
-                &copy; 2025 Prospecta BuildX. All rights reserved.
+            <p class="text-gray-300 mb-4 text-sm leading-relaxed">
+              Building dreams, creating communities, and delivering excellence
+              in Industrial development.
+            </p>
+            <div class="flex gap-2">
+              <a
+                href="#"
+                class="w-9 h-9 bg-[#111936] rounded-lg flex items-center justify-center hover:bg-amber-400 hover:text-black"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a
+                href="#"
+                class="w-9 h-9 bg-[#111936] rounded-lg flex items-center justify-center hover:bg-amber-400 hover:text-black"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a
+                href="#"
+                class="w-9 h-9 bg-[#111936] rounded-lg flex items-center justify-center hover:bg-amber-400 hover:text-black"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a
+                href="#"
+                class="w-9 h-9 bg-[#111936] rounded-lg flex items-center justify-center hover:bg-amber-400 hover:text-black"
+                ><i class="fab fa-twitter"></i
+              ></a>
             </div>
+          </div>
+
+          <div class="lg:col-span-1 grid grid-cols-2 gap-6">
+            <div>
+              <h3
+                class="text-md font-bold mb-3 text-white border-l-3 border-purple pl-2"
+              >
+                Explore
+              </h3>
+              <ul class="space-y-2 text-sm">
+                <li>
+                  <a href="index.html" class="text-gray-300 hover:text-gold"
+                    >• Home</a
+                  >
+                </li>
+                <li>
+                  <a href="about.html" class="text-gray-300 hover:text-gold"
+                    >• About</a
+                  >
+                </li>
+                <li>
+                  <a href="projects.html" class="text-gray-300 hover:text-gold"
+                    >• Projects</a
+                  >
+                </li>
+                <li>
+                  <a href="gallery.html" class="text-gray-300 hover:text-gold"
+                    >• Gallery</a
+                  >
+                </li>
+                <li>
+                  <a href="contact.html" class="text-gray-300 hover:text-gold"
+                    >• Contact</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3
+                class="text-md font-bold mb-3 text-white border-l-3 border-purple pl-2"
+              >
+                Services
+              </h3>
+              <ul class="space-y-2 text-sm">
+                <li>
+                  <a href="#" class="text-gray-300 hover:text-gold"
+                    >• Residential</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="text-gray-300 hover:text-gold"
+                    >• Commercial</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="text-gray-300 hover:text-gold"
+                    >• Property Mgmt</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div
+            class="lg:col-span-1 bg-[#111936]/40 backdrop-blur-sm rounded-lg p-4 border border-white/10"
+          >
+            <h3
+              class="text-md font-semibold mb-3 text-white border-l-3 border-purple pl-2"
+            >
+              Contact
+            </h3>
+            <div class="space-y-3 text-sm text-gray-200">
+              <div class="flex items-center">
+                <i class="fas fa-map-marker-alt mr-2 text-gold"></i> PUNE OFFICE
+                C-803, AMAR BUSINESS ZONE, BANER, PUNE-411045
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-phone mr-2 text-gold"></i> +91 95495 43838
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-envelope mr-2 text-gold"></i>
+                <a
+                  href="/cdn-cgi/l/email-protection"
+                  class="__cf_email__"
+                  data-cfemail="e78e898188a797958894978284938685928e8b839fc984888a"
+                  >[email&#160;protected]</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="lg:col-span-1 bg-[#111936]/40 backdrop-blur-sm rounded-lg p-4 border border-white/10"
+          >
+            <h3
+              class="text-md font-semibold mb-3 text-white border-l-3 border-purple pl-2"
+            >
+              Hours
+            </h3>
+            <div class="text-sm space-y-1 text-gray-200">
+              <p class="flex justify-between">
+                Mon - Fri <span class="text-gold font-medium">9AM - 6PM</span>
+              </p>
+              <p class="flex justify-between">
+                Saturday <span class="text-gold font-medium">10AM - 4PM</span>
+              </p>
+              <p class="flex justify-between">
+                Sunday <span class="text-red-200">Closed</span>
+              </p>
+            </div>
+          </div>
         </div>
+
+        <div
+          class="pt-4 border-t border-white/10 flex flex-col md:flex-row justify-between text-xs text-gray-400"
+        >
+          <span>© 2025 Prospecta Build X. All rights reserved.</span>
+          <div class="flex gap-4 mt-2 md:mt-0">
+            <a href="#" class="hover:text-amber-400">Privacy</a>
+            <a href="#" class="hover:text-amber-400">Terms</a>
+            <a href="#" class="hover:text-amber-400">Sitemap</a>
+          </div>
+        </div>
+      </div>
     </footer>
 
+    <!-- JavaScript -->
     <script>
-        function applyForJob(jobTitle) {
-            const companyName = "Prospecta BuildX";
-            const hrEmail = "hr@prospectabuildx.com";
-            
-            const subject = `Application for ${jobTitle}`;
-            const body = `Dear Hiring Manager,
+      document.addEventListener("DOMContentLoaded", function () {
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const hamburgerIcon = document.getElementById("hamburger-icon");
+        const crossIcon = document.getElementById("cross-icon");
 
-I am writing to apply for the ${jobTitle} role at ${companyName}. 
-
-Please find my resume attached for your consideration.
-
-Best regards,
-[Your Name]`;
-            
-            // Create mailto link
-            const mailtoLink = `mailto:${hrEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            
-            // Open email client directly
-            window.location.href = mailtoLink;
-            
-            // Fallback for mobile devices
-            setTimeout(() => {
-                // If the email client doesn't open, show a message
-                if (!document.hidden) {
-                    alert(`To apply for ${jobTitle}, please send your resume to ${hrEmail} with the subject: "${subject}"`);
-                }
-            }, 1000);
+        if (mobileMenuButton && mobileMenu && hamburgerIcon && crossIcon) {
+          mobileMenuButton.addEventListener("click", function () {
+            mobileMenu.classList.toggle("hidden");
+            hamburgerIcon.classList.toggle("hidden");
+            crossIcon.classList.toggle("hidden");
+          });
         }
 
-        // Alternative method for better mobile support
-        function openEmailClient(jobTitle) {
-            const companyName = "Prospecta BuildX";
-            const hrEmail = "hr@prospectabuildx.com";
-            
-            const subject = `Application for ${jobTitle}`;
-            const body = `Dear Hiring Manager,\n\nI am writing to apply for the ${jobTitle} role at ${companyName}.\n\nPlease find my resume attached for your consideration.\n\nBest regards,\n[Your Name]`;
-            
-            // Try multiple methods to open email client
-            const mailtoLink = `mailto:${hrEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            
-            // Method 1: Direct window location
-            window.location.href = mailtoLink;
-            
-            // Method 2: Create and click a link (for some mobile browsers)
-            setTimeout(() => {
-                const emailLink = document.createElement('a');
-                emailLink.href = mailtoLink;
-                emailLink.style.display = 'none';
-                document.body.appendChild(emailLink);
-                emailLink.click();
-                document.body.removeChild(emailLink);
-            }, 100);
-            
-            // Method 3: Fallback instruction
-            setTimeout(() => {
-                const instruction = `Application Instructions:\n\n1. Open your email app\n2. Create new email to: ${hrEmail}\n3. Subject: ${subject}\n4. Copy this message:\n\n${body}`;
-                console.log(instruction);
-            }, 2000);
-        }
+        // Smooth Scroll to Positions
+        const viewPositionsButton = document.getElementById("view-positions");
+        const openPositionsSection = document.getElementById("open-positions");
 
-        // Update all apply buttons to use the improved function
-        document.addEventListener('DOMContentLoaded', function() {
-            const applyButtons = document.querySelectorAll('.apply-btn');
-            applyButtons.forEach(button => {
-                const originalOnClick = button.getAttribute('onclick');
-                if (originalOnClick) {
-                    const jobTitle = originalOnClick.match(/'([^']+)'/)[1];
-                    button.removeAttribute('onclick');
-                    button.addEventListener('click', () => openEmailClient(jobTitle));
-                }
+        if (viewPositionsButton && openPositionsSection) {
+          viewPositionsButton.addEventListener("click", function (e) {
+            e.preventDefault();
+            const headerOffset = 80;
+            const elementPosition =
+              openPositionsSection.getBoundingClientRect().top;
+            const offsetPosition =
+              elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth",
             });
+          });
+        }
+
+        // Job Filter Functionality
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const jobCards = document.querySelectorAll(".job-card");
+
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            // Update active button
+            filterButtons.forEach((btn) => {
+              btn.classList.remove("active", "bg-navy-700", "text-white");
+              btn.classList.add(
+                "bg-gray-100",
+                "text-gray-700",
+                "hover:bg-gray-200"
+              );
+            });
+
+            this.classList.add("active", "bg-navy-700", "text-white");
+            this.classList.remove(
+              "bg-gray-100",
+              "text-gray-700",
+              "hover:bg-gray-200"
+            );
+
+            // Get filter value
+            const filter = this.textContent.trim();
+
+            // Filter job cards (in a real app, this would be more sophisticated)
+            if (filter === "All Positions") {
+              jobCards.forEach((card) => {
+                card.style.display = "block";
+              });
+            } else {
+              // Simple demo filtering - in production, cards would have data attributes
+              jobCards.forEach((card) => {
+                card.style.display = "block";
+              });
+            }
+          });
         });
+
+        // Load More Button
+        const loadMoreBtn = document.getElementById("load-more");
+        if (loadMoreBtn) {
+          loadMoreBtn.addEventListener("click", function () {
+            // Demo functionality
+            this.innerHTML =
+              '<i class="fas fa-sync-alt mr-3 animate-spin"></i> Loading...';
+
+            setTimeout(() => {
+              this.innerHTML =
+                '<i class="fas fa-check mr-3"></i> No More Positions Available';
+              this.disabled = true;
+              this.classList.add("opacity-50", "cursor-not-allowed");
+            }, 1500);
+          });
+        }
+
+        // Close mobile menu when clicking links
+        if (mobileMenu) {
+          const mobileLinks = mobileMenu.querySelectorAll("a");
+          mobileLinks.forEach((link) => {
+            link.addEventListener("click", function () {
+              mobileMenu.classList.add("hidden");
+              hamburgerIcon.classList.remove("hidden");
+              crossIcon.classList.add("hidden");
+            });
+          });
+        }
+
+        // Add animation delay to job cards
+        jobCards.forEach((card, index) => {
+          card.style.animationDelay = `${0.1 + index * 0.1}s`;
+        });
+      });
+
+      //header script
+      //header js
+      fetch("header.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("header").innerHTML = data;
+
+          // ✅ NOW your header JS runs safely AFTER load
+          const mobileMenuToggle =
+            document.getElementById("mobile-menu-toggle");
+          const mobileMenu = document.getElementById("mobile-menu");
+          const menuIcon = document.getElementById("menu-icon");
+          const mobilePlansToggle = document.getElementById(
+            "mobile-plans-toggle"
+          );
+          const mobilePlans = document.getElementById("mobile-plans");
+          const mobileServicesToggle = document.getElementById(
+            "mobile-services-toggle"
+          );
+          const mobileServices = document.getElementById("mobile-services");
+
+          // Toggle Mobile Menu
+          mobileMenuToggle?.addEventListener("click", () => {
+            mobileMenu.classList.toggle("open");
+
+            if (mobileMenu.classList.contains("open")) {
+              menuIcon.classList.remove("fa-bars");
+              menuIcon.classList.add("fa-times");
+            } else {
+              menuIcon.classList.remove("fa-times");
+              menuIcon.classList.add("fa-bars");
+
+              mobilePlans.classList.remove("open");
+              mobileServices.classList.remove("open");
+              mobilePlansToggle.classList.remove("active");
+              mobileServicesToggle.classList.remove("active");
+            }
+          });
+
+          // Toggle Mobile Plans
+          mobilePlansToggle?.addEventListener("click", () => {
+            mobilePlans.classList.toggle("open");
+            mobilePlansToggle.classList.toggle("active");
+
+            if (mobileServices.classList.contains("open")) {
+              mobileServices.classList.remove("open");
+              mobileServicesToggle.classList.remove("active");
+            }
+          });
+
+          // Toggle Mobile Services
+          mobileServicesToggle?.addEventListener("click", () => {
+            mobileServices.classList.toggle("open");
+            mobileServicesToggle.classList.toggle("active");
+
+            if (mobilePlans.classList.contains("open")) {
+              mobilePlans.classList.remove("open");
+              mobilePlansToggle.classList.remove("active");
+            }
+          });
+
+          // Close when clicking outside
+          document.addEventListener("click", function (event) {
+            if (!mobileMenu || !mobileMenuToggle) return;
+
+            const isClickInsideMenu = mobileMenu.contains(event.target);
+            const isClickOnToggle = mobileMenuToggle.contains(event.target);
+
+            if (
+              !isClickInsideMenu &&
+              !isClickOnToggle &&
+              mobileMenu.classList.contains("open")
+            ) {
+              mobileMenu.classList.remove("open");
+              menuIcon.classList.remove("fa-times");
+              menuIcon.classList.add("fa-bars");
+
+              mobilePlans.classList.remove("open");
+              mobileServices.classList.remove("open");
+              mobilePlansToggle.classList.remove("active");
+              mobileServicesToggle.classList.remove("active");
+            }
+          });
+        });
+
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        document
+          .getElementById("navbar")
+          ?.classList.toggle("scrolled", window.scrollY > 50);
+      });
     </script>
-</body>
+  </body>
 </html>
