@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prospecta BuildX - Building Tomorrow</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="homestyle.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary: #111111;
+            --secondary: #555555;
+            --accent: #888888;
+            --light: #ffffff;
+            --gray: #f8f9fa;
+            --border: #e5e5e5;
+            --radius: 16px;
+            --shadow: 0 8px 25px rgba(0,0,0,0.08);
+            --shadow-hover: 0 20px 40px rgba(0,0,0,0.15);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--light);
+            color: var(--primary);
+            line-height: 1.6;
+        }
+
+        .container { max-width: 1400px; margin: auto; padding: 0 20px; }
+
+    
+        /* Hero - Exactly same */
+        .hero {
+            text-align: center;
+            padding: 6rem 0 4rem;
+            background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            letter-spacing: -2px;
+            margin-bottom: 1rem;
+        }
+        .hero p { font-size: 1.3rem; color: var(--accent); max-width: 700px; margin: auto; }
+
+        /* Section Title - Same */
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            font-weight: 300;
+            margin: 4rem 0 3rem;
+            color: var(--primary);
+        }
+
+        /* Pinterest Grid - Exactly same */
+        .pinterest-grid {
+            column-count: 5;
+            column-gap: 1.8rem;
+            padding: 0 1.5rem;
+        }
+        .pin-card {
+            break-inside: avoid;
+            margin-bottom: 1.8rem;
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .pin-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-hover);
+        }
+        .pin-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+        .pin-card:hover .pin-image { transform: scale(1.05); }
+        .pin-text {
+            padding: 1.2rem;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--primary);
+            background: white;
+        }
+
+        /* Varied Heights - Same classes */
+        .pin-tall img { aspect-ratio: 3/4; }
+        .pin-medium img { aspect-ratio: 4/5; }
+        .pin-short img { aspect-ratio: 5/4; }
+        .pin-wide img { aspect-ratio: 16/9; }
+        .pin-square img { aspect-ratio: 1/1; }
+
+        /* Lightbox - Same style */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.95);
+            z-index: 999;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+        }
+        .lightbox.active { display: flex; }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+        .close-lightbox {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 3rem;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Responsive - Same breakpoints */
+        @media (max-width: 1400px) { .pinterest-grid { column-count: 4; } }
+        @media (max-width: 1100px) { .pinterest-grid { column-count: 3; } }
+        @media (max-width: 800px)  { .pinterest-grid { column-count: 2; padding: 0 1rem; } .hero h1 { font-size: 3rem; } }
+        @media (max-width: 500px)  { .pinterest-grid { column-count: 1; padding: 0 1rem; } .hero h1 { font-size: 2.5rem; } }
+    </style>
+</head>
+<body>
+
+     <!-- HEADER -->
+    <div id="header"></div>
+
+<!-- Hero Section -->
+<section 
+  class="relative bg-cover bg-center bg-no-repeat py-28 md:py-36"
+  style="background-image: url('images/awardbg.png');"
+>
+    <!-- Dark overlay -->
+    <div class="absolute inset-0 bg-black/60"></div>
+
+    <div class="relative container mx-auto px-6 text-center">
+
+        <!-- Fancy Heading -->
+        <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-wider drop-shadow-2xl font-serif">
+            Awards & Certifications
+        </h1>
+
+        <!-- Fancy Paragraph -->
+        <p class="text-white text-lg md:text-xl mt-4 max-w-2xl mx-auto leading-relaxed text-light" >
+            Recognizing our commitment to quality, safety, and exceptional performance
+        </p>
+
+        <!-- Decorative Line -->
+        <div class="w-24 h-1 bg-white mx-auto mt-6 rounded-full opacity-90"></div>
+
+    </div>
+</section>
+
+
+
+    <!-- Grid 1: National & Industry Awards -->
+    <h2 class="section-title">National & Industry Awards</h2>
+    <div class="pinterest-grid">
+        <div class="pin-card pin-tall" onclick="openLightbox('images/award1.jpg')">
+            <img src="images/award1.jpg" alt="Best Construction Company 2024" class="pin-image">
+            <div class="pin-text">Best Construction Company 2024</div>
+        </div>
+        <div class="pin-card pin-medium" onclick="openLightbox('images/award2.png')">
+            <img src="images/award2.png" alt="Excellence in Safety" class="pin-image">
+            <div class="pin-text">Excellence in Safety</div>
+        </div>
+        <div class="pin-card pin-wide" onclick="openLightbox('images/award3.jpg')">
+            <img src="images/award3.jpg" alt="Green Building Leadership" class="pin-image">
+            <div class="pin-text">Green Building Leadership</div>
+        </div>
+        <div class="pin-card pin-short" onclick="openLightbox('images/award4.png')">
+            <img src="images/award4.png" alt="Innovation Award" class="pin-image">
+            <div class="pin-text">Innovation Award</div>
+        </div>
+        <div class="pin-card pin-square" onclick="openLightbox('images/award1.jpg')">
+            <img src="images/award1.jpg" alt="Quality Excellence Trophy" class="pin-image">
+            <div class="pin-text">Quality Excellence Trophy</div>
+        </div>
+    </div>
+
+    <!-- Grid 2: Certifications -->
+    <h2 class="section-title">Certifications & Recognitions</h2>
+    <div class="pinterest-grid">
+        <div class="pin-card pin-wide" onclick="openLightbox('https://images.unsplash.com/photo-1581093588401-43d7e3b4d1a0?auto=format&fit=crop&w=1600&q=90')">
+            <img src="https://images.unsplash.com/photo-1581093588401-43d7e3b4d1a0?auto=format&fit=crop&w=800&q=80" alt="ISO 9001:2015" class="pin-image">
+            <div class="pin-text">ISO 9001:2015 Certified</div>
+        </div>
+        <div class="pin-card pin-tall" onclick="openLightbox('https://images.unsplash.com/photo-1581092160600-6e0e5e4e8e4f?auto=format&fit=crop&w=1200&q=90')">
+            <img src="https://images.unsplash.com/photo-1581092160600-6e0e5e4e8e4f?auto=format&fit=crop&w=600&q=80" alt="ISO 14001" class="pin-image">
+            <div class="pin-text">ISO 14001 Environmental</div>
+        </div>
+        <div class="pin-card pin-medium" onclick="openLightbox('https://images.unsplash.com/photo-1581093458791-9d6e5e2f7b64?auto=format&fit=crop&w=1200&q=90')">
+            <img src="https://images.unsplash.com/photo-1581093458791-9d6e5e2f7b64?auto=format&fit=crop&w=600&q=80" alt="OHSAS 18001" class="pin-image">
+            <div class="pin-text">OHSAS 18001 Safety</div>
+        </div>
+        <div class="pin-card pin-square" onclick="openLightbox('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1200&q=90')">
+            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=600&q=80" alt="GRIHA 5-Star" class="pin-image">
+            <div class="pin-text">GRIHA 5-Star Rating</div>
+        </div>
+    </div>
+
+    <!-- Grid 3: Milestones -->
+    <h2 class="section-title">Client Appreciation & Milestones</h2>
+    <div class="pinterest-grid">
+        <div class="pin-card pin-medium" onclick="openLightbox('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=90')">
+            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" alt="150+ Projects" class="pin-image">
+            <div class="pin-text">150+ Projects Delivered</div>
+        </div>
+        <div class="pin-card pin-wide" onclick="openLightbox('https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1600&q=90')">
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80" alt="Client Shield" class="pin-image">
+            <div class="pin-text">Client Appreciation Shield</div>
+        </div>
+        <div class="pin-card pin-tall" onclick="openLightbox('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=90')">
+            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=600&q=80" alt="15 Years" class="pin-image">
+            <div class="pin-text">15 Years of Excellence</div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="this.classList.remove('active')">
+        <button class="close-lightbox" onclick="document.getElementById('lightbox').classList.remove('active')">&times;</button>
+        <img src="" alt="" id="lightbox-img">
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 Prospecta BuildX. All rights reserved.</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--accent);">
+                Celebrating Excellence Since 2008
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            document.getElementById('lightbox-img').src = src;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.getElementById('lightbox').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+     <script>
+      //header js
+      fetch("header.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("header").innerHTML = data;
+
+          // ✅ NOW your header JS runs safely AFTER load
+          const mobileMenuToggle =
+            document.getElementById("mobile-menu-toggle");
+          const mobileMenu = document.getElementById("mobile-menu");
+          const menuIcon = document.getElementById("menu-icon");
+          const mobilePlansToggle = document.getElementById(
+            "mobile-plans-toggle"
+          );
+          const mobilePlans = document.getElementById("mobile-plans");
+          const mobileServicesToggle = document.getElementById(
+            "mobile-services-toggle"
+          );
+          const mobileServices = document.getElementById("mobile-services");
+
+          // Toggle Mobile Menu
+          mobileMenuToggle?.addEventListener("click", () => {
+            mobileMenu.classList.toggle("open");
+
+            if (mobileMenu.classList.contains("open")) {
+              menuIcon.classList.remove("fa-bars");
+              menuIcon.classList.add("fa-times");
+            } else {
+              menuIcon.classList.remove("fa-times");
+              menuIcon.classList.add("fa-bars");
+
+              mobilePlans.classList.remove("open");
+              mobileServices.classList.remove("open");
+              mobilePlansToggle.classList.remove("active");
+              mobileServicesToggle.classList.remove("active");
+            }
+          });
+
+          // Toggle Mobile Plans
+          mobilePlansToggle?.addEventListener("click", () => {
+            mobilePlans.classList.toggle("open");
+            mobilePlansToggle.classList.toggle("active");
+
+            if (mobileServices.classList.contains("open")) {
+              mobileServices.classList.remove("open");
+              mobileServicesToggle.classList.remove("active");
+            }
+          });
+
+          // Toggle Mobile Services
+          mobileServicesToggle?.addEventListener("click", () => {
+            mobileServices.classList.toggle("open");
+            mobileServicesToggle.classList.toggle("active");
+
+            if (mobilePlans.classList.contains("open")) {
+              mobilePlans.classList.remove("open");
+              mobilePlansToggle.classList.remove("active");
+            }
+          });
+
+          // Close when clicking outside
+          document.addEventListener("click", function (event) {
+            if (!mobileMenu || !mobileMenuToggle) return;
+
+            const isClickInsideMenu = mobileMenu.contains(event.target);
+            const isClickOnToggle = mobileMenuToggle.contains(event.target);
+
+            if (
+              !isClickInsideMenu &&
+              !isClickOnToggle &&
+              mobileMenu.classList.contains("open")
+            ) {
+              mobileMenu.classList.remove("open");
+              menuIcon.classList.remove("fa-times");
+              menuIcon.classList.add("fa-bars");
+
+              mobilePlans.classList.remove("open");
+              mobileServices.classList.remove("open");
+              mobilePlansToggle.classList.remove("active");
+              mobileServicesToggle.classList.remove("active");
+            }
+          });
+        });
+
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        document
+          .getElementById("navbar")
+          .classList.toggle("scrolled", window.scrollY > 50);
+      });
+
+      // Fade-in on scroll
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add("visible");
+          });
+        },
+        { threshold: 0.1 }
+      );
+      document
+        .querySelectorAll(".fade-in")
+        .forEach((el) => observer.observe(el));
+    </script>
+</body>
+</html>
