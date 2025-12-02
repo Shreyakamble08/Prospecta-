@@ -46,3 +46,41 @@ setInterval(()=>showSlide(index+1), 5000);
       });
    
 
+      // Counter Animation
+       const counters = document.querySelectorAll('.counter');
+  let started = false;
+
+  const startCounter = () => {
+    counters.forEach(counter => {
+      const target = +counter.getAttribute('data-target');
+      let count = 0;
+
+      const update = () => {
+        const increment = target / 40; // speed
+
+        if (count < target) {
+          count += increment;
+          counter.innerText = Math.floor(count) + (counter.innerText.includes('%') ? '%' : '+');
+          requestAnimationFrame(update);
+        } else {
+          counter.innerText = target + (counter.innerText.includes('%') ? '%' : '+');
+        }
+      };
+
+      update();
+    });
+  };
+
+  // Trigger on view
+  const observer = new IntersectionObserver(
+    (entries) => {
+      if (entries[0].isIntersecting && !started) {
+        startCounter();
+        started = true;
+      }
+    },
+    { threshold: 0.5 }
+  );
+
+  observer.observe(document.querySelector('.counter').parentElement);
+
