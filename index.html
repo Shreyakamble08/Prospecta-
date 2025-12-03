@@ -260,16 +260,29 @@
 
           <!-- BANNER 2 -->
           <div
-            class="slide w-full h-full flex-shrink-0 bg-cover bg-center relative"
-            style="background-image: url('images/banner2.jfif')"
+            class="slide w-full h-full flex-shrink-0 relative overflow-hidden"
           >
+            <!-- Background Video -->
+            <video
+              class="absolute inset-0 w-full h-full object-cover"
+              src="images/aboutvideo.mp4"
+              autoplay
+              muted
+              loop
+              playsinline
+            ></video>
+
+            <!-- Gradient Overlay -->
             <div
               class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/80"
             ></div>
+
+            <!-- Arch Shape -->
             <div
               class="arch-shape absolute bottom-0 left-0 w-full h-40 bg-gray-50"
             ></div>
 
+            <!-- Content -->
             <div
               class="relative z-10 w-full h-full flex items-center justify-center mb-16 px-4"
             >
@@ -290,7 +303,6 @@
                   >
                     Learn More
                   </a>
-
                   <a
                     href="#"
                     class="border border-white hover:bg-white hover:text-black font-semibold py-2 px-5 rounded-full text-sm transition"
