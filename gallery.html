@@ -11,261 +11,642 @@
     <link rel="stylesheet" href="homestyle.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        :root {
-            --primary: #111111;
-            --secondary: #555555;
-            --accent: #888888;
-            --light: #ffffff;
-            --gray: #f8f9fa;
-            --border: #e5e5e5;
-            --radius: 16px;
-            --shadow: 0 8px 25px rgba(0,0,0,0.08);
-            --shadow-hover: 0 20px 40px rgba(0,0,0,0.15);
-            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      :root {
+        --primary: #111111;
+        --secondary: #555555;
+        --accent: #888888;
+        --light: #ffffff;
+        --gray: #f8f9fa;
+        --border: #e5e5e5;
+        --radius: 16px;
+        --shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.15);
+        --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      body {
+        background: #f8fafc;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: auto;
+        padding: 0 20px;
+      }
+
+      /* Hero - Exactly same */
+      .hero {
+        text-align: center;
+        padding: 6rem 0 4rem;
+        background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+      }
+      .hero h1 {
+        font-family: "Playfair Display", serif;
+        font-size: 4.5rem;
+        font-weight: 700;
+        letter-spacing: -2px;
+        margin-bottom: 1rem;
+      }
+      .hero p {
+        font-size: 1.3rem;
+        color: var(--accent);
+        max-width: 700px;
+        margin: auto;
+      }
+
+      /* Lightbox - Same style */
+      .lightbox {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.95);
+        z-index: 999;
+        justify-content: center;
+        align-items: center;
+        padding: 40px;
+        backdrop-filter: blur(10px);
+      }
+      .lightbox.active {
+        display: flex;
+      }
+      .lightbox img {
+        max-width: 90%;
+        max-height: 85vh;
+        border-radius: 16px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      }
+      .close-lightbox {
+        position: absolute;
+        top: 30px;
+        right: 40px;
+        font-size: 3rem;
+        color: white;
+        background: none;
+        border: none;
+        cursor: pointer;
+      }
+
+      /* Responsive - Same breakpoints */
+      @media (max-width: 1400px) {
+        .pinterest-grid {
+          column-count: 4;
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--light);
-            color: var(--primary);
-            line-height: 1.6;
+      }
+      @media (max-width: 1100px) {
+        .pinterest-grid {
+          column-count: 3;
         }
-
-        .container { max-width: 1400px; margin: auto; padding: 0 20px; }
-
-    
-        /* Hero - Exactly same */
-        .hero {
-            text-align: center;
-            padding: 6rem 0 4rem;
-            background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+      }
+      @media (max-width: 800px) {
+        .pinterest-grid {
+          column-count: 2;
+          padding: 0 1rem;
         }
         .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4.5rem;
-            font-weight: 700;
-            letter-spacing: -2px;
-            margin-bottom: 1rem;
+          font-size: 3rem;
         }
-        .hero p { font-size: 1.3rem; color: var(--accent); max-width: 700px; margin: auto; }
-
-        /* Section Title - Same */
-        .section-title {
-            text-align: center;
-            font-size: 2.8rem;
-            font-weight: 300;
-            margin: 4rem 0 3rem;
-            color: var(--primary);
-        }
-
-        /* Pinterest Grid - Exactly same */
+      }
+      @media (max-width: 500px) {
         .pinterest-grid {
-            column-count: 5;
-            column-gap: 1.8rem;
-            padding: 0 1.5rem;
+          column-count: 1;
+          padding: 0 1rem;
         }
-        .pin-card {
-            break-inside: avoid;
-            margin-bottom: 1.8rem;
-            background: white;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            cursor: pointer;
+        .hero h1 {
+          font-size: 2.5rem;
         }
-        .pin-card:hover {
-            transform: translateY(-12px);
-            box-shadow: var(--shadow-hover);
-        }
-        .pin-image {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.6s ease;
-        }
-        .pin-card:hover .pin-image { transform: scale(1.05); }
-        .pin-text {
-            padding: 1.2rem;
-            text-align: center;
-            font-weight: 600;
-            font-size: 1rem;
-            color: var(--primary);
-            background: white;
-        }
-
-        /* Varied Heights - Same classes */
-        .pin-tall img { aspect-ratio: 3/4; }
-        .pin-medium img { aspect-ratio: 4/5; }
-        .pin-short img { aspect-ratio: 5/4; }
-        .pin-wide img { aspect-ratio: 16/9; }
-        .pin-square img { aspect-ratio: 1/1; }
-
-        /* Lightbox - Same style */
-        .lightbox {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.95);
-            z-index: 999;
-            justify-content: center;
-            align-items: center;
-            padding: 40px;
-            backdrop-filter: blur(10px);
-        }
-        .lightbox.active { display: flex; }
-        .lightbox img {
-            max-width: 90%;
-            max-height: 85vh;
-            border-radius: 16px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-        }
-        .close-lightbox {
-            position: absolute;
-            top: 30px;
-            right: 40px;
-            font-size: 3rem;
-            color: white;
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-
-        /* Responsive - Same breakpoints */
-        @media (max-width: 1400px) { .pinterest-grid { column-count: 4; } }
-        @media (max-width: 1100px) { .pinterest-grid { column-count: 3; } }
-        @media (max-width: 800px)  { .pinterest-grid { column-count: 2; padding: 0 1rem; } .hero h1 { font-size: 3rem; } }
-        @media (max-width: 500px)  { .pinterest-grid { column-count: 1; padding: 0 1rem; } .hero h1 { font-size: 2.5rem; } }
+      }
     </style>
-</head>
-<body>
-
-     <!-- HEADER -->
+  </head>
+  <body>
+    <!-- HEADER -->
     <div id="header"></div>
 
-<!-- Hero Section -->
-<section 
-  class="relative bg-cover bg-center bg-no-repeat py-28 md:py-36"
-  style="background-image: url('images/awardbg.png');"
->
-    <!-- Dark overlay -->
-    <div class="absolute inset-0 bg-black/60"></div>
+    <!-- Hero Section -->
+    <section
+      class="relative bg-cover bg-center bg-no-repeat py-28 md:py-36"
+      style="background-image: url('images/awardbg.png')"
+    >
+      <!-- Dark overlay -->
+      <div class="absolute inset-0 bg-black/60"></div>
 
-    <div class="relative container mx-auto px-6 text-center">
-
+      <div class="relative container mx-auto px-6 text-center">
         <!-- Fancy Heading -->
-        <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-wider drop-shadow-2xl font-serif">
-            Awards & Certifications
+        <h1
+          class="text-4xl md:text-6xl font-extrabold text-white tracking-wider drop-shadow-2xl font-serif"
+        >
+          Awards & Certifications
         </h1>
 
         <!-- Fancy Paragraph -->
-        <p class="text-white text-lg md:text-xl mt-4 max-w-2xl mx-auto leading-relaxed text-light" >
-            Recognizing our commitment to quality, safety, and exceptional performance
+        <p
+          class="text-white text-lg md:text-xl mt-4 max-w-2xl mx-auto leading-relaxed text-light"
+        >
+          A visual journey through years of dedication, recognition, and
+          excellence.
         </p>
 
         <!-- Decorative Line -->
-        <div class="w-24 h-1 bg-white mx-auto mt-6 rounded-full opacity-90"></div>
-
-    </div>
-</section>
-
-
+        <div
+          class="w-24 h-1 bg-white mx-auto mt-6 rounded-full opacity-90"
+        ></div>
+      </div>
+    </section>
 
     <!-- Grid 1: National & Industry Awards -->
-    <h2 class="section-title">National & Industry Awards</h2>
-    <div class="pinterest-grid">
-        <div class="pin-card pin-tall" onclick="openLightbox('images/award1.jpg')">
-            <img src="images/award1.jpg" alt="Best Construction Company 2024" class="pin-image">
-            <div class="pin-text">Best Construction Company 2024</div>
+    <section class="py-20 bg-gray-20">
+      <div class="container mx-auto px-6">
+        <!-- Heading -->
+        <h2
+          class="text-5xl md:text-5xl font-light text-center text-[#1A2A4F] mb-12"
+        >
+          National & Industry Awards
+        </h2>
+
+        <!-- Masonry Grid -->
+        <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+          <!-- Card 1 (Tall Balanced) -->
+          <div
+            class="rounded-xl overflow-hidden shadow-md bg-white inline-block w-full hover:scale-[1.02] transition cursor-pointer"
+            onclick="openLightbox('images/award1.jpg')"
+          >
+            <img
+              src="images/award1.jpg"
+              class="w-full h-[300px] object-cover"
+            />
+            <div class="p-4 text-center font-medium text-gray-800">
+              Best Construction Company 2024
+            </div>
+          </div>
+
+          <!-- Card 2 (Medium) -->
+          <div
+            class="rounded-xl overflow-hidden shadow-md bg-white inline-block w-full hover:scale-[1.02] transition cursor-pointer"
+            onclick="openLightbox('images/award2.png')"
+          >
+            <img
+              src="images/award2.png"
+              class="w-full h-[220px] object-cover"
+            />
+            <div class="p-4 text-center font-medium text-gray-800">
+              Excellence in Safety
+            </div>
+          </div>
+
+          <!-- Card 3 (Medium Wide) -->
+          <div
+            class="rounded-xl overflow-hidden shadow-md bg-white inline-block w-full hover:scale-[1.02] transition cursor-pointer"
+            onclick="openLightbox('images/award3.jpg')"
+          >
+            <img
+              src="images/award3.jpg"
+              class="w-full h-[240px] object-cover"
+            />
+            <div class="p-4 text-center font-medium text-gray-800">
+              Green Building Leadership
+            </div>
+          </div>
+
+          <!-- Card 4 (Short – fills gaps) -->
+          <div
+            class="rounded-xl overflow-hidden shadow-md bg-white inline-block w-full hover:scale-[1.02] transition cursor-pointer"
+            onclick="openLightbox('images/award4.png')"
+          >
+            <img
+              src="images/award4.png"
+              class="w-full h-[180px] object-cover"
+            />
+            <div class="p-4 text-center font-medium text-gray-800">
+              Innovation Award
+            </div>
+          </div>
+
+          <!-- Card 5 (Square - balances middle) -->
+          <div
+            class="rounded-xl overflow-hidden shadow-md bg-white inline-block w-full hover:scale-[1.02] transition cursor-pointer"
+            onclick="openLightbox('images/award5.jpg')"
+          >
+            <img
+              src="images/award5.jpg"
+              class="w-full h-[240px] object-cover"
+            />
+            <div class="p-4 text-center font-medium text-gray-800">
+              Quality Excellence Trophy
+            </div>
+          </div>
+
+          <!-- Card 6 (Tall - balances right column) -->
+          <div
+            class="rounded-xl overflow-hidden shadow-md bg-white inline-block w-full hover:scale-[1.02] transition cursor-pointer"
+            onclick="openLightbox('images/award6.png')"
+          >
+            <img
+              src="images/award6.png"
+              class="w-full h-[300px] object-cover"
+            />
+            <div class="p-4 text-center font-medium text-gray-800">
+              Outstanding Project Delivery
+            </div>
+          </div>
         </div>
-        <div class="pin-card pin-medium" onclick="openLightbox('images/award2.png')">
-            <img src="images/award2.png" alt="Excellence in Safety" class="pin-image">
-            <div class="pin-text">Excellence in Safety</div>
-        </div>
-        <div class="pin-card pin-wide" onclick="openLightbox('images/award3.jpg')">
-            <img src="images/award3.jpg" alt="Green Building Leadership" class="pin-image">
-            <div class="pin-text">Green Building Leadership</div>
-        </div>
-        <div class="pin-card pin-short" onclick="openLightbox('images/award4.png')">
-            <img src="images/award4.png" alt="Innovation Award" class="pin-image">
-            <div class="pin-text">Innovation Award</div>
-        </div>
-        <div class="pin-card pin-square" onclick="openLightbox('images/award1.jpg')">
-            <img src="images/award1.jpg" alt="Quality Excellence Trophy" class="pin-image">
-            <div class="pin-text">Quality Excellence Trophy</div>
-        </div>
-    </div>
+      </div>
+    </section>
 
     <!-- Grid 2: Certifications -->
-    <h2 class="section-title">Certifications & Recognitions</h2>
-    <div class="pinterest-grid">
-        <div class="pin-card pin-wide" onclick="openLightbox('https://images.unsplash.com/photo-1581093588401-43d7e3b4d1a0?auto=format&fit=crop&w=1600&q=90')">
-            <img src="https://images.unsplash.com/photo-1581093588401-43d7e3b4d1a0?auto=format&fit=crop&w=800&q=80" alt="ISO 9001:2015" class="pin-image">
-            <div class="pin-text">ISO 9001:2015 Certified</div>
+    <section
+      class="relative pt-10 pb-20 bg-cover bg-center"
+      style="background-image: url('images/about.jfif')"
+    >
+      <!-- Light Overlay -->
+      <div class="absolute inset-0 bg-white/70"></div>
+
+      <div class="relative container mx-auto px-6">
+        <!-- Heading -->
+        <h2
+          class="text-7xl md:text-4xl font-light text-[#1A2A4F] text-center mb-12"
+        >
+          Certifications & Recognitions
+        </h2>
+
+        <!-- Compact Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Medium -->
+          <div
+            class="relative h-52 rounded-xl overflow-hidden cursor-pointer group"
+            onclick="openLightbox('images/certificate1.avif')"
+          >
+            <img
+              src="images/certificate1.avif"
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+            />
+            <div
+              class="absolute bottom-0 bg-white/60 w-full p-3 text-[#1A2A4F] text-lg"
+            >
+              Quality Excellence Award
+            </div>
+          </div>
+
+          <!-- Compact Wide -->
+          <div
+            class="relative h-44 sm:h-48 rounded-xl overflow-hidden cursor-pointer group sm:col-span-2 lg:col-span-1"
+            onclick="openLightbox('images/certificate2.avif')"
+          >
+            <img
+              src="images/certificate2.avif"
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+            />
+            <div
+              class="absolute bottom-0 bg-white/60 w-full p-3 text-[#1A2A4F] text-lg"
+            >
+              Energy Efficiency Certification
+            </div>
+          </div>
+
+          <!-- Square -->
+          <div
+            class="relative h-48 rounded-xl overflow-hidden cursor-pointer group"
+            onclick="openLightbox('images/certificate3.jpg')"
+          >
+            <img
+              src="images/certificate3.jpg"
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+            />
+            <div
+              class="absolute bottom-0 bg-white/60 w-full p-3 text-[#1A2A4F] text-lg"
+            >
+              Innovation Award
+            </div>
+          </div>
+
+          <!-- Medium -->
+          <div
+            class="relative h-52 rounded-xl overflow-hidden cursor-pointer group"
+            onclick="openLightbox('images/certificate2.avif')"
+          >
+            <img
+              src="images/certificate2.avif"
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+            />
+            <div
+              class="absolute bottom-0 bg-white/60 w-full p-3 text-[#1A2A4F] text-lg"
+            >
+              Sustainability Badge
+            </div>
+          </div>
+
+          <!-- Tall -->
+          <div
+            class="relative h-64 rounded-xl overflow-hidden cursor-pointer group"
+            onclick="openLightbox('images/certificate3.jpg')"
+          >
+            <img
+              src="images/certificate3.jpg"
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+            />
+            <div
+              class="absolute bottom-0 bg-white/60 w-full p-3 text-[#1A2A4F] text-lg"
+            >
+              Green Building Council
+            </div>
+          </div>
+
+          <!-- Square -->
+          <div
+            class="relative h-48 rounded-xl overflow-hidden cursor-pointer group"
+            onclick="openLightbox('images/certificate2.avif')"
+          >
+            <img
+              src="images/certificate2.avif"
+              class="w-full h-full object-cover group-hover:scale-105 transition duration-300"
+            />
+            <div
+              class="absolute bottom-0 bg-white/60 w-full p-3 text-[#1A2A4F] text-lg"
+            >
+              Leadership Excellence
+            </div>
+          </div>
         </div>
-        <div class="pin-card pin-tall" onclick="openLightbox('https://images.unsplash.com/photo-1581092160600-6e0e5e4e8e4f?auto=format&fit=crop&w=1200&q=90')">
-            <img src="https://images.unsplash.com/photo-1581092160600-6e0e5e4e8e4f?auto=format&fit=crop&w=600&q=80" alt="ISO 14001" class="pin-image">
-            <div class="pin-text">ISO 14001 Environmental</div>
-        </div>
-        <div class="pin-card pin-medium" onclick="openLightbox('https://images.unsplash.com/photo-1581093458791-9d6e5e2f7b64?auto=format&fit=crop&w=1200&q=90')">
-            <img src="https://images.unsplash.com/photo-1581093458791-9d6e5e2f7b64?auto=format&fit=crop&w=600&q=80" alt="OHSAS 18001" class="pin-image">
-            <div class="pin-text">OHSAS 18001 Safety</div>
-        </div>
-        <div class="pin-card pin-square" onclick="openLightbox('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1200&q=90')">
-            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=600&q=80" alt="GRIHA 5-Star" class="pin-image">
-            <div class="pin-text">GRIHA 5-Star Rating</div>
-        </div>
-    </div>
+      </div>
+    </section>
 
     <!-- Grid 3: Milestones -->
-    <h2 class="section-title">Client Appreciation & Milestones</h2>
+    <!-- <h2 class="section-title">Client Appreciation & Milestones</h2>
     <div class="pinterest-grid">
-        <div class="pin-card pin-medium" onclick="openLightbox('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=90')">
-            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80" alt="150+ Projects" class="pin-image">
-            <div class="pin-text">150+ Projects Delivered</div>
-        </div>
-        <div class="pin-card pin-wide" onclick="openLightbox('https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1600&q=90')">
-            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80" alt="Client Shield" class="pin-image">
-            <div class="pin-text">Client Appreciation Shield</div>
-        </div>
-        <div class="pin-card pin-tall" onclick="openLightbox('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=90')">
-            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=600&q=80" alt="15 Years" class="pin-image">
-            <div class="pin-text">15 Years of Excellence</div>
-        </div>
-    </div>
+      <div
+        class="pin-card pin-medium"
+        onclick="openLightbox('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=90')"
+      >
+        <img
+          src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80"
+          alt="150+ Projects"
+          class="pin-image"
+        />
+        <div class="pin-text">150+ Projects Delivered</div>
+      </div>
+      <div
+        class="pin-card pin-wide"
+        onclick="openLightbox('https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1600&q=90')"
+      >
+        <img
+          src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80"
+          alt="Client Shield"
+          class="pin-image"
+        />
+        <div class="pin-text">Client Appreciation Shield</div>
+      </div>
+      <div
+        class="pin-card pin-tall"
+        onclick="openLightbox('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=90')"
+      >
+        <img
+          src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=600&q=80"
+          alt="15 Years"
+          class="pin-image"
+        />
+        <div class="pin-text">15 Years of Excellence</div>
+      </div>
+    </div> -->
 
     <!-- Lightbox -->
-    <div class="lightbox" id="lightbox" onclick="this.classList.remove('active')">
-        <button class="close-lightbox" onclick="document.getElementById('lightbox').classList.remove('active')">&times;</button>
-        <img src="" alt="" id="lightbox-img">
+    <div
+      class="lightbox"
+      id="lightbox"
+      onclick="this.classList.remove('active')"
+    >
+      <button
+        class="close-lightbox"
+        onclick="document.getElementById('lightbox').classList.remove('active')"
+      >
+        &times;
+      </button>
+      <img src="" alt="" id="lightbox-img" />
     </div>
 
-    <footer>
-        <div class="container">
-            <p>© 2024 Prospecta BuildX. All rights reserved.</p>
-            <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--accent);">
-                Celebrating Excellence Since 2008
+    <!------------------ FOOTER -------------------->
+    <footer
+      class="relative text-white py-10 overflow-hidden bg-gradient-to-b from-[#0A0F24] via-[#12306A] to-[#091526]"
+    >
+      <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+          <div class="lg:col-span-1">
+            <div class="flex items-center mb-4">
+              <div
+                class="w-50 h-20 rounded-lg flex items-center justify-center overflow-hidden"
+              >
+                <img
+                  src="Images/logowhite.png"
+                  alt="Logo"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+            </div>
+            <p class="text-gray-300 mb-4 text-sm leading-relaxed">
+              Building dreams, creating communities, and delivering excellence
+              in Industrial development.
             </p>
+            <div class="flex gap-2">
+              <a
+                href="https://www.facebook.com/prospectabuildx"
+                target="_blank"
+                class="w-9 h-9 bg-[#111936] rounded-lg flex items-center justify-center hover:bg-amber-400 hover:text-black"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+
+              <a
+                href="https://www.instagram.com/prospectabuildx/"
+                target="_blank"
+                class="w-9 h-9 bg-[#111936] rounded-lg flex items-center justify-center hover:bg-amber-400 hover:text-black"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+
+              <a
+                href="https://www.linkedin.com/company/prospectabuildx/"
+                target="_blank"
+                class="w-9 h-9 bg-[#111936] rounded-lg flex items-center justify-center hover:bg-amber-400 hover:text-black"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-1 grid grid-cols-2 gap-6">
+            <div>
+              <h3
+                class="text-md font-bold mb-3 text-white border-l-3 border-purple pl-2"
+              >
+                Explore
+              </h3>
+              <ul class="space-y-2 text-sm">
+                <li>
+                  <a href="index.html" class="text-gray-300 hover:text-gold"
+                    >• Home</a
+                  >
+                </li>
+                <li>
+                  <a href="about.html" class="text-gray-300 hover:text-gold"
+                    >• About</a
+                  >
+                </li>
+                <li>
+                  <a href="projects.html" class="text-gray-300 hover:text-gold"
+                    >• Projects</a
+                  >
+                </li>
+                <li>
+                  <a href="gallery.html" class="text-gray-300 hover:text-gold"
+                    >• Gallery</a
+                  >
+                </li>
+                <li>
+                  <a href="contact.html" class="text-gray-300 hover:text-gold"
+                    >• Contact</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3
+                class="text-md font-bold mb-3 text-white border-l-3 border-purple pl-2"
+              >
+                Sectors
+              </h3>
+              <ul class="space-y-2 text-sm">
+                <li>
+                  <a href="#" class="text-gray-300 hover:text-gold"
+                    >• Residential</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="text-gray-300 hover:text-gold"
+                    >• Commercial</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="text-gray-300 hover:text-gold"
+                    >• Industrial</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="text-gray-300 hover:text-gold"
+                    >• Institutional</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="text-gray-300 hover:text-gold"
+                    >• Commercial</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="text-gray-300 hover:text-gold"
+                    >• Public Infrastructure</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div
+            class="lg:col-span-1 bg-[#111936]/40 backdrop-blur-sm rounded-lg p-4 border border-white/10"
+          >
+            <h3
+              class="text-md font-semibold mb-3 text-white border-l-3 border-purple pl-2"
+            >
+              Contact
+            </h3>
+            <div class="space-y-3 text-sm text-gray-200">
+              <div class="flex items-center">
+                <i class="fas fa-map-marker-alt mr-2 text-gray-200"></i>
+                <a
+                  href="https://www.google.com/maps/place/C-803,+Amar+Business+Zone,+Baner,+Pune+411045"
+                  target="_blank"
+                  class="hover:underline text-gray-200"
+                >
+                  PUNE OFFICE - C-803, AMAR BUSINESS ZONE, BANER, PUNE-411045
+                </a>
+              </div>
+
+              <div class="flex items-center">
+                <i class="fas fa-phone mr-2 text-gray-200"></i>
+                <a
+                  href="tel:+919549543838"
+                  class="hover:underline text-gray-200"
+                >
+                  +91 95495 43838
+                </a>
+              </div>
+
+              <div class="flex items-center">
+                <i class="fas fa-envelope mr-2 text-gray-200"></i>
+                <a
+                  href="mailto:info@prospectabuildx.com"
+                  class="text-gray-200 hover:underline"
+                >
+                  info@prospectabuildx.com
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="lg:col-span-1 bg-[#111936]/40 backdrop-blur-sm rounded-lg p-4 border border-white/10"
+          >
+            <h3
+              class="text-md font-semibold mb-3 text-white border-l-3 border-purple pl-2"
+            >
+              Hours
+            </h3>
+            <div class="text-sm space-y-1 text-gray-200">
+              <p class="flex justify-between">
+                Mon - Fri <span class="text-gold font-medium">9AM - 6PM</span>
+              </p>
+              <p class="flex justify-between">
+                Saturday <span class="text-gold font-medium">10AM - 4PM</span>
+              </p>
+              <p class="flex justify-between">
+                Sunday <span class="text-red-200">Closed</span>
+              </p>
+            </div>
+          </div>
         </div>
+
+        <div
+          class="pt-4 border-t border-white/10 flex flex-col md:flex-row justify-between text-xs text-gray-400"
+        >
+          <span>© 2025 Prospecta Build X. All rights reserved.</span>
+          <div class="flex gap-4 mt-2 md:mt-0">
+            <a href="#" class="hover:text-amber-400">Privacy</a>
+            <a href="#" class="hover:text-amber-400">Terms</a>
+            <a href="#" class="hover:text-amber-400">Sitemap</a>
+          </div>
+        </div>
+      </div>
     </footer>
 
+    <!--------.........Scripts..............------------->
     <script>
-        function openLightbox(src) {
-            const lightbox = document.getElementById('lightbox');
-            document.getElementById('lightbox-img').src = src;
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
+      function openLightbox(src) {
+        const lightbox = document.getElementById("lightbox");
+        document.getElementById("lightbox-img").src = src;
+        lightbox.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          document.getElementById("lightbox").classList.remove("active");
+          document.body.style.overflow = "auto";
         }
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                document.getElementById('lightbox').classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
-        });
-    </script>
-     <script>
+      });
+
       //header js
       fetch("header.html")
         .then((res) => res.text())
@@ -370,5 +751,5 @@
         .querySelectorAll(".fade-in")
         .forEach((el) => observer.observe(el));
     </script>
-</body>
+  </body>
 </html>
