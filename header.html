@@ -150,19 +150,37 @@
             </div>
 
             <!-- Desktop Navigation -->
+            <!-- Desktop Navigation -->
             <div class="hidden md:flex items-center space-x-8">
               <a
                 href="index.html"
                 class="hover:text-blue-800 transition font-medium"
                 >Home</a
               >
-              <a
-                href="about.html"
-                class="hover:text-blue-800 transition font-medium"
-                >About</a
-              >
 
-              <!-- Plans Dropdown -->
+              <!-- About Dropdown -->
+              <div class="dropdown relative">
+                <button
+                  class="flex items-center font-medium hover:text-blue-800 transition"
+                >
+                  About <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                </button>
+                <div class="dropdown-content absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-50">
+                  <a href="about.html" class="block px-4 py-2 hover:bg-blue-50"
+                    >About Us</a
+                  >
+                  <a href="team.html" class="block px-4 py-2 hover:bg-blue-50"
+                    >Our Team</a
+                  >
+                  <a
+                    href="gallery.html"
+                    class="block px-4 py-2 hover:bg-blue-50"
+                    >Gallery & Awards</a
+                  >
+                </div>
+              </div>
+
+              <!-- Sectors Dropdown -->
               <div class="dropdown relative">
                 <button
                   class="flex items-center font-medium hover:text-blue-800 transition"
@@ -176,28 +194,28 @@
                     >Industrial</a
                   >
                   <a href="#" class="block px-4 py-2 hover:bg-blue-50"
-                    >Commercial
-                  </a>
+                    >Commercial</a
+                  >
                   <a href="#" class="block px-4 py-2 hover:bg-blue-50"
-                    >Institutional
-                  </a>
+                    >Institutional</a
+                  >
                   <a href="#" class="block px-4 py-2 hover:bg-blue-50"
-                    >Residential
-                  </a>
+                    >Residential</a
+                  >
                   <a href="#" class="block px-4 py-2 hover:bg-blue-50"
-                    >Public Infrastructure
-                  </a>
+                    >Public Infrastructure</a
+                  >
                 </div>
               </div>
 
-              <a href="gallery.html" class="hover:text-blue-800 transition font-medium"
-                >Gallery & Awards</a
-              >
-
-              <a href="career.html" class="hover:text-blue-800 transition font-medium"
+              <a
+                href="career.html"
+                class="hover:text-blue-800 transition font-medium"
                 >Careers</a
               >
-              <a href="contact.html" class="hover:text-blue-800 transition font-medium"
+              <a
+                href="contact.html"
+                class="hover:text-blue-800 transition font-medium"
                 >Contact</a
               >
             </div>
@@ -224,27 +242,50 @@
                 class="block text-black/80 hover:text-black font-medium py-2 px-4"
                 >Home</a
               >
-              <a
-                href="#"
-                class="block text-black/80 hover:text-black font-medium py-2 px-4"
-                >About</a
-              >
 
-              <!-- Mobile Sectors Dropdown -->
+              <!-- About Dropdown -->
               <div>
                 <button
-                  id="mobile-plans-toggle"
+                  id="mobile-about-toggle"
+                  class="mobile-dropdown-toggle flex justify-between items-center w-full text-black/80 hover:text-black font-medium py-2 px-4"
+                >
+                  <span>About</span>
+                  <i class="fas fa-chevron-down text-xs"></i>
+                </button>
+                <div id="mobile-about" class="mobile-dropdown ml-4">
+                  <a
+                    href="about.html"
+                    class="block text-black/70 hover:text-black py-2 px-4"
+                    >About Us</a
+                  >
+                  <a
+                    href="team.html"
+                    class="block text-black/70 hover:text-black py-2 px-4"
+                    >Our Team</a
+                  >
+                  <a
+                    href="gallery.html"
+                    class="block text-black/70 hover:text-black py-2 px-4"
+                    >Gallery & Awards</a
+                  >
+                </div>
+              </div>
+
+              <!-- Sectors Dropdown -->
+              <div>
+                <button
+                  id="mobile-sectors-toggle"
                   class="mobile-dropdown-toggle flex justify-between items-center w-full text-black/80 hover:text-black font-medium py-2 px-4"
                 >
                   <span>Sectors</span>
                   <i class="fas fa-chevron-down text-xs"></i>
                 </button>
-                <div id="mobile-plans" class="mobile-dropdown ml-4">
+                <div id="mobile-sectors" class="mobile-dropdown ml-4">
                   <a
                     href="#"
                     class="block text-black/70 hover:text-black py-2 px-4"
-                    >Residential
-                  </a>
+                    >Residential</a
+                  >
                   <a
                     href="#"
                     class="block text-black/70 hover:text-black py-2 px-4"
@@ -269,21 +310,15 @@
               </div>
 
               <a
-                href="#"
-                class="block text-black/80 hover:text-black font-medium py-2 px-4"
-                >Gallery & Awards</a
-              >
-              <a
-                href="#"
+                href="career.html"
                 class="block text-black/80 hover:text-black font-medium py-2 px-4"
                 >Careers</a
               >
               <a
-                href="#"
+                href="contact.html"
                 class="block text-black/80 hover:text-black font-medium py-2 px-4"
                 >Contact</a
               >
-              <div class="px-4 pt-2"></div>
             </div>
           </div>
         </div>

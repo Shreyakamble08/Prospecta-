@@ -1066,96 +1066,90 @@
       });
 
       //header script
-      //header js
-      fetch("header.html")
-        .then((res) => res.text())
-        .then((data) => {
-          document.getElementById("header").innerHTML = data;
+       // Load header.html and then initialize header JS
+  fetch("header.html")
+    .then((res) => res.text())
+    .then((data) => {
+      document.getElementById("header").innerHTML = data;
 
-          // ✅ NOW your header JS runs safely AFTER load
-          const mobileMenuToggle =
-            document.getElementById("mobile-menu-toggle");
-          const mobileMenu = document.getElementById("mobile-menu");
-          const menuIcon = document.getElementById("menu-icon");
-          const mobilePlansToggle = document.getElementById(
-            "mobile-plans-toggle"
-          );
-          const mobilePlans = document.getElementById("mobile-plans");
-          const mobileServicesToggle = document.getElementById(
-            "mobile-services-toggle"
-          );
-          const mobileServices = document.getElementById("mobile-services");
+      // ✅ Elements
+      const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const menuIcon = document.getElementById("menu-icon");
 
-          // Toggle Mobile Menu
-          mobileMenuToggle?.addEventListener("click", () => {
-            mobileMenu.classList.toggle("open");
+      const mobileAboutToggle = document.getElementById("mobile-about-toggle");
+      const mobileAbout = document.getElementById("mobile-about");
+      const mobileSectorsToggle = document.getElementById("mobile-sectors-toggle");
+      const mobileSectors = document.getElementById("mobile-sectors");
 
-            if (mobileMenu.classList.contains("open")) {
-              menuIcon.classList.remove("fa-bars");
-              menuIcon.classList.add("fa-times");
-            } else {
-              menuIcon.classList.remove("fa-times");
-              menuIcon.classList.add("fa-bars");
+      // Toggle Mobile Menu
+      mobileMenuToggle?.addEventListener("click", () => {
+        mobileMenu.classList.toggle("open");
 
-              mobilePlans.classList.remove("open");
-              mobileServices.classList.remove("open");
-              mobilePlansToggle.classList.remove("active");
-              mobileServicesToggle.classList.remove("active");
-            }
-          });
+        if (mobileMenu.classList.contains("open")) {
+          menuIcon.classList.remove("fa-bars");
+          menuIcon.classList.add("fa-times");
+        } else {
+          menuIcon.classList.remove("fa-times");
+          menuIcon.classList.add("fa-bars");
 
-          // Toggle Mobile Plans
-          mobilePlansToggle?.addEventListener("click", () => {
-            mobilePlans.classList.toggle("open");
-            mobilePlansToggle.classList.toggle("active");
-
-            if (mobileServices.classList.contains("open")) {
-              mobileServices.classList.remove("open");
-              mobileServicesToggle.classList.remove("active");
-            }
-          });
-
-          // Toggle Mobile Services
-          mobileServicesToggle?.addEventListener("click", () => {
-            mobileServices.classList.toggle("open");
-            mobileServicesToggle.classList.toggle("active");
-
-            if (mobilePlans.classList.contains("open")) {
-              mobilePlans.classList.remove("open");
-              mobilePlansToggle.classList.remove("active");
-            }
-          });
-
-          // Close when clicking outside
-          document.addEventListener("click", function (event) {
-            if (!mobileMenu || !mobileMenuToggle) return;
-
-            const isClickInsideMenu = mobileMenu.contains(event.target);
-            const isClickOnToggle = mobileMenuToggle.contains(event.target);
-
-            if (
-              !isClickInsideMenu &&
-              !isClickOnToggle &&
-              mobileMenu.classList.contains("open")
-            ) {
-              mobileMenu.classList.remove("open");
-              menuIcon.classList.remove("fa-times");
-              menuIcon.classList.add("fa-bars");
-
-              mobilePlans.classList.remove("open");
-              mobileServices.classList.remove("open");
-              mobilePlansToggle.classList.remove("active");
-              mobileServicesToggle.classList.remove("active");
-            }
-          });
-        });
-
-      // Navbar scroll effect
-      window.addEventListener("scroll", () => {
-        document
-          .getElementById("navbar")
-          ?.classList.toggle("scrolled", window.scrollY > 50);
+          mobileAbout.classList.remove("open");
+          mobileSectors.classList.remove("open");
+          mobileAboutToggle.classList.remove("active");
+          mobileSectorsToggle.classList.remove("active");
+        }
       });
+
+      // Toggle Mobile About Dropdown
+      mobileAboutToggle?.addEventListener("click", () => {
+        mobileAbout.classList.toggle("open");
+        mobileAboutToggle.classList.toggle("active");
+
+        // Close Sectors if open
+        if (mobileSectors.classList.contains("open")) {
+          mobileSectors.classList.remove("open");
+          mobileSectorsToggle.classList.remove("active");
+        }
+      });
+
+      // Toggle Mobile Sectors Dropdown
+      mobileSectorsToggle?.addEventListener("click", () => {
+        mobileSectors.classList.toggle("open");
+        mobileSectorsToggle.classList.toggle("active");
+
+        // Close About if open
+        if (mobileAbout.classList.contains("open")) {
+          mobileAbout.classList.remove("open");
+          mobileAboutToggle.classList.remove("active");
+        }
+      });
+
+      // Close menu if clicked outside
+      document.addEventListener("click", function (event) {
+        if (!mobileMenu || !mobileMenuToggle) return;
+
+        const isClickInsideMenu = mobileMenu.contains(event.target);
+        const isClickOnToggle = mobileMenuToggle.contains(event.target);
+
+        if (!isClickInsideMenu && !isClickOnToggle && mobileMenu.classList.contains("open")) {
+          mobileMenu.classList.remove("open");
+          menuIcon.classList.remove("fa-times");
+          menuIcon.classList.add("fa-bars");
+
+          mobileAbout.classList.remove("open");
+          mobileSectors.classList.remove("open");
+          mobileAboutToggle.classList.remove("active");
+          mobileSectorsToggle.classList.remove("active");
+        }
+      });
+    });
+
+  // Navbar scroll effect
+  window.addEventListener("scroll", () => {
+    document
+      .getElementById("navbar")
+      ?.classList.toggle("scrolled", window.scrollY > 50);
+  });
     </script>
   </body>
 </html>

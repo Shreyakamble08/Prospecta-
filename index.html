@@ -1411,17 +1411,14 @@
                 <i class="fas fa-lightbulb"></i>
               </div>
               <h3 class="text-xl font-bold text-[#11224E] mb-2">
-                Innovation Solutions
+                EPC Expertise
               </h3>
 
               <p class="text-gray-600 text-sm leading-relaxed mb-2">
-                Simple actions make a difference. It starts and ends with each
-                employee striving to deliver creative and safer construction
-                every day.
+               Our end-to-end EPC capabilities allow us to manage every phase of a project design, procurement, construction, and commissioning with precision. 
               </p>
               <p class="text-gray-600 text-sm leading-relaxed">
-                We integrate smart construction techniques and emerging
-                technologies to minimize costs while maximizing performance.
+              Supported by advanced planning and strong cost control, we ensure predictable timelines, optimized resources, and consistently high-quality delivery.
               </p>
             </div>
 
@@ -1430,8 +1427,8 @@
 
             <!-- Stats -->
             <div class="text-right">
-              <h4 class="text-4xl font-bold text-navy">800+</h4>
-              <p class="text-sm text-gray-500">Projects Completed</p>
+              <h4 class="text-4xl font-bold text-navy">98%</h4>
+              <p class="text-sm text-gray-500">Budget Adherence</p>
             </div>
           </div>
 
@@ -1454,19 +1451,14 @@
                 <i class="fas fa-tools"></i>
               </div>
               <h3 class="text-xl font-bold text-[#11224E] mb-2">
-                Quality Craftsmanship
+               Safety & Strategic Project Control
               </h3>
               <p class="text-gray-600 text-sm leading-relaxed mb-2">
-                We ensure superior workmanship and the highest standards of
-                quality in every stage of construction.
+            Our strong safety culture reflects a zero-compromise approach to workforce protection and operational integrity, supported by rigorous protocols and continuous monitoring.
               </p>
               <p class="text-gray-600 text-sm leading-relaxed mb-2">
                 Our dedicated team follows rigorous quality control protocols
                 that guarantee precision, durability, and aesthetic excellence.
-              </p>
-              <p class="text-gray-600 text-sm leading-relaxed">
-                Each project undergoes thorough inspection and client feedback
-                rounds, making sure our work exceeds expectations.
               </p>
             </div>
 
@@ -1475,8 +1467,8 @@
 
             <!-- Stats -->
             <div class="text-right">
-              <h4 class="text-4xl font-bold text-navy">800+</h4>
-              <p class="text-sm text-gray-500">Projects Completed</p>
+              <h4 class="text-4xl font-bold text-navy">30%</h4>
+              <p class="text-sm text-gray-500">Cost Optimization</p>
             </div>
           </div>
 
@@ -1501,20 +1493,13 @@
                 <i class="fas fa-hard-hat"></i>
               </div>
               <h3 class="text-xl font-bold text-[#11224E] mb-2">
-                Expertise & Experience
+               Efficient Delivery Excellence
               </h3>
               <p class="text-gray-600 text-sm leading-relaxed mb-2">
-                With decades of experience, our experts deliver safe and
-                reliable construction every single day.
+           With a strong base of in-house equipment, we maintain full control over project execution, ensuring faster deployment, reduced dependency on external vendors, and consistent quality across all sites.
               </p>
               <p class="text-gray-600 text-sm leading-relaxed mb-2">
-                Our professionals bring deep domain knowledge across
-                residential, commercial, and industrial projects — ensuring
-                tailored solutions.
-              </p>
-              <p class="text-gray-600 text-sm leading-relaxed">
-                The result is an unmatched combination of innovation and trust
-                built over years of successful collaborations.
+               Our proven track record with leading corporate clients further reinforces our reliability demonstrating our ability to deliver complex, large-scale projects with precision, professionalism, and long-term trust.
               </p>
             </div>
 
@@ -1523,8 +1508,8 @@
 
             <!-- Stats -->
             <div class="text-right">
-              <h4 class="text-4xl font-bold text-navy">800+</h4>
-              <p class="text-sm text-gray-500">Projects Completed</p>
+              <h4 class="text-4xl font-bold text-navy">50+</h4>
+              <p class="text-sm text-gray-500">Corporate Projects</p>
             </div>
           </div>
 
@@ -2063,95 +2048,90 @@
       });
 
       //header js
-      fetch("header.html")
-        .then((res) => res.text())
-        .then((data) => {
-          document.getElementById("header").innerHTML = data;
+        // Load header.html and then initialize header JS
+  fetch("header.html")
+    .then((res) => res.text())
+    .then((data) => {
+      document.getElementById("header").innerHTML = data;
 
-          // ✅ NOW your header JS runs safely AFTER load
-          const mobileMenuToggle =
-            document.getElementById("mobile-menu-toggle");
-          const mobileMenu = document.getElementById("mobile-menu");
-          const menuIcon = document.getElementById("menu-icon");
-          const mobilePlansToggle = document.getElementById(
-            "mobile-plans-toggle"
-          );
-          const mobilePlans = document.getElementById("mobile-plans");
-          const mobileServicesToggle = document.getElementById(
-            "mobile-services-toggle"
-          );
-          const mobileServices = document.getElementById("mobile-services");
+      // ✅ Elements
+      const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const menuIcon = document.getElementById("menu-icon");
 
-          // Toggle Mobile Menu
-          mobileMenuToggle?.addEventListener("click", () => {
-            mobileMenu.classList.toggle("open");
+      const mobileAboutToggle = document.getElementById("mobile-about-toggle");
+      const mobileAbout = document.getElementById("mobile-about");
+      const mobileSectorsToggle = document.getElementById("mobile-sectors-toggle");
+      const mobileSectors = document.getElementById("mobile-sectors");
 
-            if (mobileMenu.classList.contains("open")) {
-              menuIcon.classList.remove("fa-bars");
-              menuIcon.classList.add("fa-times");
-            } else {
-              menuIcon.classList.remove("fa-times");
-              menuIcon.classList.add("fa-bars");
+      // Toggle Mobile Menu
+      mobileMenuToggle?.addEventListener("click", () => {
+        mobileMenu.classList.toggle("open");
 
-              mobilePlans.classList.remove("open");
-              mobileServices.classList.remove("open");
-              mobilePlansToggle.classList.remove("active");
-              mobileServicesToggle.classList.remove("active");
-            }
-          });
+        if (mobileMenu.classList.contains("open")) {
+          menuIcon.classList.remove("fa-bars");
+          menuIcon.classList.add("fa-times");
+        } else {
+          menuIcon.classList.remove("fa-times");
+          menuIcon.classList.add("fa-bars");
 
-          // Toggle Mobile Plans
-          mobilePlansToggle?.addEventListener("click", () => {
-            mobilePlans.classList.toggle("open");
-            mobilePlansToggle.classList.toggle("active");
-
-            if (mobileServices.classList.contains("open")) {
-              mobileServices.classList.remove("open");
-              mobileServicesToggle.classList.remove("active");
-            }
-          });
-
-          // Toggle Mobile Services
-          mobileServicesToggle?.addEventListener("click", () => {
-            mobileServices.classList.toggle("open");
-            mobileServicesToggle.classList.toggle("active");
-
-            if (mobilePlans.classList.contains("open")) {
-              mobilePlans.classList.remove("open");
-              mobilePlansToggle.classList.remove("active");
-            }
-          });
-
-          // Close when clicking outside
-          document.addEventListener("click", function (event) {
-            if (!mobileMenu || !mobileMenuToggle) return;
-
-            const isClickInsideMenu = mobileMenu.contains(event.target);
-            const isClickOnToggle = mobileMenuToggle.contains(event.target);
-
-            if (
-              !isClickInsideMenu &&
-              !isClickOnToggle &&
-              mobileMenu.classList.contains("open")
-            ) {
-              mobileMenu.classList.remove("open");
-              menuIcon.classList.remove("fa-times");
-              menuIcon.classList.add("fa-bars");
-
-              mobilePlans.classList.remove("open");
-              mobileServices.classList.remove("open");
-              mobilePlansToggle.classList.remove("active");
-              mobileServicesToggle.classList.remove("active");
-            }
-          });
-        });
-
-      // Navbar scroll effect
-      window.addEventListener("scroll", () => {
-        document
-          .getElementById("navbar")
-          ?.classList.toggle("scrolled", window.scrollY > 50);
+          mobileAbout.classList.remove("open");
+          mobileSectors.classList.remove("open");
+          mobileAboutToggle.classList.remove("active");
+          mobileSectorsToggle.classList.remove("active");
+        }
       });
+
+      // Toggle Mobile About Dropdown
+      mobileAboutToggle?.addEventListener("click", () => {
+        mobileAbout.classList.toggle("open");
+        mobileAboutToggle.classList.toggle("active");
+
+        // Close Sectors if open
+        if (mobileSectors.classList.contains("open")) {
+          mobileSectors.classList.remove("open");
+          mobileSectorsToggle.classList.remove("active");
+        }
+      });
+
+      // Toggle Mobile Sectors Dropdown
+      mobileSectorsToggle?.addEventListener("click", () => {
+        mobileSectors.classList.toggle("open");
+        mobileSectorsToggle.classList.toggle("active");
+
+        // Close About if open
+        if (mobileAbout.classList.contains("open")) {
+          mobileAbout.classList.remove("open");
+          mobileAboutToggle.classList.remove("active");
+        }
+      });
+
+      // Close menu if clicked outside
+      document.addEventListener("click", function (event) {
+        if (!mobileMenu || !mobileMenuToggle) return;
+
+        const isClickInsideMenu = mobileMenu.contains(event.target);
+        const isClickOnToggle = mobileMenuToggle.contains(event.target);
+
+        if (!isClickInsideMenu && !isClickOnToggle && mobileMenu.classList.contains("open")) {
+          mobileMenu.classList.remove("open");
+          menuIcon.classList.remove("fa-times");
+          menuIcon.classList.add("fa-bars");
+
+          mobileAbout.classList.remove("open");
+          mobileSectors.classList.remove("open");
+          mobileAboutToggle.classList.remove("active");
+          mobileSectorsToggle.classList.remove("active");
+        }
+      });
+    });
+
+  // Navbar scroll effect
+  window.addEventListener("scroll", () => {
+    document
+      .getElementById("navbar")
+      ?.classList.toggle("scrolled", window.scrollY > 50);
+  });
     </script>
   </body>
 </html>
