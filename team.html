@@ -287,235 +287,195 @@
       </div>
     </section>
 
-    <!-- Pinterest Masonry Team Grid -->
-    <section id="team" class="py-16 md:py-24 responsive-container">
-      <div class="masonry">
-        <!-- Card 1 -->
-        <div class="masonry-item">
-          <div class="card">
-            <div
-              class="avatar"
-              style="background-image: url('images/krishnasir.png')"
-            ></div>
-            <div class="text-xs sm:text-sm text-gray-500 mono tracking-widest">01</div>
-            <h3 class="serif font-light mt-2 sm:mt-3 leading-tight text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-              Krishna <br />Pandya
-            </h3>
-            <p
-              class="mono text-xs uppercase tracking-widest text-blue-600 mt-3 sm:mt-4 mb-4 sm:mb-6"
-            >
-              CEO & Director
-            </p>
-            <p class="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
-              20+ years across GM International, Navistar USA, M&M, Essar Group
-            </p>
-            <div
-              class="member-full hidden mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-gray-300 text-gray-600 leading-relaxed text-sm sm:text-base"
-            >
-              His journey across multinational environments has shaped a
-              visionary mindset one that values innovation, discipline, and
-              purposeful growth.
-            </div>
-            <button
-              class="toggle-btn"
-            >
-              <i class="fas fa-plus text-sm sm:text-base lg:text-lg"></i>
-            </button>
-          </div>
-        </div>
+    <!-- Team Section -->
+ <style>
+  /* Ensure expanded content is closed by default and transitions smoothly */
+  #expand1, #expand2, #expand3, #expand4, #expand5, #expand6 {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 320ms ease;
+  }
 
-        <!-- Card 2 -->
-        <div class="masonry-item">
-          <div class="card">
-            <div
-              class="avatar"
-              style="background-image: url('images/yuvraj.png')"
-            ></div>
-            <div class="text-xs sm:text-sm text-gray-500 mt-8 sm:mt-10 mono tracking-widest">
-              02
-            </div>
-            <h3 class="serif font-light mt-2 leading-tight text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-              Yuvaraj<br />
-              Manickam
-            </h3>
-            <p
-              class="mono text-xs uppercase tracking-widest text-blue-600 mt-3 sm:mt-4 mb-4 sm:mb-6"
-            >
-              COO & Executive Director
-            </p>
-            <p class="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
-              With 24+ years of experience, he has delivered over 3 million sq.
-              ft. of industrial spaces with precision and consistency.
-            </p>
-            <div
-              class="member-full hidden mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-gray-300 text-gray-600 leading-relaxed text-sm sm:text-base"
-            >
-              A seasoned industry expert, he has led numerous large format
-              industrial projects, bringing structure, innovation, and
-              measurable results to every development.
-            </div>
-            <button
-              class="toggle-btn"
-            >
-              <i class="fas fa-plus text-sm sm:text-base lg:text-lg"></i>
-            </button>
-          </div>
-        </div>
+  /* Expand only the hovered card's own content */
+  #card1:hover #expand1,
+  #card1:focus-within #expand1 { max-height: 220px; }
 
-        <!-- Card 3 -->
-        <div class="masonry-item">
-          <div class="card">
-            <div
-              class="avatar"
-              style="background-image: url('images/ajaysir.png')"
-            ></div>
-            <div class="text-xs sm:text-sm text-gray-500 mono tracking-widest">03</div>
-            <h3 class="serif font-light mt-2 sm:mt-3 leading-tight text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-              Ajay<br />Thote
-            </h3>
-            <p
-              class="mono text-xs uppercase tracking-widest text-blue-600 mt-3 sm:mt-4 mb-4 sm:mb-6"
-            >
-              Executive Director
-            </p>
-            <p class="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
-              Expert in Industrial EPC, ensuring precise and efficient project
-              delivery.
-            </p>
-            <div
-              class="member-full hidden mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-gray-300 text-gray-600 leading-relaxed text-sm sm:text-base"
-            >
-              Recognized as an Industrial EPC expert, he brings strategic
-              insight and hands-on expertise to every project.
-            </div>
-            <button
-              class="toggle-btn"
-            >
-              <i class="fas fa-plus text-sm sm:text-base lg:text-lg"></i>
-            </button>
-          </div>
-        </div>
+  #card2:hover #expand2,
+  #card2:focus-within #expand2 { max-height: 220px; }
 
-        <!-- Card 4 -->
-        <div class="masonry-item">
-          <div class="card">
-            <div
-              class="avatar"
-              style="
-                background-image: url('https://images.unsplash.com/photo-1573496358961-3c5e3f8c9f5d?w=800&q=80');
-              "
-            ></div>
-            <div class="text-xs sm:text-sm text-gray-500 mono tracking-widest">04</div>
-            <h3 class="serif font-light mt-2 sm:mt-3 leading-tight text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-              Ravi<br />Bhegde
-            </h3>
-            <p
-              class="mono text-xs uppercase tracking-widest text-blue-600 mt-3 sm:mt-4 mb-4 sm:mb-6"
-            >
-              Executive Director (Strategy)
-            </p>
-            <p class="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
-              With extensive infrastructure and hospitality experience, he
-              leverages a strong stakeholder network.
-            </p>
-            <div
-              class="member-full hidden mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-gray-300 text-gray-600 leading-relaxed text-sm sm:text-base"
-            >
-              With extensive experience in infrastructure and hospitality, he is
-              known for building strong stakeholder relationships that enable
-              efficient execution.
-            </div>
-            <button
-              class="toggle-btn"
-            >
-              <i class="fas fa-plus text-sm sm:text-base lg:text-lg"></i>
-            </button>
-          </div>
-        </div>
+  #card3:hover #expand3,
+  #card3:focus-within #expand3 { max-height: 220px; }
 
-        <!-- Card 5 -->
-        <div class="masonry-item">
-          <div class="card">
-            <div
-              class="avatar"
-              style="
-                background-image: url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&q=80');
-              "
-            ></div>
-            <div class="text-xs sm:text-sm text-gray-500 mono tracking-widest">05</div>
-            <h3 class="serif font-light mt-2 sm:mt-3 leading-tight text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-              Parag<br />Mehta
-            </h3>
-            <p
-              class="mono text-xs uppercase tracking-widest text-blue-600 mt-3 sm:mt-4 mb-4 sm:mb-6"
-            >
-              Executive Director (Procurement)
-            </p>
-            <p class="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
-              An expert in global sourcing, he builds strong supplier networks
-              and optimizes supplychain efficiency.
-            </p>
-            <div
-              class="member-full hidden mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-gray-300 text-gray-600 leading-relaxed text-sm sm:text-base"
-            >
-              He brings strong global sourcing expertise shaped through key
-              roles across leading automotive and manufacturing organizations,
-              enabling efficient procurement and strategic vendor management.
-            </div>
-            <button
-              class="toggle-btn"
-            >
-              <i class="fas fa-plus text-sm sm:text-base lg:text-lg"></i>
-            </button>
-          </div>
-        </div>
+  #card4:hover #expand4,
+  #card4:focus-within #expand4 { max-height: 220px; }
 
-        <!-- Card 6 -->
-        <div class="masonry-item">
-          <div class="card">
-            <div
-              class="avatar"
-              style="background-image: url('images/sachin\ sir.png')"
-            ></div>
-            <div class="text-xs sm:text-sm text-gray-500 mono tracking-widest">06</div>
-            <h3 class="serif font-light mt-2 sm:mt-3 leading-tight text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-              Sachin<br />Pathe
-            </h3>
-            <p
-              class="mono text-xs uppercase tracking-widest text-blue-600 mt-3 sm:mt-4 mb-4 sm:mb-6"
-            >
-              Head of Business Development
-            </p>
-            <p class="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
-              With 20+ years in EPC, he has driven consistent growth and led
-              successful business expansion across India.
-            </p>
-            <div
-              class="member-full hidden mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-gray-300 text-gray-600 leading-relaxed text-sm sm:text-base"
-            >
-              An established EPC expert with deep experience in growth strategy
-              and national expansion.
+  #card5:hover #expand5,
+  #card5:focus-within #expand5 { max-height: 220px; }
+
+  #card6:hover #expand6,
+  #card6:focus-within #expand6 { max-height: 220px; }
+
+  /* Card base styles (keeps your existing visual look) */
+  .team-card {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 220ms ease, box-shadow 220ms ease;
+    overflow: hidden;
+  }
+  .team-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(59, 130, 246, 0.12);
+  }
+</style>
+
+<section id="team" class="-mt-12 py-12 md:py-16 bg-gradient-to-b from-white to-blue-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+
+      <!-- CARD 1 -->
+      <div id="card1" class="team-card">
+        <div class="flex gap-4 items-start p-6">
+          <div class="w-28 h-28 rounded-lg overflow-hidden flex-shrink-0">
+            <img src="images/krishnasir.png" alt="Krishna Pandya" class="w-full h-full object-cover">
+          </div>
+
+          <div class="flex-1">
+            <h3 class="text-xl font-bold text-gray-800 mb-1">Krishna Pandya</h3>
+            <p class="text-blue-600 font-semibold text-sm uppercase mb-2">CEO & Director</p>
+
+            <p class="text-gray-600 text-sm mb-2">20+ years across GM International, Navistar USA, M&M</p>
+
+            <div id="expand1" class="text-gray-700 text-sm">
+              <div class="w-12 h-0.5 bg-gradient-to-r from-blue-400 to-blue-200 mb-2"></div>
+              His journey across multinational environments has shaped a visionary mindset focused on innovation, discipline, and purposeful growth.
             </div>
-            <button
-              class="toggle-btn"
-            >
-              <i class="fas fa-plus text-sm sm:text-base lg:text-lg"></i>
-            </button>
           </div>
         </div>
       </div>
-    </section>
+
+      <!-- CARD 2 -->
+      <div id="card2" class="team-card">
+        <div class="flex gap-4 items-start p-6">
+          <div class="w-28 h-28 rounded-lg overflow-hidden flex-shrink-0">
+            <img src="images/yuvraj.png" alt="Yuvaraj Manickam" class="w-full h-full object-cover">
+          </div>
+
+          <div class="flex-1">
+            <h3 class="text-xl font-bold text-gray-800 mb-1">Yuvaraj Manickam</h3>
+            <p class="text-blue-600 font-semibold text-sm uppercase mb-2">COO & Executive Director</p>
+
+            <p class="text-gray-600 text-sm mb-2">24+ years delivering 3M+ sq.ft. of industrial spaces</p>
+
+            <div id="expand2" class="text-gray-700 text-sm">
+              <div class="w-12 h-0.5 bg-gradient-to-r from-blue-400 to-blue-200 mb-2"></div>
+              A seasoned industry expert who brings structure, innovation, and measurable results to every development.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div id="card3" class="team-card">
+        <div class="flex gap-4 items-start p-6">
+          <div class="w-28 h-28 rounded-lg overflow-hidden flex-shrink-0">
+            <img src="images/ajaysir.png" alt="Ajay Thote" class="w-full h-full object-cover">
+          </div>
+
+          <div class="flex-1">
+            <h3 class="text-xl font-bold text-gray-800 mb-1">Ajay Thote</h3>
+            <p class="text-blue-600 font-semibold text-sm uppercase mb-2">Executive Director</p>
+
+            <p class="text-gray-600 text-sm mb-2">Expert in Industrial EPC delivery</p>
+
+            <div id="expand3" class="text-gray-700 text-sm">
+              <div class="w-12 h-0.5 bg-gradient-to-r from-blue-400 to-blue-200 mb-2"></div>
+              Recognized as an Industrial EPC expert, bringing strategic insight and hands-on expertise to every project.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 4 -->
+      <div id="card4" class="team-card">
+        <div class="flex gap-4 items-start p-6">
+          <div class="w-28 h-28 rounded-lg overflow-hidden flex-shrink-0">
+            <img src="https://images.unsplash.com/photo-1573496358961-3c5e3f8c9f5d?w=800&q=80" alt="Ravi Bhegde" class="w-full h-full object-cover">
+          </div>
+
+          <div class="flex-1">
+            <h3 class="text-xl font-bold text-gray-800 mb-1">Ravi Bhegde</h3>
+            <p class="text-blue-600 font-semibold text-sm uppercase mb-2">Executive Director (Strategy)</p>
+
+            <p class="text-gray-600 text-sm mb-2">Extensive infrastructure & hospitality experience with strong stakeholder networks</p>
+
+            <div id="expand4" class="text-gray-700 text-sm">
+              <div class="w-12 h-0.5 bg-gradient-to-r from-blue-400 to-blue-200 mb-2"></div>
+              Known for building strong stakeholder relationships that enable efficient execution across infrastructure projects.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 5 -->
+      <div id="card5" class="team-card">
+        <div class="flex gap-4 items-start p-6">
+          <div class="w-28 h-28 rounded-lg overflow-hidden flex-shrink-0">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&q=80" alt="Parag Mehta" class="w-full h-full object-cover">
+          </div>
+
+          <div class="flex-1">
+            <h3 class="text-xl font-bold text-gray-800 mb-1">Parag Mehta</h3>
+            <p class="text-blue-600 font-semibold text-sm uppercase mb-2">Executive Director (Procurement)</p>
+
+            <p class="text-gray-600 text-sm mb-2">Global sourcing expert optimizing supply chain and vendor networks</p>
+
+            <div id="expand5" class="text-gray-700 text-sm">
+              <div class="w-12 h-0.5 bg-gradient-to-r from-blue-400 to-blue-200 mb-2"></div>
+              Brings strong global sourcing expertise shaped through key roles across leading automotive and manufacturing organizations.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 6 -->
+      <div id="card6" class="team-card">
+        <div class="flex gap-4 items-start p-6">
+          <div class="w-28 h-28 rounded-lg overflow-hidden flex-shrink-0">
+            <img src="images/sachin sir.png" alt="Sachin Pathe" class="w-full h-full object-cover">
+          </div>
+
+          <div class="flex-1">
+            <h3 class="text-xl font-bold text-gray-800 mb-1">Sachin Pathe</h3>
+            <p class="text-blue-600 font-semibold text-sm uppercase mb-2">Head of Business Development</p>
+
+            <p class="text-gray-600 text-sm mb-2">20+ years in EPC driving consistent growth and national expansion</p>
+
+            <div id="expand6" class="text-gray-700 text-sm">
+              <div class="w-12 h-0.5 bg-gradient-to-r from-blue-400 to-blue-200 mb-2"></div>
+              An established EPC expert with deep experience in growth strategy and national expansion across India.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
 
     <!-- Footer -->
      <footer
-      class="relative text-white py-8 md:py-10 overflow-hidden bg-gradient-to-b from-[#0A0F24] via-[#12306A] to-[#091526]"
+      class="relative text-white py-10 overflow-hidden bg-gradient-to-b from-[#0A0F24] via-[#12306A] to-[#091526]"
     >
-      <div class="container mx-auto responsive-container">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-4 md:mb-6">
+      <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
           <div class="lg:col-span-1">
-            <div class="flex items-center mb-3 md:mb-4">
+            <div class="flex items-center mb-4">
               <div
-                class="w-32 sm:w-40 md:w-48 h-16 sm:h-18 md:h-20 rounded-lg flex items-center justify-center overflow-hidden"
+                class="w-50 h-20 rounded-lg flex items-center justify-center overflow-hidden"
               >
                 <img
                   src="Images/logowhite.png"
@@ -524,7 +484,7 @@
                 />
               </div>
             </div>
-            <p class="text-gray-300 mb-3 md:mb-4 text-xs sm:text-sm leading-relaxed">
+            <p class="text-gray-300 mb-4 text-sm leading-relaxed">
               Building dreams, creating communities, and delivering excellence
               in Industrial development.
             </p>
@@ -532,37 +492,37 @@
               <a
                 href="https://www.facebook.com/prospectabuildx"
                 target="_blank"
-                class="w-8 sm:w-9 h-8 sm:h-9 bg-[#111936] rounded-lg flex items-center justify-center hover:bg-amber-400 hover:text-black transition-colors"
+                class="w-9 h-9 bg-[#111936] rounded-lg flex items-center justify-center hover:bg-amber-400 hover:text-black"
               >
-                <i class="fab fa-facebook-f text-xs sm:text-sm"></i>
+                <i class="fab fa-facebook-f"></i>
               </a>
 
               <a
                 href="https://www.instagram.com/prospectabuildx/"
                 target="_blank"
-                class="w-8 sm:w-9 h-8 sm:h-9 bg-[#111936] rounded-lg flex items-center justify-center hover:bg-amber-400 hover:text-black transition-colors"
+                class="w-9 h-9 bg-[#111936] rounded-lg flex items-center justify-center hover:bg-amber-400 hover:text-black"
               >
-                <i class="fab fa-instagram text-xs sm:text-sm"></i>
+                <i class="fab fa-instagram"></i>
               </a>
 
               <a
                 href="https://www.linkedin.com/company/prospectabuildx/"
                 target="_blank"
-                class="w-8 sm:w-9 h-8 sm:h-9 bg-[#111936] rounded-lg flex items-center justify-center hover:bg-amber-400 hover:text-black transition-colors"
+                class="w-9 h-9 bg-[#111936] rounded-lg flex items-center justify-center hover:bg-amber-400 hover:text-black"
               >
-                <i class="fab fa-linkedin-in text-xs sm:text-sm"></i>
+                <i class="fab fa-linkedin-in"></i>
               </a>
             </div>
           </div>
 
-          <div class="lg:col-span-1 grid grid-cols-2 gap-4 md:gap-6">
+          <div class="lg:col-span-1 grid grid-cols-2 gap-6">
             <div>
               <h3
-                class="text-sm sm:text-md font-bold mb-2 md:mb-3 text-white border-l-3 border-purple pl-2"
+                class="text-md font-bold mb-3 text-white border-l-3 border-purple pl-2"
               >
                 Explore
               </h3>
-              <ul class="space-y-1 md:space-y-2 text-xs sm:text-sm">
+              <ul class="space-y-2 text-sm">
                 <li>
                   <a href="index.html" class="text-gray-300 hover:text-gold"
                     >• Home</a
@@ -592,11 +552,11 @@
             </div>
             <div>
               <h3
-                class="text-sm sm:text-md font-bold mb-2 md:mb-3 text-white border-l-3 border-purple pl-2"
+                class="text-md font-bold mb-3 text-white border-l-3 border-purple pl-2"
               >
                 Sectors
               </h3>
-              <ul class="space-y-1 md:space-y-2 text-xs sm:text-sm">
+              <ul class="space-y-2 text-sm">
                 <li>
                   <a href="#" class="text-gray-300 hover:text-gold"
                     >• Residential</a
@@ -619,11 +579,6 @@
                 </li>
                 <li>
                   <a href="#" class="text-gray-300 hover:text-gold"
-                    >• Commercial</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="text-gray-300 hover:text-gold"
                     >• Public Infrastructure</a
                   >
                 </li>
@@ -632,20 +587,20 @@
           </div>
 
           <div
-            class="lg:col-span-1 bg-[#111936]/40 backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-white/10"
+            class="lg:col-span-1 bg-[#111936]/40 backdrop-blur-sm rounded-lg p-4 border border-white/10"
           >
             <h3
-              class="text-sm sm:text-md font-semibold mb-2 md:mb-3 text-white border-l-3 border-purple pl-2"
+              class="text-md font-semibold mb-3 text-white border-l-3 border-purple pl-2"
             >
               Contact
             </h3>
-            <div class="space-y-2 sm:space-y-3 text-xs sm:text-sm text-gray-200">
-              <div class="flex items-start">
-                <i class="fas fa-map-marker-alt mr-2 text-gray-200 mt-0.5"></i>
+            <div class="space-y-3 text-sm text-gray-200">
+              <div class="flex items-center">
+                <i class="fas fa-map-marker-alt mr-2 text-gray-200"></i>
                 <a
                   href="https://www.google.com/maps/place/C-803,+Amar+Business+Zone,+Baner,+Pune+411045"
                   target="_blank"
-                  class="hover:underline text-gray-200 leading-tight"
+                  class="hover:underline text-gray-200"
                 >
                   PUNE OFFICE - C-803, AMAR BUSINESS ZONE, BANER, PUNE-411045
                 </a>
@@ -674,14 +629,14 @@
           </div>
 
           <div
-            class="lg:col-span-1 bg-[#111936]/40 backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-white/10"
+            class="lg:col-span-1 bg-[#111936]/40 backdrop-blur-sm rounded-lg p-4 border border-white/10"
           >
             <h3
-              class="text-sm sm:text-md font-semibold mb-2 md:mb-3 text-white border-l-3 border-purple pl-2"
+              class="text-md font-semibold mb-3 text-white border-l-3 border-purple pl-2"
             >
               Hours
             </h3>
-            <div class="text-xs sm:text-sm space-y-1 text-gray-200">
+            <div class="text-sm space-y-1 text-gray-200">
               <p class="flex justify-between">
                 Mon - Fri <span class="text-gold font-medium">9AM - 6PM</span>
               </p>
@@ -696,10 +651,10 @@
         </div>
 
         <div
-          class="pt-3 md:pt-4 border-t border-white/10 flex flex-col md:flex-row justify-between text-xs text-gray-400"
+          class="pt-4 border-t border-white/10 flex flex-col md:flex-row justify-between text-xs text-gray-400"
         >
           <span>© 2025 Prospecta Build X. All rights reserved.</span>
-          <div class="flex gap-3 md:gap-4 mt-2 md:mt-0">
+          <div class="flex gap-4 mt-2 md:mt-0">
             <a href="#" class="hover:text-amber-400">Privacy</a>
             <a href="#" class="hover:text-amber-400">Terms</a>
             <a href="#" class="hover:text-amber-400">Sitemap</a>

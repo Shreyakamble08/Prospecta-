@@ -160,7 +160,7 @@
     <div id="header"></div>
 
     <!-- Professional Hero Section -->
-    <section class="gradient-bg py-16 md:py-24 relative overflow-hidden -mt-10">
+<section class="gradient-bg pt-12 md:pt-24 pb-6 relative overflow-hidden -mt-16">
       <!-- Background Elements -->
       <div
         class="absolute top-10 left-10 w-32 h-32 bg-navy-100 rounded-full animate-float opacity-20"
@@ -200,10 +200,11 @@
               individuals to help shape tomorrow's skyline.
             </p>
 
-            <div class="flex flex-col sm:flex-row gap-4">
+           <div class="flex flex-col sm:flex-row gap-4 mb-0">
+
               <button
                 id="view-positions"
-                class="bg-[#11224E] text-white px-8 py-3.5 rounded-xl font-semibold hover:bg-navy-800 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center group"
+                class="bg-[#11224E] text-white px-8 py-3 rounded-xl font-semibold hover:bg-navy-800 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center group"
               >
                 <i
                   class="fas fa-briefcase mr-3 group-hover:translate-x-1 transition-transform"
@@ -290,17 +291,119 @@
       </div>
     </section>
 
+
+    <!----------WHY CHOOSE US--------------------------->
+<section class="py-16 md:py-24 bg-gradient-to-br from-blue-100 via-white to-blue-50">
+  <div class="max-w-7xl mx-auto px-4 md:px-8">
+
+    <!-- Heading -->
+    <div class="mb-12 -mt-10  text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-[#1A2A4F]">
+        Life at Prospecta Build X
+      </h2>
+      <p class="text-gray-600 mt-3 max-w-2xl mx-auto">
+        Explore our vibrant work culture filled with learning, growth,
+        celebrations, and team bonding.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-10 items-start">
+
+      <!-- LEFT: Horizontal Scrolling Images -->
+      <div class="bg-white rounded-2xl overflow-hidden shadow-lg relative h-64 border border-blue-100">
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden">
+          <div class="flex animate-scroll-horizontal w-max">
+            <!-- Replace these 4 images later -->
+            <img src="images/career1.jpeg" class="h-64 w-auto object-cover" />
+            <img src="images/career2.jpeg" class="h-64 w-auto object-cover" />
+            <img src="images/career3.jpeg" class="h-64 w-auto object-cover" />
+            <img src="images/career4.jpeg" class="h-64 w-auto object-cover" />
+            <img src="images/career5.jpeg" class="h-64 w-auto object-cover" />
+            <img src="images/career6.jpeg" class="h-64 w-auto object-cover" />
+            <img src="images/career7.jpeg" class="h-64 w-auto object-cover" />
+
+            <!-- Duplicate for continuous loop -->
+           <img src="images/career1.jpeg" class="h-64 w-auto object-cover" />
+            <img src="images/career2.jpeg" class="h-64 w-auto object-cover" />
+            <img src="images/career3.jpeg" class="h-64 w-auto object-cover" />
+            <img src="images/career4.jpeg" class="h-64 w-auto object-cover" />
+            <img src="images/career5.jpeg" class="h-64 w-auto object-cover" />
+            <img src="images/career6.jpeg" class="h-64 w-auto object-cover" />
+            <img src="images/career7.jpeg" class="h-64 w-auto object-cover" />
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Vertical Auto Scroll Info (2 visible content cards) -->
+      <div class="h-64 overflow-hidden relative">
+        <div class="animate-scroll-vertical space-y-6">
+
+          <!-- Card 1 -->
+          <div class="bg-[#11224E] text-white p-6 rounded-xl shadow-md">
+            <h3 class="text-xl font-semibold mb-2">Team Celebrations</h3>
+            <p class="text-gray-200">
+              Monthly birthday events, festival celebrations, and fun team gatherings.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="bg-white border p-6 rounded-xl shadow-sm">
+            <h3 class="text-xl font-semibold text-[#1A2A4F] mb-2">Training & Workshops</h3>
+            <p class="text-gray-600">
+              Skill-building sessions for construction, design, and management domains.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="bg-[#11224E] text-white p-6 rounded-xl shadow-md">
+            <h3 class="text-xl font-semibold mb-2">Site Visits</h3>
+            <p class="text-gray-200">
+              Employees get hands-on learning through real project site experiences.
+            </p>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="bg-white border p-6 rounded-xl shadow-sm">
+            <h3 class="text-xl font-semibold text-[#1A2A4F] mb-2">Fun Activities</h3>
+            <p class="text-gray-600">
+              Team outings, competitions, and weekly engagement events.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Animations -->
+  <style>
+    /* Horizontal scrolling */
+    @keyframes scroll-horizontal {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-scroll-horizontal {
+      animation: scroll-horizontal 18s linear infinite;
+    }
+
+    /* Vertical scrolling — tuned for exactly 2 cards visible */
+    @keyframes scroll-vertical {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-50%); }
+    }
+    .animate-scroll-vertical {
+      animation: scroll-vertical 14s linear infinite;
+    }
+  </style>
+</section>
+
+
     <!-- Job Openings Section -->
-    <section id="open-positions" class="py-16 md:py-24 bg-white">
+    <section id="open-positions" class="py-16 -mt-14 md:py-24 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Section Header -->
         <div class="text-center mb-12 md:mb-16">
-          <div
-            class="inline-flex items-center px-4 py-2 bg-navy-50 text-[#1A2A4F] rounded-full text-sm font-light mb-4"
-          >
-            <i class="fas fa-briefcase mr-2"></i>
-            Current Opportunities
-          </div>
           <h2 class="text-4xl md:text-7xl font-medium text-[#1A2A4F] mb-4">
             Find Your Perfect Role
           </h2>
@@ -752,7 +855,7 @@
     </section>
 
     <!-- Professional Footer -->
-    <footer
+     <footer
       class="relative text-white py-10 overflow-hidden bg-gradient-to-b from-[#0A0F24] via-[#12306A] to-[#091526]"
     >
       <div class="container mx-auto px-4">
@@ -860,11 +963,6 @@
                 <li>
                   <a href="#" class="text-gray-300 hover:text-gold"
                     >• Institutional</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="text-gray-300 hover:text-gold"
-                    >• Commercial</a
                   >
                 </li>
                 <li>

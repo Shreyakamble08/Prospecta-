@@ -423,7 +423,8 @@
     </section>
 
     <!-- ABOUT SECTION -->
-    <section class="relative -mt-28 py-16 bg-gray-50 overflow-hidden">
+  <section class="relative -mt-36 py-16 bg-gray-50 overflow-hidden">
+
       <!-- BOTTOM BACKGROUND IMAGE ONLY -->
       <div
         class="absolute bottom-0 left-0 w-full h-[220px] bg-cover bg-center"
@@ -557,27 +558,30 @@
     </section>
 
     <!------------PROJECT SECTION --------------------->
-    <section class="py-16 bg-white overflow-hidden -mt-10">
+   <section class="pt-16 pb-4 bg-white overflow-hidden -mt-10">
+
       <div class="container mx-auto px-6">
         <!-- Compact Header -->
         <div
           class="flex flex-col lg:flex-row lg:items-end justify-between mb-12 border-b border-gray-200 pb-6"
         >
           <div>
-            <div class="text-xs text-gray-500 uppercase tracking-wider mb-2">
+            <div class="text-sm text-gray-500 uppercase tracking-wider mb-2">
               Our Work
             </div>
             <h2 class="text-3xl md:text-4xl font-light text-[#11224E]">
               Project <span class="font-bold">Portfolio</span>
             </h2>
           </div>
-          <p class="text-gray-600 text-xs mt-3 lg:mt-0">
-            Innovative projects that inspire and create impact.
-          </p>
+          <p class="text-gray-600 text-xs mt-3 lg:mt-0 lg:ml-[-10px]">
+  Innovative projects that inspire and create impact.
+</p>
+
         </div>
 
         <!-- Compact Auto-Scrolling Cards -->
-        <div class="relative">
+       <div class="relative -mt-10">
+
           <div class="flex gap-6 animate-autoscroll hover:pause-autoscroll">
             <div class="flex gap-6">
               <!-- Project Card 1 - Metro Rail -->
@@ -1562,9 +1566,10 @@
         </div>
 
         <!-- Cards -->
-        <div
-          class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 stagger-animation"
-        >
+       <div
+  class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 stagger-animation -mt-8"
+>
+
           <!-- Card 1 -->
           <div class="group card-hover">
             <div
@@ -1712,83 +1717,88 @@
     </section>
 
     <!--------- CLIENT SECTION -------------->
-    <section class="relative py-10 bg-white overflow-hidden">
-      <!-- Soft background image effect -->
-      <div
-        class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1920&h=1080&auto=format&fit=crop&q=20')] bg-cover bg-center opacity-5"
-      ></div>
+  <section class="relative py-10 bg-white overflow-hidden">
+  <!-- Soft background image effect -->
+  <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1920&h=1080&auto=format&fit=crop&q=20')] bg-cover bg-center opacity-5"></div>
 
-      <div class="relative max-w-7xl mx-auto px-8 md:px-12 lg:px-20">
-        <!-- Heading -->
-        <h2 class="text-5xl font-medium text-[#11224E] mb-6">Clientele</h2>
-        <p class="text-gray-600 max-w-md mb-10">
-          Clients who have been making <br />
-          our journey special
-        </p>
+  <div class="relative max-w-7xl mx-auto px-8 md:px-12 lg:px-20">
+    <h2 class="text-5xl font-medium text-[#11224E] mb-6">Our Clients</h2>
+    <p class="text-gray-600 max-w-md mb-10">
+      Clients who have been making <br /> our journey special
+    </p>
+    <div class="border-t border-gray-300 mb-12"></div>
 
-        <!-- Divider -->
-        <div class="border-t border-gray-300 mb-12"></div>
-
-        <div class="flex items-start justify-between gap-10">
-          <!-- Logos -->
-          <div class="w-full">
-            <div
-              class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-12 gap-y-16 items-center"
-            >
-              <img
-                src="images/client1.png"
-                class="h-16 object-contain mx-auto opacity-70 hover:opacity-100 transition-opacity"
-              />
-              <img
-                src="images/client2.png"
-                class="h-16 object-contain mx-auto opacity-70 hover:opacity-100 transition-opacity"
-              />
-              <img
-                src="images/client3.png"
-                class="h-16 object-contain mx-auto opacity-70 hover:opacity-100 transition-opacity"
-              />
-              <img
-                src="images/client4.png"
-                class="h-16 object-contain mx-auto opacity-70 hover:opacity-100 transition-opacity"
-              />
-              <img
-                src="images/client5.png"
-                class="h-16 object-contain mx-auto opacity-70 hover:opacity-100 transition-opacity"
-              />
-              <img
-                src="images/client6.png"
-                class="h-16 object-contain mx-auto opacity-70 hover:opacity-100 transition-opacity"
-              />
-
-              <img
-                src="images/client7.png"
-                class="h-16 object-contain mx-auto opacity-70 hover:opacity-100 transition-opacity"
-              />
-              <img
-                src="images/client8.png"
-                class="h-16 object-contain mx-auto opacity-70 hover:opacity-100 transition-opacity"
-              />
-              <img
-                src="images/client9.png"
-                class="h-16 object-contain mx-auto opacity-70 hover:opacity-100 transition-opacity"
-              />
-              <img
-                src="images/client1.png"
-                class="h-16 object-contain mx-auto opacity-70 hover:opacity-100 transition-opacity"
-              />
-              <img
-                src="images/client2.png"
-                class="h-16 object-contain mx-auto opacity-70 hover:opacity-100 transition-opacity"
-              />
-              <img
-                src="images/client3.png"
-                class="h-16 object-contain mx-auto opacity-70 hover:opacity-100 transition-opacity"
-              />
-            </div>
-          </div>
+    <!-- Marquee Container -->
+    <div class="relative overflow-hidden py-8">
+      <!-- Row 1 - Scrolls Left -->
+      <div class="flex animate-marquee-left whitespace-nowrap">
+        <!-- Duplicate the logos enough times to avoid gaps -->
+        <div class="flex gap-16 items-center px-8">
+          <!-- Repeat your logos (you can duplicate this block 2-3 times) -->
+          <img src="images/client1.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+          <img src="images/client2.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+          <img src="images/client3.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+          <img src="images/client4.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+          <img src="images/client5.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+          <img src="images/client6.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+          <img src="images/client7.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+          <img src="images/client8.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+          <img src="images/client9.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+          <!-- Duplicate set for seamless loop -->
+          <img src="images/client1.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+          <img src="images/client2.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+          <img src="images/client3.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
         </div>
       </div>
-    </section>
+
+      <!-- Row 2 - Scrolls Right (opposite direction) -->
+      <div class="flex animate-marquee-right whitespace-nowrap mt-12">
+        <div class="flex gap-16 items-center px-8">
+          <img src="images/client4.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+          <img src="images/client5.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+          <img src="images/client6.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+          <img src="images/client7.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+          <img src="images/client8.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+          <img src="images/client9.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+          <img src="images/client1.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+          <img src="images/client2.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+          <img src="images/client3.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+          <!-- Duplicate again -->
+          <img src="images/client4.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+          <img src="images/client5.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+          <img src="images/client6.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CSS Animations (add to your stylesheet or inside <style> tag) -->
+<style>
+  @keyframes marquee-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @keyframes marquee-right {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+
+  .animate-marquee-left {
+    animation: marquee-left 40s linear infinite;
+  }
+
+  .animate-marquee-right {
+    animation: marquee-right 45s linear infinite;
+  }
+
+  /* Optional: Pause on hover */
+  .animate-marquee-left:hover,
+  .animate-marquee-right:hover {
+    animation-play-state: paused;
+  }
+</style>
 
     <!-- FOOTER -->
     <footer
@@ -1899,11 +1909,6 @@
                 <li>
                   <a href="#" class="text-gray-300 hover:text-gold"
                     >• Institutional</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="text-gray-300 hover:text-gold"
-                    >• Commercial</a
                   >
                 </li>
                 <li>
