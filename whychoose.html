@@ -260,168 +260,295 @@
       </div>
     </section>
 
-    <!-- Gallery Navigation Tabs -->
-   <section class="py-10 bg-white -mt-12 md:-mt-10">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6">
-    <div
-      class="nav-tabs flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-3 sm:gap-6 md:gap-8"
+    <!----------WHY CHOOSE US--------------------------->
+    <section
+      class="py-16 md:py-24 bg-gradient-to-br from-blue-100 via-white to-blue-50"
     >
-      <button
-        class="tab-btn active w-full sm:w-auto flex items-center justify-center"
-        onclick="filterGallery('all')"
-      >
-        <i class="fas fa-th-large mr-2"></i> All Events
-      </button>
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <!-- Heading -->
+        <div class="mb-12 -mt-10 text-center">
+          <h2 class="text-3xl md:text-4xl font-bold text-[#1A2A4F]">
+            Life at Prospecta BuildX
+          </h2>
+          <p class="text-gray-600 mt-3 max-w-2xl mx-auto">
+            Explore our vibrant work culture filled with learning, growth,
+            celebrations, and team bonding.
+          </p>
+        </div>
 
-      <button
-        class="tab-btn w-full sm:w-auto flex items-center justify-center"
-        onclick="filterGallery('team')"
-      >
-        <i class="fas fa-users mr-2"></i> Team Events
-      </button>
+        <div class="grid md:grid-cols-2 gap-10 items-start">
+          <!-- LEFT: Horizontal Scrolling Images -->
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg relative h-64 border border-blue-100"
+          >
+            <div class="absolute top-0 left-0 w-full h-full overflow-hidden">
+              <div class="flex animate-scroll-horizontal w-max">
+                <!-- Replace these 4 images later -->
+                <img
+                  src="images/career1.jpeg"
+                  class="h-64 w-auto object-cover"
+                />
+                <img
+                  src="images/teamevent1.jpeg"
+                  class="h-64 w-auto object-cover"
+                />
+                <img
+                  src="images/teamevent2.png"
+                  class="h-64 w-auto object-cover"
+                />
+                <img
+                  src="images/Dinner.jpeg"
+                  class="h-64 w-auto object-cover"
+                />
+                <img
+                  src="images/career5.jpeg"
+                  class="h-64 w-auto object-cover"
+                />
+                <img src="images/3..jpeg" class="h-64 w-auto object-cover" />
+                <img
+                  src="images/health checkup.jpeg"
+                  class="h-64 w-auto object-cover"
+                />
 
-      <button
-        class="tab-btn w-full sm:w-auto flex items-center justify-center"
-        onclick="filterGallery('project')"
-      >
-        <i class="fas fa-building mr-2"></i> Project Milestones
-      </button>
+                <!-- Duplicate for continuous loop -->
+                <img
+                  src="images/career1.jpeg"
+                  class="h-64 w-auto object-cover"
+                />
+                <img
+                  src="images/teamevent1.jpeg"
+                  class="h-64 w-auto object-cover"
+                />
+                <img
+                  src="images/teamevent2.png"
+                  class="h-64 w-auto object-cover"
+                />
+                <img
+                  src="images/Dinner.jpeg"
+                  class="h-64 w-auto object-cover"
+                />
+                <img
+                  src="images/career5.jpeg"
+                  class="h-64 w-auto object-cover"
+                />
+                <img src="images/3..jpeg" class="h-64 w-auto object-cover" />
+                <img
+                  src="images/health checkup.jpeg"
+                  class="h-64 w-auto object-cover"
+                />
+              </div>
+            </div>
+          </div>
 
-      <button
-        class="tab-btn w-full sm:w-auto flex items-center justify-center"
-        onclick="filterGallery('safety')"
-      >
-        <i class="fas fa-hard-hat mr-2"></i> Safety & Training
-      </button>
+          <!-- RIGHT: Vertical Auto Scroll Info (2 visible content cards) -->
+          <div class="h-64 overflow-hidden relative">
+            <div class="animate-scroll-vertical space-y-6">
+              <!-- Card 1 -->
+              <div class="bg-[#11224E] text-white p-6 rounded-xl shadow-md">
+                <h3 class="text-xl font-semibold mb-2">Team Celebrations</h3>
+                <p class="text-gray-200">
+                  Monthly birthday events, festival celebrations, and fun team
+                  gatherings.
+                </p>
+              </div>
 
-      <button
-        class="tab-btn w-full sm:w-auto flex items-center justify-center"
-        onclick="filterGallery('awards')"
-      >
-        <i class="fas fa-trophy mr-2"></i> Awards & Recognition
-      </button>
-    </div>
-  </div>
-</section>
+              <!-- Card 2 -->
+              <div class="bg-white border p-6 rounded-xl shadow-sm">
+                <h3 class="text-xl font-semibold text-[#1A2A4F] mb-2">
+                  Training & Workshops
+                </h3>
+                <p class="text-gray-600">
+                  Skill-building sessions for construction, design, and
+                  management domains.
+                </p>
+              </div>
 
+              <!-- Card 3 -->
+              <div class="bg-[#11224E] text-white p-6 rounded-xl shadow-md">
+                <h3 class="text-xl font-semibold mb-2">Site Visits</h3>
+                <p class="text-gray-200">
+                  Employees get hands-on learning through real project site
+                  experiences.
+                </p>
+              </div>
+
+              <!-- Card 4 -->
+              <div class="bg-white border p-6 rounded-xl shadow-sm">
+                <h3 class="text-xl font-semibold text-[#1A2A4F] mb-2">
+                  Fun Activities
+                </h3>
+                <p class="text-gray-600">
+                  Team outings, competitions, and weekly engagement events.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Animations -->
+      <style>
+        /* Horizontal scrolling */
+        @keyframes scroll-horizontal {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        .animate-scroll-horizontal {
+          animation: scroll-horizontal 18s linear infinite;
+        }
+
+        /* Vertical scrolling — tuned for exactly 2 cards visible */
+        @keyframes scroll-vertical {
+          0% {
+            transform: translateY(0);
+          }
+          100% {
+            transform: translateY(-50%);
+          }
+        }
+        .animate-scroll-vertical {
+          animation: scroll-vertical 14s linear infinite;
+        }
+      </style>
+    </section>
+
+    <!-- Gallery Navigation Tabs -->
+    <!-- <section class="py-10 bg-white -mt-12 md:-mt-10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div
+          class="nav-tabs flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-3 sm:gap-6 md:gap-8"
+        >
+          <button
+            class="tab-btn active w-full sm:w-auto flex items-center justify-center"
+            onclick="filterGallery('all')"
+          >
+            <i class="fas fa-th-large mr-2"></i> All Events
+          </button>
+
+          <button
+            class="tab-btn w-full sm:w-auto flex items-center justify-center"
+            onclick="filterGallery('team')"
+          >
+            <i class="fas fa-users mr-2"></i> Team Events
+          </button>
+
+          <button
+            class="tab-btn w-full sm:w-auto flex items-center justify-center"
+            onclick="filterGallery('project')"
+          >
+            <i class="fas fa-building mr-2"></i> Project Milestones
+          </button>
+
+          <button
+            class="tab-btn w-full sm:w-auto flex items-center justify-center"
+            onclick="filterGallery('safety')"
+          >
+            <i class="fas fa-hard-hat mr-2"></i> Safety & Training
+          </button>
+
+          <button
+            class="tab-btn w-full sm:w-auto flex items-center justify-center"
+            onclick="filterGallery('awards')"
+          >
+            <i class="fas fa-trophy mr-2"></i> Awards & Recognition
+          </button>
+        </div>
+      </div>
+    </section> -->
 
     <!-- Gallery Grid -->
     <section class="py-8 bg-gray-50 -mt-10 md:-mt-16">
       <div class="max-w-7xl mx-auto px-6">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Card 1 -->
-          <div class="gallery-card bg-white shadow-lg" data-category="team">
+          <!-- Card 1 - Diwali Celebration -->
+          <div class="gallery-card bg-white shadow-lg">
             <div class="relative h-64 overflow-hidden">
               <img
-                src="images/annual team.png"
+                src="images/teamevent1.jpeg"
                 alt="Team Building"
                 class="w-full h-full object-cover cursor-pointer"
-                onclick="openLightbox(this.src, 'Annual Team Retreat 2025')"
+                onclick="openLightbox(this.src, 'Diwali Celebration 2025')"
               />
               <span class="event-tag absolute top-4 left-4">Team Event</span>
             </div>
             <div class="p-6">
               <div class="flex items-center justify-between mb-3">
                 <h3 class="text-xl font-bold text-gray-900">
-                  Annual Team Retreat 2025
+                  Diwali Celebration 2025
                 </h3>
                 <i
                   class="fas fa-external-link-alt text-blue-600 cursor-pointer hover:text-blue-800"
-                  onclick="openLightbox('images/annual team.png', 'Annual Team Retreat 2025')"
+                  onclick="openLightbox('images/teamevent1.jpeg', 'Diwali Celebration 2025')"
                 ></i>
               </div>
               <p class="text-gray-600 mb-4">
-                Two days of adventure, strategy sessions, and team bonding at
-                our annual retreat.
+                A day filled with festive celebrations, team bonding, and joyful
+                Diwali moments.
               </p>
               <div class="flex items-center text-sm text-gray-500">
                 <i class="far fa-calendar mr-2"></i>
-                <span>March 15-16, 2025</span>
-                <i class="far fa-image ml-4 mr-2"></i>
-                <span>24 Photos</span>
+                <span>October 2025</span>
               </div>
             </div>
             <div class="gallery-info">
               <h4 class="text-lg font-bold mb-2">Event Highlights</h4>
               <p class="text-blue-100 mb-3">
-                Team building activities, leadership workshops, and
-                unforgettable memories created.
+                A day filled with festive celebrations, team bonding, and joyful
+                Diwali moments.
               </p>
-              <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-white/20 rounded-full text-xs"
-                  >Adventure</span
-                >
-                <span class="px-3 py-1 bg-white/20 rounded-full text-xs"
-                  >Workshop</span
-                >
-                <span class="px-3 py-1 bg-white/20 rounded-full text-xs"
-                  >Networking</span
-                >
-              </div>
             </div>
           </div>
 
-          <!-- Card 2 -->
-          <div class="gallery-card bg-white shadow-lg" data-category="project">
+          <!-- Card 2 - Christmas Party -->
+          <div class="gallery-card bg-white shadow-lg">
             <div class="relative h-64 overflow-hidden">
               <img
-                src="images/towerhandover.png"
-                alt="Project Completion"
+                src="images/teamevent2.png"
+                alt="Christmas Party"
                 class="w-full h-full object-cover cursor-pointer"
-                onclick="openLightbox(this.src, 'Commercial Tower Handover')"
+                onclick="openLightbox(this.src, 'Christmas Party')"
               />
               <span
                 class="event-tag absolute top-4 left-4"
                 style="background: rgba(16, 185, 129, 0.1); color: #10b981"
-                >Project Milestone</span
+                >Christmas Party</span
               >
             </div>
             <div class="p-6">
               <div class="flex items-center justify-between mb-3">
-                <h3 class="text-xl font-bold text-gray-900">
-                  Commercial Tower Handover
-                </h3>
+                <h3 class="text-xl font-bold text-gray-900">Christmas Party</h3>
                 <i
                   class="fas fa-external-link-alt text-blue-600 cursor-pointer hover:text-blue-800"
-                  onclick="openLightbox('images/towerhandover.png', 'Commercial Tower Handover')"
+                  onclick="openLightbox('images/teamevent2.png', 'Christmas Party')"
                 ></i>
               </div>
               <p class="text-gray-600 mb-4">
-                Successful completion and handover ceremony of our landmark
-                commercial project.
+                Joyful Christmas celebrations and a memorable festive gathering
+                with our team.
               </p>
               <div class="flex items-center text-sm text-gray-500">
                 <i class="far fa-calendar mr-2"></i>
-                <span>January 28, 2025</span>
-                <i class="far fa-image ml-4 mr-2"></i>
-                <span>18 Photos</span>
+                <span>December, 2025</span>
               </div>
             </div>
             <div class="gallery-info">
-              <h4 class="text-lg font-bold mb-2">Project Details</h4>
+              <h4 class="text-lg font-bold mb-2">Christmas Party Details</h4>
               <p class="text-blue-100 mb-3">
-                45-story commercial tower delivered 2 weeks ahead of schedule
-                with zero safety incidents.
+                Joyful Christmas celebrations and a memorable festive gathering
+                with our team.
               </p>
-              <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-white/20 rounded-full text-xs"
-                  >Completion</span
-                >
-                <span class="px-3 py-1 bg-white/20 rounded-full text-xs"
-                  >Award</span
-                >
-                <span class="px-3 py-1 bg-white/20 rounded-full text-xs"
-                  >Excellence</span
-                >
-              </div>
             </div>
           </div>
 
-          <!-- Card 3 -->
-          <div class="gallery-card bg-white shadow-lg" data-category="safety">
+          <!-- Card 3 - Safety Week -->
+          <div class="gallery-card bg-white shadow-lg">
             <div class="relative h-64 overflow-hidden">
               <img
-                src="images/safetyweek.png"
+                src="images/safetyweek.jpeg"
                 alt="Safety Training"
                 class="w-full h-full object-cover cursor-pointer"
                 onclick="openLightbox(this.src, 'Safety Week 2025')"
@@ -448,33 +575,104 @@
               </p>
               <div class="flex items-center text-sm text-gray-500">
                 <i class="far fa-calendar mr-2"></i>
-                <span>February 10-14, 2025</span>
-                <i class="far fa-image ml-4 mr-2"></i>
-                <span>32 Photos</span>
+                <span>February 2025</span>
               </div>
             </div>
             <div class="gallery-info">
               <h4 class="text-lg font-bold mb-2">Safety Achievements</h4>
               <p class="text-blue-100 mb-3">
-                Record 500+ hours of safety training with certifications for all
+                Record 100+ hours of safety training with certifications for all
                 site workers.
               </p>
-              <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-white/20 rounded-full text-xs"
-                  >Training</span
-                >
-                <span class="px-3 py-1 bg-white/20 rounded-full text-xs"
-                  >Certification</span
-                >
-                <span class="px-3 py-1 bg-white/20 rounded-full text-xs"
-                  >Awareness</span
-                >
-              </div>
             </div>
           </div>
 
-          <!-- Card 4 -->
-          <div class="gallery-card bg-white shadow-lg" data-category="awards">
+          <!-- Card 4 - Annual Gala Dinner -->
+          <div class="gallery-card bg-white shadow-lg">
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="images/health checkup.jpeg"
+                alt="Team Dinner"
+                class="w-full h-full object-cover cursor-pointer"
+                onclick="openLightbox(this.src, 'Health Checkup Camp 2024')"
+              />
+              <span class="event-tag absolute top-4 left-4"
+                >health checkup camp</span
+              >
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl font-bold text-gray-900">
+                  Health Checkup Camp 2024
+                </h3>
+                <i
+                  class="fas fa-external-link-alt text-blue-600 cursor-pointer hover:text-blue-800"
+                  onclick="openLightbox('images/health checkup.jpeg', 'Health Checkup Camp 2024')"
+                ></i>
+              </div>
+              <p class="text-gray-600 mb-4">
+                Organizing a successful health camp, providing medical check-ups
+                and wellness guidance to our team and their families.
+              </p>
+              <div class="flex items-center text-sm text-gray-500">
+                <i class="far fa-calendar mr-2"></i>
+                <span>December, 2024</span>
+              </div>
+            </div>
+            <div class="gallery-info">
+              <h4 class="text-lg font-bold mb-2">Camp Highlights</h4>
+              <p class="text-blue-100 mb-3">
+                Organizing a successful health camp, providing medical check-ups
+                and wellness guidance to our team and their families.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 5 - Employee of the Month -->
+          <div class="gallery-card bg-white shadow-lg">
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="images/employee of month.jpeg"
+                alt="Employee of the Month"
+                class="w-full h-full object-cover cursor-pointer"
+                onclick="openLightbox(this.src, 'Employee of the Month')"
+              />
+              <span
+                class="event-tag absolute top-4 left-4"
+                style="background: rgba(16, 185, 129, 0.1); color: #10b981"
+                >Employee of the Month</span
+              >
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl font-bold text-gray-900">
+                  Employee of the Month
+                </h3>
+                <i
+                  class="fas fa-external-link-alt text-blue-600 cursor-pointer hover:text-blue-800"
+                  onclick="openLightbox('images/employee of month.jpeg', 'Employee of the Month')"
+                ></i>
+              </div>
+              <p class="text-gray-600 mb-4">
+                Recognizing outstanding performance and innovation in
+                construction excellence.
+              </p>
+              <div class="flex items-center text-sm text-gray-500">
+                <i class="far fa-calendar mr-2"></i>
+                <span>November, 2024</span>
+              </div>
+            </div>
+            <div class="gallery-info">
+              <h4 class="text-lg font-bold mb-2">Project Launch</h4>
+              <p class="text-blue-100 mb-3">
+                Recognizing outstanding performance and innovation in
+                construction excellence.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 6 - Excellence Awards -->
+          <div class="gallery-card bg-white shadow-lg">
             <div class="relative h-64 overflow-hidden">
               <img
                 src="images/excellenceaward.png"
@@ -524,114 +722,6 @@
                 >
                 <span class="px-3 py-1 bg-white/20 rounded-full text-xs"
                   >Recognition</span
-                >
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 5 -->
-          <div class="gallery-card bg-white shadow-lg" data-category="team">
-            <div class="relative h-64 overflow-hidden">
-              <img
-                src="images/dinner.png"
-                alt="Team Dinner"
-                class="w-full h-full object-cover cursor-pointer"
-                onclick="openLightbox(this.src, 'Annual Gala Dinner')"
-              />
-              <span class="event-tag absolute top-4 left-4">Team Event</span>
-            </div>
-            <div class="p-6">
-              <div class="flex items-center justify-between mb-3">
-                <h3 class="text-xl font-bold text-gray-900">
-                  Annual Gala Dinner
-                </h3>
-                <i
-                  class="fas fa-external-link-alt text-blue-600 cursor-pointer hover:text-blue-800"
-                  onclick="openLightbox('images/dinner.png', 'Annual Gala Dinner')"
-                ></i>
-              </div>
-              <p class="text-gray-600 mb-4">
-                Celebrating another successful year with our amazing team and
-                their families.
-              </p>
-              <div class="flex items-center text-sm text-gray-500">
-                <i class="far fa-calendar mr-2"></i>
-                <span>December 20, 2024</span>
-                <i class="far fa-image ml-4 mr-2"></i>
-                <span>45 Photos</span>
-              </div>
-            </div>
-            <div class="gallery-info">
-              <h4 class="text-lg font-bold mb-2">Celebration Highlights</h4>
-              <p class="text-blue-100 mb-3">
-                Annual appreciation event with awards, entertainment, and family
-                activities.
-              </p>
-              <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-white/20 rounded-full text-xs"
-                  >Celebration</span
-                >
-                <span class="px-3 py-1 bg-white/20 rounded-full text-xs"
-                  >Appreciation</span
-                >
-                <span class="px-3 py-1 bg-white/20 rounded-full text-xs"
-                  >Family</span
-                >
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 6 -->
-          <div class="gallery-card bg-white shadow-lg" data-category="project">
-            <div class="relative h-64 overflow-hidden">
-              <img
-                src="images/hospitalground.png"
-                alt="Ground Breaking"
-                class="w-full h-full object-cover cursor-pointer"
-                onclick="openLightbox(this.src, 'New Hospital Ground Breaking')"
-              />
-              <span
-                class="event-tag absolute top-4 left-4"
-                style="background: rgba(16, 185, 129, 0.1); color: #10b981"
-                >Project Milestone</span
-              >
-            </div>
-            <div class="p-6">
-              <div class="flex items-center justify-between mb-3">
-                <h3 class="text-xl font-bold text-gray-900">
-                  Hospital Ground Breaking
-                </h3>
-                <i
-                  class="fas fa-external-link-alt text-blue-600 cursor-pointer hover:text-blue-800"
-                  onclick="openLightbox('images/hospitalground.png', 'New Hospital Ground Breaking')"
-                ></i>
-              </div>
-              <p class="text-gray-600 mb-4">
-                Commencement ceremony for our new 300-bed multi-specialty
-                hospital project.
-              </p>
-              <div class="flex items-center text-sm text-gray-500">
-                <i class="far fa-calendar mr-2"></i>
-                <span>November 5, 2024</span>
-                <i class="far fa-image ml-4 mr-2"></i>
-                <span>22 Photos</span>
-              </div>
-            </div>
-            <div class="gallery-info">
-              <h4 class="text-lg font-bold mb-2">Project Launch</h4>
-              <p class="text-blue-100 mb-3">
-                Official start of 300-bed hospital project with government
-                dignitaries in attendance.
-              </p>
-              <div class="flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-white/20 rounded-full text-xs"
-                  >Healthcare</span
-                >
-                <span class="px-3 py-1 bg-white/20 rounded-full text-xs"
-                  >Inauguration</span
-                >
-                <span class="px-3 py-1 bg-white/20 rounded-full text-xs"
-                  >Milestone</span
                 >
               </div>
             </div>

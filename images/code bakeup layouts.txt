@@ -1,0 +1,308 @@
+ <section class="py-8 bg-gray-50 -mt-10 md:-mt-16">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Card 1 -->
+          <div class="gallery-card bg-white shadow-lg" data-category="team">
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="images/teamevent1.jpeg"
+                alt="Team Building"
+                class="w-full h-full object-cover cursor-pointer"
+                onclick="openLightbox(this.src, 'Diwali Celebration 2025')"
+              />
+              <span class="event-tag absolute top-4 left-4">Team Event</span>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl font-bold text-gray-900">
+                  Diwali Celebration 2025
+                </h3>
+                <i
+                  class="fas fa-external-link-alt text-blue-600 cursor-pointer hover:text-blue-800"
+                  onclick="openLightbox('images/teamevent1.jpeg', 'Diwali Celebration 2025')"
+                ></i>
+              </div>
+              <p class="text-gray-600 mb-4">
+                A day filled with festive celebrations, team bonding, and joyful
+                Diwali moments.
+              </p>
+              <div class="flex items-center text-sm text-gray-500">
+                <i class="far fa-calendar mr-2"></i>
+                <span>October 2025</span>
+              </div>
+            </div>
+            <div class="gallery-info">
+              <h4 class="text-lg font-bold mb-2">Event Highlights</h4>
+              <p class="text-blue-100 mb-3">
+                A day filled with festive celebrations, team bonding, and joyful
+                Diwali moments.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="gallery-card bg-white shadow-lg" data-category="project">
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="images/teamevent2.png"
+                alt="Christmas Party"
+                class="w-full h-full object-cover cursor-pointer"
+                onclick="openLightbox(this.src, 'Christmas Party')"
+              />
+              <span
+                class="event-tag absolute top-4 left-4"
+                style="background: rgba(16, 185, 129, 0.1); color: #10b981"
+                >Christmas Party</span
+              >
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl font-bold text-gray-900">
+                  Christmas Party
+                </h3>
+                <i
+                  class="fas fa-external-link-alt text-blue-600 cursor-pointer hover:text-blue-800"
+                  onclick="openLightbox('images/teamevent2.png', 'Christmas Party')"
+                ></i>
+              </div>
+              <p class="text-gray-600 mb-4">
+            Joyful Christmas celebrations and a memorable festive gathering with our team.
+              </p>
+              <div class="flex items-center text-sm text-gray-500">
+                <i class="far fa-calendar mr-2"></i>
+                <span>December, 2025</span>
+              </div>
+            </div>
+            <div class="gallery-info">
+              <h4 class="text-lg font-bold mb-2">Christmas Party Details</h4>
+              <p class="text-blue-100 mb-3">
+                    Joyful Christmas celebrations and a memorable festive gathering with our team.
+              </p>
+
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="gallery-card bg-white shadow-lg" data-category="safety">
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="images/safetyweek.png"
+                alt="Safety Training"
+                class="w-full h-full object-cover cursor-pointer"
+                onclick="openLightbox(this.src, 'Safety Week 2025')"
+              />
+              <span
+                class="event-tag absolute top-4 left-4"
+                style="background: rgba(245, 158, 11, 0.1); color: #f59e0b"
+                >Safety Event</span
+              >
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl font-bold text-gray-900">
+                  Safety Week 2025
+                </h3>
+                <i
+                  class="fas fa-external-link-alt text-blue-600 cursor-pointer hover:text-blue-800"
+                  onclick="openLightbox('images/safetyweek.png', 'Safety Week 2025')"
+                ></i>
+              </div>
+              <p class="text-gray-600 mb-4">
+                Comprehensive safety training and awareness program across all
+                project sites.
+              </p>
+              <div class="flex items-center text-sm text-gray-500">
+                <i class="far fa-calendar mr-2"></i>
+                <span>February 10-14, 2025</span>
+                <i class="far fa-image ml-4 mr-2"></i>
+                <span>32 Photos</span>
+              </div>
+            </div>
+            <div class="gallery-info">
+              <h4 class="text-lg font-bold mb-2">Safety Achievements</h4>
+              <p class="text-blue-100 mb-3">
+                Record 500+ hours of safety training with certifications for all
+                site workers.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-white/20 rounded-full text-xs"
+                  >Training</span
+                >
+                <span class="px-3 py-1 bg-white/20 rounded-full text-xs"
+                  >Certification</span
+                >
+                <span class="px-3 py-1 bg-white/20 rounded-full text-xs"
+                  >Awareness</span
+                >
+              </div>
+            </div>
+          </div>
+
+      
+          <!-- Card 5 -->
+          <div class="gallery-card bg-white shadow-lg" data-category="team">
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="images/dinner.png"
+                alt="Team Dinner"
+                class="w-full h-full object-cover cursor-pointer"
+                onclick="openLightbox(this.src, 'Annual Gala Dinner')"
+              />
+              <span class="event-tag absolute top-4 left-4">Team Event</span>
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl font-bold text-gray-900">
+                  Annual Gala Dinner
+                </h3>
+                <i
+                  class="fas fa-external-link-alt text-blue-600 cursor-pointer hover:text-blue-800"
+                  onclick="openLightbox('images/dinner.png', 'Annual Gala Dinner')"
+                ></i>
+              </div>
+              <p class="text-gray-600 mb-4">
+                Celebrating another successful year with our amazing team and
+                their families.
+              </p>
+              <div class="flex items-center text-sm text-gray-500">
+                <i class="far fa-calendar mr-2"></i>
+                <span>December 20, 2024</span>
+                <i class="far fa-image ml-4 mr-2"></i>
+                <span>45 Photos</span>
+              </div>
+            </div>
+            <div class="gallery-info">
+              <h4 class="text-lg font-bold mb-2">Celebration Highlights</h4>
+              <p class="text-blue-100 mb-3">
+                Annual appreciation event with awards, entertainment, and family
+                activities.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-white/20 rounded-full text-xs"
+                  >Celebration</span
+                >
+                <span class="px-3 py-1 bg-white/20 rounded-full text-xs"
+                  >Appreciation</span
+                >
+                <span class="px-3 py-1 bg-white/20 rounded-full text-xs"
+                  >Family</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="gallery-card bg-white shadow-lg" data-category="project">
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="images/hospitalground.png"
+                alt="Ground Breaking"
+                class="w-full h-full object-cover cursor-pointer"
+                onclick="openLightbox(this.src, 'New Hospital Ground Breaking')"
+              />
+              <span
+                class="event-tag absolute top-4 left-4"
+                style="background: rgba(16, 185, 129, 0.1); color: #10b981"
+                >Project Milestone</span
+              >
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl font-bold text-gray-900">
+                  Hospital Ground Breaking
+                </h3>
+                <i
+                  class="fas fa-external-link-alt text-blue-600 cursor-pointer hover:text-blue-800"
+                  onclick="openLightbox('images/hospitalground.png', 'New Hospital Ground Breaking')"
+                ></i>
+              </div>
+              <p class="text-gray-600 mb-4">
+                Commencement ceremony for our new 300-bed multi-specialty
+                hospital project.
+              </p>
+              <div class="flex items-center text-sm text-gray-500">
+                <i class="far fa-calendar mr-2"></i>
+                <span>November 5, 2024</span>
+                <i class="far fa-image ml-4 mr-2"></i>
+                <span>22 Photos</span>
+              </div>
+            </div>
+            <div class="gallery-info">
+              <h4 class="text-lg font-bold mb-2">Project Launch</h4>
+              <p class="text-blue-100 mb-3">
+                Official start of 300-bed hospital project with government
+                dignitaries in attendance.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-white/20 rounded-full text-xs"
+                  >Healthcare</span
+                >
+                <span class="px-3 py-1 bg-white/20 rounded-full text-xs"
+                  >Inauguration</span
+                >
+                <span class="px-3 py-1 bg-white/20 rounded-full text-xs"
+                  >Milestone</span
+                >
+              </div>
+            </div>
+          </div>
+
+            <!-- Card 4 -->
+          <div class="gallery-card bg-white shadow-lg" data-category="awards">
+            <div class="relative h-64 overflow-hidden">
+              <img
+                src="images/excellenceaward.png"
+                alt="Award Ceremony"
+                class="w-full h-full object-cover cursor-pointer"
+                onclick="openLightbox(this.src, 'Excellence Awards 2024')"
+              />
+              <span
+                class="event-tag absolute top-4 left-4"
+                style="background: rgba(168, 85, 247, 0.1); color: #a855f7"
+                >Award Ceremony</span
+              >
+            </div>
+            <div class="p-6">
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl font-bold text-gray-900">
+                  Excellence Awards 2024
+                </h3>
+                <i
+                  class="fas fa-external-link-alt text-blue-600 cursor-pointer hover:text-blue-800"
+                  onclick="openLightbox('images/excellenceaward.png', 'Excellence Awards 2024')"
+                ></i>
+              </div>
+              <p class="text-gray-600 mb-4">
+                Recognizing outstanding performance and innovation in
+                construction excellence.
+              </p>
+              <div class="flex items-center text-sm text-gray-500">
+                <i class="far fa-calendar mr-2"></i>
+                <span>December 15, 2024</span>
+                <i class="far fa-image ml-4 mr-2"></i>
+                <span>28 Photos</span>
+              </div>
+            </div>
+            <div class="gallery-info">
+              <h4 class="text-lg font-bold mb-2">Awards Received</h4>
+              <p class="text-blue-100 mb-3">
+                5 prestigious awards including Best Construction Project and
+                Safety Excellence.
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-white/20 rounded-full text-xs"
+                  >Excellence</span
+                >
+                <span class="px-3 py-1 bg-white/20 rounded-full text-xs"
+                  >Innovation</span
+                >
+                <span class="px-3 py-1 bg-white/20 rounded-full text-xs"
+                  >Recognition</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+---------------------------------------------gallery layout---------------------------------------------------------------------------

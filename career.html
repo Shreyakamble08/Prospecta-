@@ -160,7 +160,9 @@
     <div id="header"></div>
 
     <!-- Professional Hero Section -->
-<section class="gradient-bg pt-12 md:pt-24 pb-6 relative overflow-hidden -mt-16">
+    <section
+      class="gradient-bg pt-12 md:pt-24 pb-6 relative overflow-hidden -mt-16"
+    >
       <!-- Background Elements -->
       <div
         class="absolute top-10 left-10 w-32 h-32 bg-navy-100 rounded-full animate-float opacity-20"
@@ -200,8 +202,7 @@
               individuals to help shape tomorrow's skyline.
             </p>
 
-           <div class="flex flex-col sm:flex-row gap-4 mb-0">
-
+            <div class="flex flex-col sm:flex-row gap-4 mb-0">
               <button
                 id="view-positions"
                 class="bg-[#11224E] text-white px-8 py-3 rounded-xl font-semibold hover:bg-navy-800 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center group"
@@ -241,7 +242,9 @@
                   <div
                     class="w-14 h-14 rounded-xl bg-[#E8ECF7] flex items-center justify-center"
                   >
-                    <i class="fas fa-map-marker-alt text-2xl text-[#1A2A4F]"></i>
+                    <i
+                      class="fas fa-map-marker-alt text-2xl text-[#1A2A4F]"
+                    ></i>
                   </div>
 
                   <!-- Text -->
@@ -281,7 +284,9 @@
                   </div>
                   <div>
                     <div class="text-3xl font-bold text-[#1A2A4F]">25%</div>
-                    <div class="text-sm text-gray-600">Annual Team Expansion</div>
+                    <div class="text-sm text-gray-600">
+                      Annual Team Expansion
+                    </div>
                   </div>
                 </div>
               </div>
@@ -290,114 +295,6 @@
         </div>
       </div>
     </section>
-
-
-    <!----------WHY CHOOSE US--------------------------->
-<section class="py-16 md:py-24 bg-gradient-to-br from-blue-100 via-white to-blue-50">
-  <div class="max-w-7xl mx-auto px-4 md:px-8">
-
-    <!-- Heading -->
-    <div class="mb-12 -mt-10  text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-[#1A2A4F]">
-        Life at Prospecta BuildX
-      </h2>
-      <p class="text-gray-600 mt-3 max-w-2xl mx-auto">
-        Explore our vibrant work culture filled with learning, growth,
-        celebrations, and team bonding.
-      </p>
-    </div>
-
-    <div class="grid md:grid-cols-2 gap-10 items-start">
-
-      <!-- LEFT: Horizontal Scrolling Images -->
-      <div class="bg-white rounded-2xl overflow-hidden shadow-lg relative h-64 border border-blue-100">
-        <div class="absolute top-0 left-0 w-full h-full overflow-hidden">
-          <div class="flex animate-scroll-horizontal w-max">
-            <!-- Replace these 4 images later -->
-            <img src="images/career1.jpeg" class="h-64 w-auto object-cover" />
-            <img src="images/career2.jpeg" class="h-64 w-auto object-cover" />
-            <img src="images/career3.jpeg" class="h-64 w-auto object-cover" />
-            <img src="images/career4.jpeg" class="h-64 w-auto object-cover" />
-            <img src="images/career5.jpeg" class="h-64 w-auto object-cover" />
-            <img src="images/career6.jpeg" class="h-64 w-auto object-cover" />
-            <img src="images/career7.jpeg" class="h-64 w-auto object-cover" />
-
-            <!-- Duplicate for continuous loop -->
-           <img src="images/career1.jpeg" class="h-64 w-auto object-cover" />
-            <img src="images/career2.jpeg" class="h-64 w-auto object-cover" />
-            <img src="images/career3.jpeg" class="h-64 w-auto object-cover" />
-            <img src="images/career4.jpeg" class="h-64 w-auto object-cover" />
-            <img src="images/career5.jpeg" class="h-64 w-auto object-cover" />
-            <img src="images/career6.jpeg" class="h-64 w-auto object-cover" />
-            <img src="images/career7.jpeg" class="h-64 w-auto object-cover" />
-          </div>
-        </div>
-      </div>
-
-      <!-- RIGHT: Vertical Auto Scroll Info (2 visible content cards) -->
-      <div class="h-64 overflow-hidden relative">
-        <div class="animate-scroll-vertical space-y-6">
-
-          <!-- Card 1 -->
-          <div class="bg-[#11224E] text-white p-6 rounded-xl shadow-md">
-            <h3 class="text-xl font-semibold mb-2">Team Celebrations</h3>
-            <p class="text-gray-200">
-              Monthly birthday events, festival celebrations, and fun team gatherings.
-            </p>
-          </div>
-
-          <!-- Card 2 -->
-          <div class="bg-white border p-6 rounded-xl shadow-sm">
-            <h3 class="text-xl font-semibold text-[#1A2A4F] mb-2">Training & Workshops</h3>
-            <p class="text-gray-600">
-              Skill-building sessions for construction, design, and management domains.
-            </p>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="bg-[#11224E] text-white p-6 rounded-xl shadow-md">
-            <h3 class="text-xl font-semibold mb-2">Site Visits</h3>
-            <p class="text-gray-200">
-              Employees get hands-on learning through real project site experiences.
-            </p>
-          </div>
-
-          <!-- Card 4 -->
-          <div class="bg-white border p-6 rounded-xl shadow-sm">
-            <h3 class="text-xl font-semibold text-[#1A2A4F] mb-2">Fun Activities</h3>
-            <p class="text-gray-600">
-              Team outings, competitions, and weekly engagement events.
-            </p>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- Animations -->
-  <style>
-    /* Horizontal scrolling */
-    @keyframes scroll-horizontal {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    .animate-scroll-horizontal {
-      animation: scroll-horizontal 18s linear infinite;
-    }
-
-    /* Vertical scrolling — tuned for exactly 2 cards visible */
-    @keyframes scroll-vertical {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(-50%); }
-    }
-    .animate-scroll-vertical {
-      animation: scroll-vertical 14s linear infinite;
-    }
-  </style>
-</section>
-
 
     <!-- Job Openings Section -->
     <section id="open-positions" class="py-16 -mt-14 md:py-24 bg-white">
@@ -855,7 +752,7 @@
     </section>
 
     <!-- Professional Footer -->
-     <footer
+    <footer
       class="relative text-white py-10 overflow-hidden bg-gradient-to-b from-[#0A0F24] via-[#12306A] to-[#091526]"
     >
       <div class="container mx-auto px-4">
@@ -1164,150 +1061,161 @@
       });
 
       //header script
-       // Load header.html and then initialize header JS
- fetch("header.html")
-    .then((res) => res.text())
-    .then((data) => {
-      document.getElementById("header").innerHTML = data;
+      // Load header.html and then initialize header JS
+      fetch("header.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("header").innerHTML = data;
 
-      // ✅ Elements
-      const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
-      const mobileMenu = document.getElementById("mobile-menu");
-      const menuIcon = document.getElementById("menu-icon");
+          // ✅ Elements
+          const mobileMenuToggle =
+            document.getElementById("mobile-menu-toggle");
+          const mobileMenu = document.getElementById("mobile-menu");
+          const menuIcon = document.getElementById("menu-icon");
 
-      const mobileAboutToggle = document.getElementById("mobile-about-toggle");
-      const mobileAbout = document.getElementById("mobile-about");
-      const mobileSectorsToggle = document.getElementById("mobile-sectors-toggle");
-      const mobileSectors = document.getElementById("mobile-sectors");
-      const mobileCareersToggle = document.getElementById("mobile-careers-toggle");
-      const mobileCareers = document.getElementById("mobile-careers");
+          const mobileAboutToggle = document.getElementById(
+            "mobile-about-toggle"
+          );
+          const mobileAbout = document.getElementById("mobile-about");
+          const mobileSectorsToggle = document.getElementById(
+            "mobile-sectors-toggle"
+          );
+          const mobileSectors = document.getElementById("mobile-sectors");
+          const mobileCareersToggle = document.getElementById(
+            "mobile-careers-toggle"
+          );
+          const mobileCareers = document.getElementById("mobile-careers");
 
-      // Function to close all mobile dropdowns
-      function closeAllMobileDropdowns() {
-        mobileAbout?.classList.remove("open");
-        mobileSectors?.classList.remove("open");
-        mobileCareers?.classList.remove("open");
-        mobileAboutToggle?.classList.remove("active");
-        mobileSectorsToggle?.classList.remove("active");
-        mobileCareersToggle?.classList.remove("active");
-      }
-
-      // Toggle Mobile Menu
-      mobileMenuToggle?.addEventListener("click", (e) => {
-        e.stopPropagation();
-        mobileMenu.classList.toggle("open");
-
-        if (mobileMenu.classList.contains("open")) {
-          menuIcon.classList.remove("fa-bars");
-          menuIcon.classList.add("fa-times");
-        } else {
-          menuIcon.classList.remove("fa-times");
-          menuIcon.classList.add("fa-bars");
-          closeAllMobileDropdowns();
-        }
-      });
-
-      // Toggle Mobile About Dropdown
-      mobileAboutToggle?.addEventListener("click", (e) => {
-        e.stopPropagation();
-        mobileAbout.classList.toggle("open");
-        mobileAboutToggle.classList.toggle("active");
-
-        // Close other dropdowns if open
-        if (mobileAbout.classList.contains("open")) {
-          mobileSectors?.classList.remove("open");
-          mobileCareers?.classList.remove("open");
-          mobileSectorsToggle?.classList.remove("active");
-          mobileCareersToggle?.classList.remove("active");
-        }
-      });
-
-      // Toggle Mobile Sectors Dropdown
-      mobileSectorsToggle?.addEventListener("click", (e) => {
-        e.stopPropagation();
-        mobileSectors.classList.toggle("open");
-        mobileSectorsToggle.classList.toggle("active");
-
-        // Close other dropdowns if open
-        if (mobileSectors.classList.contains("open")) {
-          mobileAbout?.classList.remove("open");
-          mobileCareers?.classList.remove("open");
-          mobileAboutToggle?.classList.remove("active");
-          mobileCareersToggle?.classList.remove("active");
-        }
-      });
-
-      // Toggle Mobile Careers Dropdown (NEW)
-      mobileCareersToggle?.addEventListener("click", (e) => {
-        e.stopPropagation();
-        mobileCareers.classList.toggle("open");
-        mobileCareersToggle.classList.toggle("active");
-
-        // Close other dropdowns if open
-        if (mobileCareers.classList.contains("open")) {
-          mobileAbout?.classList.remove("open");
-          mobileSectors?.classList.remove("open");
-          mobileAboutToggle?.classList.remove("active");
-          mobileSectorsToggle?.classList.remove("active");
-        }
-      });
-
-      // Close mobile dropdowns when clicking on links inside them
-      document.querySelectorAll('.mobile-dropdown a').forEach(link => {
-        link.addEventListener('click', () => {
-          closeAllMobileDropdowns();
-          mobileMenu?.classList.remove("open");
-          if (menuIcon) {
-            menuIcon.classList.remove("fa-times");
-            menuIcon.classList.add("fa-bars");
+          // Function to close all mobile dropdowns
+          function closeAllMobileDropdowns() {
+            mobileAbout?.classList.remove("open");
+            mobileSectors?.classList.remove("open");
+            mobileCareers?.classList.remove("open");
+            mobileAboutToggle?.classList.remove("active");
+            mobileSectorsToggle?.classList.remove("active");
+            mobileCareersToggle?.classList.remove("active");
           }
+
+          // Toggle Mobile Menu
+          mobileMenuToggle?.addEventListener("click", (e) => {
+            e.stopPropagation();
+            mobileMenu.classList.toggle("open");
+
+            if (mobileMenu.classList.contains("open")) {
+              menuIcon.classList.remove("fa-bars");
+              menuIcon.classList.add("fa-times");
+            } else {
+              menuIcon.classList.remove("fa-times");
+              menuIcon.classList.add("fa-bars");
+              closeAllMobileDropdowns();
+            }
+          });
+
+          // Toggle Mobile About Dropdown
+          mobileAboutToggle?.addEventListener("click", (e) => {
+            e.stopPropagation();
+            mobileAbout.classList.toggle("open");
+            mobileAboutToggle.classList.toggle("active");
+
+            // Close other dropdowns if open
+            if (mobileAbout.classList.contains("open")) {
+              mobileSectors?.classList.remove("open");
+              mobileCareers?.classList.remove("open");
+              mobileSectorsToggle?.classList.remove("active");
+              mobileCareersToggle?.classList.remove("active");
+            }
+          });
+
+          // Toggle Mobile Sectors Dropdown
+          mobileSectorsToggle?.addEventListener("click", (e) => {
+            e.stopPropagation();
+            mobileSectors.classList.toggle("open");
+            mobileSectorsToggle.classList.toggle("active");
+
+            // Close other dropdowns if open
+            if (mobileSectors.classList.contains("open")) {
+              mobileAbout?.classList.remove("open");
+              mobileCareers?.classList.remove("open");
+              mobileAboutToggle?.classList.remove("active");
+              mobileCareersToggle?.classList.remove("active");
+            }
+          });
+
+          // Toggle Mobile Careers Dropdown (NEW)
+          mobileCareersToggle?.addEventListener("click", (e) => {
+            e.stopPropagation();
+            mobileCareers.classList.toggle("open");
+            mobileCareersToggle.classList.toggle("active");
+
+            // Close other dropdowns if open
+            if (mobileCareers.classList.contains("open")) {
+              mobileAbout?.classList.remove("open");
+              mobileSectors?.classList.remove("open");
+              mobileAboutToggle?.classList.remove("active");
+              mobileSectorsToggle?.classList.remove("active");
+            }
+          });
+
+          // Close mobile dropdowns when clicking on links inside them
+          document.querySelectorAll(".mobile-dropdown a").forEach((link) => {
+            link.addEventListener("click", () => {
+              closeAllMobileDropdowns();
+              mobileMenu?.classList.remove("open");
+              if (menuIcon) {
+                menuIcon.classList.remove("fa-times");
+                menuIcon.classList.add("fa-bars");
+              }
+            });
+          });
+
+          // Close menu if clicked outside
+          document.addEventListener("click", function (event) {
+            if (!mobileMenu || !mobileMenuToggle) return;
+
+            const isClickInsideMenu = mobileMenu.contains(event.target);
+            const isClickOnToggle = mobileMenuToggle.contains(event.target);
+
+            if (
+              !isClickInsideMenu &&
+              !isClickOnToggle &&
+              mobileMenu.classList.contains("open")
+            ) {
+              mobileMenu.classList.remove("open");
+              menuIcon.classList.remove("fa-times");
+              menuIcon.classList.add("fa-bars");
+              closeAllMobileDropdowns();
+            }
+          });
+
+          // Desktop dropdown hover functionality
+          const dropdowns = document.querySelectorAll(".dropdown");
+          dropdowns.forEach((dropdown) => {
+            dropdown.addEventListener("mouseenter", () => {
+              const content = dropdown.querySelector(".dropdown-content");
+              if (content) {
+                content.style.opacity = "1";
+                content.style.visibility = "visible";
+                content.style.transform = "translateY(0)";
+              }
+            });
+
+            dropdown.addEventListener("mouseleave", () => {
+              const content = dropdown.querySelector(".dropdown-content");
+              if (content) {
+                content.style.opacity = "0";
+                content.style.visibility = "hidden";
+                content.style.transform = "translateY(-10px)";
+              }
+            });
+          });
         });
+
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        document
+          .getElementById("navbar")
+          ?.classList.toggle("scrolled", window.scrollY > 50);
       });
-
-      // Close menu if clicked outside
-      document.addEventListener("click", function (event) {
-        if (!mobileMenu || !mobileMenuToggle) return;
-
-        const isClickInsideMenu = mobileMenu.contains(event.target);
-        const isClickOnToggle = mobileMenuToggle.contains(event.target);
-
-        if (!isClickInsideMenu && !isClickOnToggle && mobileMenu.classList.contains("open")) {
-          mobileMenu.classList.remove("open");
-          menuIcon.classList.remove("fa-times");
-          menuIcon.classList.add("fa-bars");
-          closeAllMobileDropdowns();
-        }
-      });
-
-      // Desktop dropdown hover functionality
-      const dropdowns = document.querySelectorAll('.dropdown');
-      dropdowns.forEach(dropdown => {
-        dropdown.addEventListener('mouseenter', () => {
-          const content = dropdown.querySelector('.dropdown-content');
-          if (content) {
-            content.style.opacity = '1';
-            content.style.visibility = 'visible';
-            content.style.transform = 'translateY(0)';
-          }
-        });
-        
-        dropdown.addEventListener('mouseleave', () => {
-          const content = dropdown.querySelector('.dropdown-content');
-          if (content) {
-            content.style.opacity = '0';
-            content.style.visibility = 'hidden';
-            content.style.transform = 'translateY(-10px)';
-          }
-        });
-      });
-    });
-
-  // Navbar scroll effect
-  window.addEventListener("scroll", () => {
-    document
-      .getElementById("navbar")
-      ?.classList.toggle("scrolled", window.scrollY > 50);
-  });
     </script>
   </body>
 </html>
