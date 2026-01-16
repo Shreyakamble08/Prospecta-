@@ -3,13 +3,40 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Urban Infrastructure - Clone Section</title>
+    <title>Commercial Infrastructure - Prospecta BuildX</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome CDN -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <style>
+      .gradient-border {
+        position: relative;
+        border-radius: 0.75rem;
+        overflow: hidden;
+      }
+      .gradient-border::before {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: linear-gradient(45deg, #3b82f6, #8b5cf6, #3b82f6);
+        border-radius: 0.75rem;
+        z-index: -1;
+        animation: borderRotate 3s linear infinite;
+      }
+      @keyframes borderRotate {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
   </head>
   <body class="antialiased text-gray-800">
     <!-- HEADER -->
@@ -21,8 +48,8 @@
     >
       <!-- Background Image -->
       <img
-        src="images/industrial-proj1.png"
-        alt="Industrial Infrastructure"
+        src="images/commercial-proj1.png"
+        alt="Commercial Infrastructure"
         class="absolute inset-0 w-full h-full object-cover"
       />
 
@@ -34,12 +61,12 @@
         <h1
           class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight text-white"
         >
-          Industrial Infrastructure
+          Commercial Infrastructure
         </h1>
         <p class="mt-4 text-gray-200 text-lg">
-          Design, build and operate large-scale industrial infrastructure
-          projects — from manufacturing plants and refineries to smart factory
-          systems that power tomorrow's industries.
+          Crafting innovative commercial spaces that blend aesthetics with
+          functionality — from office complexes and retail centers to
+          institutional buildings that shape urban landscapes.
         </p>
       </div>
     </section>
@@ -57,22 +84,23 @@
           </h2>
           <div class="space-y-4 text-gray-700 text-sm md:text-base">
             <p>
-              We specialize in delivering end-to-end Engineering, Procurement,
-              and Construction (EPC) solutions for industrial and manufacturing
-              sectors. Our expertise lies in executing large-scale, technically
-              complex projects with a strong focus on quality, safety, and
-              timely delivery. By integrating advanced technologies, industry
-              best practices, and skilled project management, we ensure seamless
-              execution from concept to commissioning. Our team works closely
-              with clients to understand operational requirements, optimize
-              resources, and deliver customized, cost-effective solutions that
-              enhance efficiency and long-term performance.
+              We specialize in designing and constructing premium commercial
+              spaces that meet the evolving needs of businesses and
+              institutions. Our expertise spans office buildings, retail
+              complexes, educational institutions, and healthcare facilities.
+              Each project is approached with a focus on architectural
+              excellence, sustainable design, and functional efficiency. We
+              combine innovative construction techniques with meticulous
+              planning to deliver spaces that inspire productivity, facilitate
+              learning, and enhance community well-being.
             </p>
             <p>
-              With a proven track record across diverse industrial domains, we
-              are committed to achieving excellence, maintaining transparency,
-              and exceeding client expectations at every stage of the project
-              lifecycle.
+              From corporate headquarters to specialized institutional
+              buildings, we work closely with clients to understand their vision
+              and operational requirements. Our commitment to quality
+              craftsmanship, timely delivery, and client satisfaction ensures
+              that every commercial project not only meets but exceeds
+              expectations, creating lasting value for stakeholders.
             </p>
           </div>
         </div>
@@ -85,11 +113,11 @@
     >
       <div class="container mx-auto px-4">
         <h2 class="text-center text-3xl md:text-4xl font-bold mb-4">
-          Featured Industrial Projects
+          Featured Commercial Projects
         </h2>
         <p class="text-center text-lg text-blue-700 mb-10 max-w-2xl mx-auto">
-          Showcasing our expertise in industrial construction – from
-          manufacturing plants to specialized facilities.
+          Showcasing our expertise in commercial construction – from corporate
+          offices to specialized facilities.
         </p>
 
         <div class="relative max-w-6xl mx-auto">
@@ -116,7 +144,7 @@
               id="slidesContainer"
               class="flex transition-transform duration-500 ease-out"
             >
-              <!-- Slide 1 - Hyosung T&D -->
+              <!-- Slide 1 - Capital Land -->
               <div class="w-full flex-shrink-0">
                 <div class="p-8 md:p-10">
                   <div class="grid lg:grid-cols-2 gap-8 items-center">
@@ -126,8 +154,8 @@
                         class="relative rounded-2xl overflow-hidden shadow-xl"
                       >
                         <img
-                          src="images/industrial-proj1.png"
-                          alt="Hyosung T&D Industrial Plant"
+                          src="images/commercial-proj1.png"
+                          alt="Capital Land Office Complex"
                           class="w-full h-64 md:h-80 object-cover transition-transform duration-700 hover:scale-105"
                         />
                         <div class="absolute top-4 right-4">
@@ -151,7 +179,7 @@
                           </div>
                           <div>
                             <p class="font-semibold text-blue-700">Client</p>
-                            <p>Hyosung T&D India Pvt. Ltd.</p>
+                            <p>Capital Land</p>
                           </div>
                         </div>
                       </div>
@@ -163,15 +191,16 @@
                         <span
                           class="inline-block bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-sm font-semibold mb-3"
                         >
-                          INDUSTRIAL PROJECT
+                          COMMERCIAL PROJECT
                         </span>
                         <h3
                           class="text-2xl md:text-3xl font-bold text-gray-900 mb-2"
                         >
-                          Hyosung T&D Manufacturing Plant
+                          Capital Land Office Complex
                         </h3>
                         <p class="text-blue-600 font-semibold">
-                          <i class="fas fa-map-marker-alt mr-2"></i>Khed, Pune
+                          <i class="fas fa-map-marker-alt mr-2"></i>Hinjewadi
+                          Phase 1, Pune
                         </p>
                       </div>
 
@@ -184,11 +213,11 @@
                             >Scope of Work
                           </h4>
                           <ul class="list-disc pl-5 space-y-1 text-gray-700">
-                            <li>Land Development with Controlled Blasting</li>
-                            <li>Main Plant Civil Works</li>
-                            <li>PEB (Pre-Engineered Building) Works</li>
-                            <li>Complete Utility & Infrastructure Works</li>
-                            <li>Advanced electrical and mechanical systems</li>
+                            <li>Sanitary Fit-outs</li>
+                            <li>Tiling Works</li>
+                            <li>Interior finishing</li>
+                            <li>Quality control and inspection</li>
+                            <li>Final handover and documentation</li>
                           </ul>
                         </div>
 
@@ -205,11 +234,11 @@
                               >Area Covered
                             </h4>
                             <p class="text-2xl font-bold text-blue-700">
-                              1,50,000
+                              85,000
                               <span class="text-lg font-normal">sq. ft.</span>
                             </p>
                             <p class="text-sm text-gray-600">
-                              Total built-up area
+                              Office complex area
                             </p>
                           </div>
                           <div>
@@ -222,7 +251,7 @@
                               >Project Cost
                             </h4>
                             <p class="text-xl font-bold text-gray-800">
-                              ₹20.5 Cr
+                              ₹10.5 Cr
                             </p>
                             <p class="text-sm text-gray-600">
                               Total investment
@@ -235,7 +264,7 @@
                 </div>
               </div>
 
-              <!-- Slide 2 - Mahindra Logistics -->
+              <!-- Slide 2 - Nalanda Shelters -->
               <div class="w-full flex-shrink-0">
                 <div class="p-8 md:p-10">
                   <div class="grid lg:grid-cols-2 gap-8 items-center">
@@ -245,8 +274,8 @@
                         class="relative rounded-2xl overflow-hidden shadow-xl"
                       >
                         <img
-                          src="images/industrial-2.png"
-                          alt="Mahindra Logistics Warehouse"
+                          src="images/commercial-proj2.png"
+                          alt="Nalanda Shelters Water Tank"
                           class="w-full h-64 md:h-80 object-cover transition-transform duration-700 hover:scale-105"
                         />
                         <div class="absolute top-4 right-4">
@@ -270,7 +299,7 @@
                           </div>
                           <div>
                             <p class="font-semibold text-blue-700">Client</p>
-                            <p>Mahindra Logistics Ltd.</p>
+                            <p>Nalanda Shelters Pvt. Ltd.</p>
                           </div>
                         </div>
                       </div>
@@ -282,16 +311,16 @@
                         <span
                           class="inline-block bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-sm font-semibold mb-3"
                         >
-                          INDUSTRIAL PROJECT
+                          COMMERCIAL PROJECT
                         </span>
                         <h3
                           class="text-2xl md:text-3xl font-bold text-gray-900 mb-2"
                         >
-                          Mahindra Logistics Facility
+                          Nalanda Shelters Water Reservoir
                         </h3>
                         <p class="text-blue-600 font-semibold">
-                          <i class="fas fa-map-marker-alt mr-2"></i>Sudhawadi
-                          Village, Talegaon–Chakan Highway, Pune
+                          <i class="fas fa-map-marker-alt mr-2"></i>Hinjewadi
+                          Phase 1, Pune
                         </p>
                       </div>
 
@@ -304,11 +333,11 @@
                             >Scope of Work
                           </h4>
                           <ul class="list-disc pl-5 space-y-1 text-gray-700">
-                            <li>Complete Civil Works</li>
-                            <li>PEB Structure Construction</li>
-                            <li>Interior Office Setup</li>
-                            <li>Utility & Infrastructure Works</li>
-                            <li>Loading dock and warehouse facilities</li>
+                            <li>Underground Water Tank Construction</li>
+                            <li>Structural engineering works</li>
+                            <li>Waterproofing systems</li>
+                            <li>Quality testing and inspection</li>
+                            <li>Safety compliance measures</li>
                           </ul>
                         </div>
 
@@ -319,379 +348,15 @@
                             <h4
                               class="font-bold text-gray-800 mb-2 flex items-center"
                             >
-                              <i
-                                class="fas fa-ruler-combined text-blue-500 mr-3"
-                              ></i
-                              >Area Covered
+                              <i class="fas fa-water text-blue-500 mr-3"></i
+                              >Capacity
                             </h4>
                             <p class="text-2xl font-bold text-blue-700">
-                              3,50,000
-                              <span class="text-lg font-normal">sq. ft.</span>
+                              10M
+                              <span class="text-lg font-normal">litres</span>
                             </p>
                             <p class="text-sm text-gray-600">
-                              Logistics facility area
-                            </p>
-                          </div>
-                          <div>
-                            <h4
-                              class="font-bold text-gray-800 mb-2 flex items-center"
-                            >
-                              <i
-                                class="fas fa-rupee-sign text-blue-500 mr-3"
-                              ></i
-                              >Project Cost
-                            </h4>
-                            <p class="text-xl font-bold text-gray-800">
-                              ₹22.5 Cr
-                            </p>
-                            <p class="text-sm text-gray-600">
-                              Total investment
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Slide 3 - Hyundai Motors (Ongoing) -->
-              <div class="w-full flex-shrink-0">
-                <div class="p-8 md:p-10">
-                  <div class="grid lg:grid-cols-2 gap-8 items-center">
-                    <!-- Project Image & Status -->
-                    <div>
-                      <div
-                        class="relative rounded-2xl overflow-hidden shadow-xl"
-                      >
-                        <img
-                          src="images/hyundai-proj3.jfif"
-                          alt="Hyundai Motors Plant Construction"
-                          class="w-full h-64 md:h-80 object-cover transition-transform duration-700 hover:scale-105"
-                        />
-                        <div class="absolute top-4 right-4">
-                          <span
-                            class="bg-amber-500 text-white px-4 py-1.5 rounded-full text-sm font-semibold shadow-md"
-                          >
-                            🔄 Ongoing
-                          </span>
-                        </div>
-                      </div>
-                      <div
-                        class="mt-6 p-5 bg-amber-50 rounded-xl border border-amber-100"
-                      >
-                        <h4 class="font-bold text-amber-800 mb-2 text-lg">
-                          Quick Details
-                        </h4>
-                        <div class="grid grid-cols-2 gap-4 text-sm">
-                          <div>
-                            <p class="font-semibold text-amber-700">Status</p>
-                            <p>Currently Under Construction</p>
-                          </div>
-                          <div>
-                            <p class="font-semibold text-amber-700">Client</p>
-                            <p>Hyundai Motors India Ltd.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- Project Details -->
-                    <div>
-                      <div class="mb-6">
-                        <span
-                          class="inline-block bg-amber-100 text-amber-700 px-4 py-1.5 rounded-full text-sm font-semibold mb-3"
-                        >
-                          INDUSTRIAL PROJECT
-                        </span>
-                        <h3
-                          class="text-2xl md:text-3xl font-bold text-gray-900 mb-2"
-                        >
-                          Hyundai Motors Plant
-                        </h3>
-                        <p class="text-amber-600 font-semibold">
-                          <i class="fas fa-map-marker-alt mr-2"></i>Talegaon,
-                          Pune
-                        </p>
-                      </div>
-
-                      <div class="space-y-6">
-                        <div>
-                          <h4
-                            class="font-bold text-lg text-gray-800 mb-2 flex items-center"
-                          >
-                            <i class="fas fa-list-check text-amber-500 mr-3"></i
-                            >Scope of Work
-                          </h4>
-                          <ul class="list-disc pl-5 space-y-1 text-gray-700">
-                            <li>Main Plant Civil Works</li>
-                            <li>Warehouse Flooring</li>
-                            <li>WWTP (Waste Water Treatment Plant)</li>
-                            <li>Administration & Utility Buildings</li>
-                            <li>Complete infrastructure development</li>
-                          </ul>
-                        </div>
-
-                        <div
-                          class="grid grid-cols-2 gap-6 pt-4 border-t border-gray-200"
-                        >
-                          <div>
-                            <h4
-                              class="font-bold text-gray-800 mb-2 flex items-center"
-                            >
-                              <i
-                                class="fas fa-ruler-combined text-amber-500 mr-3"
-                              ></i
-                              >Area Covered
-                            </h4>
-                            <p class="text-2xl font-bold text-amber-700">
-                              5,56,000
-                              <span class="text-lg font-normal">sq. ft.</span>
-                            </p>
-                            <p class="text-sm text-gray-600">
-                              Automotive plant area
-                            </p>
-                          </div>
-                          <div>
-                            <h4
-                              class="font-bold text-gray-800 mb-2 flex items-center"
-                            >
-                              <i
-                                class="fas fa-rupee-sign text-amber-500 mr-3"
-                              ></i
-                              >Project Cost
-                            </h4>
-                            <p class="text-xl font-bold text-gray-800">
-                              ₹54.6 Cr
-                            </p>
-                            <p class="text-sm text-gray-600">
-                              Total project value
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Slide 4 - CEAT Limited -->
-              <div class="w-full flex-shrink-0">
-                <div class="p-8 md:p-10">
-                  <div class="grid lg:grid-cols-2 gap-8 items-center">
-                    <!-- Project Image & Status -->
-                    <div>
-                      <div
-                        class="relative rounded-2xl overflow-hidden shadow-xl"
-                      >
-                        <img
-                          src="images/industrial-proj4.png"
-                          alt="CEAT Manufacturing Plant"
-                          class="w-full h-64 md:h-80 object-cover transition-transform duration-700 hover:scale-105"
-                        />
-                        <div class="absolute top-4 right-4">
-                          <span
-                            class="bg-green-500 text-white px-4 py-1.5 rounded-full text-sm font-semibold shadow-md"
-                          >
-                            ✔ Completed
-                          </span>
-                        </div>
-                      </div>
-                      <div
-                        class="mt-6 p-5 bg-blue-50 rounded-xl border border-blue-100"
-                      >
-                        <h4 class="font-bold text-blue-800 mb-2 text-lg">
-                          Quick Details
-                        </h4>
-                        <div class="grid grid-cols-2 gap-4 text-sm">
-                          <div>
-                            <p class="font-semibold text-blue-700">Status</p>
-                            <p>Completed, 2023</p>
-                          </div>
-                          <div>
-                            <p class="font-semibold text-blue-700">Client</p>
-                            <p>CEAT Limited</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- Project Details -->
-                    <div>
-                      <div class="mb-6">
-                        <span
-                          class="inline-block bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-sm font-semibold mb-3"
-                        >
-                          INDUSTRIAL PROJECT
-                        </span>
-                        <h3
-                          class="text-2xl md:text-3xl font-bold text-gray-900 mb-2"
-                        >
-                          CEAT Manufacturing Facility
-                        </h3>
-                        <p class="text-blue-600 font-semibold">
-                          <i class="fas fa-map-marker-alt mr-2"></i>Ambernath,
-                          Navi Mumbai
-                        </p>
-                      </div>
-
-                      <div class="space-y-6">
-                        <div>
-                          <h4
-                            class="font-bold text-lg text-gray-800 mb-2 flex items-center"
-                          >
-                            <i class="fas fa-list-check text-blue-500 mr-3"></i
-                            >Scope of Work
-                          </h4>
-                          <ul class="list-disc pl-5 space-y-1 text-gray-700">
-                            <li>Civil Works for manufacturing plant</li>
-                            <li>G+1 Warehouse (PEB Structure)</li>
-                            <li>Complete Utility & Infrastructure</li>
-                            <li>Canteen Building Construction</li>
-                            <li>Specialized flooring for tire production</li>
-                          </ul>
-                        </div>
-
-                        <div
-                          class="grid grid-cols-2 gap-6 pt-4 border-t border-gray-200"
-                        >
-                          <div>
-                            <h4
-                              class="font-bold text-gray-800 mb-2 flex items-center"
-                            >
-                              <i
-                                class="fas fa-ruler-combined text-blue-500 mr-3"
-                              ></i
-                              >Area Covered
-                            </h4>
-                            <p class="text-2xl font-bold text-blue-700">
-                              2,60,000
-                              <span class="text-lg font-normal">sq. ft.</span>
-                            </p>
-                            <p class="text-sm text-gray-600">
-                              Manufacturing facility area
-                            </p>
-                          </div>
-                          <div>
-                            <h4
-                              class="font-bold text-gray-800 mb-2 flex items-center"
-                            >
-                              <i
-                                class="fas fa-rupee-sign text-blue-500 mr-3"
-                              ></i
-                              >Project Cost
-                            </h4>
-                            <p class="text-xl font-bold text-gray-800">
-                              ₹47.29 Cr
-                            </p>
-                            <p class="text-sm text-gray-600">
-                              Total investment
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Slide 5 - Zoomlion India -->
-              <div class="w-full flex-shrink-0">
-                <div class="p-8 md:p-10">
-                  <div class="grid lg:grid-cols-2 gap-8 items-center">
-                    <!-- Project Image & Status -->
-                    <div>
-                      <div
-                        class="relative rounded-2xl overflow-hidden shadow-xl"
-                      >
-                        <img
-                          src="images/industrial-proj2.png"
-                          alt="Zoomlion India Manufacturing Plant"
-                          class="w-full h-64 md:h-80 object-cover transition-transform duration-700 hover:scale-105"
-                        />
-                        <div class="absolute top-4 right-4">
-                          <span
-                            class="bg-green-500 text-white px-4 py-1.5 rounded-full text-sm font-semibold shadow-md"
-                          >
-                            ✔ Completed
-                          </span>
-                        </div>
-                      </div>
-                      <div
-                        class="mt-6 p-5 bg-blue-50 rounded-xl border border-blue-100"
-                      >
-                        <h4 class="font-bold text-blue-800 mb-2 text-lg">
-                          Quick Details
-                        </h4>
-                        <div class="grid grid-cols-2 gap-4 text-sm">
-                          <div>
-                            <p class="font-semibold text-blue-700">Status</p>
-                            <p>Completed, 2023</p>
-                          </div>
-                          <div>
-                            <p class="font-semibold text-blue-700">Client</p>
-                            <p>Zoomlion India Pvt. Ltd.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <!-- Project Details -->
-                    <div>
-                      <div class="mb-6">
-                        <span
-                          class="inline-block bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-sm font-semibold mb-3"
-                        >
-                          INDUSTRIAL PROJECT
-                        </span>
-                        <h3
-                          class="text-2xl md:text-3xl font-bold text-gray-900 mb-2"
-                        >
-                          Zoomlion India Manufacturing Plant
-                        </h3>
-                        <p class="text-blue-600 font-semibold">
-                          <i class="fas fa-map-marker-alt mr-2"></i>Chakan Phase
-                          2, Bhamboli, Pune
-                        </p>
-                      </div>
-
-                      <div class="space-y-6">
-                        <div>
-                          <h4
-                            class="font-bold text-lg text-gray-800 mb-2 flex items-center"
-                          >
-                            <i class="fas fa-list-check text-blue-500 mr-3"></i
-                            >Scope of Work
-                          </h4>
-                          <ul class="list-disc pl-5 space-y-1 text-gray-700">
-                            <li>Complete Civil Works</li>
-                            <li>PEB (Pre-Engineered Building) Works</li>
-                            <li>Utility & Infrastructure Development</li>
-                            <li>Specialized manufacturing floor setup</li>
-                            <li>
-                              Electrical and mechanical systems installation
-                            </li>
-                          </ul>
-                        </div>
-
-                        <div
-                          class="grid grid-cols-2 gap-6 pt-4 border-t border-gray-200"
-                        >
-                          <div>
-                            <h4
-                              class="font-bold text-gray-800 mb-2 flex items-center"
-                            >
-                              <i
-                                class="fas fa-ruler-combined text-blue-500 mr-3"
-                              ></i
-                              >Area Covered
-                            </h4>
-                            <p class="text-2xl font-bold text-blue-700">
-                              1,05,000
-                              <span class="text-lg font-normal">sq. ft.</span>
-                            </p>
-                            <p class="text-sm text-gray-600">
-                              Manufacturing plant area
+                              Water storage capacity
                             </p>
                           </div>
                           <div>
@@ -717,7 +382,7 @@
                 </div>
               </div>
 
-              <!-- Slide 6 - Supreme Treon -->
+              <!-- Slide 3 - IISER Pune -->
               <div class="w-full flex-shrink-0">
                 <div class="p-8 md:p-10">
                   <div class="grid lg:grid-cols-2 gap-8 items-center">
@@ -727,8 +392,8 @@
                         class="relative rounded-2xl overflow-hidden shadow-xl"
                       >
                         <img
-                          src="images/supreme-proj.png"
-                          alt="Supreme Treon Industrial Facility"
+                          src="images/commercial-proj3.png"
+                          alt="IISER Pune R&D Building"
                           class="w-full h-64 md:h-80 object-cover transition-transform duration-700 hover:scale-105"
                         />
                         <div class="absolute top-4 right-4">
@@ -752,7 +417,15 @@
                           </div>
                           <div>
                             <p class="font-semibold text-blue-700">Client</p>
-                            <p>Supreme Treon Pvt. Ltd.</p>
+                            <p>IISER Pune</p>
+                          </div>
+                          <div>
+                            <p class="font-semibold text-blue-700">Type</p>
+                            <p>R&D Facility</p>
+                          </div>
+                          <div>
+                            <p class="font-semibold text-blue-700">Specialty</p>
+                            <p>State-of-the-art Lab</p>
                           </div>
                         </div>
                       </div>
@@ -764,16 +437,16 @@
                         <span
                           class="inline-block bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-sm font-semibold mb-3"
                         >
-                          INDUSTRIAL PROJECT
+                          R&D PROJECT
                         </span>
                         <h3
                           class="text-2xl md:text-3xl font-bold text-gray-900 mb-2"
                         >
-                          Supreme Treon Industrial Facility
+                          IISER Pune Research Building
                         </h3>
                         <p class="text-blue-600 font-semibold">
-                          <i class="fas fa-map-marker-alt mr-2"></i>Chakan Phase
-                          2, Bhamboli, Pune
+                          <i class="fas fa-map-marker-alt mr-2"></i>Pune,
+                          Maharashtra
                         </p>
                       </div>
 
@@ -786,11 +459,11 @@
                             >Scope of Work
                           </h4>
                           <ul class="list-disc pl-5 space-y-1 text-gray-700">
-                            <li>Complete Civil Works</li>
-                            <li>PEB (Pre-Engineered Building) Works</li>
-                            <li>Utility & Infrastructure Development</li>
-                            <li>Industrial flooring and surface preparation</li>
-                            <li>Safety and environmental compliance systems</li>
+                            <li>State-of-the-art R&D Building Construction</li>
+                            <li>Reverse Osmosis (RO) Plant Installation</li>
+                            <li>Laboratory setup and equipment installation</li>
+                            <li>Specialized research facilities</li>
+                            <li>Advanced infrastructure development</li>
                           </ul>
                         </div>
 
@@ -801,33 +474,28 @@
                             <h4
                               class="font-bold text-gray-800 mb-2 flex items-center"
                             >
-                              <i
-                                class="fas fa-ruler-combined text-blue-500 mr-3"
-                              ></i
-                              >Area Covered
+                              <i class="fas fa-flask text-blue-500 mr-3"></i
+                              >Facility Type
                             </h4>
-                            <p class="text-2xl font-bold text-blue-700">
-                              2,20,000
-                              <span class="text-lg font-normal">sq. ft.</span>
+                            <p class="text-xl font-bold text-gray-800">
+                              Advanced R&D
                             </p>
                             <p class="text-sm text-gray-600">
-                              Industrial facility area
+                              Research laboratory
                             </p>
                           </div>
                           <div>
                             <h4
                               class="font-bold text-gray-800 mb-2 flex items-center"
                             >
-                              <i
-                                class="fas fa-rupee-sign text-blue-500 mr-3"
-                              ></i
-                              >Project Cost
+                              <i class="fas fa-cogs text-blue-500 mr-3"></i
+                              >Special Feature
                             </h4>
                             <p class="text-xl font-bold text-gray-800">
-                              ₹20.5 Cr
+                              RO Plant
                             </p>
                             <p class="text-sm text-gray-600">
-                              Total investment
+                              Water purification system
                             </p>
                           </div>
                         </div>
@@ -837,7 +505,7 @@
                 </div>
               </div>
 
-              <!-- Slide 7 - KMI Ancillary Project -->
+              <!-- Slide 4 - Pidilite Industries -->
               <div class="w-full flex-shrink-0">
                 <div class="p-8 md:p-10">
                   <div class="grid lg:grid-cols-2 gap-8 items-center">
@@ -847,8 +515,8 @@
                         class="relative rounded-2xl overflow-hidden shadow-xl"
                       >
                         <img
-                          src="images/KMI-proj.png"
-                          alt="KMI Ancillary Land Development"
+                          src="images/commercial-proj4.png"
+                          alt="Pidilite Industries Plant"
                           class="w-full h-64 md:h-80 object-cover transition-transform duration-700 hover:scale-105"
                         />
                         <div class="absolute top-4 right-4">
@@ -872,7 +540,7 @@
                           </div>
                           <div>
                             <p class="font-semibold text-blue-700">Client</p>
-                            <p>KMI Ancillary Project</p>
+                            <p>Pidilite Industries Ltd.</p>
                           </div>
                         </div>
                       </div>
@@ -889,11 +557,11 @@
                         <h3
                           class="text-2xl md:text-3xl font-bold text-gray-900 mb-2"
                         >
-                          KMI Ancillary Land Development
+                          Pidilite Industries Facility
                         </h3>
                         <p class="text-blue-600 font-semibold">
-                          <i class="fas fa-map-marker-alt mr-2"></i>Anantapur,
-                          Andhra Pradesh
+                          <i class="fas fa-map-marker-alt mr-2"></i>Shirwal,
+                          Pune
                         </p>
                       </div>
 
@@ -906,13 +574,11 @@
                             >Scope of Work
                           </h4>
                           <ul class="list-disc pl-5 space-y-1 text-gray-700">
-                            <li>Controlled Blasting Operations</li>
-                            <li>Complete Land Development</li>
-                            <li>Site grading and leveling</li>
-                            <li>Infrastructure groundwork preparation</li>
-                            <li>
-                              Environmental compliance and safety measures
-                            </li>
+                            <li>Ancillary Plant Civil Works</li>
+                            <li>PEB (Pre-Engineered Building) Works</li>
+                            <li>Utility & Infrastructure Development</li>
+                            <li>Chemical processing area setup</li>
+                            <li>Safety and environmental systems</li>
                           </ul>
                         </div>
 
@@ -929,13 +595,11 @@
                               >Area Covered
                             </h4>
                             <p class="text-2xl font-bold text-blue-700">
-                              9
-                              <span class="text-lg font-normal"
-                                >kilometers</span
-                              >
+                              80,000
+                              <span class="text-lg font-normal">sq. ft.</span>
                             </p>
                             <p class="text-sm text-gray-600">
-                              Land development area
+                              Chemical plant area
                             </p>
                           </div>
                           <div>
@@ -948,10 +612,10 @@
                               >Project Cost
                             </h4>
                             <p class="text-xl font-bold text-gray-800">
-                              ₹10.5 Cr
+                              ₹12.5 Cr
                             </p>
                             <p class="text-sm text-gray-600">
-                              Total project value
+                              Total investment
                             </p>
                           </div>
                         </div>
@@ -980,18 +644,6 @@
             <button
               class="dot w-3 h-3 rounded-full bg-blue-300 hover:bg-blue-500 transition-all duration-300 hover:scale-125"
               aria-label="Show slide 4"
-            ></button>
-            <button
-              class="dot w-3 h-3 rounded-full bg-blue-300 hover:bg-blue-500 transition-all duration-300 hover:scale-125"
-              aria-label="Show slide 5"
-            ></button>
-            <button
-              class="dot w-3 h-3 rounded-full bg-blue-300 hover:bg-blue-500 transition-all duration-300 hover:scale-125"
-              aria-label="Show slide 6"
-            ></button>
-            <button
-              class="dot w-3 h-3 rounded-full bg-blue-300 hover:bg-blue-500 transition-all duration-300 hover:scale-125"
-              aria-label="Show slide 7"
             ></button>
           </div>
         </div>
@@ -1064,7 +716,7 @@
             </div>
             <p class="text-gray-300 mb-4 text-sm leading-relaxed">
               Building dreams, creating communities, and delivering excellence
-              in Industrial development.
+              in Commercial development.
             </p>
             <div class="flex gap-2">
               <a
@@ -1141,12 +793,16 @@
                   >
                 </li>
                 <li>
-                  <a href="#" class="text-gray-300 hover:text-gold"
+                  <a
+                    href="commercial.html"
+                    class="text-gray-300 hover:text-gold"
                     >• Commercial</a
                   >
                 </li>
                 <li>
-                  <a href="#" class="text-gray-300 hover:text-gold"
+                  <a
+                    href="industrial.html"
+                    class="text-gray-300 hover:text-gold"
                     >• Industrial</a
                   >
                 </li>

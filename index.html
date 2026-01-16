@@ -1,2166 +1,1680 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Prospecta BuildX - Building Tomorrow</title>
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="homestyle.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
 
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Segoe UI", sans-serif;
-      }
-      body {
-        background: #f8fafc;
-        line-height: 1.6;
-        overflow-x: hidden;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prospecta BuildX - Building Tomorrow</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="homestyle.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
 
-      /* Optimized Hero Video Background */
-      .hero-video {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: -1;
-      }
-      .hero-overlay {
-        background: linear-gradient(
-          to bottom,
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: #f8fafc;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Optimized Hero Video Background */
+    .hero-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .hero-overlay {
+      background: linear-gradient(to bottom,
           rgba(0, 0, 0, 0.7),
-          rgba(0, 0, 0, 0.4)
-        );
-      }
+          rgba(0, 0, 0, 0.4));
+    }
 
-      /* Section Animations - Optimized */
-      .fade-in {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.6s ease-out;
-        will-change: opacity, transform;
-      }
-      .fade-in.visible {
+    /* Section Animations - Optimized */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+      will-change: opacity, transform;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Staggered animation for cards */
+    .stagger-animation .card-hover {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .stagger-animation .card-hover.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Image loading optimization */
+    img {
+      loading: lazy;
+      transition: opacity 0.3s ease;
+    }
+
+    img[loading="lazy"] {
+      opacity: 0;
+    }
+
+    img[loading="lazy"].loaded {
+      opacity: 1;
+    }
+
+    /* Pulse dot animation */
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background: #ef4444;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
         opacity: 1;
-        transform: translateY(0);
+        transform: scale(1);
       }
 
-      /* Staggered animation for cards */
-      .stagger-animation .card-hover {
-        opacity: 0;
-        transform: translateY(40px);
-        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      50% {
+        opacity: 0.7;
+        transform: scale(1.1);
       }
-      .stagger-animation .card-hover.animate {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    }
 
-      /* Image loading optimization */
-      img {
-        loading: lazy;
-        transition: opacity 0.3s ease;
-      }
-      img[loading="lazy"] {
-        opacity: 0;
-      }
-      img[loading="lazy"].loaded {
-        opacity: 1;
-      }
-
-      /* Pulse dot animation */
-      .pulse-dot {
-        width: 8px;
-        height: 8px;
-        background: #ef4444;
-        border-radius: 50%;
-        animation: pulse 2s infinite;
-      }
-      @keyframes pulse {
-        0%,
-        100% {
-          opacity: 1;
-          transform: scale(1);
-        }
-        50% {
-          opacity: 0.7;
-          transform: scale(1.1);
-        }
-      }
-
-      /* Image overlay */
-      .image-overlay {
-        background: linear-gradient(
-          to top,
+    /* Image overlay */
+    .image-overlay {
+      background: linear-gradient(to top,
           rgba(0, 0, 0, 0.8) 0%,
           rgba(0, 0, 0, 0.4) 50%,
-          transparent 100%
-        );
+          transparent 100%);
+    }
+
+    /* Card hover effects */
+    .card-hover {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .card-hover:hover {
+      transform: translateY(-8px);
+    }
+
+    .arrow-icon {
+      transition: all 0.3s ease;
+    }
+
+    .card-hover:hover .arrow-icon {
+      transform: rotate(45deg);
+    }
+
+    /* Responsive fixes */
+    @media (max-width: 1024px) {
+      .logo {
+        position: static;
+        transform: none;
       }
 
-      /* Card hover effects */
-      .card-hover {
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-      .card-hover:hover {
-        transform: translateY(-8px);
+      .nav-links {
+        display: none;
       }
 
-      .arrow-icon {
-        transition: all 0.3s ease;
+      .menu-toggle {
+        display: block !important;
+        font-size: 28px;
+        cursor: pointer;
       }
-      .card-hover:hover .arrow-icon {
-        transform: rotate(45deg);
-      }
+    }
 
-      /* Responsive fixes */
-      @media (max-width: 1024px) {
-        .logo {
-          position: static;
-          transform: none;
-        }
-        .nav-links {
-          display: none;
-        }
-        .menu-toggle {
-          display: block !important;
-          font-size: 28px;
-          cursor: pointer;
-        }
-      }
+    /* Performance optimizations */
+    .will-change-transform {
+      will-change: transform;
+    }
 
-      /* Performance optimizations */
-      .will-change-transform {
-        will-change: transform;
-      }
-
-      /* Loading states */
-      .loading-shimmer {
-        background: linear-gradient(
-          90deg,
+    /* Loading states */
+    .loading-shimmer {
+      background: linear-gradient(90deg,
           #f0f0f0 25%,
           #e0e0e0 50%,
-          #f0f0f0 75%
-        );
-        background-size: 200% 100%;
-        animation: shimmer 2s infinite;
-      }
-      @keyframes shimmer {
-        0% {
-          background-position: -200% 0;
-        }
-        100% {
-          background-position: 200% 0;
-        }
+          #f0f0f0 75%);
+      background-size: 200% 100%;
+      animation: shimmer 2s infinite;
+    }
+
+    @keyframes shimmer {
+      0% {
+        background-position: -200% 0;
       }
 
-      /* Auto-scroll optimization */
-      .animate-autoscroll {
-        display: flex;
-        width: max-content;
-        animation: autoscroll 40s linear infinite;
-        will-change: transform;
+      100% {
+        background-position: 200% 0;
       }
-      .pause-autoscroll:hover {
-        animation-play-state: paused;
-      }
+    }
 
-      @keyframes autoscroll {
-        0% {
-          transform: translateX(0);
-        }
-        100% {
-          transform: translateX(-50%);
-        }
-      }
+    /* Auto-scroll optimization */
+    .animate-autoscroll {
+      display: flex;
+      width: max-content;
+      animation: autoscroll 40s linear infinite;
+      will-change: transform;
+    }
 
-      .line-clamp-2 {
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+    .pause-autoscroll:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes autoscroll {
+      0% {
+        transform: translateX(0);
       }
 
-      /* Smooth scrolling */
-      html {
-        scroll-behavior: smooth;
+      100% {
+        transform: translateX(-50%);
       }
+    }
 
-      /* Performance: GPU acceleration for animations */
-      .gpu-accelerated {
-        transform: translateZ(0);
-        backface-visibility: hidden;
-        perspective: 1000px;
-      }
-    </style>
-  </head>
-  <body class="text-gray-800">
-    <!-- HEADER -->
-    <div id="header"></div>
+    .line-clamp-2 {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
 
-    <!-- HERO SECTION -->
-    <section class="relative h-screen w-full overflow-hidden">
-      <div class="w-full h-full overflow-hidden">
-        <div
-          id="heroSlider"
-          class="flex h-full transition-transform duration-1000 ease-in-out"
-        >
-          <!-- BANNER 1 -->
-          <div
-            class="slide w-full h-full flex-shrink-0 bg-cover bg-center relative"
-            style="background-image: url('images/banner1.png')"
-          >
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/80"
-            ></div>
-            <div
-              class="arch-shape absolute bottom-0 left-0 w-full h-40 bg-gray-50"
-            ></div>
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
 
-            <div
-              class="relative z-10 w-full h-full flex items-center justify-center mb-16 px-4"
-            >
-              <div
-                class="bg-black/60 backdrop-blur-md p-6 md:p-8 rounded-xl max-w-2xl w-full text-white text-center border border-white/20"
-              >
-                <h1 class="text-3xl md:text-5xl font-semibold mb-3">
-                  Safety & Sustainability
-                </h1>
-                <p class="text-base md:text-lg mb-5 opacity-90">
-                  Building a safer, greener and responsible future
-                </p>
+    /* Performance: GPU acceleration for animations */
+    .gpu-accelerated {
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      perspective: 1000px;
+    }
+  </style>
+</head>
 
-                <div class="flex justify-center gap-3 flex-wrap">
-                  <a
-                    href="#"
-                    class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 px-5 rounded-full text-sm transition"
-                  >
-                    Learn More
-                  </a>
+<body class="text-gray-800">
+  <!-- HEADER -->
+  <div id="header"></div>
 
-                  <a
-                    href="#"
-                    class="border border-white hover:bg-white hover:text-black font-semibold py-2 px-5 rounded-full text-sm transition"
-                  >
-                    Our Projects
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+  <!-- HERO SECTION -->
+  <section class="relative h-[110vh] w-full overflow-hidden">
+    <!-- Changed from h-screen to h-[110vh] -->
+    <div class="w-full h-full overflow-hidden">
+      <div id="heroSlider" class="flex h-full transition-transform duration-1000 ease-in-out">
+        <!-- BANNER 1 -->
+        <div class="slide w-full h-full flex-shrink-0 bg-cover bg-center relative"
+          style="background-image: url('images/home2.png')">
+          <div class="absolute inset-0 bg-gradient-to-t from-white/40 via-white/30 to-white/40"></div>
+          <!-- Reduced curve height from h-40 to h-32 -->
+          <div class="arch-shape absolute bottom-0 left-0 w-full h-32 bg-gray-50"></div>
 
-          <!-- BANNER 2 -->
-          <div
-            class="slide w-full h-full flex-shrink-0 relative overflow-hidden"
-          >
-            <!-- Background Video -->
-            <video
-              class="absolute inset-0 w-full h-full object-cover"
-              src="images/aboutvideo.mp4"
-              autoplay
-              muted
-              loop
-              playsinline
-            ></video>
+          <div class="relative z-10 w-full h-full flex items-center px-6 sm:px-10 lg:px-20">
+            <div class="max-w-xl text-[#12306A] mb-28">
+              <h1
+                class="font-normal font-serif tracking-tight leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+                Safety & Sustainability
+              </h1>
 
-            <!-- Gradient Overlay -->
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/80"
-            ></div>
+              <p class="mt-4 text-sm sm:text-base md:text-lg text-gray-600 max-w-md">
+                Building safer, greener and responsible infrastructure for
+                future generations.
+              </p>
 
-            <!-- Arch Shape -->
-            <div
-              class="arch-shape absolute bottom-0 left-0 w-full h-40 bg-gray-50"
-            ></div>
+              <div class="mt-8 flex gap-4 flex-wrap">
+                <a href="#"
+                  class="bg-yellow-400 hover:bg-yellow-500 text-black font-medium py-3 px-6 border rounded-full text-sm transition">
+                  Learn More
+                </a>
 
-            <!-- Content -->
-            <div
-              class="relative z-10 w-full h-full flex items-center justify-center mb-16 px-4"
-            >
-              <div
-                class="bg-black/60 backdrop-blur-md p-6 md:p-8 rounded-xl max-w-2xl w-full text-white text-center border border-white/20"
-              >
-                <h1 class="text-3xl md:text-5xl font-bold mb-3">
-                  Commercial Development
-                </h1>
-                <p class="text-base md:text-lg mb-5 opacity-90">
-                  Strong foundations for modern cities
-                </p>
-
-                <div class="flex justify-center gap-3 flex-wrap">
-                  <a
-                    href="#"
-                    class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 px-5 rounded-full text-sm transition"
-                  >
-                    Learn More
-                  </a>
-                  <a
-                    href="#"
-                    class="border border-white hover:bg-white hover:text-black font-semibold py-2 px-5 rounded-full text-sm transition"
-                  >
-                    Our Projects
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- BANNER 3 -->
-          <div
-            class="slide w-full h-full flex-shrink-0 bg-cover bg-center relative"
-            style="background-image: url('images/banner3.png')"
-          >
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/80"
-            ></div>
-            <div
-              class="arch-shape absolute bottom-0 left-0 w-full h-40 bg-gray-50"
-            ></div>
-
-            <div
-              class="relative z-10 w-full h-full flex items-center justify-center mb-16 px-4"
-            >
-              <div
-                class="bg-black/60 backdrop-blur-md p-6 md:p-8 rounded-xl max-w-2xl w-full text-white text-center border border-white/20"
-              >
-                <h1 class="text-3xl md:text-5xl font-bold mb-3">
-                  Industrial Development
-                </h1>
-                <p class="text-base md:text-lg mb-5 opacity-90">
-                  Powering the world with clean solutions
-                </p>
-
-                <div class="flex justify-center gap-3 flex-wrap">
-                  <a
-                    href="#"
-                    class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 px-5 rounded-full text-sm transition"
-                  >
-                    Learn More
-                  </a>
-
-                  <a
-                    href="#"
-                    class="border border-white hover:bg-white hover:text-black font-semibold py-2 px-5 rounded-full text-sm transition"
-                  >
-                    Our Projects
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- BANNER 4 -->
-          <div
-            class="slide w-full h-full flex-shrink-0 bg-cover bg-center relative"
-            style="
-              background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&h=1080&auto=format&fit=crop&q=70');
-            "
-          >
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/80"
-            ></div>
-            <div
-              class="arch-shape absolute bottom-0 left-0 w-full h-40 bg-gray-50"
-            ></div>
-
-            <div
-              class="relative z-10 w-full h-full flex items-center justify-center mb-16 px-4"
-            >
-              <div
-                class="bg-black/60 backdrop-blur-md p-6 md:p-8 rounded-xl max-w-2xl w-full text-white text-center border border-white/20"
-              >
-                <h1 class="text-3xl md:text-5xl font-bold mb-3">
-                  Smart Construction
-                </h1>
-                <p class="text-base md:text-lg mb-5 opacity-90">
-                  Technology-driven, future-ready builds
-                </p>
-
-                <div class="flex justify-center gap-3 flex-wrap">
-                  <a
-                    href="#"
-                    class="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 px-5 rounded-full text-sm transition"
-                  >
-                    Learn More
-                  </a>
-
-                  <a
-                    href="#"
-                    class="border border-white hover:bg-white hover:text-black font-semibold py-2 px-5 rounded-full text-sm transition"
-                  >
-                    Our Projects
-                  </a>
-                </div>
+                <a href="#"
+                  class="border border-gray-300 hover:bg-white hover:text-black font-semibold py-3 px-6 rounded-full text-sm transition">
+                  Our Projects
+                </a>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- BANNER 2 -->
+        <div class="slide w-full h-screen flex-shrink-0 bg-cover bg-center relative overflow-hidden"
+          style="background-image: url('images/home3.png')">
+          <!-- Gradient Overlay -->
+          <div class="absolute inset-0 bg-gradient-to-t from-white/40 via-white/30 to-white/40"></div>
+
+          <!-- Content -->
+          <div class="relative z-10 w-full h-full flex items-center px-6 sm:px-10 lg:px-20">
+            <div class="max-w-xl mb-28 text-[#12306A]">
+              <!-- Accent Line -->
+              <div class="w-14 h-[3px] bg-yellow-400 mb-6"></div>
+
+              <h1 class="font-serif font-medium tracking-tight leading-tight
+               text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+                Commercial Development
+              </h1>
+
+              <p class="mt-4 text-sm sm:text-base md:text-lg text-[#5B6B8C] max-w-md leading-relaxed">
+                Strong foundations for modern cities
+              </p>
+
+              <div class="mt-8 flex gap-4 flex-wrap">
+                <a href="#" class="bg-yellow-400 hover:bg-yellow-500
+                 text-black font-semibold
+                 py-3 px-7 rounded-full text-sm
+                 rounded-full transition-all duration-300">
+                  Learn More
+                </a>
+
+                <a href="#" class="border border-[#12306A]/40
+                 text-[#12306A]
+                 hover:bg-[#12306A] hover:text-white
+                 font-semibold py-3 px-7
+                 rounded-full text-sm transition-all duration-300">
+                  Our Projects
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- BANNER 3 -->
+        <div class="slide w-full h-full flex-shrink-0 bg-cover bg-center relative"
+          style="background-image: url('images/home4.png')">
+          <!-- Dark Overlay -->
+          <div class="absolute inset-0 bg-balck/40"></div>
+
+          <!-- Content -->
+          <div class="relative z-10 w-full h-full flex items-center justify-end px-6 sm:px-10 lg:px-20">
+            <div class="max-w-lg bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-2xl text-white mb-28">
+
+              <h1 class="text-3xl sm:text-4xl md:text-5xl font-normal font-serif text-[#12306A] leading-tight">
+                Industrial Construction
+              </h1>
+
+              <p class="mt-4 text-sm sm:text-base text-black/50  leading-relaxed">
+                Engineering robust, scalable and efficient industrial facilities
+                that drive production and growth.
+              </p>
+
+              <div class="mt-6 flex gap-3 flex-wrap">
+                <a href="#" class="bg-yellow-400 hover:bg-yellow-500 text-black
+                 font-semibold py-3 px-6 rounded-full text-sm transition">
+                  Explore
+                </a>
+
+                <a href="#" class="border border-white/60 text-[#12306A] hover:bg-white hover:text-black
+                 font-semibold py-3 px-6 rounded-full text-sm transition">
+                  View Projects
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
       </div>
 
       <!-- ARROWS -->
-      <button
-        id="prevBtn"
-        class="absolute left-5 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 p-4 rounded-full text-white z-40 backdrop-blur transition-all duration-300"
-      >
+      <button id="prevBtn"
+        class="absolute left-5 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 p-4 rounded-full text-white z-40 backdrop-blur transition-all duration-300">
         ❮
       </button>
 
-      <button
-        id="nextBtn"
-        class="absolute right-5 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 p-4 rounded-full text-white z-40 backdrop-blur transition-all duration-300"
-      >
+      <button id="nextBtn"
+        class="absolute right-5 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 p-4 rounded-full text-white z-40 backdrop-blur transition-all duration-300">
         ❯
       </button>
-    </section>
+  </section>
 
-    <!-- ABOUT SECTION -->
-    <section class="relative -mt-36 py-16 bg-gray-50 overflow-hidden">
-      <!-- BOTTOM BACKGROUND IMAGE ONLY -->
-      <div
-        class="absolute bottom-0 left-0 w-full h-[220px] bg-cover bg-center"
-        style="background-image: url('images/about.jfif')"
-      ></div>
+  <!-- ABOUT SECTION -->
+  <section class="relative -mt-36 py-16 bg-gray-50 overflow-hidden">
+    <!-- BOTTOM BACKGROUND IMAGE ONLY -->
+    <div class="absolute bottom-0 left-0 w-full h-[220px] bg-cover bg-center"
+      style="background-image: url('images/about.jfif')"></div>
 
-      <!-- White overlay on bottom image -->
-      <div class="absolute bottom-0 left-0 w-full h-[220px] bg-white/60"></div>
+    <!-- White overlay on bottom image -->
+    <div class="absolute bottom-0 left-0 w-full h-[220px] bg-white/60"></div>
 
-      <div class="relative z-10 container mx-auto px-6">
-        <div class="grid lg:grid-cols-12 gap-6 items-center">
-          <!-- IMAGE PANEL -->
+    <div class="relative z-10 container mx-auto px-6">
+      <div class="grid lg:grid-cols-12 gap-6 items-center">
+        <!-- IMAGE PANEL -->
+        <div class="lg:col-span-5 relative h-[420px] rounded-2xl overflow-hidden group shadow-md bg-white">
+          <img src="images/aboutimg.png" alt="Construction Excellence"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
+
+          <!-- Overlay badge -->
           <div
-            class="lg:col-span-5 relative h-[420px] rounded-2xl overflow-hidden group shadow-md bg-white"
-          >
-            <img
-              src="images/aboutimg.png"
-              alt="Construction Excellence"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-              loading="lazy"
-            />
+            class="absolute top-5 left-5 bg-white/90 backdrop-blur-sm px-5 py-3 rounded-xl shadow-md border border-white/20">
+            <div class="text-xl font-bold text-[#1A2A4F] mb-1">8+ Years</div>
+            <div class="text-gray-600 text-xs">of trusted service</div>
+          </div>
+        </div>
 
-            <!-- Overlay badge -->
-            <div
-              class="absolute top-5 left-5 bg-white/90 backdrop-blur-sm px-5 py-3 rounded-xl shadow-md border border-white/20"
-            >
-              <div class="text-xl font-bold text-[#1A2A4F] mb-1">7+ Years</div>
-              <div class="text-gray-600 text-xs">of trusted service</div>
+        <!-- STATS SIDEBAR -->
+        <div class="lg:col-span-2 bg-white shadow-lg rounded-2xl p-5 grid grid-cols-1 gap-5 h-fit">
+          <div class="text-center group cursor-pointer">
+            <div class="text-2xl font-bold text-[#1A2A4F] mb-1 counter" data-target="100">
+              0+
+            </div>
+            <div class="text-xs text-gray-500 uppercase tracking-wide">
+              Projects
             </div>
           </div>
 
-          <!-- STATS SIDEBAR -->
-          <div
-            class="lg:col-span-2 bg-white shadow-lg rounded-2xl p-5 grid grid-cols-1 gap-5 h-fit"
-          >
-            <div class="text-center group cursor-pointer">
-              <div
-                class="text-2xl font-bold text-[#1A2A4F] mb-1 counter"
-                data-target="100"
-              >
-                0+
-              </div>
-              <div class="text-xs text-gray-500 uppercase tracking-wide">
-                Projects
-              </div>
+          <div class="text-center border-t border-gray-200 pt-4 group cursor-pointer">
+            <div class="text-2xl font-bold text-[#1A2A4F] mb-1 counter" data-target="7">
+              0+
             </div>
-
-            <div
-              class="text-center border-t border-gray-200 pt-4 group cursor-pointer"
-            >
-              <div
-                class="text-2xl font-bold text-[#1A2A4F] mb-1 counter"
-                data-target="7"
-              >
-                0+
-              </div>
-              <div class="text-xs text-gray-500 uppercase tracking-wide">
-                Cities
-              </div>
-            </div>
-
-            <div
-              class="text-center border-t border-gray-200 pt-4 group cursor-pointer"
-            >
-              <div
-                class="text-2xl font-bold text-[#1A2A4F] mb-1 counter"
-                data-target="98"
-              >
-                0%
-              </div>
-              <div class="text-xs text-gray-500 uppercase tracking-wide">
-                Satisfaction
-              </div>
+            <div class="text-xs text-gray-500 uppercase tracking-wide">
+              Cities
             </div>
           </div>
 
-          <!-- CONTENT CARD -->
-          <div
-            class="lg:col-span-5 bg-white p-8 rounded-2xl shadow-lg space-y-6 border border-gray-100"
-          >
-            <!-- Section Label -->
-            <div
-              class="flex items-center gap-4 text-gray-500 uppercase tracking-wider text-xs font-semibold"
-            >
-              <div class="w-10 h-px bg-gray-300"></div>
-              Since 2018
+          <div class="text-center border-t border-gray-200 pt-4 group cursor-pointer">
+            <div class="text-2xl font-bold text-[#1A2A4F] mb-1 counter" data-target="98">
+              0%
             </div>
-
-            <!-- Heading -->
-            <h2
-              class="text-4xl md:text-5xl font-light text-[#1A2A4F] leading-tight"
-            >
-              Building Excellence
-              <span class="font-bold block">Through Innovation</span>
-            </h2>
-
-            <!-- Description -->
-            <p class="text-base text-gray-600 leading-relaxed">
-              Driven by innovation and backed by proven expertise, we build
-              spaces that empower progress and shape the infrastructure of
-              tomorrow.
-            </p>
-
-            <!-- CTA -->
-            <div class="flex flex-wrap gap-4 pt-2">
-              <a
-                href="gallery.html"
-                class="bg-[#1A2A4F] hover:bg-[#11224E] text-white px-6 py-3 text-sm font-semibold transition-all duration-300 hover:shadow-md rounded-xl"
-              >
-                Learn More
-              </a>
-
-              <a
-                href="about.html"
-                class="border border-gray-300 hover:border-[#11224E] text-gray-900 px-6 py-3 text-sm font-semibold transition-all duration-300 hover:shadow-md rounded-xl"
-              >
-                Our Story
-              </a>
+            <div class="text-xs text-gray-500 uppercase tracking-wide">
+              Satisfaction
             </div>
+          </div>
+        </div>
+
+        <!-- CONTENT CARD -->
+        <div class="lg:col-span-5 bg-white p-8 rounded-2xl shadow-lg space-y-6 border border-gray-100">
+          <!-- Section Label -->
+          <div class="flex items-center gap-4 text-gray-500 uppercase tracking-wider text-xs font-semibold">
+            <div class="w-10 h-px bg-gray-300"></div>
+            Since 2018
+          </div>
+
+          <!-- Heading -->
+          <h2 class="text-4xl md:text-5xl font-light text-[#1A2A4F] leading-tight">
+            Building Excellence
+            <span class="font-bold block">Through Innovation</span>
+          </h2>
+
+          <!-- Description -->
+          <p class="text-base text-gray-600 leading-relaxed">
+            Driven by innovation and backed by proven expertise, we build
+            spaces that empower progress and shape the infrastructure of
+            tomorrow.
+          </p>
+
+          <!-- CTA -->
+          <div class="flex flex-wrap gap-4 pt-2">
+            <a href="gallery.html"
+              class="bg-[#1A2A4F] hover:bg-[#11224E] text-white px-6 py-3 text-sm font-semibold transition-all duration-300 hover:shadow-md rounded-xl">
+              Learn More
+            </a>
+
+            <a href="about.html"
+              class="border border-gray-300 hover:border-[#11224E] text-gray-900 px-6 py-3 text-sm font-semibold transition-all duration-300 hover:shadow-md rounded-xl">
+              Our Story
+            </a>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- Accent Elements -->
-      <div
-        class="absolute -bottom-12 -left-12 w-32 h-32 bg-blue-600 opacity-10 rounded-full"
-      ></div>
-      <div
-        class="absolute -top-16 -right-16 w-48 h-48 bg-yellow-600 opacity-10 rounded-full"
-      ></div>
-    </section>
+    <!-- Accent Elements -->
+    <div class="absolute -bottom-12 -left-12 w-32 h-32 bg-blue-600 opacity-10 rounded-full"></div>
+    <div class="absolute -top-16 -right-16 w-48 h-48 bg-yellow-600 opacity-10 rounded-full"></div>
+  </section>
 
-    <!------------PROJECT SECTION --------------------->
-    <section class="pt-16 pb-4 bg-white overflow-hidden -mt-10">
-      <div class="container mx-auto px-6">
-        <!-- Compact Header -->
-        <div
-          class="flex flex-col lg:flex-row lg:items-end justify-between mb-12 border-b border-gray-200 pb-6"
-        >
-          <div>
-            <div class="text-sm text-gray-500 uppercase tracking-wider mb-2">
-              Our Work
-            </div>
-            <h2 class="text-3xl md:text-4xl font-light text-[#11224E]">
-              Project <span class="font-bold">Portfolio</span>
-            </h2>
-          </div>
-          <p class="text-gray-600 text-xs mt-3 lg:mt-0 lg:ml-[-10px]">
-            Innovative projects that inspire and create impact.
+  <!-- SECTORS -->
+  <section class="py-10 bg-white overflow-hidden">
+    <!-- Updated container -->
+    <div class="max-w-7xl mx-auto px-8 md:px-16 lg:px-24">
+      <!-- Header Row -->
+      <div
+        class="flex flex-col lg:flex-row lg:items-end justify-between mb-14 border-b border-gray-300 pb-6 stagger-animation">
+        <!-- Left -->
+        <div class="fade-in-up">
+          <p class="text-xs uppercase tracking-widest text-gray-500 mb-2 flex items-center">
+            <span class="pulse-dot mr-2"></span>
+            Sectors We Serve
           </p>
+          <h2 class="text-4xl md:text-5xl font-light text-[#11224E]">
+            Trusted Across <br />
+            <span class="font-semibold">Multiple Sectors</span>
+          </h2>
         </div>
 
-        <!-- Compact Auto-Scrolling Cards -->
-        <div class="relative -mt-10">
-          <div class="flex gap-6 animate-autoscroll hover:pause-autoscroll">
-            <div class="flex gap-6 overflow-x-auto pb-4">
-              <!-- CARD 1 -->
-              <a href="industrial.html" class="group flex-shrink-0 w-80">
-                <div
-                  class="relative h-full flex flex-col overflow-hidden rounded-3xl bg-gradient-to-br from-white to-gray-50 border border-gray-200 hover:border-gray-800 shadow-lg hover:shadow-2xl transition-all duration-500"
-                >
-                  <div class="relative h-56 overflow-hidden">
-                    <img
-                      src="images/industrial-proj1.png"
-                      class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                    <div
-                      class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"
-                    ></div>
-                  </div>
+        <!-- Right -->
+        <div class="max-w-md mt-6 lg:mt-0 fade-in-up">
+          <p class="text-sm text-gray-600 mb-4">
+            From infrastructure to technology-driven environments, we deliver
+            safety-first, high-quality solutions across all major industries.
+          </p>
 
-                  <div class="p-6 flex flex-col flex-grow space-y-4">
-                    <div class="flex items-center justify-between text-sm">
-                      <span
-                        class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-xs font-semibold"
-                        >Industrial Project</span
-                      >
-                      <span class="text-gray-500 text-xs">Completed</span>
-                    </div>
-
-                    <h3 class="text-xl font-bold text-gray-900">
-                      Hyosung T&D India Pvt. Ltd.
-                    </h3>
-
-                    <p class="text-gray-600 text-sm">
-                      End-to-end solutions in land development, civil works,
-                      PEB, and infrastructure.
-                    </p>
-
-                    <div
-                      class="grid grid-cols-3 gap-3 pt-3 border-t border-gray-200 text-xs"
-                    >
-                      <div class="text-center">
-                        <div class="font-bold text-gray-900">
-                          1,50,000 Sq.Ft
-                        </div>
-                        <div class="text-gray-500">Project Area</div>
-                      </div>
-                      <div class="text-center">
-                        <div class="font-bold text-gray-900">Industrial</div>
-                        <div class="text-gray-500">Project Type</div>
-                      </div>
-                      <div class="text-center">
-                        <div class="font-bold text-gray-900">Khed, Pune</div>
-                        <div class="text-gray-500">Location</div>
-                      </div>
-                    </div>
-
-                    <div class="mt-auto flex items-center justify-between pt-3">
-                      <span
-                        class="text-gray-700 font-semibold text-xs group-hover:translate-x-1 transition-transform"
-                        >View Details</span
-                      >
-                      <div
-                        class="w-9 h-9 bg-[#11224E] group-hover:bg-[#234C6A] rounded-full flex items-center justify-center"
-                      >
-                        <svg
-                          class="w-4 h-4 text-white"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M9 5l7 7-7 7"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </a>
-
-              <!-- CARD 2 -->
-              <a href="industrial.html" class="group flex-shrink-0 w-80">
-                <div
-                  class="relative h-full flex flex-col overflow-hidden rounded-3xl bg-gradient-to-br from-white to-gray-50 border border-gray-200 hover:border-gray-800 shadow-lg hover:shadow-2xl transition-all duration-500"
-                >
-                  <div class="relative h-56 overflow-hidden">
-                    <img
-                      src="images/industrial-proj2.png"
-                      class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                    <div
-                      class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"
-                    ></div>
-                  </div>
-
-                  <div class="p-6 flex flex-col flex-grow space-y-4">
-                    <div class="flex items-center justify-between text-sm">
-                      <span
-                        class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-xs font-semibold"
-                        >Industrial Project</span
-                      >
-                      <span class="text-gray-500 text-xs">Completed</span>
-                    </div>
-
-                    <h3 class="text-xl font-bold text-gray-900">
-                      Zoomlion India Pvt. Ltd.
-                    </h3>
-
-                    <p class="text-gray-600 text-sm">
-                      Complete civil, PEB, and infrastructure development
-                      solutions.
-                    </p>
-
-                    <div
-                      class="grid grid-cols-3 gap-3 pt-3 border-t border-gray-200 text-xs"
-                    >
-                      <div class="text-center">
-                        <div class="font-bold text-gray-900">
-                          1,05,000 Sq.Ft
-                        </div>
-                        <div class="text-gray-500">Built-up Area</div>
-                      </div>
-                      <div class="text-center">
-                        <div class="font-bold text-gray-900">PEB / RCC</div>
-                        <div class="text-gray-500">Structure</div>
-                      </div>
-                      <div class="text-center">
-                        <div class="font-bold text-gray-900">
-                          Chakan Phase 2
-                        </div>
-                        <div class="text-gray-500">Location</div>
-                      </div>
-                    </div>
-
-                    <div class="mt-auto flex items-center justify-between pt-3">
-                      <span
-                        class="text-gray-700 font-semibold text-xs group-hover:translate-x-1 transition-transform"
-                        >View Details</span
-                      >
-                      <div
-                        class="w-9 h-9 bg-[#11224E] group-hover:bg-[#234C6A] rounded-full flex items-center justify-center"
-                      >
-                        <svg
-                          class="w-4 h-4 text-white"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M9 5l7 7-7 7"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </a>
-
-              <!-- CARD 3 -->
-              <a href="residential.html" class="group flex-shrink-0 w-80">
-                <div
-                  class="relative h-full flex flex-col overflow-hidden rounded-3xl bg-gradient-to-br from-white to-gray-50 border border-gray-200 hover:border-gray-800 shadow-lg hover:shadow-2xl transition-all duration-500"
-                >
-                  <div class="relative h-56 overflow-hidden">
-                    <img
-                      src="images/commercial-proj1.png"
-                      class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                    <div
-                      class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"
-                    ></div>
-                  </div>
-
-                  <div class="p-6 flex flex-col flex-grow space-y-4">
-                    <div class="flex items-center justify-between text-sm">
-                      <span
-                        class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-xs font-semibold"
-                        >Commercial Project</span
-                      >
-                      <span class="text-gray-500 text-xs">Completed</span>
-                    </div>
-
-                    <h3 class="text-xl font-bold text-gray-900">
-                      Nalanda Shelters (SEZ)
-                    </h3>
-
-                    <p class="text-gray-600 text-sm">
-                      Sanitary fit-outs and tiling works executed for SEZ
-                      commercial facility.
-                    </p>
-
-                    <div
-                      class="grid grid-cols-3 gap-3 pt-3 border-t border-gray-200 text-xs"
-                    >
-                      <div class="text-center">
-                        <div class="font-bold text-gray-900">85,000 Sq.Ft</div>
-                        <div class="text-gray-500">Project Area</div>
-                      </div>
-                      <div class="text-center">
-                        <div class="font-bold text-gray-900">SEZ Facility</div>
-                        <div class="text-gray-500">Project Type</div>
-                      </div>
-                      <div class="text-center">
-                        <div class="font-bold text-gray-900">
-                          Interior Works
-                        </div>
-                        <div class="text-gray-500">Scope</div>
-                      </div>
-                    </div>
-
-                    <div class="mt-auto flex items-center justify-between pt-3">
-                      <span
-                        class="text-gray-700 font-semibold text-xs group-hover:translate-x-1 transition-transform"
-                        >View Details</span
-                      >
-                      <div
-                        class="w-9 h-9 bg-[#11224E] group-hover:bg-[#234C6A] rounded-full flex items-center justify-center"
-                      >
-                        <svg
-                          class="w-4 h-4 text-white"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M9 5l7 7-7 7"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </a>
-
-              <!-- CARD 4 -->
-              <a href="projects/district.html" class="group flex-shrink-0 w-80">
-                <div
-                  class="relative h-full flex flex-col overflow-hidden rounded-3xl bg-gradient-to-br from-white to-gray-50 border border-gray-200 hover:border-gray-800 shadow-lg hover:shadow-2xl transition-all duration-500"
-                >
-                  <div class="relative h-56 overflow-hidden">
-                    <img
-                      src="images/public-proj1.png"
-                      class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                    <div
-                      class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"
-                    ></div>
-                  </div>
-
-                  <div class="p-6 flex flex-col flex-grow space-y-4">
-                    <div class="flex items-center justify-between text-sm">
-                      <span
-                        class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-xs font-semibold"
-                        >Public Infrastructure</span
-                      >
-                      <span class="text-gray-500 text-xs">Completed</span>
-                    </div>
-
-                    <h3 class="text-xl font-bold text-gray-900">PMCH, Patna</h3>
-
-                    <p class="text-gray-600 text-sm">
-                      Turnkey execution covering piling, RCC structure,
-                      finishes, and infrastructure works.
-                    </p>
-
-                    <div
-                      class="grid grid-cols-3 gap-3 pt-3 border-t border-gray-200 text-xs"
-                    >
-                      <div class="text-center">
-                        <div class="font-bold text-gray-900">
-                          5,56,000 Sq.Ft
-                        </div>
-                        <div class="text-gray-500">Built-up Area</div>
-                      </div>
-                      <div class="text-center">
-                        <div class="font-bold text-gray-900">Turnkey</div>
-                        <div class="text-gray-500">Execution Model</div>
-                      </div>
-                      <div class="text-center">
-                        <div class="font-bold text-gray-900">Civil & Infra</div>
-                        <div class="text-gray-500">Scope</div>
-                      </div>
-                    </div>
-
-                    <div class="mt-auto flex items-center justify-between pt-3">
-                      <span
-                        class="text-gray-700 font-semibold text-xs group-hover:translate-x-1 transition-transform"
-                        >View Details</span
-                      >
-                      <div
-                        class="w-9 h-9 bg-[#11224E] group-hover:bg-[#234C6A] rounded-full flex items-center justify-center"
-                      >
-                        <svg
-                          class="w-4 h-4 text-white"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M9 5l7 7-7 7"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-
-            <!-- Duplicate set for seamless loop -->
-            <div class="flex gap-6 overflow-x-auto pb-4">
-              <!-- CARD 1 -->
-              <a href="industrial.html" class="group flex-shrink-0 w-80">
-                <div
-                  class="relative h-full flex flex-col overflow-hidden rounded-3xl bg-gradient-to-br from-white to-gray-50 border border-gray-200 hover:border-gray-800 shadow-lg hover:shadow-2xl transition-all duration-500"
-                >
-                  <div class="relative h-56 overflow-hidden">
-                    <img
-                      src="images/industrial-proj1.png"
-                      class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                    <div
-                      class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"
-                    ></div>
-                  </div>
-
-                  <div class="p-6 flex flex-col flex-grow space-y-4">
-                    <div class="flex items-center justify-between text-sm">
-                      <span
-                        class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-xs font-semibold"
-                        >Industrial Project</span
-                      >
-                      <span class="text-gray-500 text-xs">Completed</span>
-                    </div>
-
-                    <h3 class="text-xl font-bold text-gray-900">
-                      Hyosung T&D India Pvt. Ltd.
-                    </h3>
-
-                    <p class="text-gray-600 text-sm">
-                      End-to-end solutions in land development, civil works,
-                      PEB, and infrastructure.
-                    </p>
-
-                    <div
-                      class="grid grid-cols-3 gap-3 pt-3 border-t border-gray-200 text-xs"
-                    >
-                      <div class="text-center">
-                        <div class="font-bold text-gray-900">
-                          1,50,000 Sq.Ft
-                        </div>
-                        <div class="text-gray-500">Project Area</div>
-                      </div>
-                      <div class="text-center">
-                        <div class="font-bold text-gray-900">Industrial</div>
-                        <div class="text-gray-500">Project Type</div>
-                      </div>
-                      <div class="text-center">
-                        <div class="font-bold text-gray-900">Khed, Pune</div>
-                        <div class="text-gray-500">Location</div>
-                      </div>
-                    </div>
-
-                    <div class="mt-auto flex items-center justify-between pt-3">
-                      <span
-                        class="text-gray-700 font-semibold text-xs group-hover:translate-x-1 transition-transform"
-                        >View Details</span
-                      >
-                      <div
-                        class="w-9 h-9 bg-[#11224E] group-hover:bg-[#234C6A] rounded-full flex items-center justify-center"
-                      >
-                        <svg
-                          class="w-4 h-4 text-white"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M9 5l7 7-7 7"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </a>
-
-              <!-- CARD 2 -->
-              <a href="industrial.html" class="group flex-shrink-0 w-80">
-                <div
-                  class="relative h-full flex flex-col overflow-hidden rounded-3xl bg-gradient-to-br from-white to-gray-50 border border-gray-200 hover:border-gray-800 shadow-lg hover:shadow-2xl transition-all duration-500"
-                >
-                  <div class="relative h-56 overflow-hidden">
-                    <img
-                      src="images/industrial-proj2.png"
-                      class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                    <div
-                      class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"
-                    ></div>
-                  </div>
-
-                  <div class="p-6 flex flex-col flex-grow space-y-4">
-                    <div class="flex items-center justify-between text-sm">
-                      <span
-                        class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-xs font-semibold"
-                        >Industrial Project</span
-                      >
-                      <span class="text-gray-500 text-xs">Completed</span>
-                    </div>
-
-                    <h3 class="text-xl font-bold text-gray-900">
-                      Zoomlion India Pvt. Ltd.
-                    </h3>
-
-                    <p class="text-gray-600 text-sm">
-                      Complete civil, PEB, and infrastructure development
-                      solutions.
-                    </p>
-
-                    <div
-                      class="grid grid-cols-3 gap-3 pt-3 border-t border-gray-200 text-xs"
-                    >
-                      <div class="text-center">
-                        <div class="font-bold text-gray-900">
-                          1,05,000 Sq.Ft
-                        </div>
-                        <div class="text-gray-500">Built-up Area</div>
-                      </div>
-                      <div class="text-center">
-                        <div class="font-bold text-gray-900">PEB / RCC</div>
-                        <div class="text-gray-500">Structure</div>
-                      </div>
-                      <div class="text-center">
-                        <div class="font-bold text-gray-900">
-                          Chakan Phase 2
-                        </div>
-                        <div class="text-gray-500">Location</div>
-                      </div>
-                    </div>
-
-                    <div class="mt-auto flex items-center justify-between pt-3">
-                      <span
-                        class="text-gray-700 font-semibold text-xs group-hover:translate-x-1 transition-transform"
-                        >View Details</span
-                      >
-                      <div
-                        class="w-9 h-9 bg-[#11224E] group-hover:bg-[#234C6A] rounded-full flex items-center justify-center"
-                      >
-                        <svg
-                          class="w-4 h-4 text-white"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M9 5l7 7-7 7"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </a>
-
-              <!-- CARD 3 -->
-              <a href="residential.html" class="group flex-shrink-0 w-80">
-                <div
-                  class="relative h-full flex flex-col overflow-hidden rounded-3xl bg-gradient-to-br from-white to-gray-50 border border-gray-200 hover:border-gray-800 shadow-lg hover:shadow-2xl transition-all duration-500"
-                >
-                  <div class="relative h-56 overflow-hidden">
-                    <img
-                      src="images/commercial-proj1.png"
-                      class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                    <div
-                      class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"
-                    ></div>
-                  </div>
-
-                  <div class="p-6 flex flex-col flex-grow space-y-4">
-                    <div class="flex items-center justify-between text-sm">
-                      <span
-                        class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-xs font-semibold"
-                        >Commercial Project</span
-                      >
-                      <span class="text-gray-500 text-xs">Completed</span>
-                    </div>
-
-                    <h3 class="text-xl font-bold text-gray-900">
-                      Nalanda Shelters (SEZ)
-                    </h3>
-
-                    <p class="text-gray-600 text-sm">
-                      Sanitary fit-outs and tiling works executed for SEZ
-                      commercial facility.
-                    </p>
-
-                    <div
-                      class="grid grid-cols-3 gap-3 pt-3 border-t border-gray-200 text-xs"
-                    >
-                      <div class="text-center">
-                        <div class="font-bold text-gray-900">85,000 Sq.Ft</div>
-                        <div class="text-gray-500">Project Area</div>
-                      </div>
-                      <div class="text-center">
-                        <div class="font-bold text-gray-900">SEZ Facility</div>
-                        <div class="text-gray-500">Project Type</div>
-                      </div>
-                      <div class="text-center">
-                        <div class="font-bold text-gray-900">
-                          Interior Works
-                        </div>
-                        <div class="text-gray-500">Scope</div>
-                      </div>
-                    </div>
-
-                    <div class="mt-auto flex items-center justify-between pt-3">
-                      <span
-                        class="text-gray-700 font-semibold text-xs group-hover:translate-x-1 transition-transform"
-                        >View Details</span
-                      >
-                      <div
-                        class="w-9 h-9 bg-[#11224E] group-hover:bg-[#234C6A] rounded-full flex items-center justify-center"
-                      >
-                        <svg
-                          class="w-4 h-4 text-white"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M9 5l7 7-7 7"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </a>
-
-              <!-- CARD 4 -->
-              <a href="projects/district.html" class="group flex-shrink-0 w-80">
-                <div
-                  class="relative h-full flex flex-col overflow-hidden rounded-3xl bg-gradient-to-br from-white to-gray-50 border border-gray-200 hover:border-gray-800 shadow-lg hover:shadow-2xl transition-all duration-500"
-                >
-                  <div class="relative h-56 overflow-hidden">
-                    <img
-                      src="images/public-proj1.png"
-                      class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                    <div
-                      class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"
-                    ></div>
-                  </div>
-
-                  <div class="p-6 flex flex-col flex-grow space-y-4">
-                    <div class="flex items-center justify-between text-sm">
-                      <span
-                        class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-xs font-semibold"
-                        >Public Infrastructure</span
-                      >
-                      <span class="text-gray-500 text-xs">Completed</span>
-                    </div>
-
-                    <h3 class="text-xl font-bold text-gray-900">PMCH, Patna</h3>
-
-                    <p class="text-gray-600 text-sm">
-                      Turnkey execution covering piling, RCC structure,
-                      finishes, and infrastructure works.
-                    </p>
-
-                    <div
-                      class="grid grid-cols-3 gap-3 pt-3 border-t border-gray-200 text-xs"
-                    >
-                      <div class="text-center">
-                        <div class="font-bold text-gray-900">
-                          5,56,000 Sq.Ft
-                        </div>
-                        <div class="text-gray-500">Built-up Area</div>
-                      </div>
-                      <div class="text-center">
-                        <div class="font-bold text-gray-900">Turnkey</div>
-                        <div class="text-gray-500">Execution Model</div>
-                      </div>
-                      <div class="text-center">
-                        <div class="font-bold text-gray-900">Civil & Infra</div>
-                        <div class="text-gray-500">Scope</div>
-                      </div>
-                    </div>
-
-                    <div class="mt-auto flex items-center justify-between pt-3">
-                      <span
-                        class="text-gray-700 font-semibold text-xs group-hover:translate-x-1 transition-transform"
-                        >View Details</span
-                      >
-                      <div
-                        class="w-9 h-9 bg-[#11224E] group-hover:bg-[#234C6A] rounded-full flex items-center justify-center"
-                      >
-                        <svg
-                          class="w-4 h-4 text-white"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M9 5l7 7-7 7"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Compact CTA -->
-        <div class="text-center mt-6">
-          <a
-            href="projects.html"
-            class="inline-flex items-center gap-3 bg-[#1A2A4F] hover:bg-[#11224E] text-white font-semibold py-3 px-7 rounded-full text-sm transition-all hover:scale-105"
-          >
-            Explore All Projects
-            <svg
-              class="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 5l7 7-7 7"
-              ></path>
-            </svg>
+          <a href="contact.html" class="text-[#11224E] hover:underline gradient-border">
+            Contact Us
           </a>
         </div>
       </div>
-    </section>
 
-    <!---------------WHY CHOOSE US SECTION --------------------->
-    <section class="pt-8 pb-10 bg-gray-50" id="why-choose">
-      <div class="container mx-auto px-6">
-        <!-- Section Header -->
-        <div class="text-center mb-12">
-          <p
-            class="text-[#11224E] text-sm font-light tracking-wider uppercase mb-2"
-          >
-            Why Choose Us?
-          </p>
-          <h2 class="text-4xl font-bold text-[#11224E] mb-4">
-            Why we're your best choice
+      <!-- Cards -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 stagger-animation -mt-8">
+
+        <!-- Card 1 : Industrial -->
+        <a href="industrial.html" class="block group card-hover">
+          <div class="h-56 rounded-2xl overflow-hidden bg-gray-200 relative" style="
+        background-image: url('images/industrial.jfif');
+        background-size: cover;
+        background-position: center;
+      ">
+            <div class="image-overlay flex items-end p-4">
+              <p class="text-white text-sm">
+                Powering industrial growth with innovative solutions and reliable execution.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between mt-3">
+            <p class="text-sm font-semibold text-[#2a1b1b]">Industrial</p>
+            <span class="w-9 h-9 bg-[#024a71] rounded-full flex items-center justify-center text-white arrow-icon">
+              ↗
+            </span>
+          </div>
+        </a>
+
+        <!-- Card 2 : Commercial -->
+        <a href="commercial.html" class="block group card-hover">
+          <div class="h-56 rounded-2xl overflow-hidden bg-gray-200 relative" style="
+        background-image: url('images/commercial.jfif');
+        background-size: cover;
+        background-position: center;
+      ">
+            <div class="image-overlay flex items-end p-4">
+              <p class="text-white text-sm">
+                Creating dynamic commercial spaces that drive business success.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between mt-3">
+            <p class="text-sm font-semibold text-[#2a1b1b]">Commercial</p>
+            <span class="w-9 h-9 bg-[#024a71] rounded-full flex items-center justify-center text-white arrow-icon">
+              ↗
+            </span>
+          </div>
+        </a>
+
+        <!-- Card 3 : Residential -->
+        <a href="residential.html" class="block group card-hover">
+          <div class="h-56 rounded-2xl overflow-hidden bg-gray-200 relative" style="
+        background-image: url('images/residential.jfif');
+        background-size: cover;
+        background-position: center;
+      ">
+            <div class="image-overlay flex items-end p-4">
+              <p class="text-white text-sm">
+                Building the foundations for modern society with precision and expertise.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between mt-3">
+            <p class="text-sm font-semibold text-[#2a1b1b]">Residential</p>
+            <span class="w-9 h-9 bg-[#024a71] rounded-full flex items-center justify-center text-white arrow-icon">
+              ↗
+            </span>
+          </div>
+        </a>
+
+        <!-- Card 4 : Institutional -->
+        <a href="institutional.html" class="block group card-hover">
+          <div class="h-56 rounded-2xl overflow-hidden bg-gray-200 relative" style="
+        background-image: url('images/institutional.jfif');
+        background-size: cover;
+        background-position: center;
+      ">
+            <div class="image-overlay flex items-end p-4">
+              <p class="text-white text-sm">
+                Developing robust infrastructure systems that connect and empower communities.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between mt-3">
+            <p class="text-sm font-semibold text-[#2a1b1b]">Institutional</p>
+            <span class="w-9 h-9 bg-[#024a71] rounded-full flex items-center justify-center text-white arrow-icon">
+              ↗
+            </span>
+          </div>
+        </a>
+
+        <!-- Card 5 : Public Infrastructure -->
+        <a href="public-infrastructure.html" class="block group card-hover">
+          <div class="h-56 rounded-2xl overflow-hidden bg-gray-200 relative" style="
+        background-image: url('images/public.jfif');
+        background-size: cover;
+        background-position: center;
+      ">
+            <div class="image-overlay flex items-end p-4">
+              <p class="text-white text-sm">
+                Implementing cutting-edge technology solutions for the digital age.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between mt-3">
+            <p class="text-sm font-semibold text-[#2a1b1b]">Public Infrastructure</p>
+            <span class="w-9 h-9 bg-[#024a71] rounded-full flex items-center justify-center text-white arrow-icon">
+              ↗
+            </span>
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!------------PROJECT SECTION --------------------->
+  <section class="pt-16 pb-4 bg-white overflow-hidden -mt-10">
+    <div class="container mx-auto px-6">
+      <!-- Compact Header -->
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-12 border-b border-gray-200 pb-6">
+        <div>
+          <div class="text-sm text-gray-500 uppercase tracking-wider mb-2">
+            Our Work
+          </div>
+          <h2 class="text-3xl md:text-4xl font-light text-[#11224E]">
+            Project <span class="font-bold">Portfolio</span>
           </h2>
-          <p class="text-gray-600 max-w-2xl mx-auto">
-            Developed in collaboration with clients and partners, we combine
-            experience, innovation, and adaptability to deliver excellence in
-            every project.
-          </p>
         </div>
+        <p class="text-gray-600 text-xs mt-3 lg:mt-0 lg:ml-[-10px]">
+          Innovative projects that inspire and create impact.
+        </p>
+      </div>
 
-        <!-- Cards Grid -->
-        <div class="grid md:grid-cols-3 gap-8 items-stretch">
-          <!-- Card 1 -->
-          <div
-            class="bg-white rounded-2xl shadow-md p-6 flex flex-col justify-between text-left border h-[420px] fade-in"
-          >
-            <div>
-              <div class="text-[#D2C1B6] text-3xl mb-3">
-                <i class="fas fa-lightbulb"></i>
+      <!-- Compact Auto-Scrolling Cards -->
+      <div class="relative -mt-10">
+        <div class="flex gap-6 animate-autoscroll hover:pause-autoscroll">
+          <div class="flex gap-6 overflow-x-auto pb-4">
+            <!-- CARD 1 -->
+            <a href="industrial.html" class="group flex-shrink-0 w-80">
+              <div
+                class="relative h-full flex flex-col overflow-hidden rounded-3xl bg-gradient-to-br from-white to-gray-50 border border-gray-200 hover:border-gray-800 shadow-lg hover:shadow-2xl transition-all duration-500">
+                <div class="relative h-56 overflow-hidden">
+                  <img src="images/industrial-proj1.png"
+                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                </div>
+
+                <div class="p-6 flex flex-col flex-grow space-y-4">
+                  <div class="flex items-center justify-between text-sm">
+                    <span class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-xs font-semibold">Industrial
+                      Project</span>
+                    <span class="text-gray-500 text-xs">Completed</span>
+                  </div>
+
+                  <h3 class="text-xl font-bold text-gray-900">
+                    Hyosung T&D India Pvt. Ltd.
+                  </h3>
+
+                  <p class="text-gray-600 text-sm">
+                    End-to-end solutions in land development, civil works,
+                    PEB, and infrastructure.
+                  </p>
+
+                  <div class="grid grid-cols-3 gap-3 pt-3 border-t border-gray-200 text-xs">
+                    <div class="text-center">
+                      <div class="font-bold text-gray-900">
+                        1,50,000 Sq.Ft
+                      </div>
+                      <div class="text-gray-500">Project Area</div>
+                    </div>
+                    <div class="text-center">
+                      <div class="font-bold text-gray-900">Industrial</div>
+                      <div class="text-gray-500">Project Type</div>
+                    </div>
+                    <div class="text-center">
+                      <div class="font-bold text-gray-900">Khed, Pune</div>
+                      <div class="text-gray-500">Location</div>
+                    </div>
+                  </div>
+
+                  <div class="mt-auto flex items-center justify-between pt-3">
+                    <span
+                      class="text-gray-700 font-semibold text-xs group-hover:translate-x-1 transition-transform">View
+                      Details</span>
+                    <div
+                      class="w-9 h-9 bg-[#11224E] group-hover:bg-[#234C6A] rounded-full flex items-center justify-center">
+                      <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <h3 class="text-xl font-bold text-[#11224E] mb-2">
-                EPC Expertise
-              </h3>
+            </a>
 
-              <p class="text-gray-600 text-sm leading-relaxed mb-2">
-                Our end-to-end EPC capabilities allow us to manage every phase
-                of a project design, procurement, construction, and
-                commissioning with precision.
-              </p>
-              <p class="text-gray-600 text-sm leading-relaxed">
-                Supported by advanced planning and strong cost control, we
-                ensure predictable timelines, optimized resources, and
-                consistently high-quality delivery.
-              </p>
-            </div>
+            <!-- CARD 2 -->
+            <a href="industrial.html" class="group flex-shrink-0 w-80">
+              <div
+                class="relative h-full flex flex-col overflow-hidden rounded-3xl bg-gradient-to-br from-white to-gray-50 border border-gray-200 hover:border-gray-800 shadow-lg hover:shadow-2xl transition-all duration-500">
+                <div class="relative h-56 overflow-hidden">
+                  <img src="images/industrial-proj2.png"
+                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                </div>
 
-            <!-- Divider -->
-            <div class="border-t border-gray-200 my-4"></div>
+                <div class="p-6 flex flex-col flex-grow space-y-4">
+                  <div class="flex items-center justify-between text-sm">
+                    <span class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-xs font-semibold">Industrial
+                      Project</span>
+                    <span class="text-gray-500 text-xs">Completed</span>
+                  </div>
 
-            <!-- Stats -->
-            <div class="text-right">
-              <h4 class="text-4xl font-bold text-navy">98%</h4>
-              <p class="text-sm text-gray-500">Budget Adherence</p>
-            </div>
-          </div>
+                  <h3 class="text-xl font-bold text-gray-900">
+                    Zoomlion India Pvt. Ltd.
+                  </h3>
 
-          <!-- Card 2 (Image) -->
-          <div class="overflow-hidden rounded-2xl fade-in h-[420px]">
-            <img
-              src="images/why1.png"
-              alt="Construction Project"
-              class="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
+                  <p class="text-gray-600 text-sm">
+                    Complete civil, PEB, and infrastructure development
+                    solutions.
+                  </p>
 
-          <!-- Card 3 -->
-          <div
-            class="bg-white rounded-2xl shadow-md p-6 flex flex-col justify-between text-left border h-[420px] fade-in"
-          >
-            <div>
-              <div class="text-[#D2C1B6] text-3xl mb-3">
-                <i class="fas fa-tools"></i>
+                  <div class="grid grid-cols-3 gap-3 pt-3 border-t border-gray-200 text-xs">
+                    <div class="text-center">
+                      <div class="font-bold text-gray-900">
+                        1,05,000 Sq.Ft
+                      </div>
+                      <div class="text-gray-500">Built-up Area</div>
+                    </div>
+                    <div class="text-center">
+                      <div class="font-bold text-gray-900">PEB / RCC</div>
+                      <div class="text-gray-500">Structure</div>
+                    </div>
+                    <div class="text-center">
+                      <div class="font-bold text-gray-900">
+                        Chakan Phase 2
+                      </div>
+                      <div class="text-gray-500">Location</div>
+                    </div>
+                  </div>
+
+                  <div class="mt-auto flex items-center justify-between pt-3">
+                    <span
+                      class="text-gray-700 font-semibold text-xs group-hover:translate-x-1 transition-transform">View
+                      Details</span>
+                    <div
+                      class="w-9 h-9 bg-[#11224E] group-hover:bg-[#234C6A] rounded-full flex items-center justify-center">
+                      <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <h3 class="text-xl font-bold text-[#11224E] mb-2">
-                Safety & Strategic Project Control
-              </h3>
-              <p class="text-gray-600 text-sm leading-relaxed mb-2">
-                Our strong safety culture reflects a zero-compromise approach to
-                workforce protection and operational integrity, supported by
-                rigorous protocols and continuous monitoring.
-              </p>
-              <p class="text-gray-600 text-sm leading-relaxed mb-2">
-                Our dedicated team follows rigorous quality control protocols
-                that guarantee precision, durability, and aesthetic excellence.
-              </p>
-            </div>
+            </a>
 
-            <!-- Divider -->
-            <div class="border-t border-gray-200 my-4"></div>
+            <!-- CARD 3 -->
+            <a href="residential.html" class="group flex-shrink-0 w-80">
+              <div
+                class="relative h-full flex flex-col overflow-hidden rounded-3xl bg-gradient-to-br from-white to-gray-50 border border-gray-200 hover:border-gray-800 shadow-lg hover:shadow-2xl transition-all duration-500">
+                <div class="relative h-56 overflow-hidden">
+                  <img src="images/commercial-proj1.png"
+                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                </div>
 
-            <!-- Stats -->
-            <div class="text-right">
-              <h4 class="text-4xl font-bold text-navy">30%</h4>
-              <p class="text-sm text-gray-500">Cost Optimization</p>
-            </div>
-          </div>
+                <div class="p-6 flex flex-col flex-grow space-y-4">
+                  <div class="flex items-center justify-between text-sm">
+                    <span class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-xs font-semibold">Commercial
+                      Project</span>
+                    <span class="text-gray-500 text-xs">Completed</span>
+                  </div>
 
-          <!-- Card 4 (Image) -->
-          <div
-            class="overflow-hidden rounded-2xl md:col-span-1 md:row-start-2 fade-in h-[420px]"
-          >
-            <img
-              src="images/why2.png"
-              alt="Construction Site"
-              class="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
+                  <h3 class="text-xl font-bold text-gray-900">
+                    Nalanda Shelters (SEZ)
+                  </h3>
 
-          <!-- Card 5 -->
-          <div
-            class="bg-white rounded-2xl shadow-md p-6 flex flex-col justify-between text-left border h-[420px] fade-in"
-          >
-            <div>
-              <div class="text-[#D2C1B6] text-3xl mb-3">
-                <i class="fas fa-hard-hat"></i>
+                  <p class="text-gray-600 text-sm">
+                    Sanitary fit-outs and tiling works executed for SEZ
+                    commercial facility.
+                  </p>
+
+                  <div class="grid grid-cols-3 gap-3 pt-3 border-t border-gray-200 text-xs">
+                    <div class="text-center">
+                      <div class="font-bold text-gray-900">85,000 Sq.Ft</div>
+                      <div class="text-gray-500">Project Area</div>
+                    </div>
+                    <div class="text-center">
+                      <div class="font-bold text-gray-900">SEZ Facility</div>
+                      <div class="text-gray-500">Project Type</div>
+                    </div>
+                    <div class="text-center">
+                      <div class="font-bold text-gray-900">
+                        Interior Works
+                      </div>
+                      <div class="text-gray-500">Scope</div>
+                    </div>
+                  </div>
+
+                  <div class="mt-auto flex items-center justify-between pt-3">
+                    <span
+                      class="text-gray-700 font-semibold text-xs group-hover:translate-x-1 transition-transform">View
+                      Details</span>
+                    <div
+                      class="w-9 h-9 bg-[#11224E] group-hover:bg-[#234C6A] rounded-full flex items-center justify-center">
+                      <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <h3 class="text-xl font-bold text-[#11224E] mb-2">
-                Efficient Delivery Excellence
-              </h3>
-              <p class="text-gray-600 text-sm leading-relaxed mb-2">
-                With a strong base of in-house equipment, we maintain full
-                control over project execution, ensuring faster deployment,
-                reduced dependency on external vendors, and consistent quality
-                across all sites.
-              </p>
-              <p class="text-gray-600 text-sm leading-relaxed mb-2">
-                Our proven track record with leading corporate clients further
-                reinforces our reliability demonstrating our ability to deliver
-                complex, large-scale projects with precision, professionalism,
-                and long-term trust.
-              </p>
-            </div>
+            </a>
 
-            <!-- Divider -->
-            <div class="border-t border-gray-200 my-4"></div>
+            <!-- CARD 4 -->
+            <a href="projects/district.html" class="group flex-shrink-0 w-80">
+              <div
+                class="relative h-full flex flex-col overflow-hidden rounded-3xl bg-gradient-to-br from-white to-gray-50 border border-gray-200 hover:border-gray-800 shadow-lg hover:shadow-2xl transition-all duration-500">
+                <div class="relative h-56 overflow-hidden">
+                  <img src="images/public-proj1.png"
+                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                </div>
 
-            <!-- Stats -->
-            <div class="text-right">
-              <h4 class="text-4xl font-bold text-navy">50+</h4>
-              <p class="text-sm text-gray-500">Corporate Projects</p>
-            </div>
+                <div class="p-6 flex flex-col flex-grow space-y-4">
+                  <div class="flex items-center justify-between text-sm">
+                    <span class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-xs font-semibold">Public
+                      Infrastructure</span>
+                    <span class="text-gray-500 text-xs">Completed</span>
+                  </div>
+
+                  <h3 class="text-xl font-bold text-gray-900">PMCH, Patna</h3>
+
+                  <p class="text-gray-600 text-sm">
+                    Turnkey execution covering piling, RCC structure,
+                    finishes, and infrastructure works.
+                  </p>
+
+                  <div class="grid grid-cols-3 gap-3 pt-3 border-t border-gray-200 text-xs">
+                    <div class="text-center">
+                      <div class="font-bold text-gray-900">
+                        5,56,000 Sq.Ft
+                      </div>
+                      <div class="text-gray-500">Built-up Area</div>
+                    </div>
+                    <div class="text-center">
+                      <div class="font-bold text-gray-900">Turnkey</div>
+                      <div class="text-gray-500">Execution Model</div>
+                    </div>
+                    <div class="text-center">
+                      <div class="font-bold text-gray-900">Civil & Infra</div>
+                      <div class="text-gray-500">Scope</div>
+                    </div>
+                  </div>
+
+                  <div class="mt-auto flex items-center justify-between pt-3">
+                    <span
+                      class="text-gray-700 font-semibold text-xs group-hover:translate-x-1 transition-transform">View
+                      Details</span>
+                    <div
+                      class="w-9 h-9 bg-[#11224E] group-hover:bg-[#234C6A] rounded-full flex items-center justify-center">
+                      <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
           </div>
 
-          <!-- Card 6 (Image) -->
-          <div class="overflow-hidden rounded-2xl fade-in h-[420px]">
-            <img
-              src="images/why3.jpg"
-              alt="Building Progress"
-              class="w-full h-full object-cover"
-              loading="lazy"
-            />
+          <!-- Duplicate set for seamless loop -->
+          <div class="flex gap-6 overflow-x-auto pb-4">
+            <!-- CARD 1 -->
+            <a href="industrial.html" class="group flex-shrink-0 w-80">
+              <div
+                class="relative h-full flex flex-col overflow-hidden rounded-3xl bg-gradient-to-br from-white to-gray-50 border border-gray-200 hover:border-gray-800 shadow-lg hover:shadow-2xl transition-all duration-500">
+                <div class="relative h-56 overflow-hidden">
+                  <img src="images/industrial-proj1.png"
+                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                </div>
+
+                <div class="p-6 flex flex-col flex-grow space-y-4">
+                  <div class="flex items-center justify-between text-sm">
+                    <span class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-xs font-semibold">Industrial
+                      Project</span>
+                    <span class="text-gray-500 text-xs">Completed</span>
+                  </div>
+
+                  <h3 class="text-xl font-bold text-gray-900">
+                    Hyosung T&D India Pvt. Ltd.
+                  </h3>
+
+                  <p class="text-gray-600 text-sm">
+                    End-to-end solutions in land development, civil works,
+                    PEB, and infrastructure.
+                  </p>
+
+                  <div class="grid grid-cols-3 gap-3 pt-3 border-t border-gray-200 text-xs">
+                    <div class="text-center">
+                      <div class="font-bold text-gray-900">
+                        1,50,000 Sq.Ft
+                      </div>
+                      <div class="text-gray-500">Project Area</div>
+                    </div>
+                    <div class="text-center">
+                      <div class="font-bold text-gray-900">Industrial</div>
+                      <div class="text-gray-500">Project Type</div>
+                    </div>
+                    <div class="text-center">
+                      <div class="font-bold text-gray-900">Khed, Pune</div>
+                      <div class="text-gray-500">Location</div>
+                    </div>
+                  </div>
+
+                  <div class="mt-auto flex items-center justify-between pt-3">
+                    <span
+                      class="text-gray-700 font-semibold text-xs group-hover:translate-x-1 transition-transform">View
+                      Details</span>
+                    <div
+                      class="w-9 h-9 bg-[#11224E] group-hover:bg-[#234C6A] rounded-full flex items-center justify-center">
+                      <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <!-- CARD 2 -->
+            <a href="industrial.html" class="group flex-shrink-0 w-80">
+              <div
+                class="relative h-full flex flex-col overflow-hidden rounded-3xl bg-gradient-to-br from-white to-gray-50 border border-gray-200 hover:border-gray-800 shadow-lg hover:shadow-2xl transition-all duration-500">
+                <div class="relative h-56 overflow-hidden">
+                  <img src="images/industrial-proj2.png"
+                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                </div>
+
+                <div class="p-6 flex flex-col flex-grow space-y-4">
+                  <div class="flex items-center justify-between text-sm">
+                    <span class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-xs font-semibold">Industrial
+                      Project</span>
+                    <span class="text-gray-500 text-xs">Completed</span>
+                  </div>
+
+                  <h3 class="text-xl font-bold text-gray-900">
+                    Zoomlion India Pvt. Ltd.
+                  </h3>
+
+                  <p class="text-gray-600 text-sm">
+                    Complete civil, PEB, and infrastructure development
+                    solutions.
+                  </p>
+
+                  <div class="grid grid-cols-3 gap-3 pt-3 border-t border-gray-200 text-xs">
+                    <div class="text-center">
+                      <div class="font-bold text-gray-900">
+                        1,05,000 Sq.Ft
+                      </div>
+                      <div class="text-gray-500">Built-up Area</div>
+                    </div>
+                    <div class="text-center">
+                      <div class="font-bold text-gray-900">PEB / RCC</div>
+                      <div class="text-gray-500">Structure</div>
+                    </div>
+                    <div class="text-center">
+                      <div class="font-bold text-gray-900">
+                        Chakan Phase 2
+                      </div>
+                      <div class="text-gray-500">Location</div>
+                    </div>
+                  </div>
+
+                  <div class="mt-auto flex items-center justify-between pt-3">
+                    <span
+                      class="text-gray-700 font-semibold text-xs group-hover:translate-x-1 transition-transform">View
+                      Details</span>
+                    <div
+                      class="w-9 h-9 bg-[#11224E] group-hover:bg-[#234C6A] rounded-full flex items-center justify-center">
+                      <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <!-- CARD 3 -->
+            <a href="residential.html" class="group flex-shrink-0 w-80">
+              <div
+                class="relative h-full flex flex-col overflow-hidden rounded-3xl bg-gradient-to-br from-white to-gray-50 border border-gray-200 hover:border-gray-800 shadow-lg hover:shadow-2xl transition-all duration-500">
+                <div class="relative h-56 overflow-hidden">
+                  <img src="images/commercial-proj1.png"
+                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                </div>
+
+                <div class="p-6 flex flex-col flex-grow space-y-4">
+                  <div class="flex items-center justify-between text-sm">
+                    <span class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-xs font-semibold">Commercial
+                      Project</span>
+                    <span class="text-gray-500 text-xs">Completed</span>
+                  </div>
+
+                  <h3 class="text-xl font-bold text-gray-900">
+                    Nalanda Shelters (SEZ)
+                  </h3>
+
+                  <p class="text-gray-600 text-sm">
+                    Sanitary fit-outs and tiling works executed for SEZ
+                    commercial facility.
+                  </p>
+
+                  <div class="grid grid-cols-3 gap-3 pt-3 border-t border-gray-200 text-xs">
+                    <div class="text-center">
+                      <div class="font-bold text-gray-900">85,000 Sq.Ft</div>
+                      <div class="text-gray-500">Project Area</div>
+                    </div>
+                    <div class="text-center">
+                      <div class="font-bold text-gray-900">SEZ Facility</div>
+                      <div class="text-gray-500">Project Type</div>
+                    </div>
+                    <div class="text-center">
+                      <div class="font-bold text-gray-900">
+                        Interior Works
+                      </div>
+                      <div class="text-gray-500">Scope</div>
+                    </div>
+                  </div>
+
+                  <div class="mt-auto flex items-center justify-between pt-3">
+                    <span
+                      class="text-gray-700 font-semibold text-xs group-hover:translate-x-1 transition-transform">View
+                      Details</span>
+                    <div
+                      class="w-9 h-9 bg-[#11224E] group-hover:bg-[#234C6A] rounded-full flex items-center justify-center">
+                      <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <!-- CARD 4 -->
+            <a href="projects/district.html" class="group flex-shrink-0 w-80">
+              <div
+                class="relative h-full flex flex-col overflow-hidden rounded-3xl bg-gradient-to-br from-white to-gray-50 border border-gray-200 hover:border-gray-800 shadow-lg hover:shadow-2xl transition-all duration-500">
+                <div class="relative h-56 overflow-hidden">
+                  <img src="images/public-proj1.png"
+                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                </div>
+
+                <div class="p-6 flex flex-col flex-grow space-y-4">
+                  <div class="flex items-center justify-between text-sm">
+                    <span class="bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full text-xs font-semibold">Public
+                      Infrastructure</span>
+                    <span class="text-gray-500 text-xs">Completed</span>
+                  </div>
+
+                  <h3 class="text-xl font-bold text-gray-900">PMCH, Patna</h3>
+
+                  <p class="text-gray-600 text-sm">
+                    Turnkey execution covering piling, RCC structure,
+                    finishes, and infrastructure works.
+                  </p>
+
+                  <div class="grid grid-cols-3 gap-3 pt-3 border-t border-gray-200 text-xs">
+                    <div class="text-center">
+                      <div class="font-bold text-gray-900">
+                        5,56,000 Sq.Ft
+                      </div>
+                      <div class="text-gray-500">Built-up Area</div>
+                    </div>
+                    <div class="text-center">
+                      <div class="font-bold text-gray-900">Turnkey</div>
+                      <div class="text-gray-500">Execution Model</div>
+                    </div>
+                    <div class="text-center">
+                      <div class="font-bold text-gray-900">Civil & Infra</div>
+                      <div class="text-gray-500">Scope</div>
+                    </div>
+                  </div>
+
+                  <div class="mt-auto flex items-center justify-between pt-3">
+                    <span
+                      class="text-gray-700 font-semibold text-xs group-hover:translate-x-1 transition-transform">View
+                      Details</span>
+                    <div
+                      class="w-9 h-9 bg-[#11224E] group-hover:bg-[#234C6A] rounded-full flex items-center justify-center">
+                      <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- SECTORS -->
-    <section class="py-10 bg-white overflow-hidden">
-      <!-- Updated container -->
-      <div class="max-w-7xl mx-auto px-8 md:px-16 lg:px-24">
-        <!-- Header Row -->
+      <!-- Compact CTA -->
+      <div class="text-center mt-6">
+        <a href="industrial.html"
+          class="inline-flex items-center gap-3 bg-[#1A2A4F] hover:bg-[#11224E] text-white font-semibold py-3 px-7 rounded-full text-sm transition-all hover:scale-105">
+          Explore All Projects
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!---------------WHY CHOOSE US SECTION --------------------->
+  <section class="pt-8 pb-10 bg-gray-50" id="why-choose">
+    <div class="container mx-auto px-6">
+      <!-- Section Header -->
+      <div class="text-center mb-12">
+        <p class="text-[#11224E] text-sm font-light tracking-wider uppercase mb-2">
+          Why Choose Us?
+        </p>
+        <h2 class="text-4xl font-bold text-[#11224E] mb-4">
+          Our Expertise & Commitment
+        </h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          Developed in collaboration with clients and partners, we combine
+          experience, innovation, and adaptability to deliver excellence in
+          every project.
+        </p>
+      </div>
+
+      <!-- Cards Grid -->
+      <div class="grid md:grid-cols-3 gap-8 items-stretch">
+        <!-- Card 1 -->
         <div
-          class="flex flex-col lg:flex-row lg:items-end justify-between mb-14 border-b border-gray-300 pb-6 stagger-animation"
-        >
-          <!-- Left -->
-          <div class="fade-in-up">
-            <p
-              class="text-xs uppercase tracking-widest text-gray-500 mb-2 flex items-center"
-            >
-              <span class="pulse-dot mr-2"></span>
-              Sectors We Serve
+          class="bg-white rounded-2xl shadow-md p-6 flex flex-col justify-between text-left border h-[420px] fade-in">
+          <div>
+            <div class="text-[#D2C1B6] text-3xl mb-3">
+              <i class="fas fa-lightbulb"></i>
+            </div>
+
+            <h3 class="text-xl font-bold text-[#11224E] mb-2">
+              EPC Expertise
+            </h3>
+
+            <p class="text-gray-600 text-sm leading-relaxed mb-3">
+              Our end-to-end EPC capabilities allow us to manage every phase of a project
+              with precision and accountability.
             </p>
-            <h2 class="text-4xl md:text-5xl font-light text-[#11224E]">
-              Trusted Across <br />
-              <span class="font-semibold">Multiple Sectors</span>
-            </h2>
+
+            <!-- Bullet Points -->
+            <ul class="list-disc pl-5 text-gray-600 text-sm space-y-2">
+              <li>Comprehensive project design and engineering</li>
+              <li>Strategic procurement and vendor management</li>
+              <li>Efficient construction and on-site execution</li>
+              <li>Seamless commissioning and project handover</li>
+              <li>Strong cost control and schedule management</li>
+            </ul>
           </div>
 
-          <!-- Right -->
-          <div class="max-w-md mt-6 lg:mt-0 fade-in-up">
-            <p class="text-sm text-gray-600 mb-4">
-              From infrastructure to technology-driven environments, we deliver
-              safety-first, high-quality solutions across all major industries.
+          <!-- Divider -->
+          <div class="border-t border-gray-200 my-4"></div>
+        </div>
+
+        <!-- Card 2 (Image) -->
+        <div class="overflow-hidden rounded-2xl fade-in h-[420px]">
+          <img src="images/why1.png" alt="Construction Project" class="w-full h-full object-cover" loading="lazy" />
+        </div>
+
+        <!-- Card 3 -->
+        <div
+          class="bg-white rounded-2xl shadow-md p-6 flex flex-col justify-between text-left border h-[420px] fade-in">
+          <div>
+            <div class="text-[#D2C1B6] text-3xl mb-3">
+              <i class="fas fa-tools"></i>
+            </div>
+
+            <h3 class="text-xl font-bold text-[#11224E] mb-2">
+              Safety & Strategic Project Control
+            </h3>
+
+            <p class="text-gray-600 text-sm leading-relaxed mb-3">
+              Our strong safety culture reflects a zero-compromise approach to workforce
+              protection and operational integrity.
             </p>
 
-            <a href="#" class="text-[#11224E] hover:underline gradient-border">
-              Contact Us
+            <!-- Bullet Points -->
+            <ul class="list-disc pl-5 text-gray-600 text-sm space-y-2">
+              <li>Strict adherence to safety standards and protocols</li>
+              <li>Continuous risk assessment and site monitoring</li>
+              <li>Comprehensive quality control and inspection processes</li>
+              <li>Precision-driven execution for durable outcomes</li>
+              <li>Strategic project tracking to ensure timely delivery</li>
+            </ul>
+          </div>
+
+          <!-- Divider -->
+          <div class="border-t border-gray-200 my-4"></div>
+        </div>
+
+
+        <!-- Card 4 (Image) -->
+        <div class="overflow-hidden rounded-2xl md:col-span-1 md:row-start-2 fade-in h-[420px]">
+          <img src="images/why2.png" alt="Construction Site" class="w-full h-full object-cover" loading="lazy" />
+        </div>
+
+        <!-- Card 5 -->
+        <div
+          class="bg-white rounded-2xl shadow-md p-6 flex flex-col justify-between text-left border h-[420px] fade-in">
+          <div>
+            <div class="text-[#D2C1B6] text-3xl mb-3">
+              <i class="fas fa-hard-hat"></i>
+            </div>
+
+            <h3 class="text-xl font-bold text-[#11224E] mb-2">
+              Efficient Delivery Excellence
+            </h3>
+
+            <p class="text-gray-600 text-sm leading-relaxed mb-3">
+              With a strong base of in-house equipment, we maintain full control over
+              project execution and delivery performance.
+            </p>
+
+            <!-- Bullet Points -->
+            <ul class="list-disc pl-5 text-gray-600 text-sm space-y-2">
+              <li>Faster mobilization through owned equipment resources</li>
+              <li>Consistent quality standards across all project sites</li>
+              <li>Proven capability in managing large-scale, complex projects</li>
+              <li>Trusted delivery for leading corporate and institutional clients</li>
+            </ul>
+          </div>
+
+          <!-- Divider -->
+          <div class="border-t border-gray-200 my-4"></div>
+        </div>
+
+
+        <!-- Card 6 (Image) -->
+        <div class="overflow-hidden rounded-2xl fade-in h-[420px]">
+          <img src="images/why3.jpg" alt="Building Progress" class="w-full h-full object-cover" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!--------- CLIENT SECTION -------------->
+  <section class="relative py-10 bg-white overflow-hidden">
+    <!-- Soft background image effect -->
+    <div
+      class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1920&h=1080&auto=format&fit=crop&q=20')] bg-cover bg-center opacity-5">
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-8 md:px-12 lg:px-20">
+      <h2 class="text-5xl font-medium text-[#11224E] mb-6">Our Clients</h2>
+      <p class="text-gray-600 max-w-md mb-10">
+        Clients who have been making <br />
+        our journey special
+      </p>
+      <div class="border-t border-gray-300 mb-12"></div>
+
+      <!-- Marquee Container -->
+      <div class="relative overflow-hidden py-8">
+        <!-- Row 1 - Scrolls Left -->
+        <div class="flex animate-marquee-left whitespace-nowrap">
+          <!-- Duplicate the logos enough times to avoid gaps -->
+          <div class="flex gap-16 items-center px-8">
+            <!-- Repeat your logos (you can duplicate this block 2-3 times) -->
+            <img src="images/client1.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+            <img src="images/client2.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+            <img src="images/client3.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+            <img src="images/client4.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+            <img src="images/client5.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+            <img src="images/client6.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+            <img src="images/client7.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+            <img src="images/client8.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+            <img src="images/client9.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+            <!-- Duplicate set for seamless loop -->
+            <img src="images/client1.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+            <img src="images/client2.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+            <img src="images/client3.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+          </div>
+        </div>
+
+        <!-- Row 2 - Scrolls Right (opposite direction) -->
+        <div class="flex animate-marquee-right whitespace-nowrap mt-12">
+          <div class="flex gap-16 items-center px-8">
+            <img src="images/client4.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+            <img src="images/client5.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+            <img src="images/client6.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+            <img src="images/client7.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+            <img src="images/client8.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+            <img src="images/client9.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+            <img src="images/client1.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+            <img src="images/client2.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+            <img src="images/client3.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+            <!-- Duplicate again -->
+            <img src="images/client4.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+            <img src="images/client5.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+            <img src="images/client6.png" class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CSS Animations (add to your stylesheet or inside <style> tag) -->
+  <style>
+    @keyframes marquee-left {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    @keyframes marquee-right {
+      0% {
+        transform: translateX(-50%);
+      }
+
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    .animate-marquee-left {
+      animation: marquee-left 40s linear infinite;
+    }
+
+    .animate-marquee-right {
+      animation: marquee-right 45s linear infinite;
+    }
+
+    /* Optional: Pause on hover */
+    .animate-marquee-left:hover,
+    .animate-marquee-right:hover {
+      animation-play-state: paused;
+    }
+  </style>
+
+  <!-- FOOTER -->
+  <footer class="relative text-white py-10 overflow-hidden bg-gradient-to-b from-[#0A0F24] via-[#12306A] to-[#091526]">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+        <div class="lg:col-span-1">
+          <div class="flex items-center mb-4">
+            <div class="w-50 h-20 rounded-lg flex items-center justify-center overflow-hidden">
+              <img src="Images/logowhite.png" alt="Logo" class="w-full h-full object-contain" />
+            </div>
+          </div>
+          <p class="text-gray-300 mb-4 text-sm leading-relaxed">
+            Building dreams, creating communities, and delivering excellence
+            in Industrial development.
+          </p>
+          <div class="flex gap-2">
+            <a href="https://www.facebook.com/prospectabuildx" target="_blank"
+              class="w-9 h-9 bg-[#111936] rounded-lg flex items-center justify-center hover:bg-amber-400 hover:text-black">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+
+            <a href="https://www.instagram.com/prospectabuildx/" target="_blank"
+              class="w-9 h-9 bg-[#111936] rounded-lg flex items-center justify-center hover:bg-amber-400 hover:text-black">
+              <i class="fab fa-instagram"></i>
+            </a>
+
+            <a href="https://www.linkedin.com/company/prospectabuildx/" target="_blank"
+              class="w-9 h-9 bg-[#111936] rounded-lg flex items-center justify-center hover:bg-amber-400 hover:text-black">
+              <i class="fab fa-linkedin-in"></i>
             </a>
           </div>
         </div>
 
-        <!-- Cards -->
-        <div
-          class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 stagger-animation -mt-8"
-        >
-          <!-- Card 1 -->
-          <div class="group card-hover">
-            <div
-              class="h-56 rounded-2xl overflow-hidden bg-gray-200 relative"
-              style="
-                background-image: url('images/residential.jfif');
-                background-size: cover;
-                background-position: center;
-              "
-            >
-              <div class="image-overlay flex items-end p-4">
-                <p class="text-white text-sm">
-                  Building the foundations for modern society with precision and
-                  expertise.
-                </p>
-              </div>
-            </div>
-
-            <div class="flex items-center justify-between mt-3">
-              <p class="text-sm font-semibold text-[#2a1b1b]">Residential</p>
-
-              <span
-                class="w-9 h-9 bg-[#024a71] rounded-full flex items-center justify-center text-white arrow-icon"
-              >
-                ↗
-              </span>
-            </div>
+        <div class="lg:col-span-1 grid grid-cols-2 gap-6">
+          <div>
+            <h3 class="text-md font-bold mb-3 text-white border-l-3 border-purple pl-2">
+              Explore
+            </h3>
+            <ul class="space-y-2 text-sm">
+              <li>
+                <a href="index.html" class="text-gray-300 hover:text-gold">• Home</a>
+              </li>
+              <li>
+                <a href="about.html" class="text-gray-300 hover:text-gold">• About</a>
+              </li>
+              <li>
+                <a href="projects.html" class="text-gray-300 hover:text-gold">• Projects</a>
+              </li>
+              <li>
+                <a href="gallery.html" class="text-gray-300 hover:text-gold">• Gallery</a>
+              </li>
+              <li>
+                <a href="contact.html" class="text-gray-300 hover:text-gold">• Contact</a>
+              </li>
+            </ul>
           </div>
-
-          <!-- Card 2 -->
-          <div class="group card-hover">
-            <div
-              class="h-56 rounded-2xl overflow-hidden bg-gray-200 relative"
-              style="
-                background-image: url('images/industrial.jfif');
-                background-size: cover;
-                background-position: center;
-              "
-            >
-              <div class="image-overlay flex items-end p-4">
-                <p class="text-white text-sm">
-                  Powering industrial growth with innovative solutions and
-                  reliable execution.
-                </p>
-              </div>
-            </div>
-
-            <div class="flex items-center justify-between mt-3">
-              <p class="text-sm font-semibold text-[#2a1b1b]">Industrial</p>
-              <span
-                class="w-9 h-9 bg-[#024a71] rounded-full flex items-center justify-center text-white arrow-icon"
-              >
-                ↗
-              </span>
-            </div>
+          <div>
+            <h3 class="text-md font-bold mb-3 text-white border-l-3 border-purple pl-2">
+              Sectors
+            </h3>
+            <ul class="space-y-2 text-sm">
+              <li>
+                <a href="#" class="text-gray-300 hover:text-gold">• Residential</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-300 hover:text-gold">• Commercial</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-300 hover:text-gold">• Industrial</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-300 hover:text-gold">• Institutional</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-300 hover:text-gold">• Public Infrastructure</a>
+              </li>
+            </ul>
           </div>
+        </div>
 
-          <!-- Card 3 -->
-          <div class="group card-hover">
-            <div
-              class="h-56 rounded-2xl overflow-hidden bg-gray-200 relative"
-              style="
-                background-image: url('images/commercial.jfif');
-                background-size: cover;
-                background-position: center;
-              "
-            >
-              <div class="image-overlay flex items-end p-4">
-                <p class="text-white text-sm">
-                  Creating dynamic commercial spaces that drive business
-                  success.
-                </p>
-              </div>
+        <div class="lg:col-span-1 bg-[#111936]/40 backdrop-blur-sm rounded-lg p-4 border border-white/10">
+          <h3 class="text-md font-semibold mb-3 text-white border-l-3 border-purple pl-2">
+            Contact
+          </h3>
+          <div class="space-y-3 text-sm text-gray-200">
+            <div class="flex items-center">
+              <i class="fas fa-map-marker-alt mr-2 text-gray-200"></i>
+              <a href="https://www.google.com/maps/place/C-803,+Amar+Business+Zone,+Baner,+Pune+411045" target="_blank"
+                class="hover:underline text-gray-200">
+                PUNE OFFICE - C-803, AMAR BUSINESS ZONE, BANER, PUNE-411045
+              </a>
             </div>
 
-            <div class="flex items-center justify-between mt-3">
-              <p class="text-sm font-semibold text-[#2a1b1b]">Commercial</p>
-              <span
-                class="w-9 h-9 bg-[#024a71] rounded-full flex items-center justify-center text-white arrow-icon"
-              >
-                ↗
-              </span>
-            </div>
-          </div>
-
-          <!-- Card 4 -->
-          <div class="group card-hover">
-            <div
-              class="h-56 rounded-2xl overflow-hidden bg-gray-200 relative"
-              style="
-                background-image: url('images/institutional.jfif');
-                background-size: cover;
-                background-position: center;
-              "
-            >
-              <div class="image-overlay flex items-end p-4">
-                <p class="text-white text-sm">
-                  Developing robust infrastructure systems that connect and
-                  empower communities.
-                </p>
-              </div>
+            <div class="flex items-center">
+              <i class="fas fa-phone mr-2 text-gray-200"></i>
+              <a href="tel:+919549543838" class="hover:underline text-gray-200">
+                +91 95495 43838
+              </a>
             </div>
 
-            <div class="flex items-center justify-between mt-3">
-              <p class="text-sm font-semibold text-[#2a1b1b]">Institutional</p>
-              <span
-                class="w-9 h-9 bg-[#024a71] rounded-full flex items-center justify-center text-white arrow-icon"
-              >
-                ↗
-              </span>
-            </div>
-          </div>
-
-          <!-- Card 5 -->
-          <div class="group card-hover">
-            <div
-              class="h-56 rounded-2xl overflow-hidden bg-gray-200 relative"
-              style="
-                background-image: url('images/public.jfif');
-                background-size: cover;
-                background-position: center;
-              "
-            >
-              <div class="image-overlay flex items-end p-4">
-                <p class="text-white text-sm">
-                  Implementing cutting-edge technology solutions for the digital
-                  age.
-                </p>
-              </div>
-            </div>
-
-            <div class="flex items-center justify-between mt-3">
-              <p class="text-sm font-semibold text-[#2a1b1b]">
-                Public Infrastructure
-              </p>
-              <span
-                class="w-9 h-9 bg-[#024a71] rounded-full flex items-center justify-center text-white arrow-icon"
-              >
-                ↗
-              </span>
+            <div class="flex items-center">
+              <i class="fas fa-envelope mr-2 text-gray-200"></i>
+              <a href="mailto:info@prospectabuildx.com" class="text-gray-200 hover:underline">
+                info@prospectabuildx.com
+              </a>
             </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!--------- CLIENT SECTION -------------->
-    <section class="relative py-10 bg-white overflow-hidden">
-      <!-- Soft background image effect -->
-      <div
-        class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1920&h=1080&auto=format&fit=crop&q=20')] bg-cover bg-center opacity-5"
-      ></div>
-
-      <div class="relative max-w-7xl mx-auto px-8 md:px-12 lg:px-20">
-        <h2 class="text-5xl font-medium text-[#11224E] mb-6">Our Clients</h2>
-        <p class="text-gray-600 max-w-md mb-10">
-          Clients who have been making <br />
-          our journey special
-        </p>
-        <div class="border-t border-gray-300 mb-12"></div>
-
-        <!-- Marquee Container -->
-        <div class="relative overflow-hidden py-8">
-          <!-- Row 1 - Scrolls Left -->
-          <div class="flex animate-marquee-left whitespace-nowrap">
-            <!-- Duplicate the logos enough times to avoid gaps -->
-            <div class="flex gap-16 items-center px-8">
-              <!-- Repeat your logos (you can duplicate this block 2-3 times) -->
-              <img
-                src="images/client1.png"
-                class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity"
-              />
-              <img
-                src="images/client2.png"
-                class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity"
-              />
-              <img
-                src="images/client3.png"
-                class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity"
-              />
-              <img
-                src="images/client4.png"
-                class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity"
-              />
-              <img
-                src="images/client5.png"
-                class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity"
-              />
-              <img
-                src="images/client6.png"
-                class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity"
-              />
-              <img
-                src="images/client7.png"
-                class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity"
-              />
-              <img
-                src="images/client8.png"
-                class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity"
-              />
-              <img
-                src="images/client9.png"
-                class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity"
-              />
-              <!-- Duplicate set for seamless loop -->
-              <img
-                src="images/client1.png"
-                class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity"
-              />
-              <img
-                src="images/client2.png"
-                class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity"
-              />
-              <img
-                src="images/client3.png"
-                class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity"
-              />
-            </div>
-          </div>
-
-          <!-- Row 2 - Scrolls Right (opposite direction) -->
-          <div class="flex animate-marquee-right whitespace-nowrap mt-12">
-            <div class="flex gap-16 items-center px-8">
-              <img
-                src="images/client4.png"
-                class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity"
-              />
-              <img
-                src="images/client5.png"
-                class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity"
-              />
-              <img
-                src="images/client6.png"
-                class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity"
-              />
-              <img
-                src="images/client7.png"
-                class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity"
-              />
-              <img
-                src="images/client8.png"
-                class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity"
-              />
-              <img
-                src="images/client9.png"
-                class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity"
-              />
-              <img
-                src="images/client1.png"
-                class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity"
-              />
-              <img
-                src="images/client2.png"
-                class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity"
-              />
-              <img
-                src="images/client3.png"
-                class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity"
-              />
-              <!-- Duplicate again -->
-              <img
-                src="images/client4.png"
-                class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity"
-              />
-              <img
-                src="images/client5.png"
-                class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity"
-              />
-              <img
-                src="images/client6.png"
-                class="h-16 object-contain opacity-70 hover:opacity-100 transition-opacity"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CSS Animations (add to your stylesheet or inside <style> tag) -->
-    <style>
-      @keyframes marquee-left {
-        0% {
-          transform: translateX(0);
-        }
-        100% {
-          transform: translateX(-50%);
-        }
-      }
-
-      @keyframes marquee-right {
-        0% {
-          transform: translateX(-50%);
-        }
-        100% {
-          transform: translateX(0);
-        }
-      }
-
-      .animate-marquee-left {
-        animation: marquee-left 40s linear infinite;
-      }
-
-      .animate-marquee-right {
-        animation: marquee-right 45s linear infinite;
-      }
-
-      /* Optional: Pause on hover */
-      .animate-marquee-left:hover,
-      .animate-marquee-right:hover {
-        animation-play-state: paused;
-      }
-    </style>
-
-    <!-- FOOTER -->
-    <footer
-      class="relative text-white py-10 overflow-hidden bg-gradient-to-b from-[#0A0F24] via-[#12306A] to-[#091526]"
-    >
-      <div class="container mx-auto px-4">
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-          <div class="lg:col-span-1">
-            <div class="flex items-center mb-4">
-              <div
-                class="w-50 h-20 rounded-lg flex items-center justify-center overflow-hidden"
-              >
-                <img
-                  src="Images/logowhite.png"
-                  alt="Logo"
-                  class="w-full h-full object-contain"
-                />
-              </div>
-            </div>
-            <p class="text-gray-300 mb-4 text-sm leading-relaxed">
-              Building dreams, creating communities, and delivering excellence
-              in Industrial development.
+        <div class="lg:col-span-1 bg-[#111936]/40 backdrop-blur-sm rounded-lg p-4 border border-white/10">
+          <h3 class="text-md font-semibold mb-3 text-white border-l-3 border-purple pl-2">
+            Hours
+          </h3>
+          <div class="text-sm space-y-1 text-gray-200">
+            <p class="flex justify-between">
+              Mon - Fri <span class="text-gold font-medium">9AM - 6PM</span>
             </p>
-            <div class="flex gap-2">
-              <a
-                href="https://www.facebook.com/prospectabuildx"
-                target="_blank"
-                class="w-9 h-9 bg-[#111936] rounded-lg flex items-center justify-center hover:bg-amber-400 hover:text-black"
-              >
-                <i class="fab fa-facebook-f"></i>
-              </a>
-
-              <a
-                href="https://www.instagram.com/prospectabuildx/"
-                target="_blank"
-                class="w-9 h-9 bg-[#111936] rounded-lg flex items-center justify-center hover:bg-amber-400 hover:text-black"
-              >
-                <i class="fab fa-instagram"></i>
-              </a>
-
-              <a
-                href="https://www.linkedin.com/company/prospectabuildx/"
-                target="_blank"
-                class="w-9 h-9 bg-[#111936] rounded-lg flex items-center justify-center hover:bg-amber-400 hover:text-black"
-              >
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            </div>
-          </div>
-
-          <div class="lg:col-span-1 grid grid-cols-2 gap-6">
-            <div>
-              <h3
-                class="text-md font-bold mb-3 text-white border-l-3 border-purple pl-2"
-              >
-                Explore
-              </h3>
-              <ul class="space-y-2 text-sm">
-                <li>
-                  <a href="index.html" class="text-gray-300 hover:text-gold"
-                    >• Home</a
-                  >
-                </li>
-                <li>
-                  <a href="about.html" class="text-gray-300 hover:text-gold"
-                    >• About</a
-                  >
-                </li>
-                <li>
-                  <a href="projects.html" class="text-gray-300 hover:text-gold"
-                    >• Projects</a
-                  >
-                </li>
-                <li>
-                  <a href="gallery.html" class="text-gray-300 hover:text-gold"
-                    >• Gallery</a
-                  >
-                </li>
-                <li>
-                  <a href="contact.html" class="text-gray-300 hover:text-gold"
-                    >• Contact</a
-                  >
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3
-                class="text-md font-bold mb-3 text-white border-l-3 border-purple pl-2"
-              >
-                Sectors
-              </h3>
-              <ul class="space-y-2 text-sm">
-                <li>
-                  <a href="#" class="text-gray-300 hover:text-gold"
-                    >• Residential</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="text-gray-300 hover:text-gold"
-                    >• Commercial</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="text-gray-300 hover:text-gold"
-                    >• Industrial</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="text-gray-300 hover:text-gold"
-                    >• Institutional</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="text-gray-300 hover:text-gold"
-                    >• Public Infrastructure</a
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div
-            class="lg:col-span-1 bg-[#111936]/40 backdrop-blur-sm rounded-lg p-4 border border-white/10"
-          >
-            <h3
-              class="text-md font-semibold mb-3 text-white border-l-3 border-purple pl-2"
-            >
-              Contact
-            </h3>
-            <div class="space-y-3 text-sm text-gray-200">
-              <div class="flex items-center">
-                <i class="fas fa-map-marker-alt mr-2 text-gray-200"></i>
-                <a
-                  href="https://www.google.com/maps/place/C-803,+Amar+Business+Zone,+Baner,+Pune+411045"
-                  target="_blank"
-                  class="hover:underline text-gray-200"
-                >
-                  PUNE OFFICE - C-803, AMAR BUSINESS ZONE, BANER, PUNE-411045
-                </a>
-              </div>
-
-              <div class="flex items-center">
-                <i class="fas fa-phone mr-2 text-gray-200"></i>
-                <a
-                  href="tel:+919549543838"
-                  class="hover:underline text-gray-200"
-                >
-                  +91 95495 43838
-                </a>
-              </div>
-
-              <div class="flex items-center">
-                <i class="fas fa-envelope mr-2 text-gray-200"></i>
-                <a
-                  href="mailto:info@prospectabuildx.com"
-                  class="text-gray-200 hover:underline"
-                >
-                  info@prospectabuildx.com
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="lg:col-span-1 bg-[#111936]/40 backdrop-blur-sm rounded-lg p-4 border border-white/10"
-          >
-            <h3
-              class="text-md font-semibold mb-3 text-white border-l-3 border-purple pl-2"
-            >
-              Hours
-            </h3>
-            <div class="text-sm space-y-1 text-gray-200">
-              <p class="flex justify-between">
-                Mon - Fri <span class="text-gold font-medium">9AM - 6PM</span>
-              </p>
-              <p class="flex justify-between">
-                Saturday <span class="text-gold font-medium">10AM - 4PM</span>
-              </p>
-              <p class="flex justify-between">
-                Sunday <span class="text-red-200">Closed</span>
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div
-          class="pt-4 border-t border-white/10 flex flex-col md:flex-row justify-between text-xs text-gray-400"
-        >
-          <span>© 2025 Prospecta BuildX. All rights reserved.</span>
-          <div class="flex gap-4 mt-2 md:mt-0">
-            <a href="#" class="hover:text-amber-400">Privacy</a>
-            <a href="#" class="hover:text-amber-400">Terms</a>
-            <a href="#" class="hover:text-amber-400">Sitemap</a>
+            <p class="flex justify-between">
+              Saturday <span class="text-gold font-medium">10AM - 4PM</span>
+            </p>
+            <p class="flex justify-between">
+              Sunday <span class="text-red-200">Closed</span>
+            </p>
           </div>
         </div>
       </div>
-    </footer>
 
-    <script
-      data-cfasync="false"
-      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
-    ></script>
-    <script src="homescript.js"></script>
-    <script>
-      // Optimized image loading
-      const images = document.querySelectorAll('img[loading="lazy"]');
-      images.forEach((img) => {
-        if (img.complete) {
+      <div class="pt-4 border-t border-white/10 flex flex-col md:flex-row justify-between text-xs text-gray-400">
+        <span>© 2025 Prospecta BuildX. All rights reserved.</span>
+        <div class="flex gap-4 mt-2 md:mt-0">
+          <a href="#" class="hover:text-amber-400">Privacy</a>
+          <a href="#" class="hover:text-amber-400">Terms</a>
+          <a href="#" class="hover:text-amber-400">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script src="homescript.js"></script>
+  <script>
+    // Optimized image loading
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    images.forEach((img) => {
+      if (img.complete) {
+        img.classList.add("loaded");
+      } else {
+        img.addEventListener("load", () => {
           img.classList.add("loaded");
-        } else {
-          img.addEventListener("load", () => {
-            img.classList.add("loaded");
+        });
+      }
+    });
+
+    // Optimized intersection observer
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px",
+    };
+
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, observerOptions);
+
+    // Observe all fade-in elements
+    document.querySelectorAll(".fade-in").forEach((el) => {
+      fadeObserver.observe(el);
+    });
+
+    // Staggered animation for sectors
+    const staggerObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const cards = entry.target.querySelectorAll(".card-hover");
+          cards.forEach((card, index) => {
+            setTimeout(() => {
+              card.classList.add("animate");
+            }, index * 100);
           });
         }
       });
+    }, observerOptions);
 
-      // Optimized intersection observer
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      };
+    document.querySelectorAll(".stagger-animation").forEach((section) => {
+      staggerObserver.observe(section);
+    });
 
-      const fadeObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
+    //header js
+    // Load header.html and then initialize header JS
+    fetch("header.html")
+      .then((res) => res.text())
+      .then((data) => {
+        document.getElementById("header").innerHTML = data;
+
+        // ✅ Elements
+        const mobileMenuToggle =
+          document.getElementById("mobile-menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const menuIcon = document.getElementById("menu-icon");
+
+        const mobileAboutToggle = document.getElementById(
+          "mobile-about-toggle"
+        );
+        const mobileAbout = document.getElementById("mobile-about");
+        const mobileSectorsToggle = document.getElementById(
+          "mobile-sectors-toggle"
+        );
+        const mobileSectors = document.getElementById("mobile-sectors");
+        const mobileCareersToggle = document.getElementById(
+          "mobile-careers-toggle"
+        );
+        const mobileCareers = document.getElementById("mobile-careers");
+
+        // Function to close all mobile dropdowns
+        function closeAllMobileDropdowns() {
+          mobileAbout?.classList.remove("open");
+          mobileSectors?.classList.remove("open");
+          mobileCareers?.classList.remove("open");
+          mobileAboutToggle?.classList.remove("active");
+          mobileSectorsToggle?.classList.remove("active");
+          mobileCareersToggle?.classList.remove("active");
+        }
+
+        // Toggle Mobile Menu
+        mobileMenuToggle?.addEventListener("click", (e) => {
+          e.stopPropagation();
+          mobileMenu.classList.toggle("open");
+
+          if (mobileMenu.classList.contains("open")) {
+            menuIcon.classList.remove("fa-bars");
+            menuIcon.classList.add("fa-times");
+          } else {
+            menuIcon.classList.remove("fa-times");
+            menuIcon.classList.add("fa-bars");
+            closeAllMobileDropdowns();
           }
         });
-      }, observerOptions);
 
-      // Observe all fade-in elements
-      document.querySelectorAll(".fade-in").forEach((el) => {
-        fadeObserver.observe(el);
-      });
+        // Toggle Mobile About Dropdown
+        mobileAboutToggle?.addEventListener("click", (e) => {
+          e.stopPropagation();
+          mobileAbout.classList.toggle("open");
+          mobileAboutToggle.classList.toggle("active");
 
-      // Staggered animation for sectors
-      const staggerObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const cards = entry.target.querySelectorAll(".card-hover");
-            cards.forEach((card, index) => {
-              setTimeout(() => {
-                card.classList.add("animate");
-              }, index * 100);
-            });
-          }
-        });
-      }, observerOptions);
-
-      document.querySelectorAll(".stagger-animation").forEach((section) => {
-        staggerObserver.observe(section);
-      });
-
-      //header js
-      // Load header.html and then initialize header JS
-      fetch("header.html")
-        .then((res) => res.text())
-        .then((data) => {
-          document.getElementById("header").innerHTML = data;
-
-          // ✅ Elements
-          const mobileMenuToggle =
-            document.getElementById("mobile-menu-toggle");
-          const mobileMenu = document.getElementById("mobile-menu");
-          const menuIcon = document.getElementById("menu-icon");
-
-          const mobileAboutToggle = document.getElementById(
-            "mobile-about-toggle"
-          );
-          const mobileAbout = document.getElementById("mobile-about");
-          const mobileSectorsToggle = document.getElementById(
-            "mobile-sectors-toggle"
-          );
-          const mobileSectors = document.getElementById("mobile-sectors");
-          const mobileCareersToggle = document.getElementById(
-            "mobile-careers-toggle"
-          );
-          const mobileCareers = document.getElementById("mobile-careers");
-
-          // Function to close all mobile dropdowns
-          function closeAllMobileDropdowns() {
-            mobileAbout?.classList.remove("open");
+          // Close other dropdowns if open
+          if (mobileAbout.classList.contains("open")) {
             mobileSectors?.classList.remove("open");
             mobileCareers?.classList.remove("open");
-            mobileAboutToggle?.classList.remove("active");
             mobileSectorsToggle?.classList.remove("active");
             mobileCareersToggle?.classList.remove("active");
           }
+        });
 
-          // Toggle Mobile Menu
-          mobileMenuToggle?.addEventListener("click", (e) => {
-            e.stopPropagation();
-            mobileMenu.classList.toggle("open");
+        // Toggle Mobile Sectors Dropdown
+        mobileSectorsToggle?.addEventListener("click", (e) => {
+          e.stopPropagation();
+          mobileSectors.classList.toggle("open");
+          mobileSectorsToggle.classList.toggle("active");
 
-            if (mobileMenu.classList.contains("open")) {
-              menuIcon.classList.remove("fa-bars");
-              menuIcon.classList.add("fa-times");
-            } else {
+          // Close other dropdowns if open
+          if (mobileSectors.classList.contains("open")) {
+            mobileAbout?.classList.remove("open");
+            mobileCareers?.classList.remove("open");
+            mobileAboutToggle?.classList.remove("active");
+            mobileCareersToggle?.classList.remove("active");
+          }
+        });
+
+        // Toggle Mobile Careers Dropdown (NEW)
+        mobileCareersToggle?.addEventListener("click", (e) => {
+          e.stopPropagation();
+          mobileCareers.classList.toggle("open");
+          mobileCareersToggle.classList.toggle("active");
+
+          // Close other dropdowns if open
+          if (mobileCareers.classList.contains("open")) {
+            mobileAbout?.classList.remove("open");
+            mobileSectors?.classList.remove("open");
+            mobileAboutToggle?.classList.remove("active");
+            mobileSectorsToggle?.classList.remove("active");
+          }
+        });
+
+        // Close mobile dropdowns when clicking on links inside them
+        document.querySelectorAll(".mobile-dropdown a").forEach((link) => {
+          link.addEventListener("click", () => {
+            closeAllMobileDropdowns();
+            mobileMenu?.classList.remove("open");
+            if (menuIcon) {
               menuIcon.classList.remove("fa-times");
               menuIcon.classList.add("fa-bars");
-              closeAllMobileDropdowns();
             }
-          });
-
-          // Toggle Mobile About Dropdown
-          mobileAboutToggle?.addEventListener("click", (e) => {
-            e.stopPropagation();
-            mobileAbout.classList.toggle("open");
-            mobileAboutToggle.classList.toggle("active");
-
-            // Close other dropdowns if open
-            if (mobileAbout.classList.contains("open")) {
-              mobileSectors?.classList.remove("open");
-              mobileCareers?.classList.remove("open");
-              mobileSectorsToggle?.classList.remove("active");
-              mobileCareersToggle?.classList.remove("active");
-            }
-          });
-
-          // Toggle Mobile Sectors Dropdown
-          mobileSectorsToggle?.addEventListener("click", (e) => {
-            e.stopPropagation();
-            mobileSectors.classList.toggle("open");
-            mobileSectorsToggle.classList.toggle("active");
-
-            // Close other dropdowns if open
-            if (mobileSectors.classList.contains("open")) {
-              mobileAbout?.classList.remove("open");
-              mobileCareers?.classList.remove("open");
-              mobileAboutToggle?.classList.remove("active");
-              mobileCareersToggle?.classList.remove("active");
-            }
-          });
-
-          // Toggle Mobile Careers Dropdown (NEW)
-          mobileCareersToggle?.addEventListener("click", (e) => {
-            e.stopPropagation();
-            mobileCareers.classList.toggle("open");
-            mobileCareersToggle.classList.toggle("active");
-
-            // Close other dropdowns if open
-            if (mobileCareers.classList.contains("open")) {
-              mobileAbout?.classList.remove("open");
-              mobileSectors?.classList.remove("open");
-              mobileAboutToggle?.classList.remove("active");
-              mobileSectorsToggle?.classList.remove("active");
-            }
-          });
-
-          // Close mobile dropdowns when clicking on links inside them
-          document.querySelectorAll(".mobile-dropdown a").forEach((link) => {
-            link.addEventListener("click", () => {
-              closeAllMobileDropdowns();
-              mobileMenu?.classList.remove("open");
-              if (menuIcon) {
-                menuIcon.classList.remove("fa-times");
-                menuIcon.classList.add("fa-bars");
-              }
-            });
-          });
-
-          // Close menu if clicked outside
-          document.addEventListener("click", function (event) {
-            if (!mobileMenu || !mobileMenuToggle) return;
-
-            const isClickInsideMenu = mobileMenu.contains(event.target);
-            const isClickOnToggle = mobileMenuToggle.contains(event.target);
-
-            if (
-              !isClickInsideMenu &&
-              !isClickOnToggle &&
-              mobileMenu.classList.contains("open")
-            ) {
-              mobileMenu.classList.remove("open");
-              menuIcon.classList.remove("fa-times");
-              menuIcon.classList.add("fa-bars");
-              closeAllMobileDropdowns();
-            }
-          });
-
-          // Desktop dropdown hover functionality
-          const dropdowns = document.querySelectorAll(".dropdown");
-          dropdowns.forEach((dropdown) => {
-            dropdown.addEventListener("mouseenter", () => {
-              const content = dropdown.querySelector(".dropdown-content");
-              if (content) {
-                content.style.opacity = "1";
-                content.style.visibility = "visible";
-                content.style.transform = "translateY(0)";
-              }
-            });
-
-            dropdown.addEventListener("mouseleave", () => {
-              const content = dropdown.querySelector(".dropdown-content");
-              if (content) {
-                content.style.opacity = "0";
-                content.style.visibility = "hidden";
-                content.style.transform = "translateY(-10px)";
-              }
-            });
           });
         });
 
-      // Navbar scroll effect
-      window.addEventListener("scroll", () => {
-        document
-          .getElementById("navbar")
-          ?.classList.toggle("scrolled", window.scrollY > 50);
+        // Close menu if clicked outside
+        document.addEventListener("click", function (event) {
+          if (!mobileMenu || !mobileMenuToggle) return;
+
+          const isClickInsideMenu = mobileMenu.contains(event.target);
+          const isClickOnToggle = mobileMenuToggle.contains(event.target);
+
+          if (
+            !isClickInsideMenu &&
+            !isClickOnToggle &&
+            mobileMenu.classList.contains("open")
+          ) {
+            mobileMenu.classList.remove("open");
+            menuIcon.classList.remove("fa-times");
+            menuIcon.classList.add("fa-bars");
+            closeAllMobileDropdowns();
+          }
+        });
+
+        // Desktop dropdown hover functionality
+        const dropdowns = document.querySelectorAll(".dropdown");
+        dropdowns.forEach((dropdown) => {
+          dropdown.addEventListener("mouseenter", () => {
+            const content = dropdown.querySelector(".dropdown-content");
+            if (content) {
+              content.style.opacity = "1";
+              content.style.visibility = "visible";
+              content.style.transform = "translateY(0)";
+            }
+          });
+
+          dropdown.addEventListener("mouseleave", () => {
+            const content = dropdown.querySelector(".dropdown-content");
+            if (content) {
+              content.style.opacity = "0";
+              content.style.visibility = "hidden";
+              content.style.transform = "translateY(-10px)";
+            }
+          });
+        });
       });
-    </script>
-  </body>
+
+    // Navbar scroll effect
+    window.addEventListener("scroll", () => {
+      document
+        .getElementById("navbar")
+        ?.classList.toggle("scrolled", window.scrollY > 50);
+    });
+  </script>
+</body>
+
 </html>
