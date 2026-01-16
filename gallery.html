@@ -584,142 +584,235 @@
         }
       });
 
-   fetch("header.html")
-    .then((res) => res.text())
-    .then((data) => {
-      document.getElementById("header").innerHTML = data;
+//header js
+// Load header.html and then initialize header JS
+fetch("header.html")
+  .then((res) => res.text())
+  .then((data) => {
+    document.getElementById("header").innerHTML = data;
 
-      // ✅ Elements
-      const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
-      const mobileMenu = document.getElementById("mobile-menu");
-      const menuIcon = document.getElementById("menu-icon");
+    // ✅ Elements
+    const mobileMenuToggle =
+      document.getElementById("mobile-menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const menuIcon = document.getElementById("menu-icon");
 
-      const mobileAboutToggle = document.getElementById("mobile-about-toggle");
-      const mobileAbout = document.getElementById("mobile-about");
-      const mobileSectorsToggle = document.getElementById("mobile-sectors-toggle");
-      const mobileSectors = document.getElementById("mobile-sectors");
-      const mobileCareersToggle = document.getElementById("mobile-careers-toggle");
-      const mobileCareers = document.getElementById("mobile-careers");
+    const mobileAboutToggle = document.getElementById(
+      "mobile-about-toggle"
+    );
+    const mobileAbout = document.getElementById("mobile-about");
+    const mobileSectorsToggle = document.getElementById(
+      "mobile-sectors-toggle"
+    );
+    const mobileSectors = document.getElementById("mobile-sectors");
+    const mobileCareersToggle = document.getElementById(
+      "mobile-careers-toggle"
+    );
+    const mobileCareers = document.getElementById("mobile-careers");
 
-      // Function to close all mobile dropdowns
-      function closeAllMobileDropdowns() {
-        mobileAbout?.classList.remove("open");
+    // Function to close all mobile dropdowns
+    function closeAllMobileDropdowns() {
+      mobileAbout?.classList.remove("open");
+      mobileSectors?.classList.remove("open");
+      mobileCareers?.classList.remove("open");
+      mobileAboutToggle?.classList.remove("active");
+      mobileSectorsToggle?.classList.remove("active");
+      mobileCareersToggle?.classList.remove("active");
+      
+      // Also close all sector submenus
+      document.querySelectorAll('.sector-menu').forEach(menu => {
+        menu.style.maxHeight = '0px';
+      });
+      document.querySelectorAll('.sector-toggle i').forEach(icon => {
+        icon.style.transform = 'rotate(0deg)';
+      });
+    }
+
+    // Toggle Mobile Menu
+    mobileMenuToggle?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      mobileMenu.classList.toggle("open");
+
+      if (mobileMenu.classList.contains("open")) {
+        menuIcon.classList.remove("fa-bars");
+        menuIcon.classList.add("fa-times");
+      } else {
+        menuIcon.classList.remove("fa-times");
+        menuIcon.classList.add("fa-bars");
+        closeAllMobileDropdowns();
+      }
+    });
+
+    // Toggle Mobile About Dropdown
+    mobileAboutToggle?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      mobileAbout.classList.toggle("open");
+      mobileAboutToggle.classList.toggle("active");
+
+      // Close other dropdowns if open
+      if (mobileAbout.classList.contains("open")) {
         mobileSectors?.classList.remove("open");
         mobileCareers?.classList.remove("open");
-        mobileAboutToggle?.classList.remove("active");
         mobileSectorsToggle?.classList.remove("active");
         mobileCareersToggle?.classList.remove("active");
+        
+        // Close sector submenus
+        document.querySelectorAll('.sector-menu').forEach(menu => {
+          menu.style.maxHeight = '0px';
+        });
+        document.querySelectorAll('.sector-toggle i').forEach(icon => {
+          icon.style.transform = 'rotate(0deg)';
+        });
+      }
+    });
+
+    // Toggle Mobile Sectors Dropdown
+    mobileSectorsToggle?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      
+      // Toggle main sectors dropdown
+      if (mobileSectors.style.maxHeight && mobileSectors.style.maxHeight !== '0px') {
+        // Collapse main sectors
+        mobileSectors.style.maxHeight = '0px';
+        mobileSectorsToggle.querySelector('i').style.transform = 'rotate(0deg)';
+        mobileSectorsToggle.classList.remove("active");
+        
+        // Also collapse all sector submenus
+        document.querySelectorAll('.sector-menu').forEach(menu => {
+          menu.style.maxHeight = '0px';
+        });
+        document.querySelectorAll('.sector-toggle i').forEach(icon => {
+          icon.style.transform = 'rotate(0deg)';
+        });
+      } else {
+        // Expand main sectors
+        mobileSectors.style.maxHeight = mobileSectors.scrollHeight + 'px';
+        mobileSectorsToggle.querySelector('i').style.transform = 'rotate(180deg)';
+        mobileSectorsToggle.classList.add("active");
       }
 
-      // Toggle Mobile Menu
-      mobileMenuToggle?.addEventListener("click", (e) => {
-        e.stopPropagation();
-        mobileMenu.classList.toggle("open");
+      // Close other dropdowns if opening this one
+      if (mobileSectors.style.maxHeight && mobileSectors.style.maxHeight !== '0px') {
+        mobileAbout?.classList.remove("open");
+        mobileCareers?.classList.remove("open");
+        mobileAboutToggle?.classList.remove("active");
+        mobileCareersToggle?.classList.remove("active");
+      }
+    });
 
-        if (mobileMenu.classList.contains("open")) {
-          menuIcon.classList.remove("fa-bars");
-          menuIcon.classList.add("fa-times");
-        } else {
-          menuIcon.classList.remove("fa-times");
-          menuIcon.classList.add("fa-bars");
-          closeAllMobileDropdowns();
-        }
-      });
+    // Toggle Mobile Careers Dropdown (NEW)
+    mobileCareersToggle?.addEventListener("click", (e) => {
+      e.stopPropagation();
+      mobileCareers.classList.toggle("open");
+      mobileCareersToggle.classList.toggle("active");
 
-      // Toggle Mobile About Dropdown
-      mobileAboutToggle?.addEventListener("click", (e) => {
-        e.stopPropagation();
-        mobileAbout.classList.toggle("open");
-        mobileAboutToggle.classList.toggle("active");
-
-        // Close other dropdowns if open
-        if (mobileAbout.classList.contains("open")) {
-          mobileSectors?.classList.remove("open");
-          mobileCareers?.classList.remove("open");
-          mobileSectorsToggle?.classList.remove("active");
-          mobileCareersToggle?.classList.remove("active");
-        }
-      });
-
-      // Toggle Mobile Sectors Dropdown
-      mobileSectorsToggle?.addEventListener("click", (e) => {
-        e.stopPropagation();
-        mobileSectors.classList.toggle("open");
-        mobileSectorsToggle.classList.toggle("active");
-
-        // Close other dropdowns if open
-        if (mobileSectors.classList.contains("open")) {
-          mobileAbout?.classList.remove("open");
-          mobileCareers?.classList.remove("open");
-          mobileAboutToggle?.classList.remove("active");
-          mobileCareersToggle?.classList.remove("active");
-        }
-      });
-
-      // Toggle Mobile Careers Dropdown (NEW)
-      mobileCareersToggle?.addEventListener("click", (e) => {
-        e.stopPropagation();
-        mobileCareers.classList.toggle("open");
-        mobileCareersToggle.classList.toggle("active");
-
-        // Close other dropdowns if open
-        if (mobileCareers.classList.contains("open")) {
-          mobileAbout?.classList.remove("open");
-          mobileSectors?.classList.remove("open");
-          mobileAboutToggle?.classList.remove("active");
-          mobileSectorsToggle?.classList.remove("active");
-        }
-      });
-
-      // Close mobile dropdowns when clicking on links inside them
-      document.querySelectorAll('.mobile-dropdown a').forEach(link => {
-        link.addEventListener('click', () => {
-          closeAllMobileDropdowns();
-          mobileMenu?.classList.remove("open");
-          if (menuIcon) {
-            menuIcon.classList.remove("fa-times");
-            menuIcon.classList.add("fa-bars");
-          }
-        });
-      });
-
-      // Close menu if clicked outside
-      document.addEventListener("click", function (event) {
-        if (!mobileMenu || !mobileMenuToggle) return;
-
-        const isClickInsideMenu = mobileMenu.contains(event.target);
-        const isClickOnToggle = mobileMenuToggle.contains(event.target);
-
-        if (!isClickInsideMenu && !isClickOnToggle && mobileMenu.classList.contains("open")) {
-          mobileMenu.classList.remove("open");
-          menuIcon.classList.remove("fa-times");
-          menuIcon.classList.add("fa-bars");
-          closeAllMobileDropdowns();
-        }
-      });
-
-      // Desktop dropdown hover functionality
-      const dropdowns = document.querySelectorAll('.dropdown');
-      dropdowns.forEach(dropdown => {
-        dropdown.addEventListener('mouseenter', () => {
-          const content = dropdown.querySelector('.dropdown-content');
-          if (content) {
-            content.style.opacity = '1';
-            content.style.visibility = 'visible';
-            content.style.transform = 'translateY(0)';
-          }
-        });
+      // Close other dropdowns if open
+      if (mobileCareers.classList.contains("open")) {
+        mobileAbout?.classList.remove("open");
+        mobileSectors?.classList.remove("open");
+        mobileAboutToggle?.classList.remove("active");
+        mobileSectorsToggle?.classList.remove("active");
+        mobileSectors.style.maxHeight = '0px';
+        mobileSectorsToggle.querySelector('i').style.transform = 'rotate(0deg)';
         
-        dropdown.addEventListener('mouseleave', () => {
-          const content = dropdown.querySelector('.dropdown-content');
-          if (content) {
-            content.style.opacity = '0';
-            content.style.visibility = 'hidden';
-            content.style.transform = 'translateY(-10px)';
-          }
+        // Close sector submenus
+        document.querySelectorAll('.sector-menu').forEach(menu => {
+          menu.style.maxHeight = '0px';
         });
+        document.querySelectorAll('.sector-toggle i').forEach(icon => {
+          icon.style.transform = 'rotate(0deg)';
+        });
+      }
+    });
+
+    // Handle sector toggle buttons (submenus)
+    document.querySelectorAll('.sector-toggle').forEach(button => {
+      button.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const menu = this.nextElementSibling;
+        const icon = this.querySelector('i');
+        
+        // Toggle submenu
+        if (menu.style.maxHeight && menu.style.maxHeight !== '0px') {
+          // Collapse
+          menu.style.maxHeight = '0px';
+          icon.style.transform = 'rotate(0deg)';
+        } else {
+          // Expand
+          menu.style.maxHeight = menu.scrollHeight + 'px';
+          icon.style.transform = 'rotate(180deg)';
+        }
       });
     });
+
+    // Close mobile dropdowns when clicking on links inside them
+    document.querySelectorAll(".mobile-dropdown a, .sector-menu a").forEach((link) => {
+      link.addEventListener("click", () => {
+        closeAllMobileDropdowns();
+        mobileMenu?.classList.remove("open");
+        if (menuIcon) {
+          menuIcon.classList.remove("fa-times");
+          menuIcon.classList.add("fa-bars");
+        }
+      });
+    });
+
+    // Close menu if clicked outside
+    document.addEventListener("click", function (event) {
+      if (!mobileMenu || !mobileMenuToggle) return;
+
+      const isClickInsideMenu = mobileMenu.contains(event.target);
+      const isClickOnToggle = mobileMenuToggle.contains(event.target);
+
+      if (
+        !isClickInsideMenu &&
+        !isClickOnToggle &&
+        mobileMenu.classList.contains("open")
+      ) {
+        mobileMenu.classList.remove("open");
+        menuIcon.classList.remove("fa-times");
+        menuIcon.classList.add("fa-bars");
+        closeAllMobileDropdowns();
+      }
+    });
+
+    // Desktop dropdown hover functionality
+    const dropdowns = document.querySelectorAll(".dropdown");
+    dropdowns.forEach((dropdown) => {
+      dropdown.addEventListener("mouseenter", () => {
+        const content = dropdown.querySelector(".dropdown-content");
+        if (content) {
+          content.style.opacity = "1";
+          content.style.visibility = "visible";
+          content.style.transform = "translateY(0)";
+        }
+      });
+
+      dropdown.addEventListener("mouseleave", () => {
+        const content = dropdown.querySelector(".dropdown-content");
+        if (content) {
+          content.style.opacity = "0";
+          content.style.visibility = "hidden";
+          content.style.transform = "translateY(-10px)";
+        }
+      });
+    });
+    
+    // Handle window resize - recalculate maxHeight for open menus
+    window.addEventListener('resize', function() {
+      // Recalculate for main sectors dropdown
+      if (mobileSectors.style.maxHeight && mobileSectors.style.maxHeight !== '0px') {
+        mobileSectors.style.maxHeight = mobileSectors.scrollHeight + 'px';
+      }
+      
+      // Recalculate for open sector submenus
+      document.querySelectorAll('.sector-menu').forEach(menu => {
+        if (menu.style.maxHeight && menu.style.maxHeight !== '0px') {
+          menu.style.maxHeight = menu.scrollHeight + 'px';
+        }
+      });
+    });
+  });
 
   // Navbar scroll effect
   window.addEventListener("scroll", () => {

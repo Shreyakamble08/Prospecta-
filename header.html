@@ -92,7 +92,7 @@
             ></a>
             <a href="#" class="hover:text-gray-200 transition"
               ><i class="fab fa-linkedin"></i>
-</a>
+            </a>
           </div>
         </div>
       </div>
@@ -128,7 +128,7 @@
               ></a>
               <a href="#" class="hover:text-gray-200 transition"
                 ><i class="fab fa-linkedin"></i>
-</a>
+              </a>
             </div>
           </div>
         </div>
@@ -149,7 +149,6 @@
               </a>
             </div>
 
-          
             <!-- Desktop Navigation -->
             <div class="hidden md:flex items-center space-x-8">
               <a
@@ -165,7 +164,9 @@
                 >
                   About <i class="fas fa-chevron-down ml-1 text-xs"></i>
                 </button>
-                <div class="dropdown-content absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-50">
+                <div
+                  class="dropdown-content absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-50"
+                >
                   <a href="about.html" class="block px-4 py-2 hover:bg-blue-50"
                     >About Us</a
                   >
@@ -181,30 +182,189 @@
               </div>
 
               <!-- Sectors Dropdown -->
-              <div class="dropdown relative">
+              <div class="dropdown relative group">
                 <button
-                  class="flex items-center font-medium hover:text-blue-800 transition"
+                  class="flex items-center font-medium hover:text-blue-800 transition-colors duration-200"
                 >
-                  Sectors <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                  Sectors
+                  <i
+                    class="fas fa-chevron-down ml-1 text-xs transition-transform duration-200 group-hover:rotate-180"
+                  ></i>
                 </button>
+
+                <!-- Main Dropdown -->
                 <div
-                  class="dropdown-content absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 z-50"
+                  class="absolute top-full left-0 mt-2 w-64 bg-white border rounded-lg shadow-xl py-2 z-50 opacity-0 invisible scale-95 origin-top-left group-hover:opacity-100 group-hover:visible group-hover:scale-100 transition-all duration-200 ease-out"
                 >
-                  <a href="industrial.html" class="block px-4 py-2 hover:bg-blue-50"
-                    >Industrial</a
-                  >
-                  <a href="commercial.html" class="block px-4 py-2 hover:bg-blue-50"
-                    >Commercial</a
-                  >
-                  <a href="residential.html" class="block px-4 py-2 hover:bg-blue-50"
-                    >Residential</a
-                  >
-                  <a href="#" class="block px-4 py-2 hover:bg-blue-50"
-                    >Institutional</a
-                  >
-                  <a href="#" class="block px-4 py-2 hover:bg-blue-50"
-                    >Public Infrastructure</a
-                  >
+                  <!-- Industrial -->
+                  <div class="group/sub relative">
+                    <a
+                      href="industrial.html"
+                      class="flex justify-between items-center px-4 py-2.5 hover:bg-blue-50 font-normal transition-colors duration-150"
+                    >
+                      Industrial
+                      <i
+                        class="fas fa-chevron-right text-xs transition-transform duration-200 group-hover/sub:translate-x-1"
+                      ></i>
+                    </a>
+
+                    <div
+                      class="absolute top-0 left-full ml-1 w-44 bg-white border rounded-lg shadow-xl py-2 opacity-0 invisible scale-95 origin-top-left group-hover/sub:opacity-100 group-hover/sub:visible group-hover/sub:scale-100 transition-all duration-200 ease-out delay-75"
+                    >
+                      <a
+                        href="industrial.html"
+                        class="block px-4 py-2.5 hover:bg-blue-50 transition-colors duration-150"
+                      >
+                        Completed
+                      </a>
+
+                      <!-- Divider -->
+                      <div class="mx-3 my-1 h-px bg-gray-200"></div>
+
+                      <a
+                        href="industrial.html"
+                        class="block px-4 py-2.5 hover:bg-blue-50 transition-colors duration-150"
+                      >
+                        Ongoing
+                      </a>
+                    </div>
+                  </div>
+
+                  <!-- Commercial -->
+                  <div class="group/sub relative">
+                    <a
+                      href="commercial.html"
+                      class="flex justify-between items-center px-4 py-2.5 hover:bg-blue-50 font-normal transition-colors duration-150"
+                    >
+                      Commercial
+                      <i
+                        class="fas fa-chevron-right text-xs transition-transform duration-200 group-hover/sub:translate-x-1"
+                      ></i>
+                    </a>
+
+                    <div
+                      class="absolute top-0 left-full ml-1 w-44 bg-white border rounded-lg shadow-xl py-2 opacity-0 invisible scale-95 origin-top-left group-hover/sub:opacity-100 group-hover/sub:visible group-hover/sub:scale-100 transition-all duration-200 ease-out delay-75"
+                    >
+                      <a
+                        href="commercial.html"
+                        class="block px-4 py-2.5 hover:bg-blue-50 transition-colors duration-150"
+                      >
+                        Completed
+                      </a>
+
+                      <!-- Divider -->
+                      <div class="mx-3 my-1 h-px bg-gray-200"></div>
+
+                      <a
+                        href="commercial.html"
+                        class="block px-4 py-2.5 hover:bg-blue-50 transition-colors duration-150"
+                      >
+                        Ongoing
+                      </a>
+                    </div>
+                  </div>
+
+                  <!-- Residential -->
+                  <div class="group/sub relative">
+                    <a
+                      href="residential.html"
+                      class="flex justify-between items-center px-4 py-2.5 hover:bg-blue-50 font-normal transition-colors duration-150"
+                    >
+                      Residential
+                      <i
+                        class="fas fa-chevron-right text-xs transition-transform duration-200 group-hover/sub:translate-x-1"
+                      ></i>
+                    </a>
+
+                    <div
+                      class="absolute top-0 left-full ml-1 w-44 bg-white border rounded-lg shadow-xl py-2 opacity-0 invisible scale-95 origin-top-left group-hover/sub:opacity-100 group-hover/sub:visible group-hover/sub:scale-100 transition-all duration-200 ease-out delay-75"
+                    >
+                      <a
+                        href="residential.html"
+                        class="block px-4 py-2.5 hover:bg-blue-50 transition-colors duration-150"
+                      >
+                        Completed
+                      </a>
+
+                      <!-- Divider -->
+                      <div class="mx-3 my-1 h-px bg-gray-200"></div>
+
+                      <a
+                        href="residential.html"
+                        class="block px-4 py-2.5 hover:bg-blue-50 transition-colors duration-150"
+                      >
+                        Ongoing
+                      </a>
+                    </div>
+                  </div>
+
+                  <!-- Institutional -->
+                  <div class="group/sub relative">
+                    <a
+                      href="institutional.html"
+                      class="flex justify-between items-center px-4 py-2.5 hover:bg-blue-50 font-normal transition-colors duration-150"
+                    >
+                      Institutional
+                      <i
+                        class="fas fa-chevron-right text-xs transition-transform duration-200 group-hover/sub:translate-x-1"
+                      ></i>
+                    </a>
+
+                    <div
+                      class="absolute top-0 left-full ml-1 w-44 bg-white border rounded-lg shadow-xl py-2 opacity-0 invisible scale-95 origin-top-left group-hover/sub:opacity-100 group-hover/sub:visible group-hover/sub:scale-100 transition-all duration-200 ease-out delay-75"
+                    >
+                      <a
+                        href="institutional.html"
+                        class="block px-4 py-2.5 hover:bg-blue-50 transition-colors duration-150"
+                      >
+                        Completed
+                      </a>
+
+                      <!-- Divider -->
+                      <div class="mx-3 my-1 h-px bg-gray-200"></div>
+
+                      <a
+                        href="institutional.html"
+                        class="block px-4 py-2.5 hover:bg-blue-50 transition-colors duration-150"
+                      >
+                        Ongoing
+                      </a>
+                    </div>
+                  </div>
+
+                  <!-- Public Infrastructure -->
+                  <div class="group/sub relative">
+                    <a
+                      href="public-infrastructure.html"
+                      class="flex justify-between items-center px-4 py-2.5 hover:bg-blue-50 font-normal transition-colors duration-150"
+                    >
+                      Public Infrastructure
+                      <i
+                        class="fas fa-chevron-right text-xs transition-transform duration-200 group-hover/sub:translate-x-1"
+                      ></i>
+                    </a>
+
+                    <div
+                      class="absolute top-0 left-full ml-1 w-44 bg-white border rounded-lg shadow-xl py-2 opacity-0 invisible scale-95 origin-top-left group-hover/sub:opacity-100 group-hover/sub:visible group-hover/sub:scale-100 transition-all duration-200 ease-out delay-75"
+                    >
+                      <a
+                        href="public-completed.html"
+                        class="block px-4 py-2.5 hover:bg-blue-50 transition-colors duration-150"
+                      >
+                        Completed
+                      </a>
+
+                      <!-- Divider -->
+                      <div class="mx-3 my-1 h-px bg-gray-200"></div>
+
+                      <a
+                        href="public-ongoing.html"
+                        class="block px-4 py-2.5 hover:bg-blue-50 transition-colors duration-150"
+                      >
+                        Ongoing
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -221,7 +381,9 @@
                   <a href="career.html" class="block px-4 py-2 hover:bg-blue-50"
                     >Careers</a
                   >
-                  <a href="whychoose.html" class="block px-4 py-2 hover:bg-blue-50"
+                  <a
+                    href="whychoose.html"
+                    class="block px-4 py-2 hover:bg-blue-50"
                     >Life at Prospecta BuildX</a
                   >
                 </div>
@@ -286,40 +448,163 @@
               </div>
 
               <!-- Sectors Dropdown -->
-              <div>
+              <div class="border-b border-gray-200">
+                <!-- Main Sectors Toggle -->
                 <button
                   id="mobile-sectors-toggle"
-                  class="mobile-dropdown-toggle flex justify-between items-center w-full text-black/80 hover:text-black font-medium py-2 px-4"
+                  class="flex justify-between items-center w-full text-black/80 hover:text-black font-medium py-3 px-4"
                 >
                   <span>Sectors</span>
-                  <i class="fas fa-chevron-down text-xs"></i>
+                  <i
+                    id="mobile-sectors-icon"
+                    class="fas fa-chevron-down text-xs transition-transform duration-300"
+                  ></i>
                 </button>
-                <div id="mobile-sectors" class="mobile-dropdown ml-4">
-                  <a
-                    href="industrial.html"
-                    class="block text-black/70 hover:text-black py-2 px-4"
-                    >Industrial</a
-                  >
-                  <a
-                    href="commercial.html"
-                    class="block text-black/70 hover:text-black py-2 px-4"
-                    >Commercial</a
-                  >
-                  <a
-                    href="residential.html"
-                    class="block text-black/70 hover:text-black py-2 px-4"
-                    >Residential</a
-                  >
-                  <a
-                    href="#"
-                    class="block text-black/70 hover:text-black py-2 px-4"
-                    >Institutional</a
-                  >
-                  <a
-                    href="#"
-                    class="block text-black/70 hover:text-black py-2 px-4"
-                    >Public Infrastructure</a
-                  >
+
+                <!-- Sectors Container -->
+                <div
+                  id="mobile-sectors"
+                  class="ml-2 max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+                >
+                  <!-- INDUSTRIAL -->
+                  <div class="border-l border-gray-200 ml-4">
+                    <button
+                      class="sector-toggle flex justify-between items-center w-full text-black/70 hover:text-black py-2 px-4"
+                    >
+                      <span>Industrial</span>
+                      <i
+                        class="fas fa-chevron-down text-xs transition-transform duration-300"
+                      ></i>
+                    </button>
+                    <div
+                      class="sector-menu ml-6 max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+                    >
+                      <a
+                        href="industrial.html"
+                        class="block text-black/60 hover:text-black py-2 px-4 text-sm"
+                      >
+                        Completed
+                      </a>
+                      <a
+                        href="industrial.html"
+                        class="block text-black/60 hover:text-black py-2 px-4 text-sm"
+                      >
+                        Ongoing
+                      </a>
+                    </div>
+                  </div>
+
+                  <!-- COMMERCIAL -->
+                  <div class="border-l border-gray-200 ml-4">
+                    <button
+                      class="sector-toggle flex justify-between items-center w-full text-black/70 hover:text-black py-2 px-4"
+                    >
+                      <span>Commercial</span>
+                      <i
+                        class="fas fa-chevron-down text-xs transition-transform duration-300"
+                      ></i>
+                    </button>
+                    <div
+                      class="sector-menu ml-6 max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+                    >
+                      <a
+                        href="commercial.html"
+                        class="block text-black/60 hover:text-black py-2 px-4 text-sm"
+                      >
+                        Completed
+                      </a>
+                      <a
+                        href="commercial.html"
+                        class="block text-black/60 hover:text-black py-2 px-4 text-sm"
+                      >
+                        Ongoing
+                      </a>
+                    </div>
+                  </div>
+
+                  <!-- RESIDENTIAL -->
+                  <div class="border-l border-gray-200 ml-4">
+                    <button
+                      class="sector-toggle flex justify-between items-center w-full text-black/70 hover:text-black py-2 px-4"
+                    >
+                      <span>Residential</span>
+                      <i
+                        class="fas fa-chevron-down text-xs transition-transform duration-300"
+                      ></i>
+                    </button>
+                    <div
+                      class="sector-menu ml-6 max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+                    >
+                      <a
+                        href="residential.html"
+                        class="block text-black/60 hover:text-black py-2 px-4 text-sm"
+                      >
+                        Completed
+                      </a>
+                      <a
+                        href="residential.html"
+                        class="block text-black/60 hover:text-black py-2 px-4 text-sm"
+                      >
+                        Ongoing
+                      </a>
+                    </div>
+                  </div>
+
+                  <!-- INSTITUTIONAL -->
+                  <div class="border-l border-gray-200 ml-4">
+                    <button
+                      class="sector-toggle flex justify-between items-center w-full text-black/70 hover:text-black py-2 px-4"
+                    >
+                      <span>Institutional</span>
+                      <i
+                        class="fas fa-chevron-down text-xs transition-transform duration-300"
+                      ></i>
+                    </button>
+                    <div
+                      class="sector-menu ml-6 max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+                    >
+                      <a
+                        href="institutional-completed.html"
+                        class="block text-black/60 hover:text-black py-2 px-4 text-sm"
+                      >
+                        Completed
+                      </a>
+                      <a
+                        href="institutional-ongoing.html"
+                        class="block text-black/60 hover:text-black py-2 px-4 text-sm"
+                      >
+                        Ongoing
+                      </a>
+                    </div>
+                  </div>
+
+                  <!-- PUBLIC INFRASTRUCTURE -->
+                  <div class="border-l border-gray-200 ml-4">
+                    <button
+                      class="sector-toggle flex justify-between items-center w-full text-black/70 hover:text-black py-2 px-4"
+                    >
+                      <span>Public Infrastructure</span>
+                      <i
+                        class="fas fa-chevron-down text-xs transition-transform duration-300"
+                      ></i>
+                    </button>
+                    <div
+                      class="sector-menu ml-6 max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+                    >
+                      <a
+                        href="infrastructure-completed.html"
+                        class="block text-black/60 hover:text-black py-2 px-4 text-sm"
+                      >
+                        Completed
+                      </a>
+                      <a
+                        href="infrastructure-ongoing.html"
+                        class="block text-black/60 hover:text-black py-2 px-4 text-sm"
+                      >
+                        Ongoing
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
 
