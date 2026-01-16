@@ -164,7 +164,7 @@
             class="absolute -bottom-4 -right-4 bg-white p-3 sm:p-4 rounded-lg shadow-lg border border-gray-200 animate-up"
           >
             <div class="text-center">
-              <div class="text-xl font-light text-gray-900 mb-1">7+</div>
+              <div class="text-xl font-light text-gray-900 mb-1">8+</div>
               <div class="text-xs text-gray-500">Years Experience</div>
             </div>
           </div>
@@ -332,7 +332,7 @@
     </section>
 
     <!-- Core Values -->
-  <section
+    <section
       class="py-12 sm:py-20 -mt-8 sm:-mt-16 bg-gradient-to-t from-[#E8F9FF] to-white mobile-responsive-padding"
     >
       <div class="container mx-auto px-4 text-center">
@@ -461,7 +461,6 @@
       </div>
     </section>
 
-
     <!-- Mission & Vision -->
     <section
       class="py-12 sm:py-20 bg-white relative bg-cover bg-center bg-no-repeat mobile-responsive-padding"
@@ -559,12 +558,12 @@
         playsinline
         class="absolute inset-0 w-full h-full object-cover z-0"
       >
-        <source src="Images/foundation.mp4" type="video/mp4" />
+        <source src="Images/mission.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
       <!-- Dark Overlay -->
-      <div class="absolute inset-0 bg-black/50 z-0"></div>
+      <div class="absolute inset-0 bg-black/60 z-0"></div>
 
       <!-- Content -->
       <div class="relative z-10 container mx-auto px-4">
@@ -638,7 +637,7 @@
     </section>
 
     <!-- Footer -->
-   <footer
+    <footer
       class="relative text-white py-10 overflow-hidden bg-gradient-to-b from-[#0A0F24] via-[#12306A] to-[#091526]"
     >
       <div class="container mx-auto px-4">
@@ -840,149 +839,160 @@
     ></script>
     <script>
       // Load header.html and then initialize header JS
-    fetch("header.html")
-    .then((res) => res.text())
-    .then((data) => {
-      document.getElementById("header").innerHTML = data;
+      fetch("header.html")
+        .then((res) => res.text())
+        .then((data) => {
+          document.getElementById("header").innerHTML = data;
 
-      // ✅ Elements
-      const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
-      const mobileMenu = document.getElementById("mobile-menu");
-      const menuIcon = document.getElementById("menu-icon");
+          // ✅ Elements
+          const mobileMenuToggle =
+            document.getElementById("mobile-menu-toggle");
+          const mobileMenu = document.getElementById("mobile-menu");
+          const menuIcon = document.getElementById("menu-icon");
 
-      const mobileAboutToggle = document.getElementById("mobile-about-toggle");
-      const mobileAbout = document.getElementById("mobile-about");
-      const mobileSectorsToggle = document.getElementById("mobile-sectors-toggle");
-      const mobileSectors = document.getElementById("mobile-sectors");
-      const mobileCareersToggle = document.getElementById("mobile-careers-toggle");
-      const mobileCareers = document.getElementById("mobile-careers");
+          const mobileAboutToggle = document.getElementById(
+            "mobile-about-toggle"
+          );
+          const mobileAbout = document.getElementById("mobile-about");
+          const mobileSectorsToggle = document.getElementById(
+            "mobile-sectors-toggle"
+          );
+          const mobileSectors = document.getElementById("mobile-sectors");
+          const mobileCareersToggle = document.getElementById(
+            "mobile-careers-toggle"
+          );
+          const mobileCareers = document.getElementById("mobile-careers");
 
-      // Function to close all mobile dropdowns
-      function closeAllMobileDropdowns() {
-        mobileAbout?.classList.remove("open");
-        mobileSectors?.classList.remove("open");
-        mobileCareers?.classList.remove("open");
-        mobileAboutToggle?.classList.remove("active");
-        mobileSectorsToggle?.classList.remove("active");
-        mobileCareersToggle?.classList.remove("active");
-      }
-
-      // Toggle Mobile Menu
-      mobileMenuToggle?.addEventListener("click", (e) => {
-        e.stopPropagation();
-        mobileMenu.classList.toggle("open");
-
-        if (mobileMenu.classList.contains("open")) {
-          menuIcon.classList.remove("fa-bars");
-          menuIcon.classList.add("fa-times");
-        } else {
-          menuIcon.classList.remove("fa-times");
-          menuIcon.classList.add("fa-bars");
-          closeAllMobileDropdowns();
-        }
-      });
-
-      // Toggle Mobile About Dropdown
-      mobileAboutToggle?.addEventListener("click", (e) => {
-        e.stopPropagation();
-        mobileAbout.classList.toggle("open");
-        mobileAboutToggle.classList.toggle("active");
-
-        // Close other dropdowns if open
-        if (mobileAbout.classList.contains("open")) {
-          mobileSectors?.classList.remove("open");
-          mobileCareers?.classList.remove("open");
-          mobileSectorsToggle?.classList.remove("active");
-          mobileCareersToggle?.classList.remove("active");
-        }
-      });
-
-      // Toggle Mobile Sectors Dropdown
-      mobileSectorsToggle?.addEventListener("click", (e) => {
-        e.stopPropagation();
-        mobileSectors.classList.toggle("open");
-        mobileSectorsToggle.classList.toggle("active");
-
-        // Close other dropdowns if open
-        if (mobileSectors.classList.contains("open")) {
-          mobileAbout?.classList.remove("open");
-          mobileCareers?.classList.remove("open");
-          mobileAboutToggle?.classList.remove("active");
-          mobileCareersToggle?.classList.remove("active");
-        }
-      });
-
-      // Toggle Mobile Careers Dropdown (NEW)
-      mobileCareersToggle?.addEventListener("click", (e) => {
-        e.stopPropagation();
-        mobileCareers.classList.toggle("open");
-        mobileCareersToggle.classList.toggle("active");
-
-        // Close other dropdowns if open
-        if (mobileCareers.classList.contains("open")) {
-          mobileAbout?.classList.remove("open");
-          mobileSectors?.classList.remove("open");
-          mobileAboutToggle?.classList.remove("active");
-          mobileSectorsToggle?.classList.remove("active");
-        }
-      });
-
-      // Close mobile dropdowns when clicking on links inside them
-      document.querySelectorAll('.mobile-dropdown a').forEach(link => {
-        link.addEventListener('click', () => {
-          closeAllMobileDropdowns();
-          mobileMenu?.classList.remove("open");
-          if (menuIcon) {
-            menuIcon.classList.remove("fa-times");
-            menuIcon.classList.add("fa-bars");
+          // Function to close all mobile dropdowns
+          function closeAllMobileDropdowns() {
+            mobileAbout?.classList.remove("open");
+            mobileSectors?.classList.remove("open");
+            mobileCareers?.classList.remove("open");
+            mobileAboutToggle?.classList.remove("active");
+            mobileSectorsToggle?.classList.remove("active");
+            mobileCareersToggle?.classList.remove("active");
           }
+
+          // Toggle Mobile Menu
+          mobileMenuToggle?.addEventListener("click", (e) => {
+            e.stopPropagation();
+            mobileMenu.classList.toggle("open");
+
+            if (mobileMenu.classList.contains("open")) {
+              menuIcon.classList.remove("fa-bars");
+              menuIcon.classList.add("fa-times");
+            } else {
+              menuIcon.classList.remove("fa-times");
+              menuIcon.classList.add("fa-bars");
+              closeAllMobileDropdowns();
+            }
+          });
+
+          // Toggle Mobile About Dropdown
+          mobileAboutToggle?.addEventListener("click", (e) => {
+            e.stopPropagation();
+            mobileAbout.classList.toggle("open");
+            mobileAboutToggle.classList.toggle("active");
+
+            // Close other dropdowns if open
+            if (mobileAbout.classList.contains("open")) {
+              mobileSectors?.classList.remove("open");
+              mobileCareers?.classList.remove("open");
+              mobileSectorsToggle?.classList.remove("active");
+              mobileCareersToggle?.classList.remove("active");
+            }
+          });
+
+          // Toggle Mobile Sectors Dropdown
+          mobileSectorsToggle?.addEventListener("click", (e) => {
+            e.stopPropagation();
+            mobileSectors.classList.toggle("open");
+            mobileSectorsToggle.classList.toggle("active");
+
+            // Close other dropdowns if open
+            if (mobileSectors.classList.contains("open")) {
+              mobileAbout?.classList.remove("open");
+              mobileCareers?.classList.remove("open");
+              mobileAboutToggle?.classList.remove("active");
+              mobileCareersToggle?.classList.remove("active");
+            }
+          });
+
+          // Toggle Mobile Careers Dropdown (NEW)
+          mobileCareersToggle?.addEventListener("click", (e) => {
+            e.stopPropagation();
+            mobileCareers.classList.toggle("open");
+            mobileCareersToggle.classList.toggle("active");
+
+            // Close other dropdowns if open
+            if (mobileCareers.classList.contains("open")) {
+              mobileAbout?.classList.remove("open");
+              mobileSectors?.classList.remove("open");
+              mobileAboutToggle?.classList.remove("active");
+              mobileSectorsToggle?.classList.remove("active");
+            }
+          });
+
+          // Close mobile dropdowns when clicking on links inside them
+          document.querySelectorAll(".mobile-dropdown a").forEach((link) => {
+            link.addEventListener("click", () => {
+              closeAllMobileDropdowns();
+              mobileMenu?.classList.remove("open");
+              if (menuIcon) {
+                menuIcon.classList.remove("fa-times");
+                menuIcon.classList.add("fa-bars");
+              }
+            });
+          });
+
+          // Close menu if clicked outside
+          document.addEventListener("click", function (event) {
+            if (!mobileMenu || !mobileMenuToggle) return;
+
+            const isClickInsideMenu = mobileMenu.contains(event.target);
+            const isClickOnToggle = mobileMenuToggle.contains(event.target);
+
+            if (
+              !isClickInsideMenu &&
+              !isClickOnToggle &&
+              mobileMenu.classList.contains("open")
+            ) {
+              mobileMenu.classList.remove("open");
+              menuIcon.classList.remove("fa-times");
+              menuIcon.classList.add("fa-bars");
+              closeAllMobileDropdowns();
+            }
+          });
+
+          // Desktop dropdown hover functionality
+          const dropdowns = document.querySelectorAll(".dropdown");
+          dropdowns.forEach((dropdown) => {
+            dropdown.addEventListener("mouseenter", () => {
+              const content = dropdown.querySelector(".dropdown-content");
+              if (content) {
+                content.style.opacity = "1";
+                content.style.visibility = "visible";
+                content.style.transform = "translateY(0)";
+              }
+            });
+
+            dropdown.addEventListener("mouseleave", () => {
+              const content = dropdown.querySelector(".dropdown-content");
+              if (content) {
+                content.style.opacity = "0";
+                content.style.visibility = "hidden";
+                content.style.transform = "translateY(-10px)";
+              }
+            });
+          });
         });
+
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        document
+          .getElementById("navbar")
+          ?.classList.toggle("scrolled", window.scrollY > 50);
       });
-
-      // Close menu if clicked outside
-      document.addEventListener("click", function (event) {
-        if (!mobileMenu || !mobileMenuToggle) return;
-
-        const isClickInsideMenu = mobileMenu.contains(event.target);
-        const isClickOnToggle = mobileMenuToggle.contains(event.target);
-
-        if (!isClickInsideMenu && !isClickOnToggle && mobileMenu.classList.contains("open")) {
-          mobileMenu.classList.remove("open");
-          menuIcon.classList.remove("fa-times");
-          menuIcon.classList.add("fa-bars");
-          closeAllMobileDropdowns();
-        }
-      });
-
-      // Desktop dropdown hover functionality
-      const dropdowns = document.querySelectorAll('.dropdown');
-      dropdowns.forEach(dropdown => {
-        dropdown.addEventListener('mouseenter', () => {
-          const content = dropdown.querySelector('.dropdown-content');
-          if (content) {
-            content.style.opacity = '1';
-            content.style.visibility = 'visible';
-            content.style.transform = 'translateY(0)';
-          }
-        });
-        
-        dropdown.addEventListener('mouseleave', () => {
-          const content = dropdown.querySelector('.dropdown-content');
-          if (content) {
-            content.style.opacity = '0';
-            content.style.visibility = 'hidden';
-            content.style.transform = 'translateY(-10px)';
-          }
-        });
-      });
-    });
-
-  // Navbar scroll effect
-  window.addEventListener("scroll", () => {
-    document
-      .getElementById("navbar")
-      ?.classList.toggle("scrolled", window.scrollY > 50);
-  });
     </script>
   </body>
 </html>
