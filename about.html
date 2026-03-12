@@ -1,1079 +1,1066 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Prospecta BuildX - Building Tomorrow</title>
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="homestyle.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prospecta BuildX - Building Tomorrow</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="homestyle.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    .hero-slider {
+      background-size: cover;
+      background-position: center;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .scroll-container {
+      animation: scroll 20s linear infinite;
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* Mobile overflow fixes */
+    .mobile-safe {
+      overflow-x: hidden;
+      max-width: 100%;
+    }
+
+    .mobile-responsive-padding {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 1.875rem;
+        /* 30px */
+        line-height: 2.25rem;
+        /* 36px */
+      }
+
+      .section-title {
+        font-size: 2.25rem;
+        /* 36px */
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-title {
+        font-size: 1.5rem;
+        /* 24px */
+        line-height: 2rem;
+        /* 32px */
+      }
+
+      .section-title {
+        font-size: 1.875rem;
+        /* 30px */
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .mission-vision-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body class="text-gray-800 mobile-safe">
+  <!-- HEADER -->
+  <div id="header"></div>
+
+  <!-- Hero Banner -->
+  <section
+    class="relative bg-cover bg-center bg-no-repeat overflow-hidden flex items-center py-10 mobile-responsive-padding"
+    style="
+        background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1350&q=80');
+      ">
+    <!-- White Overlay -->
+    <div class="absolute inset-0 bg-white/80"></div>
+
+    <!-- Content -->
+    <div
+      class="relative max-w-6xl mx-auto px-2 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center w-full">
+      <!-- Text Content -->
+      <div class="space-y-5 animate-left">
+        <div class="flex items-center space-x-3">
+          <div class="w-8 h-px bg-gray-800"></div>
+          <span class="text-xs font-medium text-gray-600 uppercase tracking-wider">
+            About Us
+          </span>
+        </div>
+
+        <h1 class="hero-title text-2xl sm:text-3xl md:text-4xl font-light text-gray-900 leading-tight">
+          Building Foundations<br />
+          <span class="font-normal">For Tomorrow</span>
+        </h1>
+
+        <p class="text-sm text-gray-700 leading-relaxed max-w-md">
+          Prospecta BuildX India Pvt. Ltd. is a professionally managed EPC and construction company focused on
+          delivering industrial, commercial, institutional, and residential projects with quality, precision, and
+          execution certainty. Since 2018, the company has established a growing presence across India by serving
+          clients in sectors where engineering coordination, site discipline, and dependable delivery are essential.
+        </p>
+
+        <div class="pt-2">
+          <a href="#about-section"
+            class="inline-flex items-center space-x-2 text-gray-900 text-sm font-medium hover:text-gray-700 transition-colors group">
+            <span>Learn More</span>
+            <div class="w-5 h-px bg-gray-900 group-hover:w-7 transition-all duration-300"></div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Image Section -->
+      <div class="relative animate-right order-first md:order-last">
+        <div class="aspect-[3/2] bg-gray-100 rounded-lg overflow-hidden shadow-xl relative">
+          <video src="images/aboutvideo.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
+
+          <!-- Overlay on video -->
+          <div class="absolute inset-0 bg-black/20"></div>
+        </div>
+
+        <!-- Experience Badge -->
+        <div
+          class="absolute -bottom-4 -right-4 bg-white p-3 sm:p-4 rounded-lg shadow-lg border border-gray-200 animate-up">
+          <div class="text-center">
+            <div class="text-xl font-light text-gray-900 mb-1">8+</div>
+            <div class="text-xs text-gray-500">Years Experience</div>
+          </div>
+        </div>
+        <div class="absolute -top-4 -left-4 w-12 h-12 sm:w-16 sm:h-16 bg-gray-200/40 backdrop-blur-md rounded-lg -z-10">
+        </div>
+      </div>
+    </div>
+    <!-- Animations -->
     <style>
-      .hero-slider {
-        background-size: cover;
-        background-position: center;
-        transition: all 0.5s ease-in-out;
-      }
-      .scroll-container {
-        animation: scroll 20s linear infinite;
+      .animate-left {
+        animation: slideLeft 1.2s ease forwards;
       }
 
-      @keyframes scroll {
+      .animate-right {
+        animation: slideRight 1.2s ease forwards;
+      }
+
+      .animate-up {
+        animation: slideUp 1.2s ease forwards;
+        animation-delay: 0.4s;
+      }
+
+      @keyframes slideLeft {
         0% {
-          transform: translateX(0);
+          opacity: 0;
+          transform: translateX(-60px);
         }
 
         100% {
-          transform: translateX(-50%);
+          opacity: 1;
+          transform: translateX(0);
         }
       }
 
-      /* Mobile overflow fixes */
-      .mobile-safe {
-        overflow-x: hidden;
-        max-width: 100%;
-      }
-
-      .mobile-responsive-padding {
-        padding-left: 1rem;
-        padding-right: 1rem;
-      }
-
-      @media (max-width: 768px) {
-        .hero-title {
-          font-size: 1.875rem; /* 30px */
-          line-height: 2.25rem; /* 36px */
+      @keyframes slideRight {
+        0% {
+          opacity: 0;
+          transform: translateX(60px);
         }
 
-        .section-title {
-          font-size: 2.25rem; /* 36px */
-        }
-
-        .team-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .values-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-
-        .footer-grid {
-          grid-template-columns: 1fr;
-          gap: 2rem;
+        100% {
+          opacity: 1;
+          transform: translateX(0);
         }
       }
 
-      @media (max-width: 640px) {
-        .hero-title {
-          font-size: 1.5rem; /* 24px */
-          line-height: 2rem; /* 32px */
+      @keyframes slideUp {
+        0% {
+          opacity: 0;
+          transform: translateY(40px);
         }
 
-        .section-title {
-          font-size: 1.875rem; /* 30px */
+        100% {
+          opacity: 1;
+          transform: translateY(0);
         }
+      }
 
-        .values-grid {
-          grid-template-columns: 1fr;
-        }
+      /* Mirror Shine Effect */
 
-        .mission-vision-grid {
-          grid-template-columns: 1fr;
-        }
+      .value-card .shine {
+        position: absolute;
+        top: 0;
+        left: -150%;
+        width: 180%;
+        height: 100%;
+        background: linear-gradient(120deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.6) 50%,
+            transparent 100%);
+        transform: skewX(-25deg);
+        transition: 0.8s ease-in-out;
+        opacity: 0;
+      }
+
+      .value-card:hover .shine {
+        left: 150%;
+        opacity: 1;
       }
     </style>
-  </head>
+  </section>
 
-  <body class="text-gray-800 mobile-safe">
-    <!-- HEADER -->
-    <div id="header"></div>
+  <!-- About Us Section -->
+  <section class="py-12 sm:py-20 bg-no-repeat bg-bottom bg-[length:100%_300px] relative mobile-responsive-padding"
+    style="background-image: url('images/aboutbg.png')">
+    <!-- Light Overlay -->
+    <div class="absolute inset-0 bg-white/90"></div>
 
-    <!-- Hero Banner -->
-    <section
-      class="relative bg-cover bg-center bg-no-repeat overflow-hidden flex items-center py-10 mobile-responsive-padding"
-      style="
-        background-image: url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1350&q=80');
-      "
-    >
-      <!-- White Overlay -->
-      <div class="absolute inset-0 bg-white/80"></div>
+    <div class="relative container mx-auto px-4">
+      <div class="grid lg:grid-cols-2 gap-6 lg:gap-10 items-center">
+        <!-- Semicircle Image (aligned to the left edge of the screen) -->
+        <div class="relative w-full h-full ml-0 lg:-ml-11">
+          <div
+            class="w-full h-[300px] sm:h-[400px] bg-navy rounded-r-full overflow-hidden border-4 border-purple shadow-2xl">
+            <img src="images/company.png" alt="About Us" class="w-full h-full object-cover object-center" />
+          </div>
+        </div>
 
-      <!-- Content -->
-      <div
-        class="relative max-w-6xl mx-auto px-2 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center w-full"
-      >
-        <!-- Text Content -->
-        <div class="space-y-5 animate-left">
-          <div class="flex items-center space-x-3">
-            <div class="w-8 h-px bg-gray-800"></div>
-            <span
-              class="text-xs font-medium text-gray-600 uppercase tracking-wider"
-            >
-              About Us
-            </span>
+        <!-- Content Section -->
+        <div class="text-center lg:text-left">
+          <!-- Heading with Decorative Lines -->
+          <div class="flex items-center justify-center lg:justify-start gap-2 sm:gap-4 mb-6 flex-wrap">
+            <!-- Left Lines -->
+            <div class="flex flex-col items-end">
+              <span class="w-12 sm:w-20 h-[2px] bg-purple mb-1"></span>
+              <span class="w-8 sm:w-10 h-[1px] bg-navy"></span>
+            </div>
+
+            <!-- Heading -->
+            <div class="w-12 sm:w-20 h-px bg-gray-300"></div>
+            <h2 class="section-title text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-medium text-[#1A2A4F]">
+              Our Story
+            </h2>
+            <div class="w-12 sm:w-20 h-px bg-gray-300"></div>
+
+            <!-- Right Lines -->
+            <div class="flex flex-col items-start">
+              <span class="w-12 sm:w-20 h-[2px] bg-purple mb-1"></span>
+              <span class="w-8 sm:w-10 h-[1px] bg-navy"></span>
+            </div>
           </div>
 
-          <h1
-            class="hero-title text-2xl sm:text-3xl md:text-4xl font-light text-gray-900 leading-tight"
-          >
-            Building Foundations<br />
-            <span class="font-normal">For Tomorrow</span>
-          </h1>
-
-          <p class="text-sm text-gray-700 leading-relaxed max-w-md">
-            Modern construction solutions crafted with precision and care for
-            residential and commercial spaces.
+          <p class="text-gray-600 mb-6 leading-relaxed text-justify text-sm sm:text-base">
+            Prospecta BuildX was founded with the vision of building a construction
+            company that combines strong engineering capability, practical execution
+            expertise, and close client alignment. The company focuses on delivering
+            reliable EPC and construction solutions that emphasize technical precision,
+            disciplined site management, and dependable project delivery across
+            industrial, commercial, institutional, and infrastructure developments.
           </p>
 
-          <div class="pt-2">
-            <a
-              href="#about-section"
-              class="inline-flex items-center space-x-2 text-gray-900 text-sm font-medium hover:text-gray-700 transition-colors group"
-            >
-              <span>Learn More</span>
+          <p class="text-gray-600 leading-relaxed text-justify text-sm sm:text-base">
+            Over the years, Prospecta BuildX has grown through consistent project
+            execution, relationship-driven business development, and a strong
+            commitment to quality, safety, and operational efficiency. By working
+            closely with clients, consultants, and project stakeholders, the company
+            ensures smooth coordination, timely completion, and infrastructure
+            solutions that support long-term operational performance.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Values -->
+  <section
+    class="pt-14 pb-12 sm:pt-12 sm:pb-20 -mt-12 sm:-mt-14 bg-gradient-to-t from-[#E8F9FF] to-white mobile-responsive-padding">
+    <div class="container mx-auto px-4 text-center">
+      <!-- Heading -->
+      <h2
+        class="section-title text-[#1A2A4F] text-2xl sm:text-3xl md:text-4xl lg:text-3xl xl:text-6xl font-medium mb-4">
+        Our Core Values
+      </h2>
+
+      <p class="text-gray-700 max-w-2xl mx-auto font-light mb-8 sm:mb-12 text-sm sm:text-base">
+        The principles that shape our work, guide our decisions, and define
+        the way we build every project.
+      </p>
+
+      <div class="values-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8 max-w-6xl mx-auto">
+
+        <!-- CARD 1 -->
+        <div
+          class="value-card lg:col-span-2 group p-6 bg-white/40 border border-[#c9d9ff] rounded-xl backdrop-blur-md transition-all duration-500 hover:-translate-y-2 relative overflow-hidden hover:bg-[#0d1224] hover:border-[#1a244b] text-center">
+          <span class="shine"></span>
+          <div class="w-14 h-14 mx-auto flex items-center justify-center bg-[#1a244b] rounded-lg mb-4">
+            <i class="fas fa-award text-white text-xl"></i>
+          </div>
+          <h3 class="text-[#0d1224] font-semibold text-lg mb-2 group-hover:text-white">Quality</h3>
+          <p class="text-gray-700 text-sm group-hover:text-gray-200">
+            Maintaining high construction standards through disciplined execution and engineering precision.
+          </p>
+        </div>
+
+        <!-- CARD 2 -->
+        <div
+          class="value-card lg:col-span-2 group p-6 bg-white/40 border border-[#c9d9ff] rounded-xl backdrop-blur-md transition-all duration-500 hover:-translate-y-2 relative overflow-hidden hover:bg-[#0d1224] hover:border-[#1a244b] text-center">
+          <span class="shine"></span>
+          <div class="w-14 h-14 mx-auto flex items-center justify-center bg-[#1a244b] rounded-lg mb-4">
+            <i class="fas fa-hard-hat text-white text-xl"></i>
+          </div>
+          <h3 class="text-[#0d1224] font-semibold text-lg mb-2 group-hover:text-white">Safety</h3>
+          <p class="text-gray-700 text-sm group-hover:text-gray-200">
+            Prioritizing occupational health and safety standards across every construction site.
+          </p>
+        </div>
+
+        <!-- CARD 3 -->
+        <div
+          class="value-card lg:col-span-2 group p-6 bg-white/40 border border-[#c9d9ff] rounded-xl backdrop-blur-md transition-all duration-500 hover:-translate-y-2 relative overflow-hidden hover:bg-[#0d1224] hover:border-[#1a244b] text-center">
+          <span class="shine"></span>
+          <div class="w-14 h-14 mx-auto flex items-center justify-center bg-[#1a244b] rounded-lg mb-4">
+            <i class="fas fa-shield-alt text-white text-xl"></i>
+          </div>
+          <h3 class="text-[#0d1224] font-semibold text-lg mb-2 group-hover:text-white">Integrity</h3>
+          <p class="text-gray-700 text-sm group-hover:text-gray-200">
+            Operating with transparency, accountability, and ethical business practices.
+          </p>
+        </div>
+
+        <!-- CARD 4 -->
+        <div
+          class="value-card lg:col-start-2 lg:col-span-2 group p-6 bg-white/40 border border-[#c9d9ff] rounded-xl backdrop-blur-md transition-all duration-500 hover:-translate-y-2 relative overflow-hidden hover:bg-[#0d1224] hover:border-[#1a244b] text-center">
+          <span class="shine"></span>
+          <div class="w-14 h-14 mx-auto flex items-center justify-center bg-[#1a244b] rounded-lg mb-4">
+            <i class="fas fa-chart-line text-white text-xl"></i>
+          </div>
+          <h3 class="text-[#0d1224] font-semibold text-lg mb-2 group-hover:text-white">Performance</h3>
+          <p class="text-gray-700 text-sm group-hover:text-gray-200">
+            Delivering projects efficiently through strong planning and disciplined execution.
+          </p>
+        </div>
+
+        <!-- CARD 5 -->
+        <div
+          class="value-card lg:col-span-2 group p-6 bg-white/40 border border-[#c9d9ff] rounded-xl backdrop-blur-md transition-all duration-500 hover:-translate-y-2 relative overflow-hidden hover:bg-[#0d1224] hover:border-[#1a244b] text-center">
+          <span class="shine"></span>
+          <div class="w-14 h-14 mx-auto flex items-center justify-center bg-[#1a244b] rounded-lg mb-4">
+            <i class="fas fa-handshake text-white text-xl"></i>
+          </div>
+          <h3 class="text-[#0d1224] font-semibold text-lg mb-2 group-hover:text-white">Partnership</h3>
+          <p class="text-gray-700 text-sm group-hover:text-gray-200">
+            Building long-term relationships with clients and partners through trust and collaboration.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Vision -->
+  <section class="py-12 sm:py-20 bg-white relative bg-cover bg-center bg-no-repeat mobile-responsive-padding"
+    style="background-image: url('images/mission.jfif')">
+    <div class="container mx-auto px-4">
+      <!-- OPTIONAL OVERLAY (remove if not needed) -->
+      <div class="absolute inset-0 bg-white/80 pointer-events-none"></div>
+
+      <div class="relative">
+        <!-- Title -->
+        <div class="text-center mb-8 sm:mb-14">
+          <h2
+            class="section-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-[#1A2A4F] flex items-center justify-center gap-2 sm:gap-4 flex-wrap">
+            <span class="h-px w-8 sm:w-14 bg-gray-300"></span>
+            Our Mission & Vision
+            <span class="h-px w-8 sm:w-14 bg-gray-300"></span>
+          </h2>
+          <p class="text-gray-500 text-xs sm:text-sm mt-3 tracking-wide">
+            What drives us today. Where we're headed tomorrow.
+          </p>
+        </div>
+
+        <!-- Cards -->
+        <div class="mission-vision-grid grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+          <!-- Mission -->
+          <div
+            class="group relative rounded-2xl border border-gray-200 p-6 sm:p-10 transition-all duration-300 hover:border-gray-400 hover:bg-gray-50/70">
+            <div class="flex gap-4 sm:gap-6 items-start">
               <div
-                class="w-5 h-px bg-gray-900 group-hover:w-7 transition-all duration-300"
-              ></div>
+                class="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-bullseye text-xl sm:text-2xl text-gray-700"></i>
+              </div>
+              <div class="flex-1 min-w-0">
+                <h3
+                  class="text-base sm:text-lg font-semibold text-gray-900 mb-2 flex items-center gap-2 sm:gap-3 flex-wrap">
+                  MISSION
+                  <span class="h-px flex-1 bg-gray-300 min-w-[50px]"></span>
+                </h3>
+                <p class="text-gray-600 leading-relaxed text-sm sm:text-base">
+                 To deliver dependable, high-quality EPC and construction solutions that create long-term value for clients, industries, and communities. 
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Vision -->
+          <div
+            class="group relative rounded-2xl border border-gray-200 p-6 sm:p-10 transition-all duration-300 hover:border-gray-400 hover:bg-gray-50/70">
+            <div class="flex gap-4 sm:gap-6 items-start">
+              <div
+                class="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-eye text-xl sm:text-2xl text-gray-700"></i>
+              </div>
+              <div class="flex-1 min-w-0">
+                <h3
+                  class="text-base sm:text-lg font-semibold text-gray-900 mb-2 flex items-center gap-2 sm:gap-3 flex-wrap">
+                  VISION
+                  <span class="h-px flex-1 bg-gray-300 min-w-[50px]"></span>
+                </h3>
+                <p class="text-gray-600 leading-relaxed text-sm sm:text-base">
+                 To be recognized as a trusted construction and EPC partner for technically demanding and growth-oriented projects across India. 
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Foundation of Our Future -->
+<section class="relative py-12 sm:py-16 text-white overflow-hidden mobile-responsive-padding">
+
+  <!-- Background Video -->
+  <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+    <source src="Images/mission.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Dark Overlay -->
+  <div class="absolute inset-0 bg-black/80 z-0"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 container mx-auto px-4">
+
+    <!-- Heading -->
+    <div class="text-center mb-10 sm:mb-14">
+      <h2 class="section-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium mb-4">
+        Foundation of Our Future
+      </h2>
+
+      <p class="text-white/80 text-sm sm:text-base leading-relaxed max-w-4xl mx-auto">
+        At Prospecta BuildX, our future is built on three pillars: engineering discipline,
+        client trust, and execution excellence. We continue to invest in project capability,
+        technical leadership, and scalable systems that help us deliver increasingly complex
+        industrial, commercial, and infrastructure projects across India.
+      </p>
+    </div>
+
+    <!-- Three Pillars -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <!-- Engineering Discipline -->
+      <div class="text-center">
+        <div class="bg-white/10 w-16 h-16 sm:w-20 sm:h-20 border border-white/40 rounded-full flex items-center justify-center mx-auto mb-5">
+          <i class="fas fa-drafting-compass text-2xl sm:text-3xl"></i>
+        </div>
+
+        <h3 class="text-xl sm:text-2xl font-semibold mb-3">
+          Engineering Discipline
+        </h3>
+
+        <p class="text-white/70 text-sm sm:text-base leading-relaxed">
+          Strong engineering fundamentals, detailed planning, and structured
+          project coordination ensure every project is executed with technical
+          precision and long-term reliability.
+        </p>
+      </div>
+
+      <!-- Client Trust -->
+      <div class="text-center">
+        <div class="bg-white/10 w-16 h-16 sm:w-20 sm:h-20 border border-white/40 rounded-full flex items-center justify-center mx-auto mb-5">
+          <i class="fas fa-handshake text-2xl sm:text-3xl"></i>
+        </div>
+
+        <h3 class="text-xl sm:text-2xl font-semibold mb-3">
+          Client Trust
+        </h3>
+
+        <p class="text-white/70 text-sm sm:text-base leading-relaxed">
+          Transparent communication, dependable delivery, and strong client
+          relationships form the foundation of long-term partnerships and
+          repeat project opportunities.
+        </p>
+      </div>
+
+      <!-- Execution Excellence -->
+      <div class="text-center">
+        <div class="bg-white/10 w-16 h-16 sm:w-20 sm:h-20 border border-white/40 rounded-full flex items-center justify-center mx-auto mb-5">
+          <i class="fas fa-chart-line text-2xl sm:text-3xl"></i>
+        </div>
+
+        <h3 class="text-xl sm:text-2xl font-semibold mb-3">
+          Execution Excellence
+        </h3>
+
+        <p class="text-white/70 text-sm sm:text-base leading-relaxed">
+          A disciplined site culture, strong safety practices, and efficient
+          project management enable us to consistently deliver projects on
+          time while maintaining high construction quality.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Pan-India Presence -->
+<section class="relative py-16 -mt-12 sm:-mt-14 bg-white overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 relative z-10">
+
+    <!-- Heading -->
+    <div class="text-center mb-14">
+      <p class="text-xs uppercase tracking-widest text-gray-500 mb-2">
+        Our Presence
+      </p>
+
+      <h2 class="text-4xl md:text-5xl font-light text-[#11224E] mb-4">
+        Pan-India
+        <span class="font-semibold">Presence</span>
+      </h2>
+
+      <p class="text-gray-600 max-w-3xl mx-auto">
+        Prospecta BuildX operates across key industrial and commercial hubs
+        in India, enabling efficient project execution and strong client
+        engagement across multiple regions.
+      </p>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid lg:grid-cols-2 gap-14 items-center">
+
+      <!-- Map -->
+      <div class="relative">
+        <img src="images/panindia.png"
+             alt="Prospecta BuildX India Presence"
+             class="w-full max-w-md mx-auto drop-shadow-xl">
+      </div>
+
+      <!-- Locations -->
+   <div class="grid grid-cols-2 sm:grid-cols-3 gap-5">
+
+  <!-- Pune -->
+  <div class="group relative p-4 rounded-xl bg-gradient-to-br from-[#f3f9ff] to-[#e6f3ff]
+  border border-[#cfe7ff] hover:border-[#8ecbff]
+  shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+
+    <div class="absolute -top-5 -right-5 w-16 h-16 bg-[#cde7ff] rounded-full opacity-40"></div>
+
+    <div class="w-10 h-10 flex items-center justify-center rounded-full 
+    bg-[#024a71] text-white mb-2 group-hover:scale-110 transition">
+      <i class="fas fa-map-marker-alt text-sm"></i>
+    </div>
+
+    <h3 class="font-semibold text-sm text-[#11224E] group-hover:text-[#024a71] transition">
+      Pune
+    </h3>
+  </div>
+
+  <!-- Mumbai -->
+  <div class="group relative p-4 rounded-xl bg-gradient-to-br from-[#f3f9ff] to-[#e6f3ff]
+  border border-[#cfe7ff] hover:border-[#8ecbff]
+  shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+
+    <div class="absolute -top-5 -right-5 w-16 h-16 bg-[#cde7ff] rounded-full opacity-40"></div>
+
+    <div class="w-10 h-10 flex items-center justify-center rounded-full 
+    bg-[#024a71] text-white mb-2 group-hover:scale-110 transition">
+      <i class="fas fa-map-marker-alt text-sm"></i>
+    </div>
+
+    <h3 class="font-semibold text-sm text-[#11224E] group-hover:text-[#024a71] transition">
+      Mumbai
+    </h3>
+  </div>
+
+  <!-- Bangalore -->
+  <div class="group relative p-4 rounded-xl bg-gradient-to-br from-[#f3f9ff] to-[#e6f3ff]
+  border border-[#cfe7ff] hover:border-[#8ecbff]
+  shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+
+    <div class="absolute -top-5 -right-5 w-16 h-16 bg-[#cde7ff] rounded-full opacity-40"></div>
+
+    <div class="w-10 h-10 flex items-center justify-center rounded-full 
+    bg-[#024a71] text-white mb-2 group-hover:scale-110 transition">
+      <i class="fas fa-map-marker-alt text-sm"></i>
+    </div>
+
+    <h3 class="font-semibold text-sm text-[#11224E] group-hover:text-[#024a71] transition">
+      Bangalore
+    </h3>
+  </div>
+
+  <!-- Gurugram -->
+  <div class="group relative p-4 rounded-xl bg-gradient-to-br from-[#f3f9ff] to-[#e6f3ff]
+  border border-[#cfe7ff] hover:border-[#8ecbff]
+  shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+
+    <div class="absolute -top-5 -right-5 w-16 h-16 bg-[#cde7ff] rounded-full opacity-40"></div>
+
+    <div class="w-10 h-10 flex items-center justify-center rounded-full 
+    bg-[#024a71] text-white mb-2 group-hover:scale-110 transition">
+      <i class="fas fa-map-marker-alt text-sm"></i>
+    </div>
+
+    <h3 class="font-semibold text-sm text-[#11224E] group-hover:text-[#024a71] transition">
+      Gurugram
+    </h3>
+  </div>
+
+  <!-- Hyderabad -->
+  <div class="group relative p-4 rounded-xl bg-gradient-to-br from-[#f3f9ff] to-[#e6f3ff]
+  border border-[#cfe7ff] hover:border-[#8ecbff]
+  shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+
+    <div class="absolute -top-5 -right-5 w-16 h-16 bg-[#cde7ff] rounded-full opacity-40"></div>
+
+    <div class="w-10 h-10 flex items-center justify-center rounded-full 
+    bg-[#024a71] text-white mb-2 group-hover:scale-110 transition">
+      <i class="fas fa-map-marker-alt text-sm"></i>
+    </div>
+
+    <h3 class="font-semibold text-sm text-[#11224E] group-hover:text-[#024a71] transition">
+      Hyderabad
+    </h3>
+  </div>
+
+  <!-- Sambhaji Nagar -->
+  <div class="group relative p-4 rounded-xl bg-gradient-to-br from-[#f3f9ff] to-[#e6f3ff]
+  border border-[#cfe7ff] hover:border-[#8ecbff]
+  shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+
+    <div class="absolute -top-5 -right-5 w-16 h-16 bg-[#cde7ff] rounded-full opacity-40"></div>
+
+    <div class="w-10 h-10 flex items-center justify-center rounded-full 
+    bg-[#024a71] text-white mb-2 group-hover:scale-110 transition">
+      <i class="fas fa-map-marker-alt text-sm"></i>
+    </div>
+
+    <h3 class="font-semibold text-sm text-[#11224E] group-hover:text-[#024a71] transition">
+      Sambhaji Nagar
+    </h3>
+  </div>
+
+</div>
+    </div>
+
+  </div>
+
+</section>
+
+
+  <!-- Footer -->
+  <footer class="relative text-white py-10 overflow-hidden bg-gradient-to-b from-[#0A0F24] via-[#12306A] to-[#091526]">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+        <div class="lg:col-span-1">
+          <div class="flex items-center mb-4">
+            <div class="w-50 h-20 rounded-lg flex items-center justify-center overflow-hidden">
+              <img src="Images/logowhite.png" alt="Logo" class="w-full h-full object-contain" />
+            </div>
+          </div>
+          <p class="text-gray-300 mb-4 text-sm leading-relaxed">
+            Building dreams, creating communities, and delivering excellence
+            in Industrial development.
+          </p>
+          <div class="flex gap-2">
+            <a href="https://www.facebook.com/prospectabuildx" target="_blank"
+              class="w-9 h-9 bg-[#111936] rounded-lg flex items-center justify-center hover:bg-amber-400 hover:text-black">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+
+            <a href="https://www.instagram.com/prospectabuildx/" target="_blank"
+              class="w-9 h-9 bg-[#111936] rounded-lg flex items-center justify-center hover:bg-amber-400 hover:text-black">
+              <i class="fab fa-instagram"></i>
+            </a>
+
+            <a href="https://www.linkedin.com/company/prospectabuildx/" target="_blank"
+              class="w-9 h-9 bg-[#111936] rounded-lg flex items-center justify-center hover:bg-amber-400 hover:text-black">
+              <i class="fab fa-linkedin-in"></i>
             </a>
           </div>
         </div>
 
-        <!-- Image Section -->
-        <div class="relative animate-right order-first md:order-last">
-          <div
-            class="aspect-[3/2] bg-gray-100 rounded-lg overflow-hidden shadow-xl relative"
-          >
-            <video
-              src="images/aboutvideo.mp4"
-              autoplay
-              loop
-              muted
-              playsinline
-              class="w-full h-full object-cover"
-            ></video>
-
-            <!-- Overlay on video -->
-            <div class="absolute inset-0 bg-black/20"></div>
+        <div class="lg:col-span-1 grid grid-cols-2 gap-6">
+          <div>
+            <h3 class="text-md font-bold mb-3 text-white border-l-3 border-purple pl-2">
+              Explore
+            </h3>
+            <ul class="space-y-2 text-sm">
+              <li>
+                <a href="index.html" class="text-gray-300 hover:text-gold">• Home</a>
+              </li>
+              <li>
+                <a href="about.html" class="text-gray-300 hover:text-gold">• About</a>
+              </li>
+              <li>
+                <a href="projects.html" class="text-gray-300 hover:text-gold">• Projects</a>
+              </li>
+              <li>
+                <a href="gallery.html" class="text-gray-300 hover:text-gold">• Gallery</a>
+              </li>
+              <li>
+                <a href="contact.html" class="text-gray-300 hover:text-gold">• Contact</a>
+              </li>
+            </ul>
           </div>
-
-          <!-- Experience Badge -->
-          <div
-            class="absolute -bottom-4 -right-4 bg-white p-3 sm:p-4 rounded-lg shadow-lg border border-gray-200 animate-up"
-          >
-            <div class="text-center">
-              <div class="text-xl font-light text-gray-900 mb-1">8+</div>
-              <div class="text-xs text-gray-500">Years Experience</div>
-            </div>
-          </div>
-          <div
-            class="absolute -top-4 -left-4 w-12 h-12 sm:w-16 sm:h-16 bg-gray-200/40 backdrop-blur-md rounded-lg -z-10"
-          ></div>
-        </div>
-      </div>
-      <!-- Animations -->
-      <style>
-        .animate-left {
-          animation: slideLeft 1.2s ease forwards;
-        }
-
-        .animate-right {
-          animation: slideRight 1.2s ease forwards;
-        }
-
-        .animate-up {
-          animation: slideUp 1.2s ease forwards;
-          animation-delay: 0.4s;
-        }
-
-        @keyframes slideLeft {
-          0% {
-            opacity: 0;
-            transform: translateX(-60px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-
-        @keyframes slideRight {
-          0% {
-            opacity: 0;
-            transform: translateX(60px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-
-        @keyframes slideUp {
-          0% {
-            opacity: 0;
-            transform: translateY(40px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        /* Mirror Shine Effect */
-
-        .value-card .shine {
-          position: absolute;
-          top: 0;
-          left: -150%;
-          width: 180%;
-          height: 100%;
-          background: linear-gradient(
-            120deg,
-            transparent 0%,
-            rgba(255, 255, 255, 0.6) 50%,
-            transparent 100%
-          );
-          transform: skewX(-25deg);
-          transition: 0.8s ease-in-out;
-          opacity: 0;
-        }
-
-        .value-card:hover .shine {
-          left: 150%;
-          opacity: 1;
-        }
-      </style>
-    </section>
-
-    <!-- About Us Section -->
-    <section
-      class="py-12 sm:py-20 bg-no-repeat bg-bottom bg-[length:100%_300px] relative mobile-responsive-padding"
-      style="background-image: url('images/aboutbg.png')"
-    >
-      <!-- Light Overlay -->
-      <div class="absolute inset-0 bg-white/90"></div>
-
-      <div class="relative container mx-auto px-4">
-        <div class="grid lg:grid-cols-2 gap-6 lg:gap-10 items-center">
-          <!-- Semicircle Image (aligned to the left edge of the screen) -->
-          <div class="relative w-full h-full ml-0 lg:-ml-11">
-            <div
-              class="w-full h-[300px] sm:h-[400px] bg-navy rounded-r-full overflow-hidden border-4 border-purple shadow-2xl"
-            >
-              <img
-                src="images/company.png"
-                alt="About Us"
-                class="w-full h-full object-cover object-center"
-              />
-            </div>
-          </div>
-
-          <!-- Content Section -->
-          <div class="text-center lg:text-left">
-            <!-- Heading with Decorative Lines -->
-            <div
-              class="flex items-center justify-center lg:justify-start gap-2 sm:gap-4 mb-6 flex-wrap"
-            >
-              <!-- Left Lines -->
-              <div class="flex flex-col items-end">
-                <span class="w-12 sm:w-20 h-[2px] bg-purple mb-1"></span>
-                <span class="w-8 sm:w-10 h-[1px] bg-navy"></span>
-              </div>
-
-              <!-- Heading -->
-              <div class="w-12 sm:w-20 h-px bg-gray-300"></div>
-              <h2
-                class="section-title text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-medium text-[#1A2A4F]"
-              >
-                Our Story
-              </h2>
-              <div class="w-12 sm:w-20 h-px bg-gray-300"></div>
-
-              <!-- Right Lines -->
-              <div class="flex flex-col items-start">
-                <span class="w-12 sm:w-20 h-[2px] bg-purple mb-1"></span>
-                <span class="w-8 sm:w-10 h-[1px] bg-navy"></span>
-              </div>
-            </div>
-
-            <p
-              class="text-gray-600 mb-6 leading-relaxed text-justify text-sm sm:text-base"
-            >
-              Founded in 2018, Prospecta BuildX India Pvt. Ltd. (PBIPL) is a
-              leading Engineering, Procurement & Construction (EPC) company,
-              committed to delivering high‑quality and future‑ready construction
-              solutions across India. With strong capabilities in Industrial,
-              Commercial, Residential, and Institutional infrastructure, PBIPL
-              plays a vital role in the nation’s rapidly growing development
-              ecosystem.
-            </p>
-
-            <p
-              class="text-gray-600 mb-6 leading-relaxed text-justify text-sm sm:text-base"
-            >
-              Our expertise covers end-to-end EPC services from engineering and
-              procurement to construction and commissioning ensuring
-              transparency, accountability, and seamless execution. Every
-              project reflects our commitment to precision, safety, and
-              efficiency, delivering real value to our clients.
-            </p>
-
-            <p
-              class="text-gray-600 leading-relaxed text-justify text-sm sm:text-base"
-            >
-              PBIPL is a trusted construction partner for India’s top OEMs,
-              industrial brands, and multinational organizations.
-            </p>
+          <div>
+            <h3 class="text-md font-bold mb-3 text-white border-l-3 border-purple pl-2">
+              Sectors
+            </h3>
+            <ul class="space-y-2 text-sm">
+              <li>
+                <a href="#" class="text-gray-300 hover:text-gold">• Residential</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-300 hover:text-gold">• Commercial</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-300 hover:text-gold">• Industrial</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-300 hover:text-gold">• Institutional</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-300 hover:text-gold">• Public Infrastructure</a>
+              </li>
+            </ul>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Core Values -->
-    <section
-      class="py-12 sm:py-20 -mt-8 sm:-mt-16 bg-gradient-to-t from-[#E8F9FF] to-white mobile-responsive-padding"
-    >
-      <div class="container mx-auto px-4 text-center">
-        <!-- Heading -->
-        <h2
-          class="section-title text-[#1A2A4F] text-2xl sm:text-3xl md:text-4xl lg:text-3xl xl:text-6xl font-medium mb-4"
-        >
-          Our Core Values
-        </h2>
-
-        <p
-          class="text-gray-700 max-w-2xl mx-auto font-light mb-8 sm:mb-12 text-sm sm:text-base"
-        >
-          The principles that shape our work, guide our decisions, and define
-          the way we build every project.
-        </p>
-
-        <!-- Values Grid -->
-        <div
-          class="values-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8"
-        >
-          <!-- CARD TEMPLATE (1) -->
-          <div
-            class="value-card group p-4 sm:p-6 bg-white/40 border border-[#c9d9ff] rounded-xl backdrop-blur-md transition-all duration-500 hover:-translate-y-2 relative overflow-hidden hover:bg-[#0d1224] hover:border-[#1a244b]"
-          >
-            <!-- Mirror Shine -->
-            <span class="shine"></span>
-
-            <div
-              class="w-12 h-12 sm:w-14 sm:h-14 mx-auto flex items-center justify-center bg-[#1a244b] rounded-lg mb-4"
-            >
-              <i class="fas fa-shield-alt text-white text-xl sm:text-2xl"></i>
-            </div>
-
-            <h3
-              class="text-[#0d1224] font-semibold text-base sm:text-lg mb-2 group-hover:text-white group-hover:underline group-hover:underline-offset-4 transition-all"
-            >
-              Integrity
-            </h3>
-
-            <p
-              class="text-gray-700 text-xs sm:text-sm group-hover:text-gray-200 transition-all"
-            >
-              Honest practices, transparent commitments, and work you can trust.
-            </p>
-          </div>
-
-          <!-- CARD 2 -->
-          <div
-            class="value-card group p-4 sm:p-6 bg-white/40 border border-[#c9d9ff] rounded-xl backdrop-blur-md transition-all duration-500 hover:-translate-y-2 relative overflow-hidden hover:bg-[#0d1224] hover:border-[#1a244b]"
-          >
-            <span class="shine"></span>
-
-            <div
-              class="w-12 h-12 sm:w-14 sm:h-14 mx-auto flex items-center justify-center bg-[#1a244b] rounded-lg mb-4"
-            >
-              <i
-                class="fas fa-hands-helping text-white text-xl sm:text-2xl"
-              ></i>
-            </div>
-
-            <h3
-              class="text-[#0d1224] font-semibold text-base sm:text-lg mb-2 group-hover:text-white group-hover:underline group-hover:underline-offset-4 transition-all"
-            >
-              Commitment
-            </h3>
-
-            <p
-              class="text-gray-700 text-xs sm:text-sm group-hover:text-gray-200 transition-all"
-            >
-              Dedicated to delivering high-quality results—on time, every time.
-            </p>
-          </div>
-
-          <!-- CARD 3 -->
-          <div
-            class="value-card group p-4 sm:p-6 bg-white/40 border border-[#c9d9ff] rounded-xl backdrop-blur-md transition-all duration-500 hover:-translate-y-2 relative overflow-hidden hover:bg-[#0d1224] hover:border-[#1a244b]"
-          >
-            <span class="shine"></span>
-
-            <div
-              class="w-12 h-12 sm:w-14 sm:h-14 mx-auto flex items-center justify-center bg-[#1a244b] rounded-lg mb-4"
-            >
-              <i class="fas fa-lightbulb text-white text-xl sm:text-2xl"></i>
-            </div>
-
-            <h3
-              class="text-[#0d1224] font-semibold text-base sm:text-lg mb-2 group-hover:text-white group-hover:underline group-hover:underline-offset-4 transition-all"
-            >
-              Innovation
-            </h3>
-
-            <p
-              class="text-gray-700 text-xs sm:text-sm group-hover:text-gray-200 transition-all"
-            >
-              Adopting modern construction techniques and smarter solutions.
-            </p>
-          </div>
-
-          <!-- CARD 4 -->
-          <div
-            class="value-card group p-4 sm:p-6 bg-white/40 border border-[#c9d9ff] rounded-xl backdrop-blur-md transition-all duration-500 hover:-translate-y-2 relative overflow-hidden hover:bg-[#0d1224] hover:border-[#1a244b]"
-          >
-            <span class="shine"></span>
-
-            <div
-              class="w-12 h-12 sm:w-14 sm:h-14 mx-auto flex items-center justify-center bg-[#1a244b] rounded-lg mb-4"
-            >
-              <i class="fas fa-users text-white text-xl sm:text-2xl"></i>
-            </div>
-
-            <h3
-              class="text-[#0d1224] font-semibold text-base sm:text-lg mb-2 group-hover:text-white group-hover:underline group-hover:underline-offset-4 transition-all"
-            >
-              Teamwork
-            </h3>
-
-            <p
-              class="text-gray-700 text-xs sm:text-sm group-hover:text-gray-200 transition-all"
-            >
-              Collaboration that ensures efficiency and smooth project
-              execution.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Mission & Vision -->
-    <section
-      class="py-12 sm:py-20 bg-white relative bg-cover bg-center bg-no-repeat mobile-responsive-padding"
-      style="background-image: url('images/mission.jfif')"
-    >
-      <div class="container mx-auto px-4">
-        <!-- OPTIONAL OVERLAY (remove if not needed) -->
-        <div class="absolute inset-0 bg-white/80 pointer-events-none"></div>
-
-        <div class="relative">
-          <!-- Title -->
-          <div class="text-center mb-8 sm:mb-14">
-            <h2
-              class="section-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-[#1A2A4F] flex items-center justify-center gap-2 sm:gap-4 flex-wrap"
-            >
-              <span class="h-px w-8 sm:w-14 bg-gray-300"></span>
-              Our Mission & Vision
-              <span class="h-px w-8 sm:w-14 bg-gray-300"></span>
-            </h2>
-            <p class="text-gray-500 text-xs sm:text-sm mt-3 tracking-wide">
-              What drives us today. Where we're headed tomorrow.
-            </p>
-          </div>
-
-          <!-- Cards -->
-          <div
-            class="mission-vision-grid grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8"
-          >
-            <!-- Mission -->
-            <div
-              class="group relative rounded-2xl border border-gray-200 p-6 sm:p-10 transition-all duration-300 hover:border-gray-400 hover:bg-gray-50/70"
-            >
-              <div class="flex gap-4 sm:gap-6 items-start">
-                <div
-                  class="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0"
-                >
-                  <i
-                    class="fas fa-bullseye text-xl sm:text-2xl text-gray-700"
-                  ></i>
-                </div>
-                <div class="flex-1 min-w-0">
-                  <h3
-                    class="text-base sm:text-lg font-semibold text-gray-900 mb-2 flex items-center gap-2 sm:gap-3 flex-wrap"
-                  >
-                    MISSION
-                    <span class="h-px flex-1 bg-gray-300 min-w-[50px]"></span>
-                  </h3>
-                  <p class="text-gray-600 leading-relaxed text-sm sm:text-base">
-                    To create exceptional living and working spaces that improve
-                    quality of life while contributing positively to
-                    communities.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Vision -->
-            <div
-              class="group relative rounded-2xl border border-gray-200 p-6 sm:p-10 transition-all duration-300 hover:border-gray-400 hover:bg-gray-50/70"
-            >
-              <div class="flex gap-4 sm:gap-6 items-start">
-                <div
-                  class="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0"
-                >
-                  <i class="fas fa-eye text-xl sm:text-2xl text-gray-700"></i>
-                </div>
-                <div class="flex-1 min-w-0">
-                  <h3
-                    class="text-base sm:text-lg font-semibold text-gray-900 mb-2 flex items-center gap-2 sm:gap-3 flex-wrap"
-                  >
-                    VISION
-                    <span class="h-px flex-1 bg-gray-300 min-w-[50px]"></span>
-                  </h3>
-                  <p class="text-gray-600 leading-relaxed text-sm sm:text-base">
-                    To be the most trusted and innovative real estate developer,
-                    setting new standards in excellence and sustainability.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Foundation of Our Future -->
-    <section
-      class="relative py-12 sm:py-16 text-white overflow-hidden mobile-responsive-padding"
-    >
-      <!-- Background Video -->
-      <video
-        autoplay
-        muted
-        loop
-        playsinline
-        class="absolute inset-0 w-full h-full object-cover z-0"
-      >
-        <source src="Images/mission.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-
-      <!-- Dark Overlay -->
-      <div class="absolute inset-0 bg-black/60 z-0"></div>
-
-      <!-- Content -->
-      <div class="relative z-10 container mx-auto px-4">
-        <div class="text-center mb-8 sm:mb-12">
-          <!-- Decorative Heading with Lines -->
-          <div
-            class="flex items-center justify-center gap-2 sm:gap-4 mb-4 flex-wrap"
-          >
-            <!-- Heading Text -->
-            <h2
-              class="section-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium"
-            >
-              Foundation of Our Future
-            </h2>
-          </div>
-
-          <!-- Subtitle -->
-          <p class="text-lg sm:text-xl max-w-3xl mx-auto font-light">
-            Building tomorrow's communities with today's innovations
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-          <!-- Smart Technology -->
-          <div class="text-center">
-            <div
-              class="bg-white/10 w-16 h-16 sm:w-20 sm:h-20 border border-cream rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6"
-            >
-              <i class="fas fa-brain text-2xl sm:text-3xl"></i>
-            </div>
-            <h3 class="text-xl sm:text-2xl font-semibold mb-4">
-              Smart Technology
-            </h3>
-            <p class="text-white/70 text-sm sm:text-base">
-              Integrating IoT, AI, and smart home solutions for enhanced living
-              experiences
-            </p>
-          </div>
-
-          <!-- Green Future -->
-          <div class="text-center">
-            <div
-              class="bg-white/10 w-16 h-16 sm:w-20 sm:h-20 border border-cream rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6"
-            >
-              <i class="fas fa-seedling text-2xl sm:text-3xl"></i>
-            </div>
-            <h3 class="text-xl sm:text-2xl font-semibold mb-4">Green Future</h3>
-            <p class="text-white/70 text-sm sm:text-base">
-              Carbon-neutral developments with renewable energy and sustainable
-              materials
-            </p>
-          </div>
-
-          <!-- Community Focus -->
-          <div class="text-center">
-            <div
-              class="bg-white/10 w-16 h-16 sm:w-20 sm:h-20 border border-cream rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6"
-            >
-              <i class="fas fa-users text-2xl sm:text-3xl"></i>
-            </div>
-            <h3 class="text-xl sm:text-2xl font-semibold mb-4">
-              Community Focus
-            </h3>
-            <p class="ttext-white/70 text-sm sm:text-base">
-              Creating vibrant communities that foster connection, wellness, and
-              shared prosperity
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer
-      class="relative text-white py-10 overflow-hidden bg-gradient-to-b from-[#0A0F24] via-[#12306A] to-[#091526]"
-    >
-      <div class="container mx-auto px-4">
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-          <div class="lg:col-span-1">
-            <div class="flex items-center mb-4">
-              <div
-                class="w-50 h-20 rounded-lg flex items-center justify-center overflow-hidden"
-              >
-                <img
-                  src="Images/logowhite.png"
-                  alt="Logo"
-                  class="w-full h-full object-contain"
-                />
-              </div>
-            </div>
-            <p class="text-gray-300 mb-4 text-sm leading-relaxed">
-              Building dreams, creating communities, and delivering excellence
-              in Industrial development.
-            </p>
-            <div class="flex gap-2">
-              <a
-                href="https://www.facebook.com/prospectabuildx"
-                target="_blank"
-                class="w-9 h-9 bg-[#111936] rounded-lg flex items-center justify-center hover:bg-amber-400 hover:text-black"
-              >
-                <i class="fab fa-facebook-f"></i>
+        <div class="lg:col-span-1 bg-[#111936]/40 backdrop-blur-sm rounded-lg p-4 border border-white/10">
+          <h3 class="text-md font-semibold mb-3 text-white border-l-3 border-purple pl-2">
+            Contact
+          </h3>
+          <div class="space-y-3 text-sm text-gray-200">
+            <div class="flex items-center">
+              <i class="fas fa-map-marker-alt mr-2 text-gray-200"></i>
+              <a href="https://www.google.com/maps/place/C-803,+Amar+Business+Zone,+Baner,+Pune+411045" target="_blank"
+                class="hover:underline text-gray-200">
+                PUNE OFFICE - C-803, AMAR BUSINESS ZONE, BANER, PUNE-411045
               </a>
+            </div>
 
-              <a
-                href="https://www.instagram.com/prospectabuildx/"
-                target="_blank"
-                class="w-9 h-9 bg-[#111936] rounded-lg flex items-center justify-center hover:bg-amber-400 hover:text-black"
-              >
-                <i class="fab fa-instagram"></i>
+            <div class="flex items-center">
+              <i class="fas fa-phone mr-2 text-gray-200"></i>
+              <a href="tel:+919549543838" class="hover:underline text-gray-200">
+                +91 95495 43838
               </a>
+            </div>
 
-              <a
-                href="https://www.linkedin.com/company/prospectabuildx/"
-                target="_blank"
-                class="w-9 h-9 bg-[#111936] rounded-lg flex items-center justify-center hover:bg-amber-400 hover:text-black"
-              >
-                <i class="fab fa-linkedin-in"></i>
+            <div class="flex items-center">
+              <i class="fas fa-envelope mr-2 text-gray-200"></i>
+              <a href="mailto:info@prospectabuildx.com" class="text-gray-200 hover:underline">
+                info@prospectabuildx.com
               </a>
             </div>
           </div>
-
-          <div class="lg:col-span-1 grid grid-cols-2 gap-6">
-            <div>
-              <h3
-                class="text-md font-bold mb-3 text-white border-l-3 border-purple pl-2"
-              >
-                Explore
-              </h3>
-              <ul class="space-y-2 text-sm">
-                <li>
-                  <a href="index.html" class="text-gray-300 hover:text-gold"
-                    >• Home</a
-                  >
-                </li>
-                <li>
-                  <a href="about.html" class="text-gray-300 hover:text-gold"
-                    >• About</a
-                  >
-                </li>
-                <li>
-                  <a href="projects.html" class="text-gray-300 hover:text-gold"
-                    >• Projects</a
-                  >
-                </li>
-                <li>
-                  <a href="gallery.html" class="text-gray-300 hover:text-gold"
-                    >• Gallery</a
-                  >
-                </li>
-                <li>
-                  <a href="contact.html" class="text-gray-300 hover:text-gold"
-                    >• Contact</a
-                  >
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3
-                class="text-md font-bold mb-3 text-white border-l-3 border-purple pl-2"
-              >
-                Sectors
-              </h3>
-              <ul class="space-y-2 text-sm">
-                <li>
-                  <a href="#" class="text-gray-300 hover:text-gold"
-                    >• Residential</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="text-gray-300 hover:text-gold"
-                    >• Commercial</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="text-gray-300 hover:text-gold"
-                    >• Industrial</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="text-gray-300 hover:text-gold"
-                    >• Institutional</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="text-gray-300 hover:text-gold"
-                    >• Public Infrastructure</a
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div
-            class="lg:col-span-1 bg-[#111936]/40 backdrop-blur-sm rounded-lg p-4 border border-white/10"
-          >
-            <h3
-              class="text-md font-semibold mb-3 text-white border-l-3 border-purple pl-2"
-            >
-              Contact
-            </h3>
-            <div class="space-y-3 text-sm text-gray-200">
-              <div class="flex items-center">
-                <i class="fas fa-map-marker-alt mr-2 text-gray-200"></i>
-                <a
-                  href="https://www.google.com/maps/place/C-803,+Amar+Business+Zone,+Baner,+Pune+411045"
-                  target="_blank"
-                  class="hover:underline text-gray-200"
-                >
-                  PUNE OFFICE - C-803, AMAR BUSINESS ZONE, BANER, PUNE-411045
-                </a>
-              </div>
-
-              <div class="flex items-center">
-                <i class="fas fa-phone mr-2 text-gray-200"></i>
-                <a
-                  href="tel:+919549543838"
-                  class="hover:underline text-gray-200"
-                >
-                  +91 95495 43838
-                </a>
-              </div>
-
-              <div class="flex items-center">
-                <i class="fas fa-envelope mr-2 text-gray-200"></i>
-                <a
-                  href="mailto:info@prospectabuildx.com"
-                  class="text-gray-200 hover:underline"
-                >
-                  info@prospectabuildx.com
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div
-            class="lg:col-span-1 bg-[#111936]/40 backdrop-blur-sm rounded-lg p-4 border border-white/10"
-          >
-            <h3
-              class="text-md font-semibold mb-3 text-white border-l-3 border-purple pl-2"
-            >
-              Hours
-            </h3>
-            <div class="text-sm space-y-1 text-gray-200">
-              <p class="flex justify-between">
-                Mon - Fri <span class="text-gold font-medium">9:30 pm - 6:30 pm</span>
-              </p>
-              <p class="flex justify-between">
-                Saturday <span class="text-gold font-medium">9:30 pm - 6:30 pm</span>
-              </p>
-              <p class="flex justify-between">
-                Sunday <span class="text-red-200">Closed</span>
-              </p>
-            </div>
-          </div>
         </div>
 
-        <div
-          class="pt-4 border-t border-white/10 flex flex-col md:flex-row justify-between text-xs text-gray-400"
-        >
-          <span>© 2025 Prospecta BuildX. All rights reserved.</span>
-          <div class="flex gap-4 mt-2 md:mt-0">
-            <a href="#" class="hover:text-amber-400">Privacy</a>
-            <a href="#" class="hover:text-amber-400">Terms</a>
-            <a href="#" class="hover:text-amber-400">Sitemap</a>
+        <div class="lg:col-span-1 bg-[#111936]/40 backdrop-blur-sm rounded-lg p-4 border border-white/10">
+          <h3 class="text-md font-semibold mb-3 text-white border-l-3 border-purple pl-2">
+            Hours
+          </h3>
+          <div class="text-sm space-y-1 text-gray-200">
+            <p class="flex justify-between">
+              Mon - Fri <span class="text-gold font-medium">9:30 pm - 6:30 pm</span>
+            </p>
+            <p class="flex justify-between">
+              Saturday <span class="text-gold font-medium">9:30 pm - 6:30 pm</span>
+            </p>
+            <p class="flex justify-between">
+              Sunday <span class="text-red-200">Closed</span>
+            </p>
           </div>
         </div>
       </div>
-    </footer>
 
-    <script
-      data-cfasync="false"
-      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
-    ></script>
-    <script>
-   //header js
-// Load header.html and then initialize header JS
-fetch("header.html")
-  .then((res) => res.text())
-  .then((data) => {
-    document.getElementById("header").innerHTML = data;
+      <div class="pt-4 border-t border-white/10 flex flex-col md:flex-row justify-between text-xs text-gray-400">
+        <span>© 2025 Prospecta BuildX. All rights reserved.</span>
+        <div class="flex gap-4 mt-2 md:mt-0">
+          <a href="#" class="hover:text-amber-400">Privacy</a>
+          <a href="#" class="hover:text-amber-400">Terms</a>
+          <a href="#" class="hover:text-amber-400">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-    // ✅ Elements
-    const mobileMenuToggle =
-      document.getElementById("mobile-menu-toggle");
-    const mobileMenu = document.getElementById("mobile-menu");
-    const menuIcon = document.getElementById("menu-icon");
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script>
+    //header js
+    // Load header.html and then initialize header JS
+    fetch("header.html")
+      .then((res) => res.text())
+      .then((data) => {
+        document.getElementById("header").innerHTML = data;
 
-    const mobileAboutToggle = document.getElementById(
-      "mobile-about-toggle"
-    );
-    const mobileAbout = document.getElementById("mobile-about");
-    const mobileSectorsToggle = document.getElementById(
-      "mobile-sectors-toggle"
-    );
-    const mobileSectors = document.getElementById("mobile-sectors");
-    const mobileCareersToggle = document.getElementById(
-      "mobile-careers-toggle"
-    );
-    const mobileCareers = document.getElementById("mobile-careers");
+        // ✅ Elements
+        const mobileMenuToggle =
+          document.getElementById("mobile-menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const menuIcon = document.getElementById("menu-icon");
 
-    // Function to close all mobile dropdowns
-    function closeAllMobileDropdowns() {
-      mobileAbout?.classList.remove("open");
-      mobileSectors?.classList.remove("open");
-      mobileCareers?.classList.remove("open");
-      mobileAboutToggle?.classList.remove("active");
-      mobileSectorsToggle?.classList.remove("active");
-      mobileCareersToggle?.classList.remove("active");
-      
-      // Also close all sector submenus
-      document.querySelectorAll('.sector-menu').forEach(menu => {
-        menu.style.maxHeight = '0px';
-      });
-      document.querySelectorAll('.sector-toggle i').forEach(icon => {
-        icon.style.transform = 'rotate(0deg)';
-      });
-    }
+        const mobileAboutToggle = document.getElementById(
+          "mobile-about-toggle"
+        );
+        const mobileAbout = document.getElementById("mobile-about");
+        const mobileSectorsToggle = document.getElementById(
+          "mobile-sectors-toggle"
+        );
+        const mobileSectors = document.getElementById("mobile-sectors");
+        const mobileCareersToggle = document.getElementById(
+          "mobile-careers-toggle"
+        );
+        const mobileCareers = document.getElementById("mobile-careers");
 
-    // Toggle Mobile Menu
-    mobileMenuToggle?.addEventListener("click", (e) => {
-      e.stopPropagation();
-      mobileMenu.classList.toggle("open");
+        // Function to close all mobile dropdowns
+        function closeAllMobileDropdowns() {
+          mobileAbout?.classList.remove("open");
+          mobileSectors?.classList.remove("open");
+          mobileCareers?.classList.remove("open");
+          mobileAboutToggle?.classList.remove("active");
+          mobileSectorsToggle?.classList.remove("active");
+          mobileCareersToggle?.classList.remove("active");
 
-      if (mobileMenu.classList.contains("open")) {
-        menuIcon.classList.remove("fa-bars");
-        menuIcon.classList.add("fa-times");
-      } else {
-        menuIcon.classList.remove("fa-times");
-        menuIcon.classList.add("fa-bars");
-        closeAllMobileDropdowns();
-      }
-    });
-
-    // Toggle Mobile About Dropdown
-    mobileAboutToggle?.addEventListener("click", (e) => {
-      e.stopPropagation();
-      mobileAbout.classList.toggle("open");
-      mobileAboutToggle.classList.toggle("active");
-
-      // Close other dropdowns if open
-      if (mobileAbout.classList.contains("open")) {
-        mobileSectors?.classList.remove("open");
-        mobileCareers?.classList.remove("open");
-        mobileSectorsToggle?.classList.remove("active");
-        mobileCareersToggle?.classList.remove("active");
-        
-        // Close sector submenus
-        document.querySelectorAll('.sector-menu').forEach(menu => {
-          menu.style.maxHeight = '0px';
-        });
-        document.querySelectorAll('.sector-toggle i').forEach(icon => {
-          icon.style.transform = 'rotate(0deg)';
-        });
-      }
-    });
-
-    // Toggle Mobile Sectors Dropdown
-    mobileSectorsToggle?.addEventListener("click", (e) => {
-      e.stopPropagation();
-      
-      // Toggle main sectors dropdown
-      if (mobileSectors.style.maxHeight && mobileSectors.style.maxHeight !== '0px') {
-        // Collapse main sectors
-        mobileSectors.style.maxHeight = '0px';
-        mobileSectorsToggle.querySelector('i').style.transform = 'rotate(0deg)';
-        mobileSectorsToggle.classList.remove("active");
-        
-        // Also collapse all sector submenus
-        document.querySelectorAll('.sector-menu').forEach(menu => {
-          menu.style.maxHeight = '0px';
-        });
-        document.querySelectorAll('.sector-toggle i').forEach(icon => {
-          icon.style.transform = 'rotate(0deg)';
-        });
-      } else {
-        // Expand main sectors
-        mobileSectors.style.maxHeight = mobileSectors.scrollHeight + 'px';
-        mobileSectorsToggle.querySelector('i').style.transform = 'rotate(180deg)';
-        mobileSectorsToggle.classList.add("active");
-      }
-
-      // Close other dropdowns if opening this one
-      if (mobileSectors.style.maxHeight && mobileSectors.style.maxHeight !== '0px') {
-        mobileAbout?.classList.remove("open");
-        mobileCareers?.classList.remove("open");
-        mobileAboutToggle?.classList.remove("active");
-        mobileCareersToggle?.classList.remove("active");
-      }
-    });
-
-    // Toggle Mobile Careers Dropdown (NEW)
-    mobileCareersToggle?.addEventListener("click", (e) => {
-      e.stopPropagation();
-      mobileCareers.classList.toggle("open");
-      mobileCareersToggle.classList.toggle("active");
-
-      // Close other dropdowns if open
-      if (mobileCareers.classList.contains("open")) {
-        mobileAbout?.classList.remove("open");
-        mobileSectors?.classList.remove("open");
-        mobileAboutToggle?.classList.remove("active");
-        mobileSectorsToggle?.classList.remove("active");
-        mobileSectors.style.maxHeight = '0px';
-        mobileSectorsToggle.querySelector('i').style.transform = 'rotate(0deg)';
-        
-        // Close sector submenus
-        document.querySelectorAll('.sector-menu').forEach(menu => {
-          menu.style.maxHeight = '0px';
-        });
-        document.querySelectorAll('.sector-toggle i').forEach(icon => {
-          icon.style.transform = 'rotate(0deg)';
-        });
-      }
-    });
-
-    // Handle sector toggle buttons (submenus)
-    document.querySelectorAll('.sector-toggle').forEach(button => {
-      button.addEventListener('click', function(e) {
-        e.stopPropagation();
-        const menu = this.nextElementSibling;
-        const icon = this.querySelector('i');
-        
-        // Toggle submenu
-        if (menu.style.maxHeight && menu.style.maxHeight !== '0px') {
-          // Collapse
-          menu.style.maxHeight = '0px';
-          icon.style.transform = 'rotate(0deg)';
-        } else {
-          // Expand
-          menu.style.maxHeight = menu.scrollHeight + 'px';
-          icon.style.transform = 'rotate(180deg)';
+          // Also close all sector submenus
+          document.querySelectorAll('.sector-menu').forEach(menu => {
+            menu.style.maxHeight = '0px';
+          });
+          document.querySelectorAll('.sector-toggle i').forEach(icon => {
+            icon.style.transform = 'rotate(0deg)';
+          });
         }
+
+        // Toggle Mobile Menu
+        mobileMenuToggle?.addEventListener("click", (e) => {
+          e.stopPropagation();
+          mobileMenu.classList.toggle("open");
+
+          if (mobileMenu.classList.contains("open")) {
+            menuIcon.classList.remove("fa-bars");
+            menuIcon.classList.add("fa-times");
+          } else {
+            menuIcon.classList.remove("fa-times");
+            menuIcon.classList.add("fa-bars");
+            closeAllMobileDropdowns();
+          }
+        });
+
+        // Toggle Mobile About Dropdown
+        mobileAboutToggle?.addEventListener("click", (e) => {
+          e.stopPropagation();
+          mobileAbout.classList.toggle("open");
+          mobileAboutToggle.classList.toggle("active");
+
+          // Close other dropdowns if open
+          if (mobileAbout.classList.contains("open")) {
+            mobileSectors?.classList.remove("open");
+            mobileCareers?.classList.remove("open");
+            mobileSectorsToggle?.classList.remove("active");
+            mobileCareersToggle?.classList.remove("active");
+
+            // Close sector submenus
+            document.querySelectorAll('.sector-menu').forEach(menu => {
+              menu.style.maxHeight = '0px';
+            });
+            document.querySelectorAll('.sector-toggle i').forEach(icon => {
+              icon.style.transform = 'rotate(0deg)';
+            });
+          }
+        });
+
+        // Toggle Mobile Sectors Dropdown
+        mobileSectorsToggle?.addEventListener("click", (e) => {
+          e.stopPropagation();
+
+          // Toggle main sectors dropdown
+          if (mobileSectors.style.maxHeight && mobileSectors.style.maxHeight !== '0px') {
+            // Collapse main sectors
+            mobileSectors.style.maxHeight = '0px';
+            mobileSectorsToggle.querySelector('i').style.transform = 'rotate(0deg)';
+            mobileSectorsToggle.classList.remove("active");
+
+            // Also collapse all sector submenus
+            document.querySelectorAll('.sector-menu').forEach(menu => {
+              menu.style.maxHeight = '0px';
+            });
+            document.querySelectorAll('.sector-toggle i').forEach(icon => {
+              icon.style.transform = 'rotate(0deg)';
+            });
+          } else {
+            // Expand main sectors
+            mobileSectors.style.maxHeight = mobileSectors.scrollHeight + 'px';
+            mobileSectorsToggle.querySelector('i').style.transform = 'rotate(180deg)';
+            mobileSectorsToggle.classList.add("active");
+          }
+
+          // Close other dropdowns if opening this one
+          if (mobileSectors.style.maxHeight && mobileSectors.style.maxHeight !== '0px') {
+            mobileAbout?.classList.remove("open");
+            mobileCareers?.classList.remove("open");
+            mobileAboutToggle?.classList.remove("active");
+            mobileCareersToggle?.classList.remove("active");
+          }
+        });
+
+        // Toggle Mobile Careers Dropdown (NEW)
+        mobileCareersToggle?.addEventListener("click", (e) => {
+          e.stopPropagation();
+          mobileCareers.classList.toggle("open");
+          mobileCareersToggle.classList.toggle("active");
+
+          // Close other dropdowns if open
+          if (mobileCareers.classList.contains("open")) {
+            mobileAbout?.classList.remove("open");
+            mobileSectors?.classList.remove("open");
+            mobileAboutToggle?.classList.remove("active");
+            mobileSectorsToggle?.classList.remove("active");
+            mobileSectors.style.maxHeight = '0px';
+            mobileSectorsToggle.querySelector('i').style.transform = 'rotate(0deg)';
+
+            // Close sector submenus
+            document.querySelectorAll('.sector-menu').forEach(menu => {
+              menu.style.maxHeight = '0px';
+            });
+            document.querySelectorAll('.sector-toggle i').forEach(icon => {
+              icon.style.transform = 'rotate(0deg)';
+            });
+          }
+        });
+
+        // Handle sector toggle buttons (submenus)
+        document.querySelectorAll('.sector-toggle').forEach(button => {
+          button.addEventListener('click', function (e) {
+            e.stopPropagation();
+            const menu = this.nextElementSibling;
+            const icon = this.querySelector('i');
+
+            // Toggle submenu
+            if (menu.style.maxHeight && menu.style.maxHeight !== '0px') {
+              // Collapse
+              menu.style.maxHeight = '0px';
+              icon.style.transform = 'rotate(0deg)';
+            } else {
+              // Expand
+              menu.style.maxHeight = menu.scrollHeight + 'px';
+              icon.style.transform = 'rotate(180deg)';
+            }
+          });
+        });
+
+        // Close mobile dropdowns when clicking on links inside them
+        document.querySelectorAll(".mobile-dropdown a, .sector-menu a").forEach((link) => {
+          link.addEventListener("click", () => {
+            closeAllMobileDropdowns();
+            mobileMenu?.classList.remove("open");
+            if (menuIcon) {
+              menuIcon.classList.remove("fa-times");
+              menuIcon.classList.add("fa-bars");
+            }
+          });
+        });
+
+        // Close menu if clicked outside
+        document.addEventListener("click", function (event) {
+          if (!mobileMenu || !mobileMenuToggle) return;
+
+          const isClickInsideMenu = mobileMenu.contains(event.target);
+          const isClickOnToggle = mobileMenuToggle.contains(event.target);
+
+          if (
+            !isClickInsideMenu &&
+            !isClickOnToggle &&
+            mobileMenu.classList.contains("open")
+          ) {
+            mobileMenu.classList.remove("open");
+            menuIcon.classList.remove("fa-times");
+            menuIcon.classList.add("fa-bars");
+            closeAllMobileDropdowns();
+          }
+        });
+
+        // Desktop dropdown hover functionality
+        const dropdowns = document.querySelectorAll(".dropdown");
+        dropdowns.forEach((dropdown) => {
+          dropdown.addEventListener("mouseenter", () => {
+            const content = dropdown.querySelector(".dropdown-content");
+            if (content) {
+              content.style.opacity = "1";
+              content.style.visibility = "visible";
+              content.style.transform = "translateY(0)";
+            }
+          });
+
+          dropdown.addEventListener("mouseleave", () => {
+            const content = dropdown.querySelector(".dropdown-content");
+            if (content) {
+              content.style.opacity = "0";
+              content.style.visibility = "hidden";
+              content.style.transform = "translateY(-10px)";
+            }
+          });
+        });
+
+        // Handle window resize - recalculate maxHeight for open menus
+        window.addEventListener('resize', function () {
+          // Recalculate for main sectors dropdown
+          if (mobileSectors.style.maxHeight && mobileSectors.style.maxHeight !== '0px') {
+            mobileSectors.style.maxHeight = mobileSectors.scrollHeight + 'px';
+          }
+
+          // Recalculate for open sector submenus
+          document.querySelectorAll('.sector-menu').forEach(menu => {
+            if (menu.style.maxHeight && menu.style.maxHeight !== '0px') {
+              menu.style.maxHeight = menu.scrollHeight + 'px';
+            }
+          });
+        });
       });
+
+    // Navbar scroll effect
+    window.addEventListener("scroll", () => {
+      document
+        .getElementById("navbar")
+        ?.classList.toggle("scrolled", window.scrollY > 50);
     });
+  </script>
+</body>
 
-    // Close mobile dropdowns when clicking on links inside them
-    document.querySelectorAll(".mobile-dropdown a, .sector-menu a").forEach((link) => {
-      link.addEventListener("click", () => {
-        closeAllMobileDropdowns();
-        mobileMenu?.classList.remove("open");
-        if (menuIcon) {
-          menuIcon.classList.remove("fa-times");
-          menuIcon.classList.add("fa-bars");
-        }
-      });
-    });
-
-    // Close menu if clicked outside
-    document.addEventListener("click", function (event) {
-      if (!mobileMenu || !mobileMenuToggle) return;
-
-      const isClickInsideMenu = mobileMenu.contains(event.target);
-      const isClickOnToggle = mobileMenuToggle.contains(event.target);
-
-      if (
-        !isClickInsideMenu &&
-        !isClickOnToggle &&
-        mobileMenu.classList.contains("open")
-      ) {
-        mobileMenu.classList.remove("open");
-        menuIcon.classList.remove("fa-times");
-        menuIcon.classList.add("fa-bars");
-        closeAllMobileDropdowns();
-      }
-    });
-
-    // Desktop dropdown hover functionality
-    const dropdowns = document.querySelectorAll(".dropdown");
-    dropdowns.forEach((dropdown) => {
-      dropdown.addEventListener("mouseenter", () => {
-        const content = dropdown.querySelector(".dropdown-content");
-        if (content) {
-          content.style.opacity = "1";
-          content.style.visibility = "visible";
-          content.style.transform = "translateY(0)";
-        }
-      });
-
-      dropdown.addEventListener("mouseleave", () => {
-        const content = dropdown.querySelector(".dropdown-content");
-        if (content) {
-          content.style.opacity = "0";
-          content.style.visibility = "hidden";
-          content.style.transform = "translateY(-10px)";
-        }
-      });
-    });
-    
-    // Handle window resize - recalculate maxHeight for open menus
-    window.addEventListener('resize', function() {
-      // Recalculate for main sectors dropdown
-      if (mobileSectors.style.maxHeight && mobileSectors.style.maxHeight !== '0px') {
-        mobileSectors.style.maxHeight = mobileSectors.scrollHeight + 'px';
-      }
-      
-      // Recalculate for open sector submenus
-      document.querySelectorAll('.sector-menu').forEach(menu => {
-        if (menu.style.maxHeight && menu.style.maxHeight !== '0px') {
-          menu.style.maxHeight = menu.scrollHeight + 'px';
-        }
-      });
-    });
-  });
-
-      // Navbar scroll effect
-      window.addEventListener("scroll", () => {
-        document
-          .getElementById("navbar")
-          ?.classList.toggle("scrolled", window.scrollY > 50);
-      });
-    </script>
-  </body>
 </html>
