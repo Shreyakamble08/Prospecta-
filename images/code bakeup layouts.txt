@@ -306,3 +306,363 @@
       </div>
     </section>
 ---------------------------------------------gallery layout---------------------------------------------------------------------------
+
+
+
+Here is a **clean, structured, and complete extraction of ALL project details** from your PDF, rewritten clearly and professionally.
+I have grouped them **category-wise**, added **project type, area, cost, scope, and status (Completed / Ongoing)** wherever applicable.
+
+---
+
+# 🏗️ **PROSPECTA BUILDX – PROJECT PORTFOLIO**
+
+---
+
+## 🔹 **INDUSTRIAL PROJECTS (COMPLETED)**
+
+### **1. Hyosung T&D India Pvt. Ltd.**
+
+* **Location:** Khed, Pune
+* **Project Volume:** 1,50,000 Sq. Ft.
+* **Project Cost:** ₹20.5 Cr
+* **Scope of Work:**
+
+  * Land Development (Controlled Blasting)
+  * Main Plant Civil Works
+  * PEB Works
+  * Utility & Infrastructure Works
+
+---
+
+### **2. Mahindra Logistics Ltd.**
+
+* **Location:** Sudhawadi Village, Talegaon–Chakan Highway, Pune
+* **Project Volume:** 3,50,000 Sq. Ft.
+* **Project Cost:** ₹22.5 Cr
+* **Scope of Work:**
+
+  * Civil Works
+  * PEB Structure
+  * Interior Office Setup
+  * Utility & Infrastructure Works
+
+---
+
+### **3. Zoomlion India Pvt. Ltd.**
+
+* **Location:** Chakan Phase 2, Bhamboli, Pune
+* **Project Volume:** 1,05,000 Sq. Ft.
+* **Project Cost:** ₹12.5 Cr
+* **Scope of Work:**
+
+  * Civil Works
+  * PEB Works
+  * Utility & Infrastructure
+
+---
+
+### **4. Supreme Treon Pvt. Ltd.**
+
+* **Location:** Chakan Phase 2, Bhamboli, Pune
+* **Project Volume:** 2,20,000 Sq. Ft.
+* **Project Cost:** ₹20.5 Cr
+* **Scope of Work:**
+
+  * Civil Works
+  * PEB Works
+  * Utility & Infrastructure
+
+---
+
+### **5. KMI Ancillary Project**
+
+* **Location:** Anantapur, Andhra Pradesh
+* **Project Volume:** 9 KM (Land Development)
+* **Project Cost:** ₹10.5 Cr
+* **Scope of Work:**
+
+  * Controlled Blasting
+  * Land Development
+
+---
+
+### **6. CEAT Limited**
+
+* **Location:** Ambernath, Navi Mumbai
+* **Project Volume:** 2,60,000 Sq. Ft.
+* **Project Cost:** ₹47.29 Cr
+* **Scope of Work:**
+
+  * Civil Works
+  * G+1 Warehouse (PEB)
+  * Utility & Infrastructure
+
+---
+
+### **7. CEAT Limited – Canteen Building**
+
+* **Location:** Ambernath, Navi Mumbai
+* **Project Volume:** 2,60,000 Sq. Ft.
+* **Project Cost:** ₹47.29 Cr
+* **Scope of Work:**
+
+  * Canteen Building
+  * Infrastructure Works
+
+---
+
+### **8. MG Motors India Pvt. Ltd.**
+
+* **Location:** Halol, Gujarat
+* **Project Volume:** 50,000 Sq. Ft.
+* **Project Cost:** ₹10.5 Cr
+* **Scope of Work:**
+
+  * R&D Lab
+  * Battery Shed
+  * Training Centre
+  * Utility & Infra Works
+
+---
+
+## 🏢 **COMMERCIAL PROJECTS (COMPLETED)**
+
+### **9. Capital Land**
+
+* **Location:** Hinjewadi Phase 1, Pune
+* **Project Volume:** 85,000 Sq. Ft.
+* **Project Cost:** ₹10.5 Cr
+* **Scope of Work:**
+
+  * Sanitary Fit-outs
+  * Tiling Works
+
+---
+
+### **10. Nalanda Shelters Pvt. Ltd.**
+
+* **Location:** Hinjewadi Phase 1, Pune
+* **Project Volume:** 10 Million Litres (UGWT)
+* **Project Cost:** ₹12.5 Cr
+* **Scope of Work:**
+
+  * Underground Water Tank Construction
+
+---
+
+## 🏥 **HOSPITAL PROJECTS (COMPLETED)**
+
+### **11. Patna Medical College & Hospital (PMCH)**
+
+* **Location:** Patna, Bihar
+* **Project Volume:** 5,56,000 Sq. Ft.
+* **Project Cost:** ₹76.55 Cr
+* **Scope of Work:**
+
+  * Turnkey Execution
+  * Piling
+  * RCC Structure
+  * Finishes
+  * Complete Infrastructure Works
+
+---
+
+## 🧪 **R&D & CHEMICAL INDUSTRY PROJECTS**
+
+### **12. IISER Pune**
+
+* **Scope:** State-of-the-art R&D Building with RO Plant
+
+---
+
+### **13. Pidilite Industries Ltd.**
+
+* **Location:** Shirwal, Pune
+* **Project Volume:** 80,000 Sq. Ft.
+* **Project Cost:** ₹12.5 Cr
+* **Scope of Work:**
+
+  * Ancillary Plant Civil Works
+  * PEB Works
+  * Utility & Infrastructure
+
+---
+
+## 🏗️ **ONGOING INDUSTRIAL PROJECTS**
+
+### **14. Hyundai Motors India Ltd.**
+
+* **Location:** Talegaon, Pune
+* **Project Volume:** 5,56,000 Sq. Ft.
+* **Project Cost:** ₹54.6 Cr
+* **Scope of Work:**
+
+  * Main Plant Civil Works
+  * Warehouse Flooring
+  * WWTP
+  * Admin & Utility Buildings
+
+---
+
+### **15. Oetiker India Pvt. Ltd.**
+
+* **Location:** Rasayani, Navi Mumbai
+* **Project Volume:** 70,000 Sq. Ft.
+* **Project Cost:** ₹10.5 Cr
+* **Scope of Work:**
+
+  * Land Grading
+  * Civil Works
+
+---
+
+### **16. IGW India Technologies**
+
+* **Location:** Alandi, Pune
+* **Project Volume:** 1,05,000 Sq. Ft.
+* **Project Cost:** ₹12.2 Cr
+* **Scope of Work:**
+
+  * Main Plant Civil Works
+  * PEB
+  * Utility & Infra
+
+---
+
+### **17. Motherson Sumi Systems Ltd.**
+
+* **Location:** Marunji, Pune
+* **Project Volume:** 1,45,000 Sq. Ft.
+* **Project Cost:** ₹13.5 Cr
+* **Scope of Work:**
+
+  * Land Development
+  * PEB Works
+  * Civil & Utility Works
+
+---
+
+### **18. Exide Industries Ltd.**
+
+* **Location:** Bangalore
+* **Project Volume:** 1,55,000 Sq. Ft.
+* **Project Cost:** ₹42.5 Cr
+* **Scope of Work:**
+
+  * Main Plant Civil Works
+  * PEB
+  * Utility & Infrastructure
+
+---
+
+## 🏠 **RESIDENTIAL PROJECTS – COMPLETED**
+
+### **19. Kohinoor Presidentia**
+
+* **Location:** Pune
+* **Project Volume:** 1,50,000 Sq. Ft.
+* **Project Cost:** ₹9.16 Cr
+* **Scope of Work:**
+
+  * Excavation & Backfilling
+  * RCC
+  * Waterproofing
+
+---
+
+### **20. Kohinoor Sportsville**
+
+* **Location:** Pune
+* **Project Volume:** 2,00,000 Sq. Ft.
+* **Project Cost:** ₹11 Cr
+* **Scope of Work:**
+
+  * RCC
+  * Blockwork
+  * Waterproofing
+
+---
+
+### **21. Kohinoor Viva City**
+
+* **Location:** Pune
+* **Project Volume:** 2,51,000 Sq. Ft.
+* **Project Cost:** ₹21 Cr
+* **Scope of Work:**
+
+  * G+12 Towers
+  * RCC & Waterproofing
+
+---
+
+### **22. Kohinoor Sapphire 3**
+
+* **Location:** Pune
+* **Project Volume:** 4,50,000 Sq. Ft.
+* **Project Cost:** ₹41.5 Cr
+* **Scope of Work:**
+
+  * G+22 Towers
+  * RCC, Blockwork, Waterproofing
+
+---
+
+## 🏘️ **RESIDENTIAL – ONGOING PROJECTS**
+
+### **23. Lodha Palais**
+
+* **Location:** Kothrud, Pune
+* **Project Volume:** 4,68,000 Sq. Ft.
+* **Project Cost:** ₹42 Cr
+* **Scope of Work:**
+
+  * RCC
+  * Blockwork
+  * Waterproofing
+
+---
+
+### **24. Lodha Giardino**
+
+* **Location:** Pune
+* **Project Volume:** 45,000 Sq. Ft.
+* **Project Cost:** ₹2.4 Cr
+* **Scope of Work:**
+
+  * RCC
+  * Blockwork
+
+---
+
+### **25. Lodha Estilo**
+
+* **Location:** Kharadi, Pune
+* **Project Volume:** 5,60,000 Sq. Ft.
+* **Project Cost:** ₹18.73 Cr
+* **Scope of Work:**
+
+  * RCC
+  * Waterproofing
+
+---
+
+### **26. Kohinoor Riverdale Township**
+
+* **Location:** Pune
+* **Project Volume:** 16,70,000 Sq. Ft.
+* **Project Cost:** ₹150 Cr
+* **Scope of Work:**
+
+  * G+27 Towers
+  * RCC
+  * Waterproofing
+
+---
+
+If you want, I can now:
+✅ Convert this into **website-ready sections**
+✅ Create **filterable project cards** (Completed / Ongoing / Sector-wise)
+✅ Prepare **tables for brochure or PPT**
+✅ Design **HTML/Tailwind components** for these projects
+
+Just tell me what you want next.
