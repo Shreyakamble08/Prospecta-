@@ -1,28 +1,46 @@
 //heros slider script
-const heroSlider = document.getElementById("heroSlider");
-const slides = document.querySelectorAll(".slide");
-const dots = document.querySelectorAll(".hero-dot");
+const slider = document.getElementById("heroSlider");
+const dots = document.querySelectorAll(".dot");
+
 let index = 0;
+const totalSlides = dots.length;
 
-function showSlide(i){
-  if(i >= slides.length) index = 0;
-  else if(i < 0) index = slides.length - 1;
-  else index = i;
+function updateSlider(){
 
-  heroSlider.style.transform = `translateX(-${index * 100}%)`;
+  slider.style.transform = `translateX(-${index * 100}%)`;
 
-  dots.forEach(dot => dot.classList.remove("active"));
-  dots[index].classList.add("active");
+  dots.forEach(dot=>{
+    dot.classList.remove("bg-black/70");
+    dot.classList.add("bg-transparent");
+  });
+
+  dots[index].classList.remove("bg-transparent");
+  dots[index].classList.add("bg-black/70");
+
 }
 
-document.getElementById("nextBtn").addEventListener("click",()=>showSlide(index+1));
-document.getElementById("prevBtn").addEventListener("click",()=>showSlide(index-1));
-
 dots.forEach((dot,i)=>{
-  dot.addEventListener("click", ()=> showSlide(i));
+
+  dot.addEventListener("click",()=>{
+    index = i;
+    updateSlider();
+  });
+
 });
 
-setInterval(()=>showSlide(index+1), 5000);
+function autoSlide(){
+
+  index++;
+
+  if(index >= totalSlides){
+    index = 0;
+  }
+
+  updateSlider();
+
+}
+
+setInterval(autoSlide,5000);
 
 //WHY CHOOSE US SECTION SCRIPT
      //============Why choose us animation==================
@@ -83,4 +101,6 @@ setInterval(()=>showSlide(index+1), 5000);
   );
 
   observer.observe(document.querySelector('.counter').parentElement);
+
+  //boune effect for heading
 

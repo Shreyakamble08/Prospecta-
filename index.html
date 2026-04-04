@@ -217,20 +217,22 @@
   <!-- HEADER -->
   <div id="header"></div>
   <!-- HERO SECTION -->
-  <section class="relative h-[80vh] w-full overflow-hidden">
-    <!-- Changed from h-[110vh] to h-[80vh] -->
-    <div class="w-full h-full overflow-hidden">
-      <div id="heroSlider" class="flex h-full transition-transform duration-1000 ease-in-out">
-        <!-- BANNER 1 -->
-        <div class="slide w-full h-full flex-shrink-0 bg-cover bg-center relative"
-          style="background-image: url('images/home2.png')">
-          <div class="absolute inset-0 bg-gradient-to-t from-white/40 via-white/30 to-white/40"></div>
+  <section class="hero-section relative w-full overflow-hidden h-[70vh] sm:h-[75vh] lg:h-[80vh]">
 
-          <div class="relative z-10 w-full h-full flex items-center px-6 sm:px-10 lg:px-20">
-            <div class="max-w-xl text-[#12306A] mb-16">
-              <!-- Reduced from mb-28 to mb-16 -->
-              <h1
-                class="font-normal font-serif tracking-tight leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+    <!-- SLIDER -->
+    <div class="relative w-full h-full overflow-hidden">
+
+      <div id="heroSlider" class="flex w-full h-full transition-transform duration-700 ease-in-out">
+
+        <!-- BANNER 1 -->
+        <div class="min-w-full h-full bg-cover bg-center relative" style="background-image:url('images/home2.png')">
+
+          <div class="absolute inset-0 bg-white/40"></div>
+
+          <div class="relative z-10 h-full flex items-center px-6 sm:px-10 lg:px-20">
+            <div class="max-w-xl text-[#12306A]">
+
+              <h1 class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight">
                 Safety & Sustainability
               </h1>
 
@@ -240,64 +242,51 @@
               </p>
 
               <div class="mt-6 flex gap-4 flex-wrap">
-                <!-- Reduced from mt-8 to mt-6 -->
+
                 <a href="#"
-                  class="bg-yellow-400 hover:bg-yellow-500 text-black font-medium py-2 px-5 border rounded-full text-sm transition">
-                  <!-- Reduced padding from py-3 px-6 to py-2 px-5 -->
+                  class="bg-yellow-400 hover:bg-yellow-500 text-black py-2 px-5 rounded-full text-sm transition">
                   Learn More
                 </a>
 
-                <a href="#"
-                  class="border border-gray-300 hover:bg-white hover:text-black font-semibold py-2 px-5 rounded-full text-sm transition">
-                  <!-- Reduced padding from py-3 px-6 to py-2 px-5 -->
+                <a href="#" class="border border-gray-300 hover:bg-white py-2 px-5 rounded-full text-sm transition">
                   Our Projects
                 </a>
+
               </div>
             </div>
           </div>
         </div>
 
-        <!-- BANNER 2 -->
-        <div class="slide w-full h-full flex-shrink-0 bg-cover bg-center relative overflow-hidden"
-          style="background-image: url('images/home3.png')">
-          <!-- Fixed: Changed h-screen to h-full for consistency -->
-          <!-- Gradient Overlay -->
-          <div class="absolute inset-0 bg-gradient-to-t from-white/40 via-white/30 to-white/40"></div>
 
-          <!-- Content -->
-          <div class="relative z-10 w-full h-full flex items-center px-6 sm:px-10 lg:px-20">
-            <div class="max-w-xl mb-16 text-[#12306A]">
-              <!-- Reduced from mb-28 to mb-16 -->
-              <!-- Accent Line -->
+        <!-- BANNER 2 -->
+        <div class="min-w-full h-full bg-cover bg-center relative" style="background-image:url('images/home3.png')">
+
+          <div class="absolute inset-0 bg-white/40"></div>
+
+          <div class="relative z-10 h-full flex items-center px-6 sm:px-10 lg:px-20">
+            <div class="max-w-xl text-[#12306A]">
+
               <div class="w-14 h-[3px] bg-yellow-400 mb-6"></div>
 
-              <h1 class="font-serif font-medium tracking-tight leading-tight
-             text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+              <h1 class="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
                 Commercial Development
               </h1>
 
-              <p class="mt-4 text-sm sm:text-base md:text-lg text-[#5B6B8C] max-w-md leading-relaxed">
+              <p class="mt-4 text-sm sm:text-base md:text-lg text-[#5B6B8C] max-w-md">
                 Strong foundations for modern cities
               </p>
 
               <div class="mt-6 flex gap-4 flex-wrap">
-                <!-- Reduced from mt-8 to mt-6 -->
-                <a href="#" class="bg-yellow-400 hover:bg-yellow-500
-               text-black font-semibold
-               py-2 px-5 rounded-full text-sm
-               transition-all duration-300">
-                  <!-- Reduced padding from py-3 px-7 to py-2 px-5 -->
+
+                <a href="#" class="bg-yellow-400 hover:bg-yellow-500 text-black py-2 px-5 rounded-full text-sm">
                   Learn More
                 </a>
 
-                <a href="#" class="border border-[#12306A]/40
-               text-[#12306A]
-               hover:bg-[#12306A] hover:text-white
-               font-semibold py-2 px-5
-               rounded-full text-sm transition-all duration-300">
-                  <!-- Reduced padding from py-3 px-7 to py-2 px-5 -->
+                <a href="#"
+                  class="border border-[#12306A]/40 text-[#12306A] hover:bg-[#12306A] hover:text-white py-2 px-5 rounded-full text-sm">
                   Our Projects
                 </a>
+
               </div>
             </div>
           </div>
@@ -305,59 +294,46 @@
 
 
         <!-- BANNER 3 -->
-        <div class="slide w-full h-full flex-shrink-0 bg-cover bg-center relative"
-          style="background-image: url('images/home4.png')">
-          <!-- Dark Overlay -->
-          <div class="absolute inset-0 bg-black/40"></div>
-          <!-- Fixed: Changed bg-balck/40 to bg-black/40 -->
+        <div class="min-w-full h-full bg-cover bg-center relative"
+          style="background-image:url('./images/industrial banner.png')">
 
-          <!-- Content -->
-          <div class="relative z-10 w-full h-full flex items-center justify-end px-6 sm:px-10 lg:px-20">
-            <div class="max-w-lg bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl text-white mb-16">
-              <!-- Reduced padding from p-8 to p-6 and mb-28 to mb-16 -->
+          <div class="absolute inset-0 bg-white/40"></div>
 
-              <h1 class="text-3xl sm:text-4xl md:text-5xl font-normal font-serif text-[#12306A] leading-tight">
+          <div class="relative z-10 h-full flex items-center px-6 sm:px-10 lg:px-20">
+            <div class="max-w-xl text-[#12306A]">
+
+              <h1 class="font-serif text-3xl sm:text-4xl md:text-5xl">
                 Industrial Construction
               </h1>
 
-              <p class="mt-4 text-sm sm:text-base text-black/50 leading-relaxed">
-                Engineering robust, scalable and efficient industrial facilities
-                that drive production and growth.
-              </p>
-
               <div class="mt-6 flex gap-3 flex-wrap">
-                <!-- Reduced from mt-6 (was already mt-6) -->
-                <a href="#" class="bg-yellow-400 hover:bg-yellow-500 text-black
-               font-semibold py-2 px-5 rounded-full text-sm transition">
-                  <!-- Reduced padding from py-3 px-6 to py-2 px-5 -->
+
+                <a href="#" class="bg-yellow-400 hover:bg-yellow-500 text-black py-2 px-5 rounded-full text-sm">
                   Explore
                 </a>
 
-                <a href="#" class="border border-white/60 text-[#12306A] hover:bg-white hover:text-black
-               font-semibold py-2 px-5 rounded-full text-sm transition">
-                  <!-- Reduced padding from py-3 px-6 to py-2 px-5 -->
+                <a href="#"
+                  class="border border-[#12306A] text-[#12306A] hover:bg-[#12306A] hover:text-white py-2 px-5 rounded-full text-sm">
                   View Projects
                 </a>
+
               </div>
             </div>
           </div>
         </div>
 
+      </div>
+
+      <!-- DOT NAVIGATION -->
+      <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-30">
+
+        <button class="dot w-3 h-3 rounded-full border border-black/60 bg-black/70"></button>
+        <button class="dot w-3 h-3 rounded-full border border-black/60 bg-transparent"></button>
+        <button class="dot w-3 h-3 rounded-full border border-black/60 bg-transparent"></button>
 
       </div>
 
-      <!-- ARROWS -->
-      <button id="prevBtn"
-        class="absolute left-5 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 p-3 rounded-full text-white z-40 backdrop-blur transition-all duration-300">
-        <!-- Reduced padding from p-4 to p-3 -->
-        ❮
-      </button>
-
-      <button id="nextBtn"
-        class="absolute right-5 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 p-3 rounded-full text-white z-40 backdrop-blur transition-all duration-300">
-        <!-- Reduced padding from p-4 to p-3 -->
-        ❯
-      </button>
+    </div>
   </section>
 
   <!-- ABOUT SECTION -->
@@ -368,16 +344,8 @@
         <!-- IMAGE -->
         <div class="relative rounded-2xl overflow-hidden shadow-xl group">
 
-          <img src="images/aboutimg.png" alt="Prospecta BuildX India Pvt. Ltd. Construction"
+          <img src="images/company.png" alt="Prospecta BuildX India Pvt. Ltd. Construction"
             class="w-full h-[420px] object-cover group-hover:scale-105 transition duration-700" loading="lazy">
-
-          <!-- Experience Badge -->
-          <div class="absolute bottom-6 left-6 bg-white shadow-lg rounded-xl px-6 py-4 border border-gray-100">
-            <div class="text-2xl font-bold text-[#1A2A4F]">8+ Years</div>
-            <p class="text-xs text-gray-500 uppercase tracking-wide">
-              Experience
-            </p>
-          </div>
         </div>
 
         <!-- CONTENT -->
