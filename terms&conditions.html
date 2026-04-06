@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Prospecta BuildX | Terms & Conditions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #1a1a2c;
+      line-height: 1.5;
+    }
+
+    :root {
+      --primary-dark: #0a1a2f;
+      --primary-accent: #d4a373;
+      --primary-accent-dark: #b8834f;
+      --gray-50: #f8fafc;
+      --gray-100: #f1f5f9;
+      --gray-200: #e2e8f0;
+      --gray-600: #475569;
+      --gray-800: #1e293b;
+      --shadow-sm: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+      --shadow-md: 0 20px 25px -12px rgba(0, 0, 0, 0.08);
+    }
+
+    h1, h2, h3, h4 {
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid var(--primary-accent);
+      padding-left: 1rem;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      margin: 1.5rem 0 0.75rem 0;
+      color: var(--primary-dark);
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .navbar {
+      background-color: var(--primary-dark);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: white;
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .logo span {
+      color: var(--primary-accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #e2e8f0;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-accent);
+    }
+
+    .btn-outline-light {
+      border: 1px solid var(--primary-accent);
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      background: transparent;
+      color: white;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .btn-outline-light:hover {
+      background: var(--primary-accent);
+      color: var(--primary-dark);
+      border-color: var(--primary-accent);
+    }
+
+    .legal-hero {
+      background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+      padding: 3rem 0 2rem 0;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .legal-hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .last-updated {
+      color: var(--gray-600);
+      font-size: 0.9rem;
+      border-left: 3px solid var(--primary-accent);
+      padding-left: 0.8rem;
+      margin-top: 0.5rem;
+    }
+
+    .legal-content {
+      background: white;
+      padding: 2rem 2rem 3rem 2rem;
+      margin: 2rem auto 3rem auto;
+      border-radius: 32px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--gray-200);
+    }
+
+    .legal-content p {
+      margin-bottom: 1rem;
+      color: var(--gray-800);
+      font-size: 1rem;
+    }
+
+    .legal-content ul, .legal-content ol {
+      margin: 1rem 0 1.2rem 2rem;
+    }
+
+    .legal-content li {
+      margin-bottom: 0.5rem;
+      color: var(--gray-800);
+    }
+
+    .legal-content strong {
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+
+    hr {
+      margin: 2rem 0;
+      border: none;
+      height: 1px;
+      background: var(--gray-200);
+    }
+
+    .contact-block {
+      background-color: var(--gray-50);
+      border-left: 4px solid var(--primary-accent);
+      padding: 1.2rem 1.5rem;
+      margin: 2rem 0;
+      border-radius: 16px;
+      font-family: monospace;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      background-color: var(--primary-dark);
+      color: #94a3b8;
+      padding: 2rem 0;
+      text-align: center;
+      font-size: 0.85rem;
+      margin-top: 2rem;
+    }
+
+    footer a {
+      color: var(--primary-accent);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 1.25rem;
+      }
+      .legal-content {
+        padding: 1.5rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      .nav-links {
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="legal-hero">
+  <div class="container">
+    <h1>Terms and Conditions</h1>
+  </div>
+</div>
+
+<div class="container">
+  <div class="legal-content">
+    <h2>1. About these Terms</h2>
+    <p>These Terms and Conditions ("Terms") govern your access to and use of the Prospecta BuildX website located at prospectabuildx.com and any related webpages, contact forms, content, materials, downloads and digital features made available through the website (collectively, the "Website").</p>
+    <p>The Website is operated by Prospecta BuildX India Pvt. Ltd. ("Prospecta BuildX", "we", "us" or "our"). By accessing or using the Website, you agree to be bound by these Terms. If you do not agree, you should not use the Website.</p>
+
+    <h2>2. Purpose of the Website</h2>
+    <p>The Website is intended to provide general information about Prospecta BuildX, its services, capabilities, sectors, projects, achievements, business profile and contact channels. Unless expressly stated otherwise, the Website is informational only. It does not by itself create a contractor-client relationship, consultant-client relationship, partnership, joint venture, fiduciary relationship or any binding commitment to provide services.</p>
+
+    <h2>3. Eligibility and acceptable use</h2>
+    <p>You may use the Website only for lawful purposes and in accordance with these Terms.</p>
+    <p><strong>You agree that you will not:</strong></p>
+    <ul>
+      <li>use the Website in any way that violates applicable law, regulation or third-party rights;</li>
+      <li>attempt to gain unauthorised access to the Website, its servers, accounts, code or connected systems;</li>
+      <li>introduce malware, malicious code, bots, data-mining tools, spiders, scrapers or harmful automated requests;</li>
+      <li>interfere with or disrupt the Website, overload infrastructure, or bypass security features;</li>
+      <li>copy, reproduce, republish, distribute, frame, mirror, modify or exploit Website content beyond what is expressly permitted;</li>
+      <li>impersonate any person or entity, submit false information, or misrepresent your affiliation; or</li>
+      <li>use contact details or other content on the Website for spam, unsolicited marketing or unlawful solicitation.</li>
+    </ul>
+
+    <h2>4. User submissions and enquiries</h2>
+    <p>If you submit an enquiry, message, request for proposal, feedback, contact information or other material through the Website or by using contact details displayed on it, you represent that the information you provide is accurate and that you have the right to provide it.</p>
+    <p>You should not submit confidential, proprietary, highly sensitive or regulated information through the Website unless we have specifically asked for it and appropriate protections are in place. Submission of an enquiry or request does not obligate Prospecta BuildX to respond, issue a proposal, enter into negotiations or provide services. Any commercial engagement, scope of work, timeline, price, commitment or deliverable will be governed only by a separate written agreement signed by authorised representatives of the relevant parties.</p>
+
+    <h2>5. Content accuracy and informational nature</h2>
+    <p>We aim to keep Website content accurate and reasonably up to date, but we do not guarantee that all content is complete, current, error-free or suitable for your particular purpose. Descriptions of services, sectors, projects, visuals, photographs, renderings, milestones, achievements, testimonials, timelines, case references or capabilities are provided for general information only and may be modified, updated, withdrawn or superseded without notice. Any reliance you place on Website content is at your own risk. Independent evaluation is required before making technical, commercial, legal, financial, procurement, investment or project decisions.</p>
+
+    <h2>6. No professional advice</h2>
+    <p>Nothing on the Website constitutes engineering advice, architectural advice, procurement advice, construction advice, legal advice, tax advice, investment advice or any other professional advice. You should obtain independent professional advice suited to your specific project, transaction or circumstances before acting on any Website content.</p>
+
+    <h2>7. Intellectual property</h2>
+    <p>The Website and its content, including text, layouts, designs, logos, trade names, service marks, graphics, photographs, videos, project descriptions, downloadable materials, icons, code and compilations, are owned by or licensed to Prospecta BuildX and are protected by applicable intellectual property and unfair competition laws. Subject to these Terms, you may view the Website and print or download limited excerpts for your own internal, non-commercial and informational use only, provided that you do not remove ownership notices or imply any association, endorsement or permission beyond what is stated here. No licence or right is granted to use any trademark, logo, project image or proprietary content without our prior written consent.</p>
+
+    <h2>8. Third-party links and external services</h2>
+    <p>The Website may include links to third-party websites, map services, social media platforms, messaging applications or other services for convenience only. We do not control and are not responsible for the content, privacy practices, terms, availability or security of any third-party service. Accessing third-party services is at your own risk.</p>
+
+    <h2>9. Website availability and changes</h2>
+    <p>We may change, suspend, restrict or discontinue any part of the Website at any time, with or without notice. We do not guarantee uninterrupted availability, compatibility, performance or freedom from errors, viruses or other harmful components, although we take reasonable steps to maintain the Website responsibly.</p>
+
+    <h2>10. Disclaimer of warranties</h2>
+    <p>To the fullest extent permitted by law, the Website is provided on an "as is" and "as available" basis without warranties of any kind, whether express, implied or statutory. This includes, without limitation, implied warranties of merchantability, fitness for a particular purpose, non-infringement, title, accuracy, reliability, availability and security.</p>
+
+    <h2>11. Limitation of liability</h2>
+    <p>To the fullest extent permitted by law, Prospecta BuildX, its directors, officers, employees, affiliates, advisors and representatives shall not be liable for any indirect, incidental, consequential, special, exemplary or punitive loss or damage arising out of or related to your use of, or inability to use, the Website. This includes loss of data, loss of profit, loss of opportunity, business interruption, reputational loss or procurement of substitute services, even if we were advised of the possibility of such damages. To the extent direct liability cannot be excluded, our aggregate liability arising from Website use will not exceed the greater of INR 1,000 or the amount, if any, that you specifically paid to use the Website feature giving rise to the claim.</p>
+
+    <h2>12. Indemnity</h2>
+    <p>You agree to defend, indemnify and hold harmless Prospecta BuildX and its related persons from and against claims, liabilities, losses, damages, costs and expenses (including reasonable legal fees) arising from your misuse of the Website, your breach of these Terms, or your violation of applicable law or third-party rights.</p>
+
+    <h2>13. Privacy</h2>
+    <p>Our collection and use of personal data through the Website is described in our Privacy Policy. By using the Website or submitting information through it, you acknowledge that the Privacy Policy applies.</p>
+
+    <h2>14. Termination or restriction</h2>
+    <p>We may, in our discretion, restrict, suspend or terminate access to the Website or to any interactive feature if we believe that a user has breached these Terms, poses a security risk, violates law, or acts in a manner that may harm Prospecta BuildX or other users.</p>
+
+    <h2>15. Governing law and jurisdiction</h2>
+    <p>These Terms are governed by the laws of India, without regard to conflict of law principles. Subject to any mandatory law to the contrary, courts located in Pune, Maharashtra shall have exclusive jurisdiction over disputes arising out of or relating to the Website or these Terms.</p>
+
+    <h2>16. Changes to these Terms</h2>
+    <p>We may update these Terms from time to time. Updated Terms will become effective when posted on the Website unless a later date is stated. Your continued use of the Website after updated Terms are posted constitutes acceptance of the updated Terms.</p>
+
+    <h2>17. Contact details</h2>
+    <p>For questions about these Terms or the Website, please contact:</p>
+    <div class="contact-block">
+      Prospecta BuildX India Pvt. Ltd.<br>
+      C-803, Amar Business Zone, Baner, Pune - 411045, Maharashtra, India<br>
+      Email: info@prospectabuildx.com<br>
+      Phone: +91 95495 43838 / +91 89562 29547
+    </div>
+    <p><em>Implementation note: Before publication, confirm cookie tooling, enquiry form fields, analytics/hosting vendors, contact routing, and any sector-specific or jurisdiction-specific disclosures that may apply.</em></p>
+  </div>
+</div>
+
+</body>
+</html>
